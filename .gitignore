@@ -1,0 +1,6 @@
+# Site configuration: holds real paths; only the .example is tracked.
+config/paths.env
+
+__pycache__/
+*.pyc
+.DS_Store
