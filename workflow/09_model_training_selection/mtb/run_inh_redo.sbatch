@@ -50,6 +50,10 @@ SR_BOUNDARY="${SR_BOUNDARY:--3.0}"
 
 CV="$ROOT/cv_isoniazid_final"
 RULE="${RULE:-$ROOT/rule_bit_inh_tbprofiler.tsv}"
+# RULE=none runs embeddings alone (an empty value would restore the default).
+EXTRA_ARGS=()
+if [ "$RULE" != none ]; then EXTRA_ARGS=(--extra-feature-tsv "$RULE"); fi
+MODELS="${MODELS:-evo2 carbon dnabert}"
 case "$MODE" in
   dev)     SUFFIX=""         ; TAG="${TAG:-tbrule1k}"
            CONFIGS="${CONFIGS:-$SCRIPTS/mtb_rf1000_configs.json}" ;;
@@ -58,22 +62,26 @@ case "$MODE" in
   *) echo "[ERROR] MODE must be dev or holdout, not '$MODE'"; exit 1 ;;
 esac
 
-for f in "$RULE" "$CV/cv_folds.tsv"; do
+NEED=("$CV/cv_folds.tsv")
+if [ "$RULE" != none ]; then NEED+=("$RULE"); fi
+for f in "${NEED[@]}"; do
   [ -e "$f" ] || { echo "[ERROR] missing $f"; exit 1; }
 done
 
 # The whole point of the job is which rule bit is being used, so it is named in
 # the log with its columns and its resistant count before anything is fitted.
 echo "[INFO] rule bit = $RULE"
-echo "[INFO] columns  = $(head -1 "$RULE")"
-echo "[INFO] calls    = $(awk -F'\t' 'NR>1 && $2==1' "$RULE" | wc -l) resistant of $(( $(wc -l < "$RULE") - 1 ))"
-echo "[INFO] mode     = $MODE   top-k = $TOPK   boundary = $SR_BOUNDARY"
-case "$(basename "$RULE")" in
-  *af0*) echo "[WARN] this looks like a reconstruction, not TB-Profiler's own call."
-         echo "       That is the feature this job exists to replace (section 11).";;
-esac
+if [ "$RULE" != none ]; then
+  echo "[INFO] columns  = $(head -1 "$RULE")"
+  echo "[INFO] calls    = $(awk -F'\t' 'NR>1 && $2==1' "$RULE" | wc -l) resistant of $(( $(wc -l < "$RULE") - 1 ))"
+  case "$(basename "$RULE")" in
+    *af0*) echo "[WARN] this looks like a reconstruction, not TB-Profiler's own call."
+           echo "       That is the feature this job exists to replace (section 11).";;
+  esac
+fi
+echo "[INFO] mode     = $MODE   top-k = $TOPK   boundary = $SR_BOUNDARY   models = $MODELS"
 
-for M in evo2 carbon dnabert; do
+for M in $MODELS; do
   echo
   echo "################ $M ################"
   CACHE="$CV/cache_${M}_shared4_af010${SUFFIX}"
@@ -100,7 +108,7 @@ for M in evo2 carbon dnabert; do
 
   $PY "$SCRIPTS/cv_run_architecture.py" \
     --cache-dir "$CACHE" \
-    --extra-feature-tsv "$RULE" \
+    "${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}" \
     --mode shared4 --top-k "$TOPK" \
     --configs "$CFG" \
     --sr-boundary "$SR_BOUNDARY" \

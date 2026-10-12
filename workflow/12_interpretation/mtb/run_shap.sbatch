@@ -62,7 +62,10 @@ echo "[INFO] cache  $CACHE"
 echo "[INFO] config $CFG"
 echo "[INFO] rule   $RULE"
 
-mkdir -p "$ROOT/shap"
+# Overridable so another arm's SHAP does not overwrite the files of the model
+# first reported (submit_mtb_shap_arm.sh sets it).
+OUTPREFIX="${OUTPREFIX:-$ROOT/shap/${DRUG}_${MODEL}}"
+mkdir -p "$(dirname "$OUTPREFIX")"
 $PY "$SCRIPTS/shap_target_values.py" \
   --cache-dir "$CACHE" \
   --configs "$CFG" \
@@ -71,7 +74,7 @@ $PY "$SCRIPTS/shap_target_values.py" \
   --sr-boundary "$SR_BOUNDARY" \
   ${CLUMPS:+--clumps "$CLUMPS"} \
   --n-jobs "$NJOBS" --seed 2026 \
-  --out-prefix "$ROOT/shap/${DRUG}_${MODEL}"
+  --out-prefix "$OUTPREFIX"
 
 echo
-echo "[DONE] $ROOT/shap/${DRUG}_${MODEL}_shap_long.tsv"
+echo "[DONE] ${OUTPREFIX}_shap_long.tsv"

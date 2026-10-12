@@ -192,11 +192,18 @@ def fig_panel(summary, out: pathlib.Path):
     axes[0].set_ylim(-0.7, len(order) - 0.3)
     axes[0].invert_yaxis()          # once -- the axes are shared
 
-    top = header(fig, "Embeddings of catalogue loci against the catalogue itself",
-                 "Held-out set, one evaluation per drug. Lower cost on 4 of 8, "
-                 "higher F1 on 7 of 8 — the model trades very-major errors\nfor "
-                 "major ones, which F1 rewards and a 2:1 weighting punishes. "
-                 "Bedaquiline and delamanid are in figure 4.", pad_in=0.28)
+    # Counted from the rows drawn, never typed. The typed version read "4 of 8"
+    # under a model for which the figure itself showed five positive margins.
+    n_cost = sum(1 for d in drugs if margin[d] > 1e-4)
+    n_f1 = sum(1 for d in drugs
+               if pick(summary, d, "evo2", "holdout", "SR_f1")
+               - pick(summary, d, BASELINE, "holdout", "SR_f1") > 1e-4)
+    top = header(fig, "Sequence embeddings against the catalogue",
+                 f"Held-out set, one evaluation per drug. Lower cost on {n_cost} of "
+                 f"{len(drugs)}, higher F1 on {n_f1} of {len(drugs)} — the model "
+                 "trades very-major errors\nfor major ones, which F1 rewards and a "
+                 "2:1 weighting punishes. Bedaquiline and delamanid are in figure 4.",
+                 pad_in=0.28)
     legend_models(fig, y=-0.01)
     fig.subplots_adjust(top=top, bottom=0.21, left=0.125, right=0.90)
     save(fig, out, "fig1_panel")

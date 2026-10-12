@@ -13,6 +13,20 @@ are referenced from the embedding scripts.
 
 > **Status:** pre-publication. A licence will be added before release.
 
+## Reported models
+
+- ***M. tuberculosis*:** embeddings of each drug's target loci (the loci the
+  TB-Profiler database annotates for it plus those reported for it in the CRyPTIC
+  genome-wide association study, excluding loci annotated only for other drugs;
+  target set `gwasfiltered`), four principal components per target, plus
+  TB-Profiler's own resistance call. Evo 2 is the primary encoder.
+- ***P. aeruginosa*:** embeddings of curated chromosomal loci and of acquired
+  genes, plus acquired-gene presence; no catalogue call exists for this species.
+
+Scripts for the alternatives that were compared against these (the earlier target
+set, mutation columns in place of the call, embeddings alone, catalogue features
+alone) are included, because the paper reports those comparisons.
+
 ## Layout
 
 The code is organised by pipeline stage, and within a stage by organism
@@ -71,10 +85,10 @@ Every script reads site paths from the environment and stops with
 
 The files here are copies of the working scripts that produced the reported
 results. Only site-specific paths were changed: hard-coded cluster paths became
-required configuration variables, and four lines that found helper scripts through
+required configuration variables, and a few lines that found helper scripts through
 a sibling folder of the original repository now use `$MTB_SCRIPTS` when it is set
-(two Python files gain `import os` for this). Of 133 files, 72 are byte-identical
-to the working copies and 61 differ in 144 lines, every one listed with its
+(two Python files gain `import os` for this). Of 143 files, 76 are byte-identical
+to the working copies and 67 differ in 154 lines, every one listed with its
 category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COPY.tsv).
 `MANIFEST.tsv` gives each file's original path and checksums of both versions.
 

@@ -45,11 +45,20 @@ MICTSV="$ROOT/${DRUG}_log2_mic.tsv"
 # Overridable so the combined catalogue arm (§17) can pass rule bit plus
 # mutation columns as one file without a second copy of this script.
 RULE="${RULE:-$ROOT/rule_bit_${CODE}_tbprofiler.tsv}"
+# RULE=none runs embeddings alone. An empty value cannot mean that: the default
+# above treats empty as unset and would silently restore the rule bit.
+EXTRA_ARGS=()
+if [ "$RULE" != none ]; then EXTRA_ARGS=(--extra-feature-tsv "$RULE"); fi
+# Encoders to run. Default all three; MODELS=evo2 for an analysis on the
+# reported basis only.
+MODELS="${MODELS:-evo2 carbon dnabert}"
 FIXED="$ROOT/panel_targets/targets_${DRUG}_${TARGETSET}.txt"
 CONFIGS="$SCRIPTS/mtb_rf1000_configs.json"
 EMBEDDED="$ROOT/embedded_samples.txt"
 
-for f in "$MICTSV" "$RULE" "$FIXED" "$CONFIGS" "$EMBEDDED"; do
+NEED=("$MICTSV" "$FIXED" "$CONFIGS" "$EMBEDDED")
+if [ "$RULE" != none ]; then NEED+=("$RULE"); fi
+for f in "${NEED[@]}"; do
   [ -e "$f" ] || { echo "[ERROR] missing $f"; exit 1; }
 done
 
@@ -63,7 +72,8 @@ n_fixed=$(grep -vc '^#' "$FIXED")
 echo "[INFO] drug     = $DRUG ($CODE), target set '$TARGETSET'"
 echo "[INFO] mic      = $MICTSV"
 echo "[INFO] rule     = $RULE"
-echo "[INFO] rule columns: $(head -1 "$RULE")"
+if [ "$RULE" != none ]; then echo "[INFO] rule columns: $(head -1 "$RULE")"; fi
+echo "[INFO] models   = $MODELS"
 echo "[INFO] fixed    = $FIXED ($n_fixed targets)"
 echo "[INFO] boundary = $SR_BOUNDARY   embeddings = $EMB_SUBDIR"
 
@@ -96,7 +106,7 @@ declare -A MROOT=( [evo2]="$MTB/results/ml/03_mtb_evo2"
                    [carbon]="$MTB/results/ml/03_mtb"
                    [dnabert]="$MTB/results/ml/03_mtb_dnabert" )
 
-for M in evo2 carbon dnabert; do
+for M in $MODELS; do
   echo
   echo "################ $M ################"
   CACHE="$D/cache_${M}_${TARGETSET}"
@@ -116,7 +126,7 @@ for M in evo2 carbon dnabert; do
 
   $PY "$SCRIPTS/cv_run_architecture.py" \
     --cache-dir "$CACHE" \
-    --extra-feature-tsv "$RULE" \
+    "${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}" \
     --mode shared4 --top-k "$TOPK" \
     --configs "$CONFIGS" \
     --sr-boundary "$SR_BOUNDARY" \

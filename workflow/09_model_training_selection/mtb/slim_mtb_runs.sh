@@ -35,11 +35,15 @@ CFGOUT="${CFGOUT:-$OUT/configs}"
 # All of them are listed so the glob finds whichever exists for a given drug.
 # Dropping the bare `final1k` silently costs rifampicin its baseline arm and
 # drops the panel to n=8 without any error being raised.
-RUNS="${RUNS:-both_final1k tbrule1k final1k both_arm75 arm75 gwasfiltered_gwfrule1k gwasfiltered_gwfsnp1k}"
+RUNS="${RUNS:-both_final1k tbrule1k final1k both_arm75 arm75 gwasfiltered_gwfrule1k gwasfiltered_gwfsnp1k both_arm76 arm76 both_embonly1k embonly1k snponly1k snprule1k}"
+# The feature-set ablation (§20) adds embeddings + columns + rule bit (arm76),
+# embeddings alone (embonly1k), and two arms with no embeddings at all, which
+# have no encoder and live in runs/catalogue_<tag> -- hence `catalogue` among the
+# models below. A model/suffix pair that does not exist is simply absent.
 
 DRUGS=(isoniazid_final rifampicin ethambutol ethionamide kanamycin amikacin
        levofloxacin moxifloxacin bedaquiline delamanid)
-MODELS=(evo2 carbon dnabert)
+read -ra MODELS <<< "${MODELS:-evo2 carbon dnabert catalogue}"
 
 [ -e "$CONFIGS" ] || { echo "[ERROR] missing $CONFIGS"; exit 1; }
 rm -rf "$OUT"; mkdir -p "$OUT" "$CFGOUT"
@@ -49,6 +53,28 @@ for d in "${DRUGS[@]}"; do
   for m in "${MODELS[@]}"; do
     for suffix in $RUNS; do
       src="$ROOT/cv_$d/runs/${m}_${suffix}"
+      # Isoniazid's final1k is its run from BEFORE the §15 redo, whose rule bit was
+      # the allele-fraction-0.1 reconstruction, not TB-Profiler's own call. Its
+      # reported baseline is tbrule1k. Readers resolve tbrule1k first, but being
+      # right only by lookup order is how earlier errors passed, so the stale run
+      # is never collected.
+      if [ "$d" = isoniazid_final ] && [ "$suffix" = final1k ]; then continue; fi
+      # Ethionamide's baseline predates the panel scripts: its runner wrote the
+      # results one level down (runs/<model>_final1k/cv3x5_<label>_pca4_mrmr14/).
+      # Checking only the top level skipped it as absent -- silently, for all
+      # three models -- so the nested layout is recognised when it is unambiguous.
+      if [ -d "$src" ] && [ ! -e "$src/summary.tsv" ]; then
+        nested=()
+        for cand in "$src"/*/summary.tsv; do
+          if [ -e "$cand" ]; then nested+=("$(dirname "$cand")"); fi
+        done
+        if [ "${#nested[@]}" -eq 1 ]; then
+          echo "[INFO] $d/$m/$suffix: results nested in $(basename "${nested[0]}")"
+          src="${nested[0]}"
+        elif [ "${#nested[@]}" -gt 1 ]; then
+          echo "[WARN] $d/$m/$suffix: ${#nested[@]} nested result folders; not guessing which"
+        fi
+      fi
       [ -e "$src/summary.tsv" ] || { n_miss=$((n_miss + 1)); continue; }
 
       cfg="$CFGOUT/${d}__${m}__${suffix}.json"

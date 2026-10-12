@@ -15,6 +15,14 @@ catalogue has no ladder position, so ladder metrics are reported for models only
   drugs (Wilcoxon signed-rank).
 - `build_best_config_workbook.py` — every feature set's selected configuration,
   every metric, TB-Profiler beside it. Needs `openpyxl`.
+- `build_feature_ablation_table.py` — six feature sets on identical development
+  folds (embeddings, mutation columns and the call, in every combination that was
+  run), with the paired comparison against embeddings + call.
+- `holdout_arm_comparison.py` — held-out comparison of the reported model, the
+  earlier target set and mutation columns + call, recomputed from per-isolate
+  predictions; it reports only after reproducing the reference values.
+- `holdout_subject_sensitivity.py` — held-out scores with and without isolates
+  whose subject also has an isolate in the development set.
 
 ## *P. aeruginosa*
 

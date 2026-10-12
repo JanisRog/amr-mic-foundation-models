@@ -30,18 +30,22 @@ DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
 MODELS=(evo2 carbon dnabert)
 
 rm -f "$OUT"
+n_base=0
 for DRUG in "${DRUGS[@]}"; do
   B="$BASE/cv_${DRUG}/baseline_rows.tsv"
-  # Pass 1: the comparator, before the model it judges.
+  # Models and comparator go in ONE call. build_results_workbook.py deletes every
+  # existing row of a drug when that drug is written again, so the earlier
+  # two-pass form (baseline, then models) silently dropped every ARDaP row: the
+  # strict workbook was built without its comparator.
+  base_args=()
   if [ -e "$B" ]; then
-    python3 "$TOOLS/build_results_workbook.py" --drug "$DRUG" \
-      --baseline "$B" --append --out "$OUT"
+    base_args=(--baseline "$B"); n_base=$((n_base + 1))
   else
     echo "[INFO] $DRUG: no ARDaP baseline (not covered)"
   fi
 
-  # Pass 2: the models. The config tag is read from the selected-config JSON so
-  # the workbook and the holdout cannot disagree about which config was scored.
+  # The config tag is read from the selected-config JSON so the workbook and the
+  # holdout cannot disagree about which config was scored.
   args=()
   for M in "${MODELS[@]}"; do
     dev="$SLIM/cv_${DRUG}/runs/${M}_${TAG}"
@@ -54,8 +58,21 @@ for DRUG in "${DRUGS[@]}"; do
     args+=(--model "${M}=${dev}:${hold}:${tag}")
   done
   python3 "$TOOLS/build_results_workbook.py" --drug "$DRUG" \
-    "${args[@]}" --selection-note "$NOTE" --append --out "$OUT"
+    "${args[@]}" "${base_args[@]+"${base_args[@]}"}" \
+    --selection-note "$NOTE" --append --out "$OUT"
 done
+
+# The comparator's absence is silent downstream, so it is checked here.
+python3 - "$OUT" "$n_base" <<'CHECKEOF'
+import sys
+from openpyxl import load_workbook
+rows = list(load_workbook(sys.argv[1], read_only=True)["summary"].iter_rows(values_only=True))[1:]
+base = {r[0] for r in rows if r[1] not in ("evo2", "carbon", "dnabert")}
+if len(base) != int(sys.argv[2]):
+    sys.exit(f"[ERROR] baseline rows for {len(base)} drugs in the workbook, "
+             f"{sys.argv[2]} baseline files were read")
+print(f"[OK] comparator rows present for {len(base)} drugs ({len(rows)} summary rows)")
+CHECKEOF
 
 echo
 echo "[DONE] $OUT"

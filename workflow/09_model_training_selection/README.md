@@ -25,11 +25,19 @@
 All three naming conventions are listed wherever runs are collected;
 `slim_mtb_runs.sh` applies the selection rule to each run, keeps only the selected
 configuration's rows, and prints a per-drug arm census.
-`run_panel_holdout.sbatch` scores the selected configuration once on the held-out
-isolates; `run_panel_predictions.sbatch` keeps per-isolate predictions.
-`submit_mtb_gwasfiltered.sh` and `submit_mtb_catalogue_arm.sh` run the alternative
-feature sets (wider target set; mutation columns in place of the rule bit). Evo 2
-was designated primary before evaluation.
+`submit_mtb_gwasfiltered.sh` runs the development sweep for the reported target set
+(`gwasfiltered` + rule bit, run directory `<model>_gwasfiltered_gwfrule1k`), and
+`run_panel_holdout_arm.sbatch` scores its selected configuration once on the
+held-out isolates, saving per-isolate predictions in the same fit. It takes the
+configuration and target count from the development run and refuses to score a
+held-out set twice.
+
+For the earlier target set (`both`), `run_panel_holdout.sbatch` and
+`run_panel_predictions.sbatch` do the same. `submit_mtb_catalogue_arm.sh` runs the
+feature-set comparison: `FEATURES=snp|snp_rule|none` with embeddings, and
+`CATALOGUE_ONLY=1` without (through `run_mtb_catalogue_only.sbatch`);
+`run_holdout_catalogue.sbatch` scores mutation columns + call on the held-out sets.
+Evo 2 was designated primary before evaluation.
 
 ## *P. aeruginosa*
 

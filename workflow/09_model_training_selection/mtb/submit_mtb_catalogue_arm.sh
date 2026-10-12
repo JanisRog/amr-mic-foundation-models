@@ -11,6 +11,20 @@
 #
 # WITH_RULE=1 adds the rule bit back (the 76-feature variant §17 keeps available).
 #
+# FEATURES generalises this for the feature-set ablation (§20):
+#   FEATURES=snp       embeddings + mutation columns                 TAG arm75
+#   FEATURES=snp_rule  embeddings + mutation columns + rule bit      TAG arm76
+#   FEATURES=none      embeddings alone                              TAG embonly1k
+# and CATALOGUE_ONLY=1 drops the embeddings (run_mtb_catalogue_only.sbatch):
+#   FEATURES=snp       mutation columns alone                        TAG snponly1k
+#   FEATURES=snp_rule  mutation columns + rule bit                   TAG snprule1k
+# MODELS (e.g. evo2) is passed through to the development scripts.
+#
+# Each feature set writes its OWN merged matrix, catalogue_<code>_<TAG>.tsv. The
+# file used to be catalogue_<code>_combined.tsv whatever the features, so
+# submitting one arm overwrote the input of another arm's queued jobs -- which is
+# how moxifloxacin lost an arm75 run once already.
+#
 # Development only. §17 fixes what happens next: the development comparison is
 # reported for all ten drugs whichever way it goes, and the reported model does
 # not change on a development win alone.
@@ -33,9 +47,19 @@ ROOT="${ROOT:-$MTB/results/ml/03_mtb/metadata}"
 MATDIR="${MATDIR:-$MTB/results/tbprofiler/reads/gather/matrix}"
 OUTDIR="${OUTDIR:-$ROOT/catalogue_combined}"
 WITH_RULE="${WITH_RULE:-0}"
-if [ "$WITH_RULE" = 1 ]; then TAG="${TAG:-arm76}"; else TAG="${TAG:-arm75}"; fi
+if [ "$WITH_RULE" = 1 ]; then FEATURES="${FEATURES:-snp_rule}"; else FEATURES="${FEATURES:-snp}"; fi
+CATALOGUE_ONLY="${CATALOGUE_ONLY:-0}"
+case "$CATALOGUE_ONLY:$FEATURES" in
+  0:snp)      TAG="${TAG:-arm75}" ;;
+  0:snp_rule) TAG="${TAG:-arm76}" ;;
+  0:none)     TAG="${TAG:-embonly1k}" ;;
+  1:snp)      TAG="${TAG:-snponly1k}" ;;
+  1:snp_rule) TAG="${TAG:-snprule1k}" ;;
+  *) echo "[ERROR] FEATURES=$FEATURES with CATALOGUE_ONLY=$CATALOGUE_ONLY is not an arm"; exit 1 ;;
+esac
 TARGETSET="${TARGETSET:-both}"
 SCRIPT="${SCRIPT:-$SCRIPTS/run_panel_dev.sbatch}"
+CAT_SCRIPT="${CAT_SCRIPT:-$SCRIPTS/run_mtb_catalogue_only.sbatch}"
 DRYRUN="${DRYRUN:-}"
 # Space-separated drug names to submit instead of all ten. For re-running a
 # single failure without resubmitting nine jobs that already succeeded.
@@ -97,8 +121,9 @@ for spec in "${SPECS[@]}"; do
   DRUG="$1"; CODE="$2"; D="$ROOT/$4"
   if [ -n "$ONLY" ] && ! printf '%s\n' $ONLY | grep -qx "$DRUG"; then continue; fi
   NEED=("$D/cv_folds.tsv")
-  [ "$DRUG" = isoniazid ] || NEED+=("$ROOT/panel_targets/targets_${DRUG}_${TARGETSET}.txt")
-  [ "$WITH_RULE" = 1 ] && NEED+=("$ROOT/rule_bit_${CODE}_tbprofiler.tsv")
+  if [ "$DRUG" != isoniazid ] && [ "$CATALOGUE_ONLY" != 1 ]; then
+    NEED+=("$ROOT/panel_targets/targets_${DRUG}_${TARGETSET}.txt"); fi
+  if [ "$FEATURES" = snp_rule ]; then NEED+=("$ROOT/rule_bit_${CODE}_tbprofiler.tsv"); fi
   for f in "${NEED[@]}"; do
     [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; problems=$((problems + 1)); }
   done
@@ -112,33 +137,44 @@ for spec in "${SPECS[@]}"; do
   if [ -n "$ONLY" ] && ! printf '%s\n' $ONLY | grep -qx "$DRUG"; then continue; fi
   RULE="$ROOT/rule_bit_${CODE}_tbprofiler.tsv"
   FIXED="$ROOT/panel_targets/targets_${DRUG}_${TARGETSET}.txt"
-  MERGED="$OUTDIR/catalogue_${CODE}_combined.tsv"
+  MERGED="$OUTDIR/catalogue_${CODE}_${TAG}.tsv"
 
   # Built as an array rather than inline expansion: a `[ ... ] && ...` that
   # yields 1 is the last command of its line, and under `set -e` that ends the
   # script with no message.
   RULE_ARGS=()
-  if [ "$WITH_RULE" = 1 ]; then RULE_ARGS=(--rule-tsv "$RULE"); fi
+  if [ "$FEATURES" = snp_rule ]; then RULE_ARGS=(--rule-tsv "$RULE"); fi
 
-  $PY "$SCRIPTS/merge_catalogue_features.py" \
-    "${RULE_ARGS[@]+"${RULE_ARGS[@]}"}" \
-    --mutation-matrix "$MATRIX" \
-    --long "$LONG" \
-    --drug "$DRUG" \
-    --samples "$D/cv_folds.tsv" \
-    --out "$MERGED"
+  if [ "$FEATURES" = none ]; then
+    MERGED=none          # embeddings alone: no extra feature file at all
+  else
+    $PY "$SCRIPTS/merge_catalogue_features.py" \
+      "${RULE_ARGS[@]+"${RULE_ARGS[@]}"}" \
+      --mutation-matrix "$MATRIX" \
+      --long "$LONG" \
+      --drug "$DRUG" \
+      --samples "$D/cv_folds.tsv" \
+      --out "$MERGED"
+  fi
 
   # Isoniazid's top-k is 12 by its own convention, not the target count.
-  if [ "$DRUG" = isoniazid ]; then TOPK=12; else TOPK=$(grep -vc '^#' "$FIXED"); fi
+  if [ "$CATALOGUE_ONLY" = 1 ]; then TOPK=0
+  elif [ "$DRUG" = isoniazid ]; then TOPK=12
+  else TOPK=$(grep -vc '^#' "$FIXED"); fi
   if [ -n "$DRYRUN" ]; then
-    n=$(( $(head -1 "$MERGED" | tr '\t' '\n' | wc -l) - 1 ))
-    printf '%-14s code=%-4s topk=%-4s boundary=%-5s extra=%-5s rule=%-2s %s\n' \
-      "$DRUG" "$CODE" "$TOPK" "$SRB" "$n" "$WITH_RULE" "$(basename "$D")"
+    if [ "$MERGED" = none ]; then n=0; else n=$(( $(head -1 "$MERGED" | tr '\t' '\n' | wc -l) - 1 )); fi
+    printf '%-14s code=%-4s topk=%-4s boundary=%-5s extra=%-5s features=%-9s tag=%-10s %s\n' \
+      "$DRUG" "$CODE" "$TOPK" "$SRB" "$n" "$FEATURES" "$TAG" "$(basename "$D")"
     continue
   fi
   # `< /dev/null`: sbatch reads stdin, and a loop that feeds it the remaining
   # drug names loses every other job to a 0-second FAILED with no error message.
-  if [ "$DRUG" = isoniazid ]; then
+  if [ "$CATALOGUE_ONLY" = 1 ]; then
+    jid=$(sbatch --parsable --job-name="${TAG}_${CODE}" \
+          --export="ALL,DRUG=$DRUG,CVDIR=$(basename "$D"),MATRIX=$MERGED,\
+SR_BOUNDARY=$SRB,TAG=$TAG,ROOT=$ROOT" \
+          "$CAT_SCRIPT" < /dev/null)
+  elif [ "$DRUG" = isoniazid ]; then
     jid=$(sbatch --parsable --job-name="${TAG}_${CODE}" \
           --export="ALL,MODE=dev,TAG=$TAG,RULE=$MERGED,ROOT=$ROOT,TOPK=$TOPK,\
 SR_BOUNDARY=$SRB" \

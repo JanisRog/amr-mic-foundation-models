@@ -16,7 +16,12 @@ Post hoc tests on the development partition; the held-out isolates are not used.
 
 `check_lineage_validity.py` checks feature parity, fold shape, the size control and
 the moxifloxacin identity control, and prints no comparison between feature sets.
-`analyse_lineage_arms.py` computes the comparison.
+`analyse_lineage_arms.py` compares the two target sets.
+
+`run_lineage_catalogue.sbatch` refits mutation columns + call on the same lineage
+and size-matched folds, and `analyse_lineage_ladder.py` compares it with the
+embedding model: this is the test of whether the embeddings' advantage on the MIC
+ladder depends on the lineage having been seen in training.
 
 ## *P. aeruginosa* — leave one study out
 

@@ -14,8 +14,8 @@ upstream interval.
    |---|---|
    | `curatedmech` | association hits the catalogue annotates for this drug |
    | `catgenes` | loci the catalogue annotates for this drug |
-   | **`both`** | `curatedmech` ∪ `catgenes` — **the reported set** |
-   | `gwasfiltered` | `both` ∪ unannotated hits — the wider set evaluated |
+   | `both` | `curatedmech` ∪ `catgenes` — the earlier set, kept as a comparison |
+   | **`gwasfiltered`** | `both` ∪ unannotated hits — **the reported set** (4 to 72 targets per drug) |
    | `other` | hits annotated for another drug only — never used |
 
    A locus annotated for a pharmacological relative (inhA for isoniazid and
