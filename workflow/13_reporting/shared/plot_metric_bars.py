@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """F1 and one-tier accuracy as grouped bars: one group per drug, one bar per model.
 
-Three panels over a shared x axis: F1, one-tier accuracy, and balanced one-tier
-accuracy over the MIC classes with at least ten isolates. The F1 panel also
-carries the organism's comparator (TB-Profiler or ARDaP), which makes a resistance
-call and so has an F1; it has no MIC prediction and therefore no bar in the other
-two. Held-out sets, read from the results workbook, never recomputed.
-
-The balanced panel is there because plain one-tier accuracy is forgiving: most
-isolates sit on two or three neighbouring MIC values, so predicting the commonest
-one already scores about 0.75 for M. tuberculosis. Averaging over MIC classes
-removes that, and is the declared primary measure of MIC prediction.
+Two panels over a shared x axis. The F1 panel also carries the organism's
+comparator (TB-Profiler or ARDaP), which makes a resistance call and so has an F1;
+it has no MIC prediction and therefore no bar in the one-tier panel. Held-out
+sets, read from the results workbook, never recomputed.
 
 The comparator is not a fourth hue. As in the other figures it is the incumbent
 everything is read against, so it takes an open bar in neutral ink.
+
+A second figure (bars_median_<panel>) reduces the first to one bar per model: the
+median over the antimicrobials, with each antimicrobial's value drawn as a point
+on its bar so the spread behind the median stays visible. Antimicrobials with too
+few resistant held-out isolates are left out of the medians, as in every panel
+comparison; the comparator's median is over the antimicrobials it covers.
 
 Bars start at zero. On a truncated axis the differences between models would look
 several times larger than they are, and the point of this figure is how close the
@@ -25,6 +25,8 @@ from __future__ import annotations
 import argparse
 import pathlib
 import sys
+
+import statistics
 
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
@@ -59,15 +61,12 @@ def main() -> int:
     summary, _ = load(pathlib.Path(a.workbook))
     drugs = P["drugs"]
 
-    fig, axes = plt.subplots(3, 1, figsize=(7.2, 7.3), sharex=True,
+    fig, axes = plt.subplots(2, 1, figsize=(7.2, 5.3), sharex=True,
                              gridspec_kw={"hspace": 0.30})
     n_base = 0
     for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
                              (axes[1], "OT", "One-tier accuracy  (predicted MIC within one "
-                                             "doubling dilution)"),
-                             (axes[2], "bal_OT_common", "Balanced one-tier accuracy  (averaged "
-                                                        "over MIC classes with at least ten "
-                                                        "isolates)")):
+                                             "doubling dilution)")):
         tidy(ax, x=False, y=True)
         with_base = field == "SR_f1"
         for i, d in enumerate(drugs):
@@ -95,8 +94,8 @@ def main() -> int:
         ax.set_xlim(-0.6, len(drugs) - 0.4)
         ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
         ax.axhline(0, color=INK2, lw=0.7, zorder=4)
-    axes[-1].set_xticks(range(len(drugs)))
-    axes[-1].set_xticklabels([SHORT.get(d, d.capitalize()) for d in drugs], fontsize=7.4,
+    axes[1].set_xticks(range(len(drugs)))
+    axes[1].set_xticklabels([SHORT.get(d, d.capitalize()) for d in drugs], fontsize=7.4,
                             color=INK, rotation=32, ha="right", rotation_mode="anchor")
     if P["underpowered"]:
         i0 = drugs.index(P["underpowered"][0])
@@ -117,11 +116,61 @@ def main() -> int:
     top = header(fig, f"Resistance calls and MIC placement by model — {P['organism']}",
                  f"Held-out sets. Numbers above the bars are Evo 2, the reported model. "
                  f"{P['baseline_label']} returns a resistance call and no MIC,\nso it appears "
-                 f"in the top panel only.{note}", pad_in=0.26)
-    fig.subplots_adjust(top=top, bottom=0.135, left=0.065, right=0.99)
+                 f"in the upper panel only.{note}", pad_in=0.26)
+    fig.subplots_adjust(top=top, bottom=0.185, left=0.065, right=0.99)
     save(fig, pathlib.Path(a.out_dir), a.stem or f"bars_f1_onetier_{a.panel}")
     print(f"[INFO] {a.panel}: {len(drugs)} drugs, comparator bars {n_base}")
+    median_figure(summary, P, a)
     return 0
+
+
+def median_figure(summary, P, a):
+    """One bar per model: the median over antimicrobials, each antimicrobial a point."""
+    drugs = [d for d in P["drugs"] if d not in P["underpowered"]]
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw={"wspace": 0.22})
+    covered = None
+    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
+                             (axes[1], "OT", "One-tier accuracy")):
+        tidy(ax, x=False, y=True)
+        series = [(MODEL_LABEL[m].replace(" 7B", "").replace(" 8B", ""), SERIES[m],
+                   [pick(summary, d, m, "holdout", field) for d in drugs]) for m in MODELS]
+        if field == "SR_f1":
+            base = [pick(summary, d, P["baseline"], "holdout", field) for d in drugs]
+            covered = sum(v is not None for v in base)
+            series.append((P["baseline_label"], None, base))
+        for j, (label, color, vals) in enumerate(series):
+            vals = [v for v in vals if v is not None]
+            med = statistics.median(vals)
+            if color is None:
+                ax.bar(j, med, 0.56, facecolor=SURFACE, edgecolor=INK2, linewidth=0.9, zorder=3)
+            else:
+                ax.bar(j, med, 0.56, color=color, edgecolor=SURFACE, linewidth=0.5, zorder=3)
+            # every antimicrobial, spread sideways in a fixed order so that a point
+            # sits at the same offset on every bar
+            n = len(vals)
+            xs = [j + (k - (n - 1) / 2) * (0.40 / max(n - 1, 1)) for k in range(n)]
+            ax.plot(xs, vals, "o", ms=2.6, mfc=SURFACE, mec=INK, mew=0.6, zorder=5)
+            ax.annotate(f"{med:.2f}", (j, 1.035), ha="center", va="bottom", fontsize=7.2,
+                        color=INK, annotation_clip=False)
+        ax.set_xticks(range(len(series)))
+        ax.set_xticklabels([s[0] for s in series], fontsize=7.8, color=INK)
+        ax.set_ylim(0, 1.10)
+        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.set_xlim(-0.6, len(series) - 0.4)
+        ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
+        ax.axhline(0, color=INK2, lw=0.7, zorder=4)
+    names = " and ".join(P["underpowered"])
+    left_out = (f" {names[:1].upper() + names[1:]} are left out "
+                f"(few resistant held-out isolates)." if P["underpowered"] else "")
+    cover = ("" if covered == len(drugs) else
+             f" {P['baseline_label']} covers {covered} of them.")
+    top = header(fig, f"Median over antimicrobials by model — {P['organism']}",
+                 f"Held-out sets. Bar and number: median over {len(drugs)} antimicrobials; "
+                 f"points: each antimicrobial.{cover}\n{P['baseline_label']} returns a "
+                 f"resistance call and no MIC, so it has no one-tier accuracy.{left_out}",
+                 pad_in=0.26)
+    fig.subplots_adjust(top=top, bottom=0.09, left=0.065, right=0.99)
+    save(fig, pathlib.Path(a.out_dir), f"bars_median_{a.panel}")
 
 
 if __name__ == "__main__":
