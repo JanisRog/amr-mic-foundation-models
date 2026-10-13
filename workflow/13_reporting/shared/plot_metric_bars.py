@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """F1 and one-tier accuracy as grouped bars: one group per drug, one bar per model.
 
-Two panels over a shared x axis. The F1 panel also carries the organism's
-comparator (TB-Profiler or ARDaP), which makes a resistance call and so has an F1;
-it has no MIC prediction and therefore no bar in the one-tier panel. Held-out
-sets, read from the results workbook, never recomputed.
+Three panels over a shared x axis: F1, one-tier accuracy, and balanced one-tier
+accuracy over the MIC classes with at least ten isolates. The F1 panel also
+carries the organism's comparator (TB-Profiler or ARDaP), which makes a resistance
+call and so has an F1; it has no MIC prediction and therefore no bar in the other
+two. Held-out sets, read from the results workbook, never recomputed.
+
+The balanced panel is there because plain one-tier accuracy is forgiving: most
+isolates sit on two or three neighbouring MIC values, so predicting the commonest
+one already scores about 0.75 for M. tuberculosis. Averaging over MIC classes
+removes that, and is the declared primary measure of MIC prediction.
 
 The comparator is not a fourth hue. As in the other figures it is the incumbent
 everything is read against, so it takes an open bar in neutral ink.
@@ -53,12 +59,15 @@ def main() -> int:
     summary, _ = load(pathlib.Path(a.workbook))
     drugs = P["drugs"]
 
-    fig, axes = plt.subplots(2, 1, figsize=(7.2, 5.3), sharex=True,
+    fig, axes = plt.subplots(3, 1, figsize=(7.2, 7.3), sharex=True,
                              gridspec_kw={"hspace": 0.30})
     n_base = 0
     for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
                              (axes[1], "OT", "One-tier accuracy  (predicted MIC within one "
-                                             "doubling dilution)")):
+                                             "doubling dilution)"),
+                             (axes[2], "bal_OT_common", "Balanced one-tier accuracy  (averaged "
+                                                        "over MIC classes with at least ten "
+                                                        "isolates)")):
         tidy(ax, x=False, y=True)
         with_base = field == "SR_f1"
         for i, d in enumerate(drugs):
@@ -86,8 +95,8 @@ def main() -> int:
         ax.set_xlim(-0.6, len(drugs) - 0.4)
         ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
         ax.axhline(0, color=INK2, lw=0.7, zorder=4)
-    axes[1].set_xticks(range(len(drugs)))
-    axes[1].set_xticklabels([SHORT.get(d, d.capitalize()) for d in drugs], fontsize=7.4,
+    axes[-1].set_xticks(range(len(drugs)))
+    axes[-1].set_xticklabels([SHORT.get(d, d.capitalize()) for d in drugs], fontsize=7.4,
                             color=INK, rotation=32, ha="right", rotation_mode="anchor")
     if P["underpowered"]:
         i0 = drugs.index(P["underpowered"][0])
@@ -108,8 +117,8 @@ def main() -> int:
     top = header(fig, f"Resistance calls and MIC placement by model — {P['organism']}",
                  f"Held-out sets. Numbers above the bars are Evo 2, the reported model. "
                  f"{P['baseline_label']} returns a resistance call and no MIC,\nso it appears "
-                 f"in the upper panel only.{note}", pad_in=0.26)
-    fig.subplots_adjust(top=top, bottom=0.185, left=0.065, right=0.99)
+                 f"in the top panel only.{note}", pad_in=0.26)
+    fig.subplots_adjust(top=top, bottom=0.135, left=0.065, right=0.99)
     save(fig, pathlib.Path(a.out_dir), a.stem or f"bars_f1_onetier_{a.panel}")
     print(f"[INFO] {a.panel}: {len(drugs)} drugs, comparator bars {n_base}")
     return 0

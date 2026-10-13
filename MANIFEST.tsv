@@ -141,6 +141,6 @@ workflow/13_reporting/shared/make_panel_figures.py	mtb_tbprofiler/make_panel_fig
 workflow/13_reporting/shared/make_panel_grids.py	mtb_tbprofiler/make_panel_grids.py	MTB/scripts	3d41c0dca3c0f2ba	3d41c0dca3c0f2ba
 workflow/13_reporting/shared/plot_class_distribution.py	mtb_tbprofiler/plot_class_distribution.py	MTB/scripts	8880f7592835fb1a	8880f7592835fb1a
 workflow/13_reporting/shared/plot_f1_boxes.py	mtb_tbprofiler/plot_f1_boxes.py	MTB/scripts	acf67d2e295acc0b	acf67d2e295acc0b
-workflow/13_reporting/shared/plot_metric_bars.py	mtb_tbprofiler/plot_metric_bars.py	MTB/scripts	054ef081bbc6deb1	054ef081bbc6deb1
+workflow/13_reporting/shared/plot_metric_bars.py	mtb_tbprofiler/plot_metric_bars.py	MTB/scripts	c8043a1b4ce88139	c8043a1b4ce88139
 workflow/13_reporting/shared/plot_mic_scatter.py	mtb_tbprofiler/plot_mic_scatter.py	MTB/scripts	731a534631b9dbf2	731a534631b9dbf2
 workflow/13_reporting/shared/plot_model_comparison.py	mtb_tbprofiler/plot_model_comparison.py	MTB/scripts	a531c3b7271d3dba	a531c3b7271d3dba
