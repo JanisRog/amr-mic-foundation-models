@@ -88,7 +88,7 @@ The files here are copies of the working scripts that produced the reported
 results. Only site-specific paths were changed: hard-coded cluster paths became
 required configuration variables, and a few lines that found helper scripts through
 a sibling folder of the original repository now use `$MTB_SCRIPTS` when it is set
-(two Python files gain `import os` for this). Of 144 files, 76 are byte-identical
+(two Python files gain `import os` for this). Of 145 files, 77 are byte-identical
 to the working copies and 68 differ in 161 lines, every one listed with its
 category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COPY.tsv).
 `MANIFEST.tsv` gives each file's original path and checksums of both versions.

@@ -91,6 +91,9 @@ for spec in "${DRUGS[@]}"; do
 done
 echo "[INFO] $n_shap of ${#DRUGS[@]} drugs have SHAP beeswarms"
 
+# ---- F1 and one-tier accuracy as grouped bars ------------------------------
+python3 "$MTB/plot_metric_bars.py" --workbook "$WB" --panel pseaer --out-dir "$OUT"
+
 # ---- the three models side by side ----------------------------------------
 python3 "$MTB/plot_model_comparison.py" --workbook "$WB" --panel pseaer \
   --label "P. aeruginosa" --stem pa_model_comparison --out-dir "$OUT"

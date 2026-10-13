@@ -131,9 +131,9 @@ workflow/12_interpretation/pa/submit_pa_shap.sh	pseaer/submit_pa_shap.sh	PSEAER/
 workflow/12_interpretation/shared/plot_shap_beeswarm.py	mtb_tbprofiler/plot_shap_beeswarm.py	MTB/scripts	5541b96b0ada8bbb	5541b96b0ada8bbb
 workflow/12_interpretation/shared/shap_target_values.py	mtb_tbprofiler/shap_target_values.py	MTB/scripts	39f29c76b0e2136b	39f29c76b0e2136b
 workflow/13_reporting/mtb/build_mtb_workbook_arm.sh	mtb_tbprofiler/build_mtb_workbook_arm.sh	MTB/scripts	6a938b72509ea068	e3a64b7701c46560
-workflow/13_reporting/mtb/make_all_figures.sh	mtb_tbprofiler/make_all_figures.sh	MTB/scripts	d6a0d65bb601afeb	d6a0d65bb601afeb
+workflow/13_reporting/mtb/make_all_figures.sh	mtb_tbprofiler/make_all_figures.sh	MTB/scripts	7a6661598a1b1af4	7a6661598a1b1af4
 workflow/13_reporting/pa/build_pa_workbook.sh	pseaer/build_pa_workbook.sh	PSEAER/scripts	dcf3a6a6efef3535	e4171ea440132951
-workflow/13_reporting/pa/make_all_pa_figures.sh	pseaer/make_all_pa_figures.sh	PSEAER/scripts	b32e2618435600e9	e7cb8b693ae5078e
+workflow/13_reporting/pa/make_all_pa_figures.sh	pseaer/make_all_pa_figures.sh	PSEAER/scripts	81b0a879b47cbbc0	e9b632749d8ca542
 workflow/13_reporting/shared/build_figure_page.py	mtb_tbprofiler/build_figure_page.py	MTB/scripts	761a3694d9add51f	761a3694d9add51f
 workflow/13_reporting/shared/build_results_workbook.py	tools/build_results_workbook.py	MTB/scripts	70d2fb1a49cd3dd7	70d2fb1a49cd3dd7
 workflow/13_reporting/shared/holdout_table.py	tools/holdout_table.py	MTB/scripts	f0d494fc44705447	f0d494fc44705447
@@ -141,5 +141,6 @@ workflow/13_reporting/shared/make_panel_figures.py	mtb_tbprofiler/make_panel_fig
 workflow/13_reporting/shared/make_panel_grids.py	mtb_tbprofiler/make_panel_grids.py	MTB/scripts	3d41c0dca3c0f2ba	3d41c0dca3c0f2ba
 workflow/13_reporting/shared/plot_class_distribution.py	mtb_tbprofiler/plot_class_distribution.py	MTB/scripts	8880f7592835fb1a	8880f7592835fb1a
 workflow/13_reporting/shared/plot_f1_boxes.py	mtb_tbprofiler/plot_f1_boxes.py	MTB/scripts	acf67d2e295acc0b	acf67d2e295acc0b
+workflow/13_reporting/shared/plot_metric_bars.py	mtb_tbprofiler/plot_metric_bars.py	MTB/scripts	054ef081bbc6deb1	054ef081bbc6deb1
 workflow/13_reporting/shared/plot_mic_scatter.py	mtb_tbprofiler/plot_mic_scatter.py	MTB/scripts	731a534631b9dbf2	731a534631b9dbf2
 workflow/13_reporting/shared/plot_model_comparison.py	mtb_tbprofiler/plot_model_comparison.py	MTB/scripts	a531c3b7271d3dba	a531c3b7271d3dba

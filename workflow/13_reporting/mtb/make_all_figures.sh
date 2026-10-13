@@ -58,6 +58,7 @@ echo "[INFO] inputs present for ${#DRUGS[@]} drugs"
 
 echo "=== panel figures (workbook only)"
 python3 "$HERE/make_panel_figures.py" --workbook "$WB" --out-dir "$OUT"
+python3 "$HERE/plot_metric_bars.py" --workbook "$WB" --panel mtb --out-dir "$OUT"
 
 echo "=== per-drug confusion grids and class distributions"
 for spec in "${DRUGS[@]}"; do

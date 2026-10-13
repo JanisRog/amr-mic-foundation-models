@@ -13,7 +13,7 @@ through `$MTB_SCRIPTS`.
 - `mtb/make_all_figures.sh`, `pa/make_all_pa_figures.sh` — every figure in one
   command.
 - `make_panel_figures.py`, `plot_mic_scatter.py`, `plot_class_distribution.py`,
-  `plot_model_comparison.py`, `plot_f1_boxes.py`, `make_panel_grids.py` — the
+  `plot_model_comparison.py`, `plot_f1_boxes.py`, `plot_metric_bars.py`, `make_panel_grids.py` — the
   individual figures; each recomputes its metrics from per-isolate predictions and
   fails if they disagree with the workbook by more than 5 × 10⁻⁴.
 - `build_figure_page.py` — all figures and their numbers on one review page.
