@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Predicted against actual MIC, as a bubble grid, for one drug and one model.
+"""Predicted against measured MIC, as a bubble grid, for one drug and one model.
 
 Both axes are discrete -- the truth is a doubling-dilution class and the
 prediction is snapped to one -- so a point cloud would stack thousands of
 isolates on a few dozen positions and show only the scatter's outline. One
-bubble per (actual, predicted) cell, area proportional to count, count printed
+bubble per (measured, predicted) cell, area proportional to count, count printed
 inside: the same information a confusion matrix carries, laid out so the
 diagonal and the distance from it are the things you see.
 
@@ -247,8 +247,8 @@ def main() -> int:
     draw_grid(ax, y, pred, cat, args.sr_boundary)
     bp_label = "S/R breakpoint"
 
-    ax.set_xlabel("Actual  log₂ MIC")
-    ax.set_ylabel("Predicted  log₂ MIC")
+    ax.set_xlabel("Measured MIC (log₂)")
+    ax.set_ylabel("Predicted MIC (log₂)")
     ax.set_aspect("equal")
 
     box = "\n".join([f"n = {m['n']:,}   ({m['n_resistant']} resistant)",
@@ -281,7 +281,7 @@ def main() -> int:
     # read off the marks is what an unlabelled bubble means, so the subtitle says
     # it rather than a legend entry.
 
-    top = header(fig, f"{args.drug.capitalize()} — predicted against actual MIC",
+    top = header(fig, f"{args.drug.capitalize()} — predicted against measured MIC",
                  f"{MODEL_LABEL.get(args.model, args.model)}, held-out set, "
                  f"{args.features_label}. Bubble size is binned by "
                  f"the cell's isolate count, printed\ninside it; the smallest, "

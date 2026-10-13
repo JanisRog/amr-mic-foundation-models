@@ -118,8 +118,8 @@ def sheet_scatters(data, out: pathlib.Path):
         ax.tick_params(labelsize=6.5)
         panel_title(ax, drug, m, (("exact", "exact"), ("OT", "OT"),
                                   ("vMER", "vMER"), ("SR_f1", "F1")))
-        ax.set_xlabel("actual  log₂ MIC", fontsize=8)
-        ax.set_ylabel("predicted  log₂ MIC", fontsize=8)
+        ax.set_xlabel("Measured MIC (log₂)", fontsize=8)
+        ax.set_ylabel("Predicted MIC (log₂)", fontsize=8)
 
     key = fig.add_subplot(gs[3, 1:])
     key.axis("off")
@@ -144,7 +144,7 @@ def sheet_scatters(data, out: pathlib.Path):
                handletextpad=1.4, labelspacing=1.35, borderpad=0.0,
                title="isolates in cell", title_fontsize=8)
 
-    top = header(fig, "Predicted against actual MIC, every drug",
+    top = header(fig, "Predicted against measured MIC, every drug",
                  f"Evo 2 7B on the held-out set, {FEATURES_LABEL}. "
                  "Bubble size is binned by the number of isolates in the "
                  "cell.\nEach panel is drawn from its own saved predictions and "
