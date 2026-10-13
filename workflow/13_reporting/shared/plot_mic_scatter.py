@@ -198,6 +198,10 @@ def main() -> int:
     ap.add_argument("--tolerance", type=float, default=5e-4)
     ap.add_argument("--out-dir", required=True)
     ap.add_argument("--stem", default="")
+    ap.add_argument("--features-label", default="shared PCA4 + TB-Profiler rule bit",
+                    help="what the model was fitted on, for the subtitle. The default is the "
+                         "M. tuberculosis feature set; P. aeruginosa has no catalogue call and "
+                         "must pass its own")
     args = ap.parse_args()
 
     df = pd.read_csv(args.predictions, sep="\t")
@@ -272,7 +276,7 @@ def main() -> int:
 
     top = header(fig, f"{args.drug.capitalize()} — predicted against actual MIC",
                  f"{MODEL_LABEL.get(args.model, args.model)}, held-out set, "
-                 f"shared PCA4 + TB-Profiler rule bit. Bubble size is binned by "
+                 f"{args.features_label}. Bubble size is binned by "
                  f"the cell's isolate count, printed\ninside it; the smallest, "
                  f"unlabelled bubble is one isolate. Shaded band is the "
                  f"one-dilution zone.\nConfig {config} ({agg} of the trees).")

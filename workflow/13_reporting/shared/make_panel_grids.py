@@ -53,6 +53,11 @@ PANELS = {
                ("amikacin", 4.0), ("piperacillin-tazobactam", 4.0)],
 }
 DRUGS = PANELS["mtb"]
+# What each panel's models were fitted on, for the sheet subtitles. P. aeruginosa
+# has no catalogue call; printing "TB-Profiler rule bit" under its figures was wrong.
+FEATURES = {"mtb": "shared PCA4 + TB-Profiler rule bit",
+            "pseaer": "shared PCA4 + AMRFinderPlus presence columns"}
+FEATURES_LABEL = FEATURES["mtb"]
 PREFIX = ""
 # drug -> the model whose SHAP run belongs to the reported figure; filled from
 # --model-map so the beeswarm sheet cannot quietly plot a different model than
@@ -140,8 +145,8 @@ def sheet_scatters(data, out: pathlib.Path):
                title="isolates in cell", title_fontsize=8)
 
     top = header(fig, "Predicted against actual MIC, every drug",
-                 "Evo 2 7B on the held-out set, shared PCA4 + TB-Profiler rule "
-                 "bit. Bubble size is binned by the number of isolates in the "
+                 f"Evo 2 7B on the held-out set, {FEATURES_LABEL}. "
+                 "Bubble size is binned by the number of isolates in the "
                  "cell.\nEach panel is drawn from its own saved predictions and "
                  "is not rendered unless the metrics recomputed from them "
                  "reproduce that drug's reported row.", pad_in=0.30)
@@ -295,6 +300,8 @@ def main() -> int:
                  (x.split(":") for x in args.drug_list.split(","))]
     global PREFIX
     PREFIX = args.stem_prefix
+    global FEATURES_LABEL
+    FEATURES_LABEL = FEATURES[args.panel]
     print(f"[INFO] panel {args.panel}: {len(DRUGS)} drugs")
 
     mmap = dict(x.split("=") for x in args.model_map.split(",")) \

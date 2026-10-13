@@ -66,6 +66,7 @@ for spec in "${DRUGS[@]}"; do
   M=$(model_of "$1")
   python3 "$MTB/plot_mic_scatter.py" --predictions "$PRED/${1}_${M}_holdout_predictions.tsv" \
     --workbook "$WB" --drug "$1" --model "$M" --sr-boundary "$2" \
+    --features-label "shared PCA4 + AMRFinderPlus presence columns" \
     --out-dir "$OUT" --stem "scatter_$1"
   python3 "$MTB/plot_class_distribution.py" --predictions "$PRED/${1}_${M}_holdout_predictions.tsv" \
     --folds "$SLIM/cv_${1}/cv_folds_final.tsv" --workbook "$WB" --drug "$1" --model "$M" \
