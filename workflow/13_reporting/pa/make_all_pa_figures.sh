@@ -12,11 +12,11 @@
 #     the lower development cost on 6 of 10 drugs.
 #   * Breakpoints are the PA protocol's derived table, recovered from
 #     resistance_label_TMP rather than supplied from memory.
-#   * **The reported model is not evo2 throughout.** It is chosen per drug on
-#     DEVELOPMENT cost, and that is carbon for amikacin and meropenem. The choice
-#     is derived here from the slimmed fold files rather than hardcoded, so it
-#     cannot drift from the runs it describes -- and never from the holdout,
-#     which would be the max-over-configs bias one level up.
+#   * The reported model is Evo 2 for every drug, the primary model designated
+#     for M. tuberculosis (until 2026-10-13 it was chosen per drug on development
+#     cost, which gave carbon for amikacin and meropenem). It is asked of
+#     pick_reported_model.py rather than hardcoded here, so the figures, the SHAP
+#     jobs and the study-held-out jobs cannot disagree.
 
 set -euo pipefail
 

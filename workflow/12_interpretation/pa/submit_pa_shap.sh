@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # TreeSHAP for every P. aeruginosa drug's reported model.
 #
-# The model is not evo2 throughout: it is chosen per drug on development cost,
-# and picking it here with the same script the figures use means the beeswarm and
-# the scatter beside it in the paper cannot be different models. --config-dir is
+# The model is the designated primary model, Evo 2, for every drug (until
+# 2026-10-13 it was chosen per drug on development cost). It is still asked of
+# the same script the figures use, so the beeswarm and the scatter beside it in
+# the paper cannot be different models. --config-dir is
 # not optional on the cluster -- a full run directory's folds.tsv holds all 1,000
 # configs, and averaging over the grid instead of over the selected config would
 # silently pick a different model than the panel reports.

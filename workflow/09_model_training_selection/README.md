@@ -42,5 +42,6 @@ Evo 2 was designated primary before evaluation.
 ## *P. aeruginosa*
 
 `submit_pa_dev.sh` → `run_pa_dev.sbatch`; `run_pa_select.sbatch`;
-`submit_pa_holdout.sh` → `run_pa_holdout.sbatch`. `pick_reported_model.py` chooses
-each drug's model on **development** cost; `slim_runs.sh` keeps the selected rows.
+`submit_pa_holdout.sh` → `run_pa_holdout.sbatch`. `pick_reported_model.py` names
+each drug's reported model, which is Evo 2 throughout (the earlier rule, lowest
+**development** cost, is kept behind `--by-development-cost`); `slim_runs.sh` keeps the selected rows.

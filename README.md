@@ -22,6 +22,7 @@ are referenced from the embedding scripts.
   TB-Profiler's own resistance call. Evo 2 is the primary encoder.
 - ***P. aeruginosa*:** embeddings of curated chromosomal loci and of acquired
   genes, plus acquired-gene presence; no catalogue call exists for this species.
+  Evo 2 is the reported encoder here as well.
 
 Scripts for the alternatives that were compared against these (the earlier target
 set, mutation columns in place of the call, embeddings alone, catalogue features
@@ -36,7 +37,7 @@ giving run order, inputs, outputs and parameters.
 | stage | what it does |
 |---|---|
 | [`01_data_acquisition`](workflow/01_data_acquisition) | *M. tuberculosis* reads from ENA; MIC tables and published association hits from the CRyPTIC supplementary data |
-| [`02_read_qc_assembly_annotation`](workflow/02_read_qc_assembly_annotation) | *P. aeruginosa* read and assembly QC, Bakta annotation, AMRFinderPlus |
+| [`02_read_qc_assembly_annotation`](workflow/02_read_qc_assembly_annotation) | *P. aeruginosa* read trimming, assembly and polishing, read and assembly QC, Bakta annotation, AMRFinderPlus |
 | [`03_variant_calling`](workflow/03_variant_calling) | Snippy against H37Rv and PAO1; rebuilding calls at a chosen allele fraction |
 | [`04_catalogue_calls`](workflow/04_catalogue_calls) | TB-Profiler calls, mutation matrix and lineage; ARDaP calls |
 | [`05_target_sets`](workflow/05_target_sets) | Per-drug candidate loci, each as gene body plus 300 bp upstream |
@@ -87,8 +88,8 @@ The files here are copies of the working scripts that produced the reported
 results. Only site-specific paths were changed: hard-coded cluster paths became
 required configuration variables, and a few lines that found helper scripts through
 a sibling folder of the original repository now use `$MTB_SCRIPTS` when it is set
-(two Python files gain `import os` for this). Of 143 files, 76 are byte-identical
-to the working copies and 67 differ in 154 lines, every one listed with its
+(two Python files gain `import os` for this). Of 144 files, 76 are byte-identical
+to the working copies and 68 differ in 161 lines, every one listed with its
 category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COPY.tsv).
 `MANIFEST.tsv` gives each file's original path and checksums of both versions.
 
@@ -98,9 +99,6 @@ category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COP
   consortium's supplementary data (PLoS Biol 20:e3001755, 2022), as are the MICs
   and the curated association hits (S1 and S2 Data). *P. aeruginosa* accessions are
   listed in the paper's Data availability statement.
-- **_P. aeruginosa_ read trimming, assembly and polishing** (Trimmomatic,
-  Unicycler, Pilon). These steps were run, but their scripts are not part of this
-  release yet; stage 02 starts from the polished assemblies.
 - **The array submission for per-isolate TB-Profiler extraction.** The per-isolate
   worker is included (`04_catalogue_calls/mtb/run_extract_tbprofiler_one_sample.sbatch`);
   the loop that ran it over all isolates was not recorded.

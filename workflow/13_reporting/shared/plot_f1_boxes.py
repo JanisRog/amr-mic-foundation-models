@@ -122,7 +122,10 @@ def describe(counted):
     """Two short lines; one long one collides with the neighbouring panel."""
     mf = [r[2] for r in counted]
     bf = [r[3] for r in counted]
-    higher = sum(1 for a, b in zip(mf, bf) if a > b)
+    # A tie must not count as a win: moxifloxacin's model and TB-Profiler make the
+    # same calls, and their F1 differ only by how the workbook rounded each (5e-7).
+    higher = sum(1 for a, b in zip(mf, bf) if a - b > 1e-4)
+    equal = sum(1 for a, b in zip(mf, bf) if abs(a - b) <= 1e-4)
     med = statistics.median(a - b for a, b in zip(mf, bf))
     tail = ""
     try:
@@ -131,7 +134,8 @@ def describe(counted):
             tail = f", Wilcoxon p = {wilcoxon(mf, bf).pvalue:.3f}"
     except Exception:
         pass
-    return (f"{len(counted)} drugs, model higher on {higher}\n"
+    return (f"{len(counted)} drugs, model higher on {higher}"
+            + (f", equal on {equal}" if equal else "") + "\n"
             f"median difference {med:+.3f}{tail}")
 
 
@@ -146,7 +150,8 @@ def main() -> int:
     args = ap.parse_args()
 
     mtb = collect(args.mtb_workbook, "mtb", "evo2", "", "")
-    pa = collect(args.pa_workbook, "pseaer", "", args.pa_baseline_dir,
+    # Evo 2 for both organisms: one designated model throughout (2026-10-13).
+    pa = collect(args.pa_workbook, "pseaer", "evo2", args.pa_baseline_dir,
                  args.pa_baseline_label)
 
     # Shared y: the subtitle invites a comparison between the panels, and two

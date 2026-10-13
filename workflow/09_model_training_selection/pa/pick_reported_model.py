@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Which model a drug reports: lowest mean DEVELOPMENT cost over the CV folds.
+"""Which model a drug reports: the designated primary model, Evo 2.
+
+Until 2026-10-13 this returned the model with the lowest mean DEVELOPMENT cost,
+which chose Evo 2 for eight antimicrobials and Carbon for amikacin and meropenem.
+The paper now reports one model throughout -- the primary model designated for
+M. tuberculosis -- so the figures, the workbook, the SHAP jobs and the
+study-held-out jobs, which all ask this script, answer Evo 2. The development
+costs are still computed and printed with --verbose, and the earlier rule is
+kept behind --by-development-cost.
+
+The earlier rule, for the record:
 
 Kept as a file rather than inlined in the figure driver so the figures, the
 workbook and the protocol tables all answer the question the same way. Cost is
@@ -19,6 +29,7 @@ import pathlib
 import sys
 
 MODELS = ("evo2", "carbon", "dnabert")
+DESIGNATED = "evo2"
 
 
 def dev_cost(folds: pathlib.Path, config: str | None = None) -> float | None:
@@ -43,6 +54,8 @@ def main() -> int:
                          "config that was actually selected")
     ap.add_argument("--drug", default="",
                     help="required with --config-dir, to name the config file")
+    ap.add_argument("--by-development-cost", action="store_true",
+                    help="the earlier rule: lowest development cost of the three")
     ap.add_argument("--verbose", action="store_true")
     args = ap.parse_args()
 
@@ -67,7 +80,12 @@ def main() -> int:
             scored[m] = c
     if not scored:
         raise SystemExit(f"[ERROR] no development folds under {d}")
-    best = min(scored, key=scored.get)
+    if args.by_development_cost:
+        best = min(scored, key=scored.get)
+    elif DESIGNATED in scored:
+        best = DESIGNATED
+    else:
+        raise SystemExit(f"[ERROR] no development folds for {DESIGNATED} under {d}")
     if args.verbose:
         for m, c in sorted(scored.items(), key=lambda kv: kv[1]):
             print(f"  {m:<8} {c:.4f}{'  <-- reported' if m == best else ''}",

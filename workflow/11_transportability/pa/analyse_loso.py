@@ -36,6 +36,9 @@ import pandas as pd
 sys.path.insert(0, os.environ.get("MTB_SCRIPTS") or str(pathlib.Path(__file__).resolve().parent.parent / "mtb_tbprofiler"))
 from plot_mic_scatter import metrics
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from pick_reported_model import DESIGNATED  # noqa: E402
+
 BOUND = {"ciprofloxacin": -1.0, "levofloxacin": 1.0, "tobramycin": 1.0,
          "imipenem": 2.0, "meropenem": 3.0, "ceftazidime": 3.0, "cefepime": 3.0,
          "aztreonam": 4.0, "amikacin": 4.0, "piperacillin-tazobactam": 4.0}
@@ -67,6 +70,12 @@ def main() -> int:
             print(f"[skip] {drug}: no leave-one-study-out run "
                   f"(single-collection drug)")
             continue
+        # Several models can have a run on disk (carbon for amikacin and meropenem
+        # predates 2026-10-13). Read the reported one, never whichever sorts first.
+        want = [f for f in lo if f.name == f"{drug}_{DESIGNATED}_loso_predictions.tsv"]
+        if want:
+            lo = want
+            cv = [root / f"{drug}_{DESIGNATED}_cv_predictions.tsv"]
         model = lo[0].name[len(drug) + 1:-len("_loso_predictions.tsv")]
         b = BOUND[drug]
 

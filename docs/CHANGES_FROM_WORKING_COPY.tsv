@@ -18,6 +18,13 @@ workflow/02_read_qc_assembly_annotation/pa/02b_run_amrfinderplus_all_e2e.sh	6	pa
 workflow/02_read_qc_assembly_annotation/pa/02b_run_amrfinderplus_all_e2e.sh	7	path default	AMRFINDERPLUS_DB="${AMRFINDERPLUS_DB:-<site-tools>/databases/AMRfinderplus/2025-06-03.1}"	AMRFINDERPLUS_DB="${AMRFINDERPLUS_DB:?set AMRFINDERPLUS_DB in config/paths.env}"
 workflow/02_read_qc_assembly_annotation/pa/02b_run_amrfinderplus_all_e2e.sh	47	container bind	if "$CTR_BIN" exec --cleanenv -B <site-root>:<site-root> "$AMRFINDERPLUS_SIF" amrfinder --list_organisms -d "$AMRFINDERPLUS_DB" >"$ORG_LIST" 2>"$ORG_LIST_ERR"; then	if "$CTR_BIN" exec --cleanenv -B "${BIND_PATHS:?set BIND_PATHS in config/paths.env}" "$AMRFINDERPLUS_SIF" amrfinder --list_organisms -d "$AMRFINDERPLUS_DB" >"$ORG_LIST" 2>"$ORG_LIST_ERR"; then
 workflow/02_read_qc_assembly_annotation/pa/02r_bakta_reference.sh	45	container bind	export APPTAINER_BINDPATH=<site-root>:<site-root>	export APPTAINER_BINDPATH="${BIND_PATHS:?set BIND_PATHS in config/paths.env}"
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	9	log path	#SBATCH --output=<site>/AMRPredict/pseaer/reproducibility/logs/03_assemble_pseaer_%A_%a.out	#SBATCH --output=03_assemble_pseaer_%A_%a.out
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	10	log path	#SBATCH --error=<site>/AMRPredict/pseaer/reproducibility/logs/03_assemble_pseaer_%A_%a.err	#SBATCH --error=03_assemble_pseaer_%A_%a.err
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	14	path default	BASE="${BASE:-<site>/AMRPredict/pseaer}"	BASE="${BASE:-${PSEAER:?set PSEAER in config/paths.env}}"
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	24	path default	SING_ROOT="${SING_ROOT:-<site-tools>/singularity/sandbox}"	SING_ROOT="${SING_ROOT:?set SING_ROOT in config/paths.env}"
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	31	path default	ILLUMINACLIP="${ILLUMINACLIP:-<site-tools>/scripts/NexteraPE-PE.fa}"	ILLUMINACLIP="${ILLUMINACLIP:?set ILLUMINACLIP in config/paths.env}"
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	79	container bind	export APPTAINER_BINDPATH=<site-root>:<site-root>	export APPTAINER_BINDPATH="${BIND_PATHS:?set BIND_PATHS in config/paths.env}"
+workflow/02_read_qc_assembly_annotation/pa/03_assemble_pseaer_reads_unicycler.sh	106	container bind	apptainer exec --bind <site-root>:<site-root> "$img" "$@"	apptainer exec --bind "${BIND_PATHS:?set BIND_PATHS in config/paths.env}" "$img" "$@"
 workflow/02_read_qc_assembly_annotation/pa/pseaer.env	56	path default (emptied)	FASTQC_IMG="${FASTQC_IMG:-<site-tools>/singularity/sandbox/fastqc_0.11.9}"	FASTQC_IMG="${FASTQC_IMG:-}"
 workflow/02_read_qc_assembly_annotation/pa/pseaer.env	57	path default (emptied)	MULTIQC_IMG="${MULTIQC_IMG:-<site-tools>/singularity/sandbox/multiqc_1.33}"	MULTIQC_IMG="${MULTIQC_IMG:-}"
 workflow/02_read_qc_assembly_annotation/pa/pseaer.env	58	path default (emptied)	QUAST_IMG="${QUAST_IMG:-<site-tools>/singularity/sandbox/quast_5.3.0}"	QUAST_IMG="${QUAST_IMG:-}"
@@ -148,8 +155,8 @@ workflow/12_interpretation/mtb/submit_mtb_shap_arm.sh	14	path default	MTB="${MTB
 workflow/12_interpretation/pa/run_pa_shap.sbatch	19	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 workflow/12_interpretation/pa/run_pa_shap.sbatch	20	path default	MTB="${MTB:-<site>/AMRPredict/mtb}"	MTB="${MTB:?set MTB in config/paths.env}"
 workflow/12_interpretation/pa/run_pa_shap.sbatch	21	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
-workflow/12_interpretation/pa/submit_pa_shap.sh	15	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
-workflow/12_interpretation/pa/submit_pa_shap.sh	16	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
+workflow/12_interpretation/pa/submit_pa_shap.sh	16	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
+workflow/12_interpretation/pa/submit_pa_shap.sh	17	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/13_reporting/mtb/build_mtb_workbook_arm.sh	17	import path	TOOLS="${TOOLS:-$HERE/../tools}"	TOOLS="${TOOLS:-${MTB_SCRIPTS:-$HERE/../tools}}"
 workflow/13_reporting/pa/build_pa_workbook.sh	25	import path	TOOLS="${TOOLS:-$HERE/../tools}"	TOOLS="${TOOLS:-${MTB_SCRIPTS:-$HERE/../tools}}"
 workflow/13_reporting/pa/make_all_pa_figures.sh	30	import path	MTB="$HERE/../mtb_tbprofiler"          # the drawing scripts are organism-agnostic	MTB="${MTB_SCRIPTS:-$HERE/../mtb_tbprofiler}"          # the drawing scripts are organism-agnostic
