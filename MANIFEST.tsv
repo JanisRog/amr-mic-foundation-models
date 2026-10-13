@@ -137,7 +137,7 @@ workflow/13_reporting/pa/make_all_pa_figures.sh	pseaer/make_all_pa_figures.sh	PS
 workflow/13_reporting/shared/build_figure_page.py	mtb_tbprofiler/build_figure_page.py	MTB/scripts	761a3694d9add51f	761a3694d9add51f
 workflow/13_reporting/shared/build_results_workbook.py	tools/build_results_workbook.py	MTB/scripts	70d2fb1a49cd3dd7	70d2fb1a49cd3dd7
 workflow/13_reporting/shared/holdout_table.py	tools/holdout_table.py	MTB/scripts	f0d494fc44705447	f0d494fc44705447
-workflow/13_reporting/shared/make_panel_figures.py	mtb_tbprofiler/make_panel_figures.py	MTB/scripts	2e679afc0dc72889	2e679afc0dc72889
+workflow/13_reporting/shared/make_panel_figures.py	mtb_tbprofiler/make_panel_figures.py	MTB/scripts	fb845731b32bde2a	fb845731b32bde2a
 workflow/13_reporting/shared/make_panel_grids.py	mtb_tbprofiler/make_panel_grids.py	MTB/scripts	3d41c0dca3c0f2ba	3d41c0dca3c0f2ba
 workflow/13_reporting/shared/plot_class_distribution.py	mtb_tbprofiler/plot_class_distribution.py	MTB/scripts	8880f7592835fb1a	8880f7592835fb1a
 workflow/13_reporting/shared/plot_f1_boxes.py	mtb_tbprofiler/plot_f1_boxes.py	MTB/scripts	acf67d2e295acc0b	acf67d2e295acc0b

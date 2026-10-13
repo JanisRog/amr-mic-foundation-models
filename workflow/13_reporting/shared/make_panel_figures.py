@@ -148,64 +148,82 @@ def save(fig, out: pathlib.Path, stem: str):
 
 # ── figure 1 ──────────────────────────────────────────────────────────────────
 def fig_panel(summary, out: pathlib.Path):
+    """vMER, MER and F1 against the catalogue, one row per drug.
+
+    The two error rates are shown separately rather than folded into the cost,
+    because a single weighted number hides which of the two moved. For the
+    reported model it is the major error rate that falls (fewer susceptible
+    isolates called resistant); the very major error rate is level or higher.
+    """
     drugs = [d for d in sorted({r["drug"] for r in summary}) if d not in UNDERPOWERED]
     margin = {d: pick(summary, d, BASELINE, "holdout", "cost")
                  - pick(summary, d, "evo2", "holdout", "cost") for d in drugs}
-    order = sorted(drugs, key=lambda d: margin[d], reverse=True)
+    order = sorted(drugs, key=lambda d: margin[d], reverse=True)   # as before: by cost
 
-    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.6), sharey=True,
-                             gridspec_kw={"wspace": 0.30})
-    for ax, field, title, xlab, sign in (
-            (axes[0], "cost", "Cost", "2·vMER + MER   (lower is better)", -1),
-            (axes[1], "SR_f1", "Susceptible/resistant F1", "(higher is better)", +1)):
+    def same_calls(d):
+        return all(abs(pick(summary, d, "evo2", "holdout", f)
+                       - pick(summary, d, BASELINE, "holdout", f)) < 1e-4
+                   for f in ("vMER", "MER"))
+
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.7), sharey=True,
+                             gridspec_kw={"wspace": 0.44})
+    panels = ((axes[0], "vMER", "Very major error rate",
+               "resistant called susceptible\n(lower is better)", -1),
+              (axes[1], "MER", "Major error rate",
+               "susceptible called resistant\n(lower is better)", -1),
+              (axes[2], "SR_f1", "F1, resistant class", "\n(higher is better)", +1))
+    for ax, field, title, xlab, sign in panels:
         tidy(ax)
         for i, d in enumerate(order):
             b = pick(summary, d, BASELINE, "holdout", field)
             vals = [pick(summary, d, m, "holdout", field) for m in MODELS]
             ax.plot([min(vals + [b]), max(vals + [b])], [i, i], color=GRID, lw=2.4,
                     solid_capstyle="round", zorder=1)
-            for m, v in zip(MODELS, vals):
-                ax.plot(v, i, "o", ms=5, color=SERIES[m], mec=SURFACE, mew=0.8,
+            # The reported model is drawn last so that it is never hidden under the
+            # other two where the three coincide.
+            for m, v in reversed(list(zip(MODELS, vals))):
+                ax.plot(v, i, "o", ms=4.6, color=SERIES[m], mec=SURFACE, mew=0.8,
                         zorder=3)
-            ax.plot(b, i, "o", ms=6, mfc="none", mec=INK2, mew=1.3, zorder=4)
-            # The fluoroquinolones are not a near-tie; they are the same
-            # classifier, so the marks coincide and the reader is told why.
-            if abs(vals[0] - b) < 1e-4 and field == "cost":
-                ax.annotate("identical to catalogue", (max(vals + [b]), i),
-                            xytext=(9, 0), textcoords="offset points",
-                            fontsize=6.6, color=MUTED, va="center")
+            ax.plot(b, i, "o", ms=5.6, mfc="none", mec=INK2, mew=1.3, zorder=4)
         ax.set_yticks(range(len(order)))
-        ax.set_yticklabels([d.capitalize() for d in order], fontsize=8, color=INK)
-        ax.set_title(title, loc="left", color=INK, pad=7, fontweight="medium")
-        ax.set_xlabel(xlab)
-        # one selective number per row: the margin the panel is judged on
-        ax.annotate("Δ evo 2\n+ = better", xy=(1.02, 1.0),
-                    xycoords="axes fraction", fontsize=6.4, color=MUTED,
-                    ha="left", va="bottom", linespacing=1.4)
+        # A drug whose model makes the catalogue's calls exactly is not a near-tie;
+        # the marks coincide in every panel, and the row label says why.
+        ax.set_yticklabels([d.capitalize() + (" *" if same_calls(d) else "")
+                            for d in order], fontsize=8, color=INK)
+        ax.set_title(title, loc="left", color=INK, pad=7, fontweight="medium",
+                     fontsize=8.6)
+        ax.set_xlabel(xlab, fontsize=7, linespacing=1.35)
+        ax.tick_params(axis="x", labelsize=7)
+        ax.margins(x=0.10)
+        # one selective number per row: Evo 2 against the catalogue
+        ax.annotate("Δ Evo 2", xy=(1.03, 1.0), xycoords="axes fraction",
+                    fontsize=6.2, color=MUTED, ha="left", va="bottom")
         for i, d in enumerate(order):
             delta = sign * (pick(summary, d, "evo2", "holdout", field)
                             - pick(summary, d, BASELINE, "holdout", field))
             ax.annotate(f"{delta:+.3f}" if abs(delta) > 1e-4 else "0.000",
-                        xy=(1.02, i), xycoords=("axes fraction", "data"),
-                        fontsize=6.8, color=INK2 if delta > 1e-4 else MUTED,
+                        xy=(1.03, i), xycoords=("axes fraction", "data"),
+                        fontsize=6.6, color=INK2 if delta > 1e-4 else MUTED,
                         ha="left", va="center", annotation_clip=False)
     axes[0].set_ylim(-0.7, len(order) - 0.3)
     axes[0].invert_yaxis()          # once -- the axes are shared
 
-    # Counted from the rows drawn, never typed. The typed version read "4 of 8"
-    # under a model for which the figure itself showed five positive margins.
-    n_cost = sum(1 for d in drugs if margin[d] > 1e-4)
-    n_f1 = sum(1 for d in drugs
-               if pick(summary, d, "evo2", "holdout", "SR_f1")
-               - pick(summary, d, BASELINE, "holdout", "SR_f1") > 1e-4)
+    # Counted from the rows drawn, never typed.
+    def better(field, sign):
+        return sum(1 for d in drugs
+                   if sign * (pick(summary, d, "evo2", "holdout", field)
+                              - pick(summary, d, BASELINE, "holdout", field)) > 1e-4)
+    n_v, n_m, n_f = better("vMER", -1), better("MER", -1), better("SR_f1", +1)
+    n = len(drugs)
+    star = ("  * same calls as TB-Profiler." if any(same_calls(d) for d in drugs) else "")
     top = header(fig, "Sequence embeddings against the catalogue",
-                 f"Held-out set, one evaluation per drug. Lower cost on {n_cost} of "
-                 f"{len(drugs)}, higher F1 on {n_f1} of {len(drugs)} — the model "
-                 "trades very-major errors\nfor major ones, which F1 rewards and a "
-                 "2:1 weighting punishes. Bedaquiline and delamanid are in figure 4.",
+                 f"Held-out set, one evaluation per drug. Evo 2 has the lower very major "
+                 f"error rate on {n_v} of {n}, the lower major error rate on {n_m} of {n}\n"
+                 f"and the higher F1 on {n_f} of {n}. Δ: Evo 2 against TB-Profiler, "
+                 f"positive = better.{star} Bedaquiline and delamanid are in figure 4.",
                  pad_in=0.28)
     legend_models(fig, y=-0.01)
-    fig.subplots_adjust(top=top, bottom=0.21, left=0.125, right=0.90)
+    fig.subplots_adjust(top=top, bottom=0.25, left=0.125, right=0.935)
     save(fig, out, "fig1_panel")
 
 
