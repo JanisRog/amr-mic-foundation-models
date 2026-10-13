@@ -139,13 +139,17 @@ def choose_aggregation(df, boundary, want, tol):
     return agg, m
 
 
-def draw_grid(ax, y, pred, cat, boundary, *, counts=True, fs=1.0):
+def draw_grid(ax, y, pred, cat, boundary, *, counts=True, fs=1.0, scale_counts=False):
     """The confusion grid itself, drawn into a given axes.
 
     Shared by the single-drug figure and the all-drug sheet, so the two cannot
     drift apart. `fs` scales the marks, since a panel a quarter the width needs
     smaller ones in the same proportions; `counts` is off on the sheet, where a
     bubble is too small to hold a number.
+
+    `scale_counts` reproduces the single-drug figure at another size: every cell
+    that carries a count there carries one here, and the numbers shrink with the
+    bubbles instead of being dropped from the smaller ones.
     """
     cells = {}
     for a, p_, c in zip(y, pred, cat):
@@ -175,8 +179,11 @@ def draw_grid(ax, y, pred, cat, boundary, *, counts=True, fs=1.0):
         r = bubble_size(n) * fs ** 2
         ax.scatter(a, p_, s=r, facecolor=FACE[c], edgecolor=EDGE[c],
                    lw=0.8 * fs, zorder=3)
-        if counts and r >= 105:
-            t = 5.4 if r < 190 else (6.4 if r < 340 else (7.0 if r < 560 else 7.6))
+        r0 = bubble_size(n) if scale_counts else r      # the size it has in the single figure
+        if counts and r0 >= 105:
+            t = 5.4 if r0 < 190 else (6.4 if r0 < 340 else (7.0 if r0 < 560 else 7.6))
+            if scale_counts:
+                t = max(t * fs, 3.2)
             ax.annotate(f"{n}", (a, p_), ha="center", va="center", zorder=4,
                         fontsize=t,
                         color="#ffffff" if c in ("exact", "far_bad") else INK)
