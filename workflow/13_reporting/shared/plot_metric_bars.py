@@ -63,6 +63,9 @@ def main() -> int:
     ap.add_argument("--pa-workbook", default="",
                     help="with --panel pooled: the P. aeruginosa workbook (--workbook is M. tuberculosis)")
     ap.add_argument("--stem", default="")
+    ap.add_argument("--stat", choices=["median", "mean"], default="median",
+                    help="what the per-model bars show; 'mean' writes bars_mean_<panel> and "
+                         "leaves the per-antimicrobial figure alone")
     ap.add_argument("--out-dir", required=True)
     a = ap.parse_args()
     if a.panel == "pooled":
@@ -72,6 +75,9 @@ def main() -> int:
     P = PANELS[a.panel]
     summary, _ = load(pathlib.Path(a.workbook))
     drugs = P["drugs"]
+    if a.stat != "median":
+        median_figure(summary, P, a)
+        return 0
 
     fig, axes = plt.subplots(2, 1, figsize=(7.2, 5.3), sharex=True,
                              gridspec_kw={"hspace": 0.30})
@@ -152,7 +158,7 @@ def median_figure(summary, P, a):
             series.append((P["baseline_label"], None, base))
         for j, (label, color, vals) in enumerate(series):
             vals = [v for v in vals if v is not None]
-            med = statistics.median(vals)
+            med = getattr(statistics, a.stat)(vals)
             if color is None:
                 ax.bar(j, med, 0.56, facecolor=SURFACE, edgecolor=INK2, linewidth=0.9, zorder=3)
             else:
@@ -176,13 +182,13 @@ def median_figure(summary, P, a):
                 f"(few resistant held-out isolates)." if P["underpowered"] else "")
     cover = ("" if covered == len(drugs) else
              f" {P['baseline_label']} covers {covered} of them.")
-    top = header(fig, f"Median over antimicrobials by model — {P['organism']}",
-                 f"Held-out sets. Bar and number: median over {len(drugs)} antimicrobials; "
+    top = header(fig, f"{a.stat.capitalize()} over antimicrobials by model — {P['organism']}",
+                 f"Held-out sets. Bar and number: {a.stat} over {len(drugs)} antimicrobials; "
                  f"points: each antimicrobial.{cover}\n{P['baseline_label']} returns a "
                  f"resistance call and no MIC, so it has no one-tier accuracy.{left_out}",
                  pad_in=0.26)
     fig.subplots_adjust(top=top, bottom=0.09, left=0.065, right=0.99)
-    save(fig, pathlib.Path(a.out_dir), f"bars_median_{a.panel}")
+    save(fig, pathlib.Path(a.out_dir), f"bars_{a.stat}_{a.panel}")
 
 
 def pooled_figure(a):
@@ -204,7 +210,7 @@ def pooled_figure(a):
             series.append(("TB-Profiler\n/ ARDaP", None, base))
         for j, (label, color, vals) in enumerate(series):
             vals = [(k, v) for k, v in vals if v is not None]
-            med = statistics.median(v for _, v in vals)
+            med = getattr(statistics, a.stat)([v for _, v in vals])
             if color is None:
                 ax.bar(j, med, 0.60, facecolor=SURFACE, edgecolor=INK2, linewidth=0.9, zorder=3)
             else:
@@ -229,13 +235,13 @@ def pooled_figure(a):
                for k, n in (("mtb", n_mtb), ("pseaer", n_pa))]
     fig.legend(handles=handles, ncol=2, loc="lower center", fontsize=7.4, handletextpad=0.3,
                columnspacing=2.0, bbox_to_anchor=(0.5, 0.0))
-    top = header(fig, "Median over antimicrobials by model — both organisms",
-                 f"Held-out sets. Bar and number: median over {len(pairs)} organism–antimicrobial "
+    top = header(fig, f"{a.stat.capitalize()} over antimicrobials by model — both organisms",
+                 f"Held-out sets. Bar and number: {a.stat} over {len(pairs)} organism–antimicrobial "
                  f"pairs; points: each pair. The comparator bar pools TB-Profiler\nand ARDaP "
                  f"({n_base} pairs covered); neither returns an MIC, so there is no one-tier "
                  "accuracy for them. Bedaquiline and delamanid are left out.", pad_in=0.26)
     fig.subplots_adjust(top=top, bottom=0.17, left=0.065, right=0.99)
-    save(fig, pathlib.Path(a.out_dir), a.stem or "bars_median_pooled")
+    save(fig, pathlib.Path(a.out_dir), a.stem or f"bars_{a.stat}_pooled")
     print(f"[INFO] pooled: {len(pairs)} pairs ({n_mtb} MTB, {n_pa} PA), comparator on {n_base}")
     return 0
 
