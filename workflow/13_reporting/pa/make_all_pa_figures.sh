@@ -107,6 +107,8 @@ CROSS_OUT="${CROSS_OUT:-figures/cross}"
 if [ -e "$MTB_WB" ] && [ -d "$IN/cv_amikacin" ]; then
   python3 "$MTB/plot_f1_boxes.py" --mtb-workbook "$MTB_WB" \
     --pa-workbook "$WB" --pa-baseline-dir "$IN" --out-dir "$CROSS_OUT"
+  python3 "$MTB/plot_metric_bars.py" --panel pooled --workbook "$MTB_WB" \
+    --pa-workbook "$WB" --out-dir "$CROSS_OUT"
 else
   echo "[skip] cross-panel F1 figure: need $MTB_WB and $IN/cv_<drug>/baseline_rows.tsv"
 fi

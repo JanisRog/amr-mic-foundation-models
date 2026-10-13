@@ -15,6 +15,11 @@ on its bar so the spread behind the median stays visible. Antimicrobials with to
 few resistant held-out isolates are left out of the medians, as in every panel
 comparison; the comparator's median is over the antimicrobials it covers.
 
+With --panel pooled (and --pa-workbook) the same median figure is drawn over both
+organisms together: every organism-antimicrobial pair is one value, the two
+organisms keep different point shapes, and the comparator bar pools TB-Profiler
+and ARDaP, each on the antimicrobials it covers.
+
 Bars start at zero. On a truncated axis the differences between models would look
 several times larger than they are, and the point of this figure is how close the
 three models sit.
@@ -29,6 +34,7 @@ import sys
 import statistics
 
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -53,10 +59,16 @@ W = 0.19            # bar width; four bars and a gap fill one drug's slot
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--workbook", required=True)
-    ap.add_argument("--panel", choices=sorted(PANELS), required=True)
+    ap.add_argument("--panel", choices=sorted(PANELS) + ["pooled"], required=True)
+    ap.add_argument("--pa-workbook", default="",
+                    help="with --panel pooled: the P. aeruginosa workbook (--workbook is M. tuberculosis)")
     ap.add_argument("--stem", default="")
     ap.add_argument("--out-dir", required=True)
     a = ap.parse_args()
+    if a.panel == "pooled":
+        if not a.pa_workbook:
+            ap.error("--panel pooled needs --pa-workbook")
+        return pooled_figure(a)
     P = PANELS[a.panel]
     summary, _ = load(pathlib.Path(a.workbook))
     drugs = P["drugs"]
@@ -171,6 +183,61 @@ def median_figure(summary, P, a):
                  pad_in=0.26)
     fig.subplots_adjust(top=top, bottom=0.09, left=0.065, right=0.99)
     save(fig, pathlib.Path(a.out_dir), f"bars_median_{a.panel}")
+
+
+def pooled_figure(a):
+    """One bar per model over both organisms: median of all organism-antimicrobial pairs."""
+    books = {"mtb": load(pathlib.Path(a.workbook))[0], "pseaer": load(pathlib.Path(a.pa_workbook))[0]}
+    pairs = [(k, d) for k in ("mtb", "pseaer") for d in PANELS[k]["drugs"]
+             if d not in PANELS[k]["underpowered"]]
+    marker = {"mtb": "o", "pseaer": "^"}
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw={"wspace": 0.22})
+    n_base = 0
+    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
+                             (axes[1], "OT", "One-tier accuracy")):
+        tidy(ax, x=False, y=True)
+        series = [(MODEL_LABEL[m].replace(" 7B", "").replace(" 8B", ""), SERIES[m],
+                   [(k, pick(books[k], d, m, "holdout", field)) for k, d in pairs]) for m in MODELS]
+        if field == "SR_f1":
+            base = [(k, pick(books[k], d, PANELS[k]["baseline"], "holdout", field)) for k, d in pairs]
+            n_base = sum(v is not None for _, v in base)
+            series.append(("TB-Profiler\n/ ARDaP", None, base))
+        for j, (label, color, vals) in enumerate(series):
+            vals = [(k, v) for k, v in vals if v is not None]
+            med = statistics.median(v for _, v in vals)
+            if color is None:
+                ax.bar(j, med, 0.60, facecolor=SURFACE, edgecolor=INK2, linewidth=0.9, zorder=3)
+            else:
+                ax.bar(j, med, 0.60, color=color, edgecolor=SURFACE, linewidth=0.5, zorder=3)
+            n = len(vals)
+            for i, (k, v) in enumerate(vals):
+                x = j + (i - (n - 1) / 2) * (0.46 / max(n - 1, 1))
+                ax.plot(x, v, marker[k], ms=2.7, mfc=SURFACE, mec=INK, mew=0.6, zorder=5)
+            ax.annotate(f"{med:.2f}", (j, 1.035), ha="center", va="bottom", fontsize=7.2,
+                        color=INK, annotation_clip=False)
+        ax.set_xticks(range(len(series)))
+        ax.set_xticklabels([s[0] for s in series], fontsize=7.8, color=INK, linespacing=1.25)
+        ax.set_ylim(0, 1.10)
+        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.set_xlim(-0.6, len(series) - 0.4)
+        ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
+        ax.axhline(0, color=INK2, lw=0.7, zorder=4)
+    n_mtb = sum(1 for k, _ in pairs if k == "mtb")
+    n_pa = len(pairs) - n_mtb
+    handles = [Line2D([], [], marker=marker[k], ls="none", ms=3.6, mfc=SURFACE, mec=INK, mew=0.7,
+                      label=f"{PANELS[k]['organism']} ({n} antimicrobials)")
+               for k, n in (("mtb", n_mtb), ("pseaer", n_pa))]
+    fig.legend(handles=handles, ncol=2, loc="lower center", fontsize=7.4, handletextpad=0.3,
+               columnspacing=2.0, bbox_to_anchor=(0.5, 0.0))
+    top = header(fig, "Median over antimicrobials by model — both organisms",
+                 f"Held-out sets. Bar and number: median over {len(pairs)} organism–antimicrobial "
+                 f"pairs; points: each pair. The comparator bar pools TB-Profiler\nand ARDaP "
+                 f"({n_base} pairs covered); neither returns an MIC, so there is no one-tier "
+                 "accuracy for them. Bedaquiline and delamanid are left out.", pad_in=0.26)
+    fig.subplots_adjust(top=top, bottom=0.17, left=0.065, right=0.99)
+    save(fig, pathlib.Path(a.out_dir), a.stem or "bars_median_pooled")
+    print(f"[INFO] pooled: {len(pairs)} pairs ({n_mtb} MTB, {n_pa} PA), comparator on {n_base}")
+    return 0
 
 
 if __name__ == "__main__":
