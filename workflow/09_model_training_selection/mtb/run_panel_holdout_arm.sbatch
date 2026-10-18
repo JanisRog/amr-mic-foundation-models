@@ -53,13 +53,23 @@ read -r DRUG CODE BOUND FOLDDIR <<< "${SPEC[$SLURM_ARRAY_TASK_ID]}"
 D="$ROOT/$FOLDDIR"
 FOLDS_FINAL="$D/cv_folds_final.tsv"
 FIXED="$ROOT/panel_targets/targets_${DRUG}_${TARGETSET}.txt"
-RULE="$ROOT/rule_bit_${CODE}_tbprofiler.tsv"
+# RULE=none scores an arm fitted on embeddings alone (TAG=embonly1k): no extra
+# feature file is passed and the development feature count is 4 x targets.
+RULE="${RULE:-$ROOT/rule_bit_${CODE}_tbprofiler.tsv}"
 PREDDIR="$ROOT/predictions"
-for f in "$FOLDS_FINAL" "$FIXED" "$RULE"; do
+NEED=("$FOLDS_FINAL" "$FIXED")
+if [ "$RULE" != none ]; then NEED+=("$RULE"); fi
+for f in "${NEED[@]}"; do
   [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; exit 1; }
 done
 n_fixed=$(grep -vc '^#' "$FIXED")
-N_EXTRA=$(( $(head -1 "$RULE" | awk -F'\t' '{print NF}') - 1 ))
+EXTRA_ARGS=()
+if [ "$RULE" = none ]; then
+  N_EXTRA=0
+else
+  N_EXTRA=$(( $(head -1 "$RULE" | awk -F'\t' '{print NF}') - 1 ))
+  EXTRA_ARGS=(--extra-feature-tsv "$RULE")
+fi
 mkdir -p "$PREDDIR"
 echo "[INFO] drug=$DRUG ($CODE)  arm=${TARGETSET}_${TAG}  boundary=$BOUND"
 echo "[INFO] folds=$FOLDS_FINAL  targets=$FIXED ($n_fixed)  rule=$RULE ($N_EXTRA column)"
@@ -131,7 +141,7 @@ PYEOF
 
   $PY "$SCRIPTS/cv_run_architecture.py" \
     --cache-dir "$OUT" \
-    --extra-feature-tsv "$RULE" \
+    "${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}" \
     --mode shared4 --top-k "$TOPK" \
     --configs "$CFG" \
     --sr-boundary "$BOUND" \

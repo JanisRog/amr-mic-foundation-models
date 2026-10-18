@@ -7,6 +7,10 @@
 # those comparisons is a max over the held-out isolates, which is the bias the
 # whole selection procedure exists to avoid.
 #
+# ARM=C scores the embeddings-only arm for the model comparison only; arm D
+# stays the reported arm. Its predictions get an _armC suffix so they never
+# overwrite arm D's.
+#
 #   DEPEND=<jobid> ./submit_pa_holdout.sh   wait for the selection job
 #   DRYRUN=1 ./submit_pa_holdout.sh         print without submitting
 
@@ -17,7 +21,9 @@ CVROOT="${CVROOT:-$P/imputed_strict}"
 LABELS="${LABELS:-$P/labels_imputed_strict}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs_strict}"
 OUTDIR="${OUTDIR:-$P/predictions_strict}"
-TAG="${TAG:-armD_HOLDOUT}"
+ARM="${ARM:-D}"
+case "$ARM" in C|D) ;; *) echo "[ERROR] ARM=$ARM: C or D"; exit 1 ;; esac
+TAG="${TAG:-arm${ARM}_HOLDOUT}"
 SCRIPT="${SCRIPT:-$P/scripts/run_pa_holdout.sbatch}"
 DEPEND="${DEPEND:-}"
 DRYRUN="${DRYRUN:-}"
@@ -36,24 +42,25 @@ mkdir -p "$OUTDIR"
 for DRUG in "${DRUGS[@]}"; do
   FIXED="$P/targets/combined/${DRUG}_all.txt"
   EXTRA="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
+  [ "$ARM" = D ] || EXTRA=none
   FINAL="$CVROOT/cv_${DRUG}/cv_folds_final.tsv"
 
   miss=0
-  for f in "$FIXED" "$EXTRA" "$FINAL"; do
+  for f in "$FIXED" "$FINAL" $([ "$EXTRA" = none ] || echo "$EXTRA"); do
     [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; miss=1; }
   done
   # The configs may not exist yet when this is chained behind the selection job,
   # so their absence is only fatal when running unchained.
   if [ -z "$DEPEND" ]; then
     for M in evo2 carbon dnabert; do
-      f="$CFGDIR/final_config_${DRUG}_${M}_armD.json"
+      f="$CFGDIR/final_config_${DRUG}_${M}_arm${ARM}.json"
       [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; miss=1; }
     done
   fi
   [ "$miss" -eq 0 ] || { echo "[ERROR] nothing submitted"; exit 1; }
 
   EXPORTS="ALL,DRUG=$DRUG,SR_BOUNDARY=${SRB[$DRUG]},CVROOT=$CVROOT"
-  EXPORTS="$EXPORTS,TAG=$TAG,CACHE_TAG=embseq,CFGDIR=$CFGDIR,OUTDIR=$OUTDIR"
+  EXPORTS="$EXPORTS,TAG=$TAG,ARM=$ARM,CACHE_TAG=embseq,CFGDIR=$CFGDIR,OUTDIR=$OUTDIR"
   EXPORTS="$EXPORTS,EMB_SUBDIR=ml_inputs/embeddings/curated_plus_amrseq"
   EXPORTS="$EXPORTS,FIXED=$FIXED,ZEROFILL=$P/targets/amrseq_targets.txt,EXTRA=$EXTRA"
 
@@ -63,7 +70,7 @@ for DRUG in "${DRUGS[@]}"; do
   fi
   # `< /dev/null`: sbatch reads stdin, and a loop that feeds it the remaining
   # drug names loses every other job to a 0-second FAILED with no error message.
-  jid=$(sbatch --parsable --job-name="pah_${DRUG:0:6}" \
+  jid=$(sbatch --parsable --job-name="ph${ARM}_${DRUG:0:6}" \
         ${DEPEND:+--dependency=afterok:$DEPEND} \
         --export="$EXPORTS" "$SCRIPT" < /dev/null)
   echo "${DRUG}_holdout=$jid"

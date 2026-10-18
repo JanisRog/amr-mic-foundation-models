@@ -29,3 +29,19 @@ catalogue has no ladder position, so ladder metrics are reported for models only
 `run_pa_ardap.sbatch` → `ardap_baseline.py`: ARDaP on the same isolates, under both
 conventions for the intermediate category; the one more favourable to ARDaP is
 reported.
+
+`run_pa_presence_baseline.sbatch`: the catalogue-only model, AMRFinderPlus presence
+columns (acquired genes and curated point mutations) alone, no embeddings; same
+configurations and folds as the reported model, development sweep then one
+held-out score.
+
+## Both organisms
+
+`run_variant_table_baseline.sbatch` (`ORG=mtb|pa`) → `build_locus_variant_table.py`:
+the comparator for embeddings only. Every variant in the reported model's target
+loci (the allele-fraction 0.1 calls the embedded sequences were built from), one
+binary column each, kept if carried by at least 10 and at most 95% of development
+isolates; the column set is fixed on development isolates before the held-out set
+is read. *P. aeruginosa* adds AMRFinderPlus acquired-gene presence, with curated
+point mutations removed. No catalogue call; same configurations, folds and
+boundaries as the embeddings-only models.

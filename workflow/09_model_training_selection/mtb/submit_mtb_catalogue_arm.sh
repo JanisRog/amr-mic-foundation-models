@@ -93,6 +93,12 @@ SPECS=(
   "delamanid dlm -3.0 cv_delamanid"
 )
 INH_SCRIPT="${INH_SCRIPT:-$SCRIPTS/run_inh_redo.sbatch}"
+# Isoniazid's own conventions belong to the catalogue-derived target set it was
+# first fitted on. On any other target set (the wider `gwasfiltered` set, which
+# the reported model uses) isoniazid runs through run_panel_dev.sbatch like every
+# other drug, from its own fold directory -- which is how its gwfrule1k run was
+# made. inh_special says which route applies.
+inh_special() { [ "$1" = isoniazid ] && [ "$TARGETSET" = both ]; }
 
 MATRIX="$MATDIR/tbprofiler_resistance_mutation_binary.tsv"
 LONG="$MATDIR/tbprofiler_amrfinder_style_long.tsv"
@@ -121,7 +127,7 @@ for spec in "${SPECS[@]}"; do
   DRUG="$1"; CODE="$2"; D="$ROOT/$4"
   if [ -n "$ONLY" ] && ! printf '%s\n' $ONLY | grep -qx "$DRUG"; then continue; fi
   NEED=("$D/cv_folds.tsv")
-  if [ "$DRUG" != isoniazid ] && [ "$CATALOGUE_ONLY" != 1 ]; then
+  if ! inh_special "$DRUG" && [ "$CATALOGUE_ONLY" != 1 ]; then
     NEED+=("$ROOT/panel_targets/targets_${DRUG}_${TARGETSET}.txt"); fi
   if [ "$FEATURES" = snp_rule ]; then NEED+=("$ROOT/rule_bit_${CODE}_tbprofiler.tsv"); fi
   for f in "${NEED[@]}"; do
@@ -157,9 +163,9 @@ for spec in "${SPECS[@]}"; do
       --out "$MERGED"
   fi
 
-  # Isoniazid's top-k is 12 by its own convention, not the target count.
+  # Isoniazid's top-k is 12 by its own convention, on its own target set only.
   if [ "$CATALOGUE_ONLY" = 1 ]; then TOPK=0
-  elif [ "$DRUG" = isoniazid ]; then TOPK=12
+  elif inh_special "$DRUG"; then TOPK=12
   else TOPK=$(grep -vc '^#' "$FIXED"); fi
   if [ -n "$DRYRUN" ]; then
     if [ "$MERGED" = none ]; then n=0; else n=$(( $(head -1 "$MERGED" | tr '\t' '\n' | wc -l) - 1 )); fi
@@ -174,7 +180,7 @@ for spec in "${SPECS[@]}"; do
           --export="ALL,DRUG=$DRUG,CVDIR=$(basename "$D"),MATRIX=$MERGED,\
 SR_BOUNDARY=$SRB,TAG=$TAG,ROOT=$ROOT" \
           "$CAT_SCRIPT" < /dev/null)
-  elif [ "$DRUG" = isoniazid ]; then
+  elif inh_special "$DRUG"; then
     jid=$(sbatch --parsable --job-name="${TAG}_${CODE}" \
           --export="ALL,MODE=dev,TAG=$TAG,RULE=$MERGED,ROOT=$ROOT,TOPK=$TOPK,\
 SR_BOUNDARY=$SRB" \
@@ -182,7 +188,7 @@ SR_BOUNDARY=$SRB" \
   else
     jid=$(sbatch --parsable --job-name="${TAG}_${CODE}" \
           --export="ALL,DRUG=$DRUG,CODE=$CODE,SR_BOUNDARY=$SRB,TOPK=$TOPK,\
-TARGETSET=$TARGETSET,TAG=$TAG,RULE=$MERGED,ROOT=$ROOT" \
+TARGETSET=$TARGETSET,TAG=$TAG,RULE=$MERGED,ROOT=$ROOT,CVDIR=$D" \
           "$SCRIPT" < /dev/null)
   fi
   echo "${DRUG}_${TAG}=$jid"

@@ -29,7 +29,9 @@ TOOLS="${TOOLS:-$MTB/scripts}"
 CVROOT="${CVROOT:-$P/imputed_strict}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs_strict}"
 CONFIGS="${CONFIGS:-$MTB/scripts/mtb_rf1000_configs.json}"
-TAG="${TAG:-armD1k}"
+# ARM names the config files (final_config_<drug>_<model>_arm<ARM>.json).
+ARM="${ARM:-D}"
+TAG="${TAG:-arm${ARM}1k}"
 
 DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
        levofloxacin meropenem piperacillin-tazobactam tobramycin)
@@ -62,11 +64,11 @@ for DRUG in "${DRUGS[@]}"; do
       --aggregation median --family rf \
       --w-vmer 2.0 --w-mer 1.0 --se-multiple 1.0 \
       --objective cost --tie-break bal_OT --tie-metric bal_OT \
-      --out "$CFGDIR/final_config_${DRUG}_${M}_armD.json"
+      --out "$CFGDIR/final_config_${DRUG}_${M}_arm${ARM}.json"
   done
 done
 
-n=$(ls -1 "$CFGDIR"/final_config_*_armD.json 2>/dev/null | wc -l)
+n=$(ls -1 "$CFGDIR"/final_config_*_arm${ARM}.json 2>/dev/null | wc -l)
 echo
 echo "[DONE] $n config(s) in $CFGDIR"
 [ "$n" -eq 30 ] || { echo "[ERROR] expected 30"; exit 1; }

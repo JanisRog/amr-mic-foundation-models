@@ -35,7 +35,7 @@ CFGOUT="${CFGOUT:-$OUT/configs}"
 # All of them are listed so the glob finds whichever exists for a given drug.
 # Dropping the bare `final1k` silently costs rifampicin its baseline arm and
 # drops the panel to n=8 without any error being raised.
-RUNS="${RUNS:-both_final1k tbrule1k final1k both_arm75 arm75 gwasfiltered_gwfrule1k gwasfiltered_gwfsnp1k both_arm76 arm76 both_embonly1k embonly1k snponly1k snprule1k}"
+RUNS="${RUNS:-both_final1k tbrule1k final1k both_arm75 arm75 gwasfiltered_gwfrule1k gwasfiltered_gwfsnp1k both_arm76 arm76 both_embonly1k embonly1k snponly1k snprule1k gwasfiltered_embonly1k gwasfiltered_arm76 gwasfiltered_varonly1k}"
 # The feature-set ablation (§20) adds embeddings + columns + rule bit (arm76),
 # embeddings alone (embonly1k), and two arms with no embeddings at all, which
 # have no encoder and live in runs/catalogue_<tag> -- hence `catalogue` among the
@@ -43,7 +43,8 @@ RUNS="${RUNS:-both_final1k tbrule1k final1k both_arm75 arm75 gwasfiltered_gwfrul
 
 DRUGS=(isoniazid_final rifampicin ethambutol ethionamide kanamycin amikacin
        levofloxacin moxifloxacin bedaquiline delamanid)
-read -ra MODELS <<< "${MODELS:-evo2 carbon dnabert catalogue}"
+# `variants`: the variant-table baseline (run_variant_table_baseline.sbatch), runs/variants_<suffix>.
+read -ra MODELS <<< "${MODELS:-evo2 carbon dnabert catalogue variants}"
 
 [ -e "$CONFIGS" ] || { echo "[ERROR] missing $CONFIGS"; exit 1; }
 rm -rf "$OUT"; mkdir -p "$OUT" "$CFGOUT"

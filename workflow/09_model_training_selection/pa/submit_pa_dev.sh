@@ -12,6 +12,10 @@
 # complete nested arm; see run_pa_holdout.sbatch on why it is declared rather
 # than chosen.
 #
+# ARM=C runs the same embeddings without the presence block (chromosomal +
+# acquired-gene sequence embeddings only): the embeddings-only model compared
+# across the three language models in Figure 1. It reuses arm D's cache.
+#
 #   ./submit_pa_dev.sh            submit
 #   DRYRUN=1 ./submit_pa_dev.sh   print the submissions and the derived TOPK
 
@@ -20,7 +24,9 @@ set -euo pipefail
 P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 CVROOT="${CVROOT:-$P/imputed_strict}"
 LABELS="${LABELS:-$P/labels_imputed_strict}"
-TAG="${TAG:-armD1k}"
+ARM="${ARM:-D}"
+case "$ARM" in C|D) ;; *) echo "[ERROR] ARM=$ARM: C or D"; exit 1 ;; esac
+TAG="${TAG:-arm${ARM}1k}"
 SCRIPT="${SCRIPT:-$P/scripts/run_pa_dev.sbatch}"
 DRYRUN="${DRYRUN:-}"
 
@@ -43,10 +49,11 @@ for DRUG in "${DRUGS[@]}"; do
   FIXED="$P/targets/combined/${DRUG}_all.txt"
   ZEROFILL="$P/targets/amrseq_targets.txt"
   EXTRA="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
+  [ "$ARM" = D ] || EXTRA=""
   FOLDS="$CVROOT/cv_${DRUG}/cv_folds.tsv"
 
   miss=0
-  for f in "$FIXED" "$ZEROFILL" "$EXTRA" "$FOLDS"; do
+  for f in "$FIXED" "$ZEROFILL" ${EXTRA:+"$EXTRA"} "$FOLDS"; do
     [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; miss=1; }
   done
   [ "$miss" -eq 0 ] || { echo "[ERROR] nothing submitted"; exit 1; }
@@ -69,7 +76,7 @@ for DRUG in "${DRUGS[@]}"; do
   # `< /dev/null` is not optional inside a loop: sbatch reads stdin, and a loop
   # that feeds it the remaining drug names loses every other job to a 0-second
   # FAILED with no error message. That cost five drugs once already.
-  jid=$(sbatch --parsable --job-name="pad_${DRUG:0:6}" \
+  jid=$(sbatch --parsable --job-name="pa${ARM}_${DRUG:0:6}" \
         --export="$EXPORTS" "$SCRIPT" < /dev/null)
   echo "${DRUG}_submit=$jid"
 done

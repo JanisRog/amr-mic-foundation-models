@@ -30,7 +30,10 @@ MTB="${MTB:?set MTB in config/paths.env}"
 PY="${PY:?set PY in config/paths.env}"
 SCRIPTS="${SCRIPTS:-$MTB/scripts}"
 NJOBS="${NJOBS:-16}"
-TAG="${TAG:-armD_HOLDOUT}"
+# ARM=C: the embeddings-only arm, scored for the model comparison only, with
+# EXTRA=none and predictions suffixed _armC. Arm D remains the reported arm.
+ARM="${ARM:-D}"
+TAG="${TAG:-arm${ARM}_HOLDOUT}"
 
 # Arm D = the acquired-sequence cache with the presence block appended at
 # scoring time. Arms differing only in their extra-feature TSV share a
@@ -54,16 +57,22 @@ EXTRA="${EXTRA:-$P/labels/amrfinder/by_drug_tsv/${DRUG}.tsv}"
 OUTDIR="${OUTDIR:-$P/predictions}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs}"
 
-for f in "$FOLDS_FINAL" "$FIXED" "$ZEROFILL" "$EXTRA"; do
+NEED=("$FOLDS_FINAL" "$FIXED" "$ZEROFILL")
+EXTRA_ARGS=()
+if [ "$EXTRA" != none ]; then NEED+=("$EXTRA"); EXTRA_ARGS=(--extra-feature-tsv "$EXTRA"); fi
+for f in "${NEED[@]}"; do
   [ -e "$f" ] || { echo "[ERROR] missing $f"; exit 1; }
 done
+PRED_SUFFIX=""
+[ "$ARM" = D ] || PRED_SUFFIX="_arm${ARM}"
 TOPK="${TOPK:-$(grep -vc '^#' "$FIXED")}"
 
 echo "[INFO] drug      = $DRUG   boundary $SR_BOUNDARY   top-k $TOPK"
 echo "[INFO] folds     = $FOLDS_FINAL ($(( $(wc -l < "$FOLDS_FINAL") - 1 )) rows)"
 echo "[INFO] targets   = $FIXED"
 echo "[INFO] zero-fill = $ZEROFILL ($(grep -vc '^#' "$ZEROFILL") acquired targets)"
-echo "[INFO] presence  = $EXTRA ($(( $(head -1 "$EXTRA" | tr '\t' '\n' | wc -l) - 1 )) columns)"
+if [ "$EXTRA" = none ]; then echo "[INFO] presence  = NONE (arm $ARM, embeddings only)"
+else echo "[INFO] presence  = $EXTRA ($(( $(head -1 "$EXTRA" | tr '\t' '\n' | wc -l) - 1 )) columns)"; fi
 echo "[INFO] embeddings= $EMB_SUBDIR"
 
 declare -A MROOT=( [evo2]="$P/results/ml/pa_evo2"
@@ -79,7 +88,7 @@ for M in evo2 carbon dnabert; do
   # CFGDIR rather than CFG: the loop runs three models, so a single CFG from the
   # environment would be applied to the first and then unset, silently sending
   # the other two to the default path.
-  CFG="$CFGDIR/final_config_${DRUG}_${M}_armD.json"
+  CFG="$CFGDIR/final_config_${DRUG}_${M}_arm${ARM}.json"
   for f in "$DEV/precompute_manifest.json" "$CFG"; do
     [ -e "$f" ] || { echo "[ERROR] missing $f"; exit 1; }
   done
@@ -129,12 +138,12 @@ PYEOF
 
   $PY "$SCRIPTS/cv_run_architecture.py" \
     --cache-dir "$OUT" \
-    --extra-feature-tsv "$EXTRA" \
+    "${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}" \
     --mode shared4 --top-k "$TOPK" \
     --configs "$CFG" \
     --sr-boundary "$SR_BOUNDARY" \
     --label "${M}_${TAG}" \
-    --save-predictions "$OUTDIR/${DRUG}_${M}_holdout_predictions.tsv" \
+    --save-predictions "$OUTDIR/${DRUG}_${M}_holdout_predictions${PRED_SUFFIX}.tsv" \
     --out-dir "$D/runs/${M}_${TAG}" \
     --n-jobs "$NJOBS" --seed 2026
 done
