@@ -117,10 +117,15 @@ def main() -> int:
                     help="a column needs enough carriers to appear in a validation "
                          "fold: at 5-fold CV that is about 0.2N, so 10 is the point "
                          "an effect can be validated. Set 0 to keep everything")
-    ap.add_argument("--max-carrier-frac", type=float, default=0.99,
+    ap.add_argument("--max-carrier-frac", type=float, default=0.95,
                     help="drop near-universal columns, which cannot discriminate. "
                          "This removes no information -- a gene every isolate has "
-                         "splits nothing")
+                         "splits nothing. 0.95 is the value the reported cohort was "
+                         "built with (checked 2026-10-19: mexE, fosA and catB7, at "
+                         "96-98% carriage, are absent from amrfinder_columns.tsv and "
+                         "the largest kept carrier fraction is 0.644); the default "
+                         "was 0.99 until then, so a rerun of an earlier checkout "
+                         "needs --max-carrier-frac 0.95")
     args = ap.parse_args()
 
     files = sorted(pathlib.Path(args.amrfinder_dir).rglob("*.amrfinderplus.tsv"))
