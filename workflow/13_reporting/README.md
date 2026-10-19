@@ -12,6 +12,10 @@ through `$MTB_SCRIPTS`.
   organism, one call per drug with models and comparator together.
 - `mtb/make_all_figures.sh`, `pa/make_all_pa_figures.sh` — every figure in one
   command.
+- `pa/stage_reported_pa.py` — assembles the reported *P. aeruginosa* model (ARDaP's call
+  for the eight antimicrobials ARDaP calls, AMRFinderPlus presence for levofloxacin and
+  aztreonam) under the names the workbook and figure scripts read, with a manifest of
+  every source file; run it before `pa/build_pa_workbook.sh` and `pa/make_all_pa_figures.sh`.
 - `make_panel_figures.py`, `plot_mic_scatter.py`, `plot_class_distribution.py`,
   `plot_model_comparison.py`, `plot_f1_boxes.py`, `plot_metric_bars.py`, `make_panel_grids.py` — the
   individual figures; each recomputes its metrics from per-isolate predictions and

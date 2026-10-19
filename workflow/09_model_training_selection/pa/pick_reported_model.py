@@ -71,7 +71,7 @@ def main() -> int:
         if args.config_dir:
             import json
             import re
-            found = re.match(r"arm[A-Z]+", args.tag)          # armCR1k -> armCR
+            found = re.match(r"(arm[A-Z]+|reported)", args.tag)   # armCR1k -> armCR; reported1k -> reported
             arm = found.group(0) if found else "armD"
             j = pathlib.Path(args.config_dir) / \
                 f"final_config_{args.drug}_{m}_{arm}.json"

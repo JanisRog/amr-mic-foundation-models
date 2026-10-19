@@ -58,6 +58,26 @@ SEQ = LinearSegmentedColormap.from_list(
 
 UNDERPOWERED = ["bedaquiline", "delamanid"]
 
+def _italic_font(bold: bool):
+    """A real italic face for organism names.
+
+    The body font (Helvetica Neue) lives in a .ttc collection of which matplotlib loads only the
+    first face, so fontstyle="italic" silently renders upright. Use an italic file directly:
+    Arial where present, matplotlib's bundled DejaVu Sans Oblique otherwise.
+    """
+    from matplotlib.font_manager import FontProperties
+    name = "Arial Bold Italic.ttf" if bold else "Arial Italic.ttf"
+    for d in ("/System/Library/Fonts/Supplemental", "/Library/Fonts", "/usr/share/fonts/truetype/msttcorefonts",
+              str(pathlib.Path.home() / "Library/Fonts")):
+        if (pathlib.Path(d) / name).exists():
+            return FontProperties(fname=str(pathlib.Path(d) / name))
+    return FontProperties(fname=str(pathlib.Path(mpl.get_data_path()) / "fonts/ttf"
+                                    / ("DejaVuSans-BoldOblique.ttf" if bold else "DejaVuSans-Oblique.ttf")))
+
+
+ITALIC = _italic_font(False)          # use as fontproperties=ITALIC for species names
+ITALIC_BOLD = _italic_font(True)
+
 mpl.rcParams.update({
     "figure.dpi": 150, "savefig.dpi": 400,
     "font.family": "sans-serif",

@@ -56,7 +56,15 @@ DRUGS = PANELS["mtb"]
 # What each panel's models were fitted on, for the sheet subtitles. P. aeruginosa
 # has no catalogue call; printing "TB-Profiler rule bit" under its figures was wrong.
 FEATURES = {"mtb": "shared PCA4 + TB-Profiler rule bit",
-            "pseaer": "shared PCA4 + AMRFinderPlus presence columns"}
+            "pseaer": "shared PCA4 + ARDaP call (levofloxacin and aztreonam: AMRFinderPlus presence columns)"}
+# what region "other" is in each panel's SHAP key: MTB's call, or P. aeruginosa's ARDaP call
+CALL_LABEL = {"mtb": "TB-Profiler rule bit", "pseaer": "ARDaP call"}
+PANEL_CALL_LABEL = CALL_LABEL["mtb"]
+PANEL = "mtb"
+# one sentence about the leading feature, true of each panel's reported model
+LEAD_NOTE = {"mtb": "Every drug's leading locus is the one its catalogue names. ",
+             "pseaer": "\nARDaP's call is shown as its own row; levofloxacin and aztreonam, which it does not "
+                       "call, carry the AMRFinderPlus columns instead.\n"}
 FEATURES_LABEL = FEATURES["mtb"]
 PREFIX = ""
 # drug -> the model whose SHAP run belongs to the reported figure; filled from
@@ -246,7 +254,7 @@ def sheet_shap(pred_dir: pathlib.Path, out: pathlib.Path, top: int = 0):
     key.axis("off")
     key.legend(handles=[Line2D([], [], marker="o", ls="none", ms=6,
                                color=REGION[r][0],
-                               label="TB-Profiler rule bit" if r == "other"
+                               label=PANEL_CALL_LABEL if r == "other"
                                      else REGION[r][1])
                         for r in seen],
                loc="upper center", bbox_to_anchor=(0.5, 1.7), ncol=min(len(seen), 3),
@@ -257,9 +265,9 @@ def sheet_shap(pred_dir: pathlib.Path, out: pathlib.Path, top: int = 0):
     top_y = header(fig, "What the model used, every drug",
                    "TreeSHAP on each reported model, one point per held-out "
                    "isolate. One row per locus, gene body above and 300 bp "
-                   f"upstream\nbelow, ordered by mean |SHAP|; {shown}. Every "
-                   "drug's leading locus is the one its catalogue names. The "
-                   "single-drug figures show the full attribution.", pad_in=0.22)
+                   f"upstream\nbelow, ordered by mean |SHAP|; {shown}. "
+                   + LEAD_NOTE[PANEL] +
+                   "The single-drug figures show the full attribution.", pad_in=0.22)
     # Left margin sized for the longest label actually drawn. At 0.115 the PA
     # sheet clipped "mexZ_G195E (NFOBNJ_02085)" to "exZ_G195E" -- locus tags make
     # these labels far longer than MTB's gene names, and a clipped gene name on a
@@ -300,8 +308,10 @@ def main() -> int:
                  (x.split(":") for x in args.drug_list.split(","))]
     global PREFIX
     PREFIX = args.stem_prefix
-    global FEATURES_LABEL
+    global FEATURES_LABEL, PANEL_CALL_LABEL, PANEL
     FEATURES_LABEL = FEATURES[args.panel]
+    PANEL_CALL_LABEL = CALL_LABEL[args.panel]
+    PANEL = args.panel
     print(f"[INFO] panel {args.panel}: {len(DRUGS)} drugs")
 
     mmap = dict(x.split("=") for x in args.model_map.split(",")) \

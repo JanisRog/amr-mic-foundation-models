@@ -89,10 +89,15 @@ def normalise(long):
     Done here rather than in the SHAP job: it is a presentation decision, and
     redoing it upstream would mean re-running ten cluster jobs to rename a row.
     """
+    long = long.copy()
+    # ARDaP's call (the reported P. aeruginosa model for the antimicrobials it calls) is
+    # one feature, like MTB's TB-Profiler call, and carries its own name.
+    ard = long["target_id"].str.startswith("rule::ardap_call_")
+    long.loc[ard, "locus"] = "ardap_call"
+    long.loc[ard, "gene"] = "ARDaP call"
     m = (long["region"] == "other") & long["target_id"].str.startswith("rule::amr_")
     if not m.any():
-        return long                      # MTB: one rule bit, nothing to split
-    long = long.copy()
+        return long                      # MTB or ARDaP call: one catalogue feature, nothing to split
     name = long.loc[m, "target_id"].str.removeprefix("rule::amr_")
     long.loc[m, "locus"] = name
     long.loc[m, "gene"] = name
@@ -206,7 +211,10 @@ def main() -> int:
     def legend_text(r):
         # After normalise() the PA presence block is already split into its own
         # categories, so "other" can only be MTB's single rule bit.
-        return "TB-Profiler rule bit" if r == "other" else REGION[r][1]
+        if r == "other":
+            ard = long["target_id"].str.startswith("rule::ardap_call_").any()
+            return "ARDaP call" if ard else "TB-Profiler rule bit"
+        return REGION[r][1]
 
     ax.legend(handles=[Line2D([], [], marker="o", ls="none", ms=6,
                               color=REGION[r][0], label=legend_text(r))

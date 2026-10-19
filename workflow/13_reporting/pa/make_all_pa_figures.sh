@@ -20,6 +20,9 @@
 
 set -euo pipefail
 
+# The reported model mixes arms (CR for eight antimicrobials, D for two). Stage it first with
+# stage_reported_pa.py, build its workbook with build_pa_workbook.sh, then run this with
+#   IN=<staged dir> TAG=reported1k WB=<reported workbook> MTB_WB=<MTB wider workbook> OUT=... CROSS_OUT=...
 IN="${IN:-$HOME/Downloads/pa_strict}"
 PRED="${PRED:-$IN/predictions_strict}"
 SLIM="${SLIM:-$IN/slim_strict}"
@@ -48,6 +51,13 @@ for spec in "${DRUGS[@]}"; do
   MAP="${MAP:+$MAP,}$1=$m"
 done
 model_of() { printf '%s' "$MAP" | tr ',' '\n' | grep "^$1=" | cut -d= -f2; }
+# the reported model's catalogue input: ARDaP's call where ARDaP calls the antimicrobial
+features_label_of() {
+  case "$1" in
+    aztreonam|levofloxacin) echo "shared PCA4 + AMRFinderPlus presence columns" ;;
+    *) echo "shared PCA4 + ARDaP call" ;;
+  esac
+}
 echo "[INFO] reported model per drug: $MAP"
 
 for spec in "${DRUGS[@]}"; do
@@ -66,7 +76,7 @@ for spec in "${DRUGS[@]}"; do
   M=$(model_of "$1")
   python3 "$MTB/plot_mic_scatter.py" --predictions "$PRED/${1}_${M}_holdout_predictions.tsv" \
     --workbook "$WB" --drug "$1" --model "$M" --sr-boundary "$2" \
-    --features-label "shared PCA4 + AMRFinderPlus presence columns" \
+    --features-label "$(features_label_of "$1")" \
     --out-dir "$OUT" --stem "scatter_$1"
   python3 "$MTB/plot_class_distribution.py" --predictions "$PRED/${1}_${M}_holdout_predictions.tsv" \
     --folds "$SLIM/cv_${1}/cv_folds_final.tsv" --workbook "$WB" --drug "$1" --model "$M" \
@@ -96,14 +106,25 @@ echo "[INFO] $n_shap of ${#DRUGS[@]} drugs have SHAP beeswarms"
 python3 "$MTB/plot_metric_bars.py" --workbook "$WB" --panel pseaer --out-dir "$OUT"
 
 # ---- the three models side by side ----------------------------------------
-python3 "$MTB/plot_model_comparison.py" --workbook "$WB" --panel pseaer \
-  --label "P. aeruginosa" --stem pa_model_comparison --out-dir "$OUT"
+# needs Carbon and DNABERT-2 rows; skipped while only Evo 2 is staged
+if python3 - "$WB" <<'PYEOF'
+import sys
+from openpyxl import load_workbook
+rows = list(load_workbook(sys.argv[1], read_only=True)["summary"].iter_rows(values_only=True))
+sys.exit(0 if {"evo2", "carbon", "dnabert"} <= {r[1] for r in rows[1:]} else 1)
+PYEOF
+then
+  python3 "$MTB/plot_model_comparison.py" --workbook "$WB" --panel pseaer \
+    --label "P. aeruginosa" --stem pa_model_comparison --out-dir "$OUT"
+else
+  echo "[skip] model comparison: the workbook does not hold all three models yet"
+fi
 
 # ---- cross-panel: F1 against each organism's own baseline ------------------
 # Needs both organisms, so it lives here rather than in either panel's folder and
 # is skipped when the MTB side is not present. Generated from the PA driver
 # because the PA numbers are the ones that move.
-MTB_WB="${MTB_WB:-$HOME/Desktop/AMRPredict_panel_results.xlsx}"
+MTB_WB="${MTB_WB:-$HOME/Desktop/AMRPredict_panel_results_wider.xlsx}"
 CROSS_OUT="${CROSS_OUT:-figures/cross}"
 if [ -e "$MTB_WB" ] && [ -d "$IN/cv_amikacin" ]; then
   python3 "$MTB/plot_f1_boxes.py" --mtb-workbook "$MTB_WB" \

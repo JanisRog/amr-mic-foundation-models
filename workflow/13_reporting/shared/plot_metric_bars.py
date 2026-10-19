@@ -145,6 +145,11 @@ def main() -> int:
 def median_figure(summary, P, a):
     """One bar per model: the median over antimicrobials, each antimicrobial a point."""
     drugs = [d for d in P["drugs"] if d not in P["underpowered"]]
+    if any(pick(summary, d, m, "holdout", "OT") is None for d in drugs for m in MODELS):
+        # a median over a model with no rows would be a median over nothing; the figure
+        # needs all three models, so it waits until they are all in the workbook
+        print("[skip] median figure: the workbook does not hold all three models for every antimicrobial")
+        return
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw={"wspace": 0.22})
     covered = None
     for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
@@ -197,6 +202,10 @@ def pooled_figure(a):
     pairs = [(k, d) for k in ("mtb", "pseaer") for d in PANELS[k]["drugs"]
              if d not in PANELS[k]["underpowered"]]
     marker = {"mtb": "o", "pseaer": "^"}
+    if any(pick(books[k], d, m, "holdout", "OT") is None for k, d in pairs for m in MODELS):
+        # a bar that silently pooled fewer pairs than its neighbours would not be comparable
+        print("[skip] pooled figure: a model lacks rows for some organism-antimicrobial pairs")
+        return 0
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw={"wspace": 0.22})
     n_base = 0
     for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),

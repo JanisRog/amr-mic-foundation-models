@@ -21,13 +21,16 @@ BASE="${BASE:-$IN}"                       # cv_<drug>/baseline_rows.tsv
 OUT="${OUT:-$HOME/Desktop/AMRPredict_pseaer_strict_results.xlsx}"
 TAG="${TAG:-armD1k}"
 HTAG="${HTAG:-armD_HOLDOUT}"
+# The reported model mixes arms (CR for eight antimicrobials, D for two), so it is built
+# from the tree stage_reported_pa.py writes: TAG=reported1k HTAG=reported_HOLDOUT CFGARM=reported.
+CFGARM="${CFGARM:-armD}"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOOLS="${TOOLS:-${MTB_SCRIPTS:-$HERE/../tools}}"
 NOTE="${NOTE:-1-SE on cost=2*vMER+MER, ties broken on bal_OT, median aggregation; arm D declared in advance}"
 
 DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
        levofloxacin meropenem piperacillin-tazobactam tobramycin)
-MODELS=(evo2 carbon dnabert)
+read -ra MODELS <<< "${MODELS:-evo2 carbon dnabert}"
 
 rm -f "$OUT"
 n_base=0
@@ -50,7 +53,7 @@ for DRUG in "${DRUGS[@]}"; do
   for M in "${MODELS[@]}"; do
     dev="$SLIM/cv_${DRUG}/runs/${M}_${TAG}"
     hold="$SLIM/cv_${DRUG}/runs/${M}_${HTAG}"
-    cfg="$IN/scripts/final_configs_strict/final_config_${DRUG}_${M}_armD.json"
+    cfg="$IN/scripts/final_configs_strict/final_config_${DRUG}_${M}_${CFGARM}.json"
     for f in "$dev/folds.tsv" "$hold/folds.tsv" "$cfg"; do
       [ -e "$f" ] || { echo "[ERROR] $DRUG/$M: missing $f"; exit 1; }
     done
