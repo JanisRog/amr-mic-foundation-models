@@ -18,7 +18,8 @@ PY="${PY:?set PY in config/paths.env}"
 CVROOT="${CVROOT:-$P/imputed_strict}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs_strict}"
 OUTDIR="${OUTDIR:-$P/shap_strict}"
-TAG="${TAG:-armD1k}"
+ARM="${ARM:-D}"                 # CR: the eight antimicrobials ARDaP calls
+TAG="${TAG:-arm${ARM}1k}"
 SCRIPT="${SCRIPT:-$P/scripts/run_pa_shap.sbatch}"
 PICK="${PICK:-$P/scripts/pick_reported_model.py}"
 DRYRUN="${DRYRUN:-}"
@@ -37,6 +38,7 @@ done
 mkdir -p "$OUTDIR"
 
 for DRUG in "${DRUGS[@]}"; do
+  if [ "$ARM" = CR ]; then case "$DRUG" in aztreonam|levofloxacin) continue ;; esac; fi
   M=$($PY "$PICK" --run-dir "$CVROOT/cv_${DRUG}" --tag "$TAG" \
         --config-dir "$CFGDIR" --drug "$DRUG")
   [ -n "$M" ] || { echo "[ERROR] no model for $DRUG"; exit 1; }
@@ -52,7 +54,7 @@ for DRUG in "${DRUGS[@]}"; do
   # `< /dev/null`: sbatch reads stdin, and a loop that feeds it the remaining
   # drug names loses every other job to a 0-second FAILED with no error message.
   jid=$(sbatch --parsable --job-name="pas_${DRUG:0:6}" \
-        --export="ALL,DRUG=$DRUG,MODEL=$M,SR_BOUNDARY=${SRB[$DRUG]},CVROOT=$CVROOT,CFGDIR=$CFGDIR,OUTDIR=$OUTDIR" \
+        --export="ALL,DRUG=$DRUG,MODEL=$M,ARM=$ARM,SR_BOUNDARY=${SRB[$DRUG]},CVROOT=$CVROOT,CFGDIR=$CFGDIR,OUTDIR=$OUTDIR" \
         "$SCRIPT" < /dev/null)
   echo "${DRUG}_shap=$jid"
 done

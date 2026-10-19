@@ -57,7 +57,10 @@ EXTRA="${EXTRA:-$P/labels/amrfinder/by_drug_tsv/${DRUG}.tsv}"
 OUTDIR="${OUTDIR:-$P/predictions}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs}"
 
-NEED=("$FOLDS_FINAL" "$FIXED" "$ZEROFILL")
+# ZEROFILL=none: no acquired targets in the list (arm A), so nothing may be absent.
+NEED=("$FOLDS_FINAL" "$FIXED")
+ZF_ARGS=()
+if [ "$ZEROFILL" != none ]; then NEED+=("$ZEROFILL"); ZF_ARGS=(--zero-fill-targets "$ZEROFILL"); fi
 EXTRA_ARGS=()
 if [ "$EXTRA" != none ]; then NEED+=("$EXTRA"); EXTRA_ARGS=(--extra-feature-tsv "$EXTRA"); fi
 for f in "${NEED[@]}"; do
@@ -70,7 +73,8 @@ TOPK="${TOPK:-$(grep -vc '^#' "$FIXED")}"
 echo "[INFO] drug      = $DRUG   boundary $SR_BOUNDARY   top-k $TOPK"
 echo "[INFO] folds     = $FOLDS_FINAL ($(( $(wc -l < "$FOLDS_FINAL") - 1 )) rows)"
 echo "[INFO] targets   = $FIXED"
-echo "[INFO] zero-fill = $ZEROFILL ($(grep -vc '^#' "$ZEROFILL") acquired targets)"
+if [ "$ZEROFILL" = none ]; then echo "[INFO] zero-fill = none"
+else echo "[INFO] zero-fill = $ZEROFILL ($(grep -vc '^#' "$ZEROFILL") acquired targets)"; fi
 if [ "$EXTRA" = none ]; then echo "[INFO] presence  = NONE (arm $ARM, embeddings only)"
 else echo "[INFO] presence  = $EXTRA ($(( $(head -1 "$EXTRA" | tr '\t' '\n' | wc -l) - 1 )) columns)"; fi
 echo "[INFO] embeddings= $EMB_SUBDIR"
@@ -80,7 +84,7 @@ declare -A MROOT=( [evo2]="$P/results/ml/pa_evo2"
                    [dnabert]="$P/results/ml/pa_dnabert" )
 
 mkdir -p "$OUTDIR"
-for M in evo2 carbon dnabert; do
+for M in ${MODELS:-evo2 carbon dnabert}; do
   echo
   echo "################ $M ################"
   DEV="$D/cache_${M}_${CACHE_TAG}"
@@ -102,7 +106,7 @@ for M in evo2 carbon dnabert; do
       --var-threshold 0.99 --max-components 25 \
       --top-targets 256 --seed 2026 \
       --fixed-targets "$FIXED" \
-      --zero-fill-targets "$ZEROFILL" \
+      "${ZF_ARGS[@]+"${ZF_ARGS[@]}"}" \
       --only-fold 0:0 \
       --out-dir "$OUT"
   else

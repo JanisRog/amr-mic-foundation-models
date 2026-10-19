@@ -21,8 +21,10 @@ are referenced from the embedding scripts.
   target set `gwasfiltered`), four principal components per target, plus
   TB-Profiler's own resistance call. Evo 2 is the primary encoder.
 - ***P. aeruginosa*:** embeddings of curated chromosomal loci and of acquired
-  genes, plus acquired-gene presence; no catalogue call exists for this species.
-  Evo 2 is the reported encoder here as well.
+  genes plus ARDaP's own resistance call (S/I/R as one ordered column; arm `CR`)
+  for the eight antimicrobials ARDaP calls; for levofloxacin and aztreonam, which
+  it does not, acquired-gene presence in place of the call (arm `D`, the
+  originally declared model). Evo 2 is the reported encoder here as well.
 
 Scripts for the alternatives that were compared against these (the earlier target
 set, mutation columns in place of the call, embeddings alone, catalogue features

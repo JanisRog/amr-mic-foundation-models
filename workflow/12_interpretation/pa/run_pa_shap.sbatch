@@ -31,8 +31,15 @@ CACHE_TAG="${CACHE_TAG:-embseq}"
 
 D="$CVROOT/cv_${DRUG}"
 CACHE="${CACHE:-$D/cache_${MODEL}_${CACHE_TAG}_HOLDOUT}"
-CFG="${CFG:-$CFGDIR/final_config_${DRUG}_${MODEL}_armD.json}"
-EXTRA="${EXTRA:-$P/labels_imputed_strict/amrfinder/by_drug_tsv/${DRUG}.tsv}"
+# ARM=CR: the reported model for the eight antimicrobials ARDaP calls (decision of
+# 2026-10-19); outputs carry an _armCR suffix so arm D's stay beside them.
+ARM="${ARM:-D}"
+CFG="${CFG:-$CFGDIR/final_config_${DRUG}_${MODEL}_arm${ARM}.json}"
+if [ "$ARM" = CR ]; then
+  EXTRA="${EXTRA:-$P/labels_imputed_strict/ardap_features/${DRUG}_armCR.tsv}"; SFX=_armCR
+else
+  EXTRA="${EXTRA:-$P/labels_imputed_strict/amrfinder/by_drug_tsv/${DRUG}.tsv}"; SFX=""
+fi
 FIXED="${FIXED:-$P/targets/combined/${DRUG}_all.txt}"
 CLUMPS="${CLUMPS:-$P/targets/all_gene_target_clumps.tsv}"
 OUTDIR="${OUTDIR:-$P/shap_strict}"
@@ -57,7 +64,7 @@ $PY "$SCRIPTS/shap_target_values.py" \
   --sr-boundary "$SR_BOUNDARY" \
   ${CLUMPS:+--clumps "$CLUMPS"} \
   --n-jobs "$NJOBS" --seed 2026 \
-  --out-prefix "$OUTDIR/${DRUG}_${MODEL}"
+  --out-prefix "$OUTDIR/${DRUG}_${MODEL}${SFX}"
 
 echo
-echo "[DONE] $OUTDIR/${DRUG}_${MODEL}_shap_long.tsv"
+echo "[DONE] $OUTDIR/${DRUG}_${MODEL}${SFX}_shap_long.tsv"

@@ -30,3 +30,6 @@ remainder. In `cv_folds.tsv`, `fold < 0` is the held-out set. With `--allele-tsv
   presence, families collapsed by explicit list, carrier floor of ten within each
   drug's development cohort.
 - `build_pa_cohorts.sbatch` — labels, folds and presence for one drug in one job.
+- `make_ardap_feature_tsv.py` — ARDaP's own per-drug call as one ordered column
+  (S = 0, I = 1, R = 2; no call = −1, at most 1% of a cohort), the catalogue input
+  of the reported model for the eight antimicrobials ARDaP calls.

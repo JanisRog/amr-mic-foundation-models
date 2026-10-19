@@ -23,8 +23,8 @@ PY="${PY:?set PY in config/paths.env}"
 # is genuinely not in that file, and the script stops -- correctly, but for a
 # reason that looks like corrupt data rather than a mismatched argument.
 # Each run takes the config of its own arm (armC1k / armC_HOLDOUT -> *_armC.json).
-RUNS="${RUNS:-armD1k armD_HOLDOUT armC1k armC_HOLDOUT}"
-BASE_RUNS="${BASE_RUNS:-base_presence base_presence_HOLDOUT varonly varonly_HOLDOUT}"
+RUNS="${RUNS:-armD1k armD_HOLDOUT armC1k armC_HOLDOUT armA1k armA_HOLDOUT armCR1k armCR_HOLDOUT armDR1k armDR_HOLDOUT}"
+BASE_RUNS="${BASE_RUNS:-base_presence base_presence_HOLDOUT varonly varonly_HOLDOUT varchromo varchromo_HOLDOUT}"
 DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
        levofloxacin meropenem piperacillin-tazobactam tobramycin)
 
@@ -35,7 +35,7 @@ for d in "${DRUGS[@]}"; do
       run="${m}_${suffix}"
       src="$CVROOT/cv_$d/runs/$run"; dst="$OUT/cv_$d/runs/$run"
       [ -d "$src" ] || continue
-      arm=$(printf '%s' "$suffix" | sed -E 's/^(arm[A-Z]).*/\1/')
+      arm=$(printf '%s' "$suffix" | sed -E 's/^(arm[A-Z]+).*/\1/')
       cfg="$CFGDIR/final_config_${d}_${m}_${arm}.json"
       [ -e "$cfg" ] || { echo "[WARN] no config for $d/$m/$arm"; continue; }
       tag=$($PY -c "import json,sys;print(json.load(open(sys.argv[1]))[0]['tag'])" "$cfg")

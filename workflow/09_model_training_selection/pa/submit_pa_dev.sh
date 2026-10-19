@@ -25,7 +25,16 @@ P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 CVROOT="${CVROOT:-$P/imputed_strict}"
 LABELS="${LABELS:-$P/labels_imputed_strict}"
 ARM="${ARM:-D}"
-case "$ARM" in C|D) ;; *) echo "[ERROR] ARM=$ARM: C or D"; exit 1 ;; esac
+# ARM=A: chromosomal targets only (the reported list minus the acquired genes),
+# embeddings alone; its own cache, since the shared projection is fitted over targets.
+# ARM=CR / DR (exploratory): arm C / arm D plus ARDaP's own call as one column
+# (make_ardap_feature_tsv.py, S=0 I=1 R=2). ARDaP covers 8 drugs; Evo 2 only.
+case "$ARM" in A|C|D|CR|DR) ;; *) echo "[ERROR] ARM=$ARM: A, C, D, CR or DR"; exit 1 ;; esac
+PY="${PY:?set PY in config/paths.env}"
+CALLS="${CALLS:-$P/labels/ardap_calls.tsv}"
+if [ -z "${MODELS:-}" ]; then
+  if [ "$ARM" = CR ] || [ "$ARM" = DR ]; then MODELS=evo2; else MODELS="evo2 carbon dnabert"; fi
+fi
 TAG="${TAG:-arm${ARM}1k}"
 SCRIPT="${SCRIPT:-$P/scripts/run_pa_dev.sbatch}"
 DRYRUN="${DRYRUN:-}"
@@ -45,15 +54,45 @@ DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
 
 [ -e "$SCRIPT" ] || { echo "[ERROR] missing $SCRIPT"; exit 1; }
 
+# ARDaP arms: build and check every feature file first, so a drug without calls
+# stops the run before any job is submitted.
+if [ "$ARM" = CR ] || [ "$ARM" = DR ]; then
+  for DRUG in "${DRUGS[@]}"; do
+    case "$DRUG" in aztreonam|levofloxacin) continue ;; esac
+    MERGE=""; [ "$ARM" = DR ] && MERGE="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
+    $PY "$P/scripts/make_ardap_feature_tsv.py" --calls "$CALLS" --drug "$DRUG" \
+      --rows "$CVROOT/cv_${DRUG}/cv_folds_final.tsv" ${MERGE:+--merge-with "$MERGE"} \
+      --out "$LABELS/ardap_features/${DRUG}_arm${ARM}.tsv" || { echo "[ERROR] nothing submitted"; exit 1; }
+  done
+fi
+
 for DRUG in "${DRUGS[@]}"; do
   FIXED="$P/targets/combined/${DRUG}_all.txt"
   ZEROFILL="$P/targets/amrseq_targets.txt"
   EXTRA="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
-  [ "$ARM" = D ] || EXTRA=""
+  [ "$ARM" = D ] || [ "$ARM" = DR ] || EXTRA=""
+  CACHE_TAG=embseq
+  if [ "$ARM" = CR ] || [ "$ARM" = DR ]; then
+    case "$DRUG" in aztreonam|levofloxacin) echo "[INFO] $DRUG: no ARDaP call, skipped"; continue ;; esac
+    EXTRA="$LABELS/ardap_features/${DRUG}_arm${ARM}.tsv"     # built before the loop
+  fi
+  if [ "$ARM" = A ]; then
+    CHROMO="$P/targets/chromosomal/${DRUG}.txt"
+    mkdir -p "$(dirname "$CHROMO")"
+    awk 'NR==FNR { if ($1 !~ /^#/) acq[$1] = 1; next }
+         $1 !~ /^#/ && NF && !($1 in acq) { print $1 }' "$ZEROFILL" "$FIXED" > "$CHROMO"
+    n_all=$(grep -vc '^#' "$FIXED"); n_chr=$(grep -vc '^#' "$CHROMO")
+    [ "$n_chr" -gt 0 ] || { echo "[ERROR] $DRUG: no chromosomal targets left"; exit 1; }
+    echo "[INFO] $DRUG: $n_chr chromosomal of $n_all targets -> $CHROMO"
+    # ZEROFILL stays: the builder checks coverage of every target in the cohort's
+    # map, acquired genes included, so their absence must be declared even though
+    # they are not in this target list and contribute no features.
+    FIXED="$CHROMO"; CACHE_TAG=chromo
+  fi
   FOLDS="$CVROOT/cv_${DRUG}/cv_folds.tsv"
 
   miss=0
-  for f in "$FIXED" "$ZEROFILL" ${EXTRA:+"$EXTRA"} "$FOLDS"; do
+  for f in "$FIXED" ${ZEROFILL:+"$ZEROFILL"} ${EXTRA:+"$EXTRA"} "$FOLDS"; do
     [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; miss=1; }
   done
   [ "$miss" -eq 0 ] || { echo "[ERROR] nothing submitted"; exit 1; }
@@ -65,7 +104,7 @@ for DRUG in "${DRUGS[@]}"; do
   TOPK=$(grep -vc '^#' "$FIXED")
 
   EXPORTS="ALL,DRUG=$DRUG,TOPK=$TOPK,SR_BOUNDARY=${SRB[$DRUG]},CVROOT=$CVROOT"
-  EXPORTS="$EXPORTS,TAG=$TAG,CACHE_TAG=embseq"
+  EXPORTS="$EXPORTS,TAG=$TAG,CACHE_TAG=$CACHE_TAG,MODELS=$MODELS"
   EXPORTS="$EXPORTS,EMB_SUBDIR=ml_inputs/embeddings/curated_plus_amrseq"
   EXPORTS="$EXPORTS,FIXED=$FIXED,ZEROFILL=$ZEROFILL,EXTRA=$EXTRA"
 

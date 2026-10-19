@@ -135,6 +135,7 @@ workflow/09_model_training_selection/pa/run_pa_select.sbatch	26	path default	MTB
 workflow/09_model_training_selection/pa/run_pa_select.sbatch	27	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/09_model_training_selection/pa/slim_runs.sh	20	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/09_model_training_selection/pa/submit_pa_dev.sh	24	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
+workflow/09_model_training_selection/pa/submit_pa_dev.sh	33	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/09_model_training_selection/pa/submit_pa_holdout.sh	19	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 workflow/10_evaluation/pa/run_pa_ardap.sbatch	22	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 workflow/10_evaluation/pa/run_pa_ardap.sbatch	23	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"

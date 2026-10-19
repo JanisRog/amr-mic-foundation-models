@@ -74,7 +74,7 @@ declare -A MROOT=( [evo2]="$P/results/ml/pa_evo2"
                    [carbon]="$P/results/ml/pa_carbon"
                    [dnabert]="$P/results/ml/pa_dnabert" )
 
-for M in evo2 carbon dnabert; do
+for M in ${MODELS:-evo2 carbon dnabert}; do
   echo
   echo "################ $M"
   # The cache name must vary with BOTH the model and the feature set. An earlier

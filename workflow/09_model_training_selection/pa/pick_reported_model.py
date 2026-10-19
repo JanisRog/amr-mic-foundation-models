@@ -70,8 +70,11 @@ def main() -> int:
         cfg = None
         if args.config_dir:
             import json
+            import re
+            found = re.match(r"arm[A-Z]+", args.tag)          # armCR1k -> armCR
+            arm = found.group(0) if found else "armD"
             j = pathlib.Path(args.config_dir) / \
-                f"final_config_{args.drug}_{m}_armD.json"
+                f"final_config_{args.drug}_{m}_{arm}.json"
             if not j.exists():
                 raise SystemExit(f"[ERROR] missing {j}")
             cfg = json.load(open(j))[0]["tag"]

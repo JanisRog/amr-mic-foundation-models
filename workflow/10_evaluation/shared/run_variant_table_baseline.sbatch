@@ -77,11 +77,18 @@ case "$ORG" in
     PRES="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
     # amrfinder_columns.tsv is written next to by_drug_tsv/ by build_amrfinder_presence.py
     POINTMETA="${POINTMETA:-$LABELS/amrfinder/amrfinder_columns.tsv}"
-    EXTRA_ARGS=(--extra-tsv "$PRES" --drop-point-from "$POINTMETA")
-    TABLE="$LABELS/variant_tables/${DRUG}_variants.tsv"
-    LAB="varonly"
-    CFG="${CFGDIR:-$P/scripts/final_configs_strict}/final_config_${DRUG}_varonly.json"
-    PREDS="${OUTDIR:-$P/predictions_strict}/${DRUG}_varonly_holdout_predictions.tsv"
+    # PRESENCE=0: chromosomal variants alone (the partner of arm A), no acquired genes.
+    if [ "${PRESENCE:-1}" = 0 ]; then
+      LAB="varchromo"
+    else
+      LAB="varonly"
+      EXTRA_ARGS=(--extra-tsv "$PRES" --drop-point-from "$POINTMETA")
+    fi
+    # The full table keeps the name its completed runs were built with.
+    if [ "$LAB" = varonly ]; then TABLE="$LABELS/variant_tables/${DRUG}_variants.tsv"
+    else TABLE="$LABELS/variant_tables/${DRUG}_${LAB}.tsv"; fi
+    CFG="${CFGDIR:-$P/scripts/final_configs_strict}/final_config_${DRUG}_${LAB}.json"
+    PREDS="${OUTDIR:-$P/predictions_strict}/${DRUG}_${LAB}_holdout_predictions.tsv"
     ;;
   *) echo "[ERROR] ORG must be mtb or pa, got '$ORG'"; exit 1 ;;
 esac
@@ -94,7 +101,7 @@ echo "[INFO] table   = $TABLE"
 case "$STAGE" in
   dev)
     NEED=("$D/cv_folds.tsv" "$D/cv_folds_final.tsv" "$TARGETS" "$CLUMPS" "$CONFIGS")
-    if [ "$ORG" = pa ]; then NEED+=("$PRES" "$POINTMETA"); fi
+    if [ "$ORG" = pa ] && [ "${PRESENCE:-1}" != 0 ]; then NEED+=("$PRES" "$POINTMETA"); fi
     for f in "${NEED[@]}"; do
       [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; exit 1; }
     done

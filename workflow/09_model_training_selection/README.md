@@ -42,6 +42,7 @@ Evo 2 was designated primary before evaluation.
 ## *P. aeruginosa*
 
 `submit_pa_dev.sh` → `run_pa_dev.sbatch`; `run_pa_select.sbatch`;
-`submit_pa_holdout.sh` → `run_pa_holdout.sbatch`. `pick_reported_model.py` names
-each drug's reported model, which is Evo 2 throughout (the earlier rule, lowest
+`submit_pa_holdout.sh` → `run_pa_holdout.sbatch`, each taking `ARM` (`A`, `C`, `D`,
+`CR`, `DR`; the reported model is `CR` where ARDaP calls the drug, `D` otherwise).
+`pick_reported_model.py` names each drug's reported encoder, which is Evo 2 throughout (the earlier rule, lowest
 **development** cost, is kept behind `--by-development-cost`); `slim_runs.sh` keeps the selected rows.

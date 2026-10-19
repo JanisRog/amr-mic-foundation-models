@@ -39,7 +39,10 @@ CVROOT="${CVROOT:-$P/imputed_strict}"
 LABELS="${LABELS:-$P/labels_imputed_strict}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs_strict}"
 OUTDIR="${OUTDIR:-$P/loso_strict}"
-TAG="${TAG:-armD1k}"
+# ARM=CR: the reported model for the eight antimicrobials ARDaP calls; the two it
+# does not call exit cleanly. Outputs carry an _armCR suffix.
+ARM="${ARM:-D}"
+TAG="${TAG:-arm${ARM}1k}"
 CACHE_TAG="${CACHE_TAG:-embseq}"
 EMB_SUBDIR="${EMB_SUBDIR:-ml_inputs/embeddings/curated_plus_amrseq}"
 METAROOT="${METAROOT:-$P/models/pseaer_all_antibiotics_amrfinder_groupedpca4_rf500_cv_package/data/metadata}"
@@ -60,6 +63,11 @@ D="$CVROOT/cv_${DRUG}"
 FIXED="$P/targets/combined/${DRUG}_all.txt"
 ZEROFILL="$P/targets/amrseq_targets.txt"
 EXTRA="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
+SFX=""
+if [ "$ARM" = CR ]; then
+  case "$DRUG" in aztreonam|levofloxacin) echo "[SKIP] $DRUG: no ARDaP call"; exit 0 ;; esac
+  EXTRA="$LABELS/ardap_features/${DRUG}_armCR.tsv"; SFX=_armCR
+fi
 META="$METAROOT/$DRUG/metadata.tsv"
 
 for f in "$D/cv_folds_final.tsv" "$D/cv_folds.tsv" "$FIXED" "$ZEROFILL" \
@@ -74,7 +82,7 @@ done
 # the grid would pick a different model than the panel reports.
 MODEL=$($PY "$PASCRIPTS/pick_reported_model.py" --run-dir "$D" --tag "$TAG" \
           --config-dir "$CFGDIR" --drug "$DRUG")
-CFG="$CFGDIR/final_config_${DRUG}_${MODEL}_armD.json"
+CFG="$CFGDIR/final_config_${DRUG}_${MODEL}_arm${ARM}.json"
 [ -e "$CFG" ] || { echo "[ERROR] missing $CFG"; exit 1; }
 TOPK=$(grep -vc '^#' "$FIXED")
 
@@ -142,9 +150,9 @@ $PY "$SCRIPTS/cv_run_architecture.py" \
   --mode shared4 --top-k "$TOPK" \
   --configs "$CFG" \
   --sr-boundary "$SR_BOUNDARY" \
-  --label "${MODEL}_LOSO" \
-  --save-predictions "$OUTDIR/${DRUG}_${MODEL}_loso_predictions.tsv" \
-  --out-dir "$D/runs/${MODEL}_LOSO" \
+  --label "${MODEL}${SFX}_LOSO" \
+  --save-predictions "$OUTDIR/${DRUG}_${MODEL}${SFX}_loso_predictions.tsv" \
+  --out-dir "$D/runs/${MODEL}${SFX}_LOSO" \
   --n-jobs "$NJOBS" --seed 2026
 
 # ---- 4. the matched random-CV arm ------------------------------------------
@@ -162,10 +170,10 @@ $PY "$SCRIPTS/cv_run_architecture.py" \
   --mode shared4 --top-k "$TOPK" \
   --configs "$CFG" \
   --sr-boundary "$SR_BOUNDARY" \
-  --label "${MODEL}_CVPRED" \
-  --save-predictions "$OUTDIR/${DRUG}_${MODEL}_cv_predictions.tsv" \
-  --out-dir "$D/runs/${MODEL}_CVPRED" \
+  --label "${MODEL}${SFX}_CVPRED" \
+  --save-predictions "$OUTDIR/${DRUG}_${MODEL}${SFX}_cv_predictions.tsv" \
+  --out-dir "$D/runs/${MODEL}${SFX}_CVPRED" \
   --n-jobs "$NJOBS" --seed 2026
 
 echo
-echo "[DONE] $DRUG ($MODEL): $OUTDIR/${DRUG}_${MODEL}_{loso,cv}_predictions.tsv"
+echo "[DONE] $DRUG ($MODEL${SFX}): $OUTDIR/${DRUG}_${MODEL}${SFX}_{loso,cv}_predictions.tsv"

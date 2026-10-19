@@ -33,9 +33,9 @@ CONFIGS="${CONFIGS:-$MTB/scripts/mtb_rf1000_configs.json}"
 ARM="${ARM:-D}"
 TAG="${TAG:-arm${ARM}1k}"
 
-DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
-       levofloxacin meropenem piperacillin-tazobactam tobramycin)
-MODELS=(evo2 carbon dnabert)
+# DRUGS_LIST / MODELS narrow the run (the ARDaP arms cover 8 drugs, Evo 2 only).
+read -ra DRUGS <<< "${DRUGS_LIST:-amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem levofloxacin meropenem piperacillin-tazobactam tobramycin}"
+read -ra MODELS <<< "${MODELS:-evo2 carbon dnabert}"
 
 [ -e "$CONFIGS" ] || { echo "[ERROR] missing $CONFIGS"; exit 1; }
 [ -e "$TOOLS/select_final_config.py" ] || {
@@ -68,7 +68,13 @@ for DRUG in "${DRUGS[@]}"; do
   done
 done
 
-n=$(ls -1 "$CFGDIR"/final_config_*_arm${ARM}.json 2>/dev/null | wc -l)
+# Count only the drug-model pairs asked for: other models' configs for the same arm
+# may already exist (Carbon/DNABERT-2 CR selected after Evo 2 CR).
+n=0
+for DRUG in "${DRUGS[@]}"; do for M in "${MODELS[@]}"; do
+  [ -e "$CFGDIR/final_config_${DRUG}_${M}_arm${ARM}.json" ] && n=$((n + 1))
+done; done
+want=$(( ${#DRUGS[@]} * ${#MODELS[@]} ))
 echo
 echo "[DONE] $n config(s) in $CFGDIR"
-[ "$n" -eq 30 ] || { echo "[ERROR] expected 30"; exit 1; }
+[ "$n" -eq "$want" ] || { echo "[ERROR] expected $want"; exit 1; }

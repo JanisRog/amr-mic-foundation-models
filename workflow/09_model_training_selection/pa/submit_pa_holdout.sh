@@ -22,7 +22,12 @@ LABELS="${LABELS:-$P/labels_imputed_strict}"
 CFGDIR="${CFGDIR:-$P/scripts/final_configs_strict}"
 OUTDIR="${OUTDIR:-$P/predictions_strict}"
 ARM="${ARM:-D}"
-case "$ARM" in C|D) ;; *) echo "[ERROR] ARM=$ARM: C or D"; exit 1 ;; esac
+# ARM=CR / DR (exploratory): arm C / arm D plus ARDaP's own call as one column
+# (make_ardap_feature_tsv.py, S=0 I=1 R=2). ARDaP covers 8 drugs; Evo 2 only.
+case "$ARM" in A|C|D|CR|DR) ;; *) echo "[ERROR] ARM=$ARM: A, C, D, CR or DR"; exit 1 ;; esac
+if [ -z "${MODELS:-}" ]; then
+  if [ "$ARM" = CR ] || [ "$ARM" = DR ]; then MODELS=evo2; else MODELS="evo2 carbon dnabert"; fi
+fi
 TAG="${TAG:-arm${ARM}_HOLDOUT}"
 SCRIPT="${SCRIPT:-$P/scripts/run_pa_holdout.sbatch}"
 DEPEND="${DEPEND:-}"
@@ -43,6 +48,14 @@ for DRUG in "${DRUGS[@]}"; do
   FIXED="$P/targets/combined/${DRUG}_all.txt"
   EXTRA="$LABELS/amrfinder/by_drug_tsv/${DRUG}.tsv"
   [ "$ARM" = D ] || EXTRA=none
+  ZF="$P/targets/amrseq_targets.txt"; CACHE_TAG=embseq
+  # Arm A: the chromosomal list written by submit_pa_dev.sh, own cache. The zero-fill
+  # list stays (absent acquired genes must be declared; they are not in the list).
+  if [ "$ARM" = A ]; then FIXED="$P/targets/chromosomal/${DRUG}.txt"; CACHE_TAG=chromo; fi
+  if [ "$ARM" = CR ] || [ "$ARM" = DR ]; then
+    case "$DRUG" in aztreonam|levofloxacin) continue ;; esac
+    EXTRA="$LABELS/ardap_features/${DRUG}_arm${ARM}.tsv"     # written by submit_pa_dev.sh
+  fi
   FINAL="$CVROOT/cv_${DRUG}/cv_folds_final.tsv"
 
   miss=0
@@ -52,7 +65,7 @@ for DRUG in "${DRUGS[@]}"; do
   # The configs may not exist yet when this is chained behind the selection job,
   # so their absence is only fatal when running unchained.
   if [ -z "$DEPEND" ]; then
-    for M in evo2 carbon dnabert; do
+    for M in $MODELS; do
       f="$CFGDIR/final_config_${DRUG}_${M}_arm${ARM}.json"
       [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; miss=1; }
     done
@@ -60,9 +73,9 @@ for DRUG in "${DRUGS[@]}"; do
   [ "$miss" -eq 0 ] || { echo "[ERROR] nothing submitted"; exit 1; }
 
   EXPORTS="ALL,DRUG=$DRUG,SR_BOUNDARY=${SRB[$DRUG]},CVROOT=$CVROOT"
-  EXPORTS="$EXPORTS,TAG=$TAG,ARM=$ARM,CACHE_TAG=embseq,CFGDIR=$CFGDIR,OUTDIR=$OUTDIR"
+  EXPORTS="$EXPORTS,TAG=$TAG,ARM=$ARM,CACHE_TAG=$CACHE_TAG,CFGDIR=$CFGDIR,OUTDIR=$OUTDIR,MODELS=$MODELS"
   EXPORTS="$EXPORTS,EMB_SUBDIR=ml_inputs/embeddings/curated_plus_amrseq"
-  EXPORTS="$EXPORTS,FIXED=$FIXED,ZEROFILL=$P/targets/amrseq_targets.txt,EXTRA=$EXTRA"
+  EXPORTS="$EXPORTS,FIXED=$FIXED,ZEROFILL=$ZF,EXTRA=$EXTRA"
 
   if [ -n "$DRYRUN" ]; then
     printf '%-24s boundary=%-4s %s\n' "$DRUG" "${SRB[$DRUG]}" "$EXTRA"
