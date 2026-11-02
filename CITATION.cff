@@ -6,7 +6,13 @@ authors:
   - family-names: Rogenmoser
     given-names: Janis
     affiliation: "Institute of Medical Microbiology, University of Zurich"
-# Co-authors: add from the final author list of the article before the first release.
+  - family-names: Guerrero-López
+    given-names: Alejandro
+    affiliation: "Institute of Medical Microbiology, University of Zurich"
+  - family-names: Egli
+    given-names: Adrian
+    affiliation: "Institute of Medical Microbiology, University of Zurich"
+# Further co-authors: add from the final author list of the article.
 # doi: add the Zenodo DOI after archiving.
 repository-code: "https://github.com/JanisRog/amr-mic-foundation-models"
 license: MIT
