@@ -605,8 +605,7 @@ def fig_stability(summary, out: pathlib.Path):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--workbook",
-                    default=str(pathlib.Path.home()
-                                / "Desktop/AMRPredict_panel_results.xlsx"))
+                    default=str(pathlib.Path(os.environ.get("AMR_INPUT_DIR", "inputs")) / "AMRPredict_panel_results.xlsx"))
     ap.add_argument("--out-dir", required=True)
     args = ap.parse_args()
 

@@ -21,6 +21,7 @@ verifications per sheet, same tolerance, same refusal.
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import sys
 
@@ -285,8 +286,7 @@ def main() -> int:
                     help="'drug:boundary,...' to override the panel table")
     ap.add_argument("--stem-prefix", default="",
                     help="prefix for the output stems, e.g. 'pa_'")
-    ap.add_argument("--workbook", default=str(pathlib.Path.home()
-                                              / "Desktop/AMRPredict_panel_results.xlsx"))
+    ap.add_argument("--workbook", default=str(pathlib.Path(os.environ.get("AMR_INPUT_DIR", "inputs")) / "AMRPredict_panel_results.xlsx"))
     ap.add_argument("--model", default="evo2")
     ap.add_argument("--model-map", default="",
                     help="drug=model[,drug=model...]. The reported model is "

@@ -26,6 +26,7 @@ event from a one-dilution error in the middle of the susceptible mode.
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import sys
 
@@ -196,8 +197,7 @@ def draw_grid(ax, y, pred, cat, boundary, *, counts=True, fs=1.0, scale_counts=F
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--predictions", required=True)
-    ap.add_argument("--workbook", default=str(pathlib.Path.home()
-                                              / "Desktop/AMRPredict_panel_results.xlsx"))
+    ap.add_argument("--workbook", default=str(pathlib.Path(os.environ.get("AMR_INPUT_DIR", "inputs")) / "AMRPredict_panel_results.xlsx"))
     ap.add_argument("--drug", required=True)
     ap.add_argument("--model", required=True)
     ap.add_argument("--sr-boundary", type=float, required=True,

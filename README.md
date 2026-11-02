@@ -112,6 +112,7 @@ your own paths.
 | `mtb_wider_figure_inputs`, `mtb_holdout_20261012`, `mtb_slim_20261014`, `mtb_slim_20261016`, `mtb_slim_final_20261012`, `mtb_verdict_20261012` | *M. tuberculosis* per-isolate predictions, fold files, development runs, feature-set and lineage results | `slim_mtb_runs.sh` and the stage 09–11 jobs |
 | `pa_strict`, `pa_strict_20261020`, `pa_reported3_20261019`, `pa_prescall_20261019` | *P. aeruginosa* predictions and folds: original specification, reported model, presence + ARDaP call baseline | `pa/slim_runs.sh`, `pa/stage_reported_pa.py` |
 | `mtb_shap_gwfrule1k`, `pa_reported_20261021` | TreeSHAP outputs | stage 12 jobs |
+| `<drug>_evo2_target_summary.tsv` (ten files, directly in the input folder), `pa_strict/labels_imputed_strict` | target summaries of the earlier, narrower *M. tuberculosis* target set; AMRFinderPlus presence tables per antimicrobial (Supplementary Table 2) | stage 05 and 08 |
 | `tbprofiler.variants.csv`, `pseaer_metadata_flat.tsv` | TB-Profiler variants; *P. aeruginosa* isolate metadata (study of origin) | stage 04 and 08 |
 
 Panel b of Figure 1 is a hand-drawn illustration that is not part of this
@@ -126,7 +127,7 @@ The files here are copies of the working scripts that produced the reported
 results. Only site-specific paths were changed: hard-coded cluster paths became
 required configuration variables, and a few lines that found helper scripts through
 a sibling folder of the original repository now use `$MTB_SCRIPTS` when it is set
-(two Python files gain `import os` for this). Of 170 files, 99 are byte-identical
+(two Python files gain `import os` for this). Of 171 files, 100 are byte-identical
 to the working copies and 71 differ in 170 lines, every one listed with its
 category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COPY.tsv).
 `MANIFEST.tsv` gives each file's original path and checksums of both versions.

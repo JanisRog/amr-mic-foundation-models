@@ -1,0 +1,4009 @@
+locus_tag	gene	product
+RV1984a		hypothetical protein
+RVnc0001	AS1890	Putative small regulatory RNA
+RVnc0002	ASdes	Putative small regulatory RNA
+RVnc0003	ASpks	Putative small regulatory RNA
+RVnc0004	B11	Putative small regulatory RNA
+RVnc0005	B55	Putative small regulatory RNA
+RVnc0006	C8	Possible 4.5S RNA in signal recognition particle (small cytoplasmic RNA) (SC-RNA)
+RVnc0008	F6	Putative small regulatory RNA
+RVnc0010	G2	Putative small regulatory RNA
+RVnc0012	mcr10	Putative small regulatory RNA
+RVnc0013	mcr11	Putative small regulatory RNA
+RVnc0015	mcr15	Putative small regulatory RNA
+RVnc0018	mcr16	Putative small regulatory RNA
+RVnc0021	mcr3	Putative small regulatory RNA
+RVnc0024	mcr7	Putative small regulatory RNA
+RVnc0034	MTS0858	Putative small regulatory RNA
+RVnc0035	MTS1082	Putative small regulatory RNA
+RVnc0036	MTS1338	Putative small regulatory RNA
+RVnc0036a	MTS2823	Putative small regulatory RNA
+RVnc0040	MTS2975	Putative small regulatory RNA
+RVnc0046	ssr	10Sa RNA
+RVnc0047	AS1726	Putative small regulatory RNA
+Rv0001	dnaA	chromosomal replication initiator protein DnaA
+Rv0002	dnaN	DNA polymerase III subunit beta
+Rv0003	recF	DNA replication/repair protein RecF
+Rv0004		hypothetical protein
+Rv0005	gyrB	DNA gyrase subunit B
+Rv0006	gyrA	DNA gyrase subunit A
+Rv0007		membrane protein
+Rv0008c		cell wall synthesis protein CwsA
+Rv0009	ppiA	iron-regulated peptidyl-prolyl cis-trans isomerase PpiA
+Rv0010c		membrane protein
+Rv0011c		cell division protein CrgA
+Rv0012		membrane protein
+Rv0013	trpG	anthranilate synthase component II
+Rv0014c	pknB	serine/threonine-protein kinase PknB
+Rv0015c	pknA	serine/threonine-protein kinase PknA
+Rv0016c	pbpA	penicillin-binding protein PbpA
+Rv0017c	rodA	cell division protein RodA
+Rv0018c	pstP	phosphoserine/threonine phosphatase PstP
+Rv0019c	fhaB	FHA domain-containing protein FhaB
+Rv0020c	fhaA	FHA domain-containing protein FhaA
+Rv0021c		hypothetical protein
+Rv0022c	whiB5	transcriptional regulator WhiB5
+Rv0023		transcriptional regulator
+Rv0024		NLP/P60 family protein
+Rv0025		hypothetical protein
+Rv0026		hypothetical protein
+Rv0027		hypothetical protein
+Rv0028		hypothetical protein
+Rv0029		hypothetical protein
+Rv0030		hypothetical protein
+Rv0032	bioF2	8-amino-7-oxononanoate synthase
+Rv0033	acpA	acyl carrier protein AcpA
+Rv0034		hypothetical protein
+Rv0035	fadD34	fatty-acid--CoA ligase FadD34
+Rv0036c		hypothetical protein
+Rv0037c		MFS-type transporter
+Rv0038		hypothetical protein
+Rv0039c		transmembrane protein
+Rv0040c	mtc28	hypothetical protein
+Rv0041	leuS	leucine--tRNA ligase
+Rv0042c		transcriptional regulator
+Rv0043c		HTH-type transcriptional regulator
+Rv0044c		oxidoreductase
+Rv0045c		hydrolase
+Rv0046c	ino1	inositol-3-phosphate synthase
+Rv0047c		hypothetical protein
+Rv0048c		membrane protein
+Rv0049		hypothetical protein
+Rv0050	ponA1	bifunctional penicillin-insensitive transglycosylase/penicillin-sensitive transpeptidase
+Rv0051		transmembrane protein
+Rv0052		hypothetical protein
+Rv0053	rpsF	30S ribosomal protein S6
+Rv0054	ssb	single-strand DNA-binding protein
+Rv0055	rpsR1	30S ribosomal protein S18
+Rv0056	rplI	50S ribosomal protein L9
+Rv0057		hypothetical protein
+Rv0058	dnaB	replicative DNA helicase
+Rv0059		hypothetical protein
+Rv0060		hypothetical protein
+Rv0061c		hypothetical protein
+Rv0062	celA1	cellulase CelA
+Rv0063		oxidoreductase
+Rv0063a		hypothetical protein
+Rv0064		transmembrane protein
+Rv0064A	vapB1	antitoxin VapB1
+Rv0065	vapC1	ribonuclease VapC1
+Rv0066c	icd2	isocitrate dehydrogenase
+Rv0067c		transcriptional regulator
+Rv0068		oxidoreductase
+Rv0069c	sdaA	L-serine dehydratase
+Rv0070c	glyA2	serine hydroxymethyltransferase
+Rv0071		maturase
+Rv0072		glutamine ABC transporter permease
+Rv0073		glutamine ABC transporter ATP-binding protein
+Rv0074		hypothetical protein
+Rv0075		aminotransferase
+Rv0076c		membrane protein
+Rv0077c		oxidoreductase
+Rv0078		transcriptional regulator
+Rv0078A		hypothetical protein
+Rv0078B		hypothetical protein
+Rv0079		hypothetical protein
+Rv0080		hypothetical protein
+Rv0081		HTH-type transcriptional regulator
+Rv0082		oxidoreductase
+Rv0083		oxidoreductase
+Rv0084	hycD	formate hydrogenlyase HycD
+Rv0085	hycP	hydrogenase HycP
+Rv0086	hycQ	hydrogenase HycQ
+Rv0087	hycE	formate hydrogenase HycE
+Rv0088		polyketide cyclase/dehydrase
+Rv0089		methyltransferase
+Rv0090		membrane protein
+Rv0091	mtn	5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase
+Rv0092	ctpA	cation transporter ATPase A
+Rv0093c		membrane protein
+Rv0094c		hypothetical protein
+Rv0095c		hypothetical protein
+Rv0096	PPE1	PPE family protein PPE1
+Rv0097		oxidoreductase
+Rv0098	fcoT	fatty acyl CoA thioesterase FcoT
+Rv0099	fadD10	fatty-acid--CoA ligase FadD10
+Rv0100		hypothetical protein
+Rv0101	nrp	peptide synthetase Nrp
+Rv0102		integral membrane protein
+Rv0103c	ctpB	cation-transporter P-type ATPase B
+Rv0104		hypothetical protein
+Rv0105c	rpmB1	50S ribosomal protein L28
+Rv0106		hypothetical protein
+Rv0107c	ctpI	cation-transporter ATPase I
+Rv0108c		hypothetical protein
+Rv0109	PE_PGRS1	PE-PGRS family protein PE_PGRS1
+Rv0110		integral membrane protein
+Rv0111		acyltransferase
+Rv0112	gca	GDP-mannose 4,6-dehydratase
+Rv0113	gmhA	phosphoheptose isomerase
+Rv0114	gmhB	D-glycero-alpha-D-manno-heptose-1,7-bisphosphate 7-phosphatase
+Rv0115	hddA	D-alpha-D-heptose-7-phosphate kinase HddA
+Rv0115a		hypothetical protein
+Rv0116c	ldtA	L,D-transpeptidase LdtA
+Rv0117	oxyS	oxidative stress response regulatory protein OxyS
+Rv0118c	oxcA	oxalyl-CoA decarboxylase OxcA
+Rv0119	fadD7	fatty-acid--CoA ligase FadD7
+Rv0120c	fusA2	elongation factor G
+Rv0121c		hypothetical protein
+Rv0122		hypothetical protein
+Rv0123		hypothetical protein
+Rv0124	PE_PGRS2	PE-PGRS family protein PE_PGRS2
+Rv0125	pepA	serine protease PepA
+Rv0126	treS	trehalose synthase/amylase TreS
+Rv0127	mak	maltokinase
+Rv0128		transmembrane protein
+Rv0129c	fbpC	diacylglycerol acyltransferase/mycolyltransferase Ag85C
+Rv0130	htdZ	3-hydroxyl-thioester dehydratase
+Rv0131c	fadE1	acyl-CoA dehydrogenase FadE1
+Rv0132c	fgd2	F420-dependent glucose-6-phosphate dehydrogenase
+Rv0133		GCN5-like N-acetyltransferase
+Rv0134	ephF	epoxide hydrolase EphF
+Rv0135c		transcriptional regulator
+Rv0136	cyp138	cytochrome P450 Cyp138
+Rv0137c	msrA	peptide methionine sulfoxide reductase MsrA
+Rv0138		hypothetical protein
+Rv0139		oxidoreductase
+Rv0140		hypothetical protein
+Rv0141c		hypothetical protein
+Rv0142		hypothetical protein
+Rv0143c		transmembrane protein
+Rv0144		transcriptional regulator
+Rv0145		S-adenosylmethionine-dependent methyltransferase
+Rv0146		S-adenosylmethionine-dependent methyltransferase
+Rv0147		aldehyde dehydrogenase
+Rv0148		short-chain type dehydrogenase/reductase
+Rv0149		quinone oxidoreductase
+Rv0150c		hypothetical protein
+Rv0151c	PE1	PE family protein PE1
+Rv0152c	PE2	PE family protein PE2
+Rv0153c	ptbB	phosphotyrosine protein phosphatase
+Rv0154c	fadE2	acyl-CoA dehydrogenase FadE2
+Rv0155	pntAa	NAD(P) transhydrogenase subunit alpha PntAa
+Rv0156	pntAb	NAD(P) transhydrogenase subunit alpha PntAb
+Rv0157	pntB	NAD(P) transhydrogenase subunit beta PntB
+Rv0157A		hypothetical protein
+Rv0158		transcriptional regulator
+Rv0159c	PE3	PE family protein PE3
+Rv0160c	PE4	PE family protein PE4
+Rv0161		oxidoreductase
+Rv0162c	adhE1	zinc-type alcohol dehydrogenase subunit E
+Rv0163		hypothetical protein
+Rv0164	TB18.5	hypothetical protein
+Rv0165c	mce1R	transcriptional regulator Mce1R
+Rv0166	fadD5	fatty-acid--CoA ligase FadD5
+Rv0167	yrbE1A	membrane protein
+Rv0168	yrbE1B	membrane protein
+Rv0169	mce1A	Mce family protein Mce1A
+Rv0170	mce1B	Mce family protein Mce1B
+Rv0171	mce1C	Mce family protein Mce1C
+Rv0172	mce1D	Mce family protein Mce1D
+Rv0173	lprK	Mce family lipoprotein LprK
+Rv0174	mce1F	Mce family protein Mce1F
+Rv0175		Mce associated membrane protein
+Rv0176		Mce associated transmembrane protein
+Rv0177		Mce associated protein
+Rv0178		Mce associated membrane protein
+Rv0179c	lprO	lipoprotein LprO
+Rv0180c		transmembrane protein
+Rv0181c		hypothetical protein
+Rv0182c	sigG	ECF RNA polymerase sigma factor SigG
+Rv0183		lysophospholipase
+Rv0184		hypothetical protein
+Rv0185		hypothetical protein
+Rv0186	bglS	beta-glucosidase BglS
+Rv0186A	mymT	metallothionein
+Rv0187		O-methyltransferase
+Rv0188		transmembrane protein
+Rv0189c	ilvD	dihydroxy-acid dehydratase
+Rv0190		hypothetical protein
+Rv0191		MFS-type transporter
+Rv0192		hypothetical protein
+Rv0193c		hypothetical protein
+Rv0194		multidrug ABC transporter ATPase/permease
+Rv0195		two component transcriptional regulator
+Rv0196		HTH-type transcriptional regulator
+Rv0197		oxidoreductase
+Rv0198c	zmp1	zinc metalloprotease
+Rv0199		membrane protein
+Rv0200		transmembrane protein
+Rv0201c		hypothetical protein
+Rv0202c	mmpL11	transmembrane transport protein MmpL11
+Rv0203		hypothetical protein
+Rv0204c		transmembrane protein
+Rv0205		transmembrane protein
+Rv0206c	mmpL3	transmembrane transport protein MmpL3
+Rv0207c		hypothetical protein
+Rv0208c		tRNA (guanine-N(7)-)-methyltransferase
+Rv0209		hypothetical protein
+Rv0210		hypothetical protein
+Rv0211	pckA	phosphoenolpyruvate carboxykinase
+Rv0212c	nadR	transcriptional regulator NadR
+Rv0213c		methyltransferase
+Rv0214	fadD4	fatty-acid--CoA ligase FadD4
+Rv0215c		
+Rv0216		hydratase
+Rv0217c	lipW	esterase LipW
+Rv0218		transmembrane protein
+Rv0219		transmembrane protein
+Rv0220	lipC	esterase LipC
+Rv0221		diacyglycerol O-acyltransferase
+Rv0222	echA1	enoyl-CoA hydratase EchA1
+Rv0223c		aldehyde dehydrogenase
+Rv0224c		methyltransferase
+Rv0225		hypothetical protein
+Rv0226c		transmembrane protein
+Rv0227c		membrane protein
+Rv0228		acyltransferase
+Rv0229c		hypothetical protein
+Rv0230c	php	phosphotriesterase
+Rv0231	fadE4	acyl-CoA dehydrogenase FadE4
+Rv0232		transcriptional regulator
+Rv0233	nrdB	ribonucleoside-diphosphate reductase subunit beta NrdB
+Rv0234c	gabD1	succinate-semialdehyde dehydrogenase
+Rv0235c		transmembrane protein
+Rv0236A		hypothetical protein
+Rv0236c	aftD	alpha-(1->3)-arabinofuranosyltransferase
+Rv0237	lpqI	lipoprotein LpqI
+Rv0238		transcriptional regulator
+Rv0239	vapB24	antitoxin VapB24
+Rv0240	vapC24	ribonuclease VapC24
+Rv0241c	htdX	3-hydroxyacyl-thioester dehydratase HtdX
+Rv0242c	fabG4	3-oxoacyl-ACP reductase FabG
+Rv0243	fadA2	acetyl-CoA acetyltransferase FadA
+Rv0244c	fadE5	acyl-CoA dehydrogenase FadE5
+Rv0245		oxidoreductase
+Rv0246		integral membrane protein
+Rv0247c		succinate dehydrogenase iron-sulfur subunit
+Rv0248c		succinate dehydrogenase flavoprotein subunit
+Rv0249c		succinate dehydrogenase membrane anchor subunit
+Rv0250c		hypothetical protein
+Rv0251c	hsp	heat shock protein
+Rv0252	nirB	nitrite reductase large subunit NirB
+Rv0253	nirD	nitrite reductase small subunit NirD
+Rv0254c	cobU	bifunctional cobinamide kinase/cobinamide phosphate guanylyltransferase
+Rv0255c	cobQ1	cobyric acid synthase
+Rv0256c	PPE2	PPE family protein PPE2
+Rv0257		hypothetical protein
+Rv0258c		hypothetical protein
+Rv0259c		hypothetical protein
+Rv0260c		transcriptional regulator
+Rv0261c	narK3	nitrate/nitrite transporter
+Rv0262c	aac	aminoglycoside 2'-N-acetyltransferase
+Rv0263c		hypothetical protein
+Rv0264c		hypothetical protein
+Rv0265c		iron ABC transporter substrate-binding lipoprotein
+Rv0266c	oplA	5-oxoprolinase OplA
+Rv0267	narU	nitrite extrusion protein NarU
+Rv0268c		hypothetical protein
+Rv0269c		hypothetical protein
+Rv0270	fadD2	fatty-acid--CoA ligase FadD2
+Rv0271c	fadE6	acyl-CoA dehydrogenase FadE6
+Rv0272c		hypothetical protein
+Rv0273c		transcriptional regulator
+Rv0274		hypothetical protein
+Rv0275c		transcriptional regulator
+Rv0276		hypothetical protein
+Rv0277A	vapB25	
+Rv0277c	vapC25	ribonuclease VapC25
+Rv0278c		PE-PGRS family protein PE_PGRS3
+Rv0279c	PE_PGRS4	PE-PGRS family protein PE_PGRS4
+Rv0280	PPE3	PPE family protein PPE3
+Rv0281		S-adenosylmethionine-dependent methyltransferase
+Rv0282	eccA3	ESX-3 secretion system protein EccA
+Rv0283	eccB3	ESX-3 secretion system protein EccB3
+Rv0284	eccC3	ESX-3 secretion system protein EccC3
+Rv0285	PE5	PE family protein PE5
+Rv0286	PPE4	PPE family protein PPE4
+Rv0287	esxG	ESAT-6 like protein EsxG
+Rv0288	esxH	ESAT-6-like protein EsxH
+Rv0289	espG3	ESX-3 secretion-associated protein EspG3
+Rv0290	eccD3	ESX-3 secretion system protein EccD
+Rv0291	mycP3	membrane-anchored mycosin MycP
+Rv0292	eccE3	ESX-3 secretion system protein EccE
+Rv0293c		hypothetical protein
+Rv0294	tam	trans-aconitate methyltransferase
+Rv0295c		hypothetical protein
+Rv0296c		sulfatase
+Rv0297	PE_PGRS5	PE-PGRS family protein PE_PGRS5
+Rv0298		antitoxin
+Rv0299		toxin
+Rv0300	vapB2	antitoxin VapB2
+Rv0301	vapC2	ribonuclease VapC2
+Rv0302		transcriptional regulator
+Rv0303		dehydrogenase/reductase
+Rv0304c	PPE5	PPE family protein PPE5
+Rv0305c	PPE6	PPE family protein PPE6
+Rv0306		oxidoreductase
+Rv0307c		hypothetical protein
+Rv0308		integral membrane protein
+Rv0309		hypothetical protein
+Rv0310c		hypothetical protein
+Rv0311		hypothetical protein
+Rv0312		hypothetical protein
+Rv0313		hypothetical protein
+Rv0314c		membrane protein
+Rv0315		beta-1,3-glucanase
+Rv0316		muconolactone isomerase
+Rv0317c	glpQ2	glycerophosphoryl diester phosphodiesterase GlpQ
+Rv0318c		integral membrane protein
+Rv0319	pcp	pyrrolidone-carboxylate peptidase
+Rv0320		hypothetical protein
+Rv0321	dcd	deoxycytidine triphosphate deaminase
+Rv0322	udgA	UDP-glucose 6-dehydrogenase UdgA
+Rv0323c		hypothetical protein
+Rv0324		transcriptional regulator
+Rv0325		hypothetical protein
+Rv0326		hypothetical protein
+Rv0327c	cyp135A1	cytochrome P450 Cyp135A1
+Rv0328		transcriptional regulator
+Rv0329c		hypothetical protein
+Rv0330c		hypothetical protein
+Rv0331		dehydrogenase/reductase
+Rv0332		hypothetical protein
+Rv0333		hypothetical protein
+Rv0334	rmlA	glucose-1-phosphate thymidylyltransferase
+Rv0335c	PE6	PE family protein PE6
+Rv0336		hypothetical protein
+Rv0337c	aspC	aspartate aminotransferase
+Rv0338c		iron-sulfur-binding reductase
+Rv0339c		transcriptional regulator
+Rv0340		hypothetical protein
+Rv0341	iniB	isoniazid inducible protein IniB
+Rv0342	iniA	isoniazid inductible protein IniA
+Rv0343	iniC	iIsoniazid inductible protein IniC
+Rv0344c	lpqJ	lipoprotein LpqJ
+Rv0345		hypothetical protein
+Rv0346c	ansP2	L-asparagine permease
+Rv0347		membrane protein
+Rv0348		transcriptional regulator
+Rv0349		hypothetical protein
+Rv0350	dnaK	chaperone protein DnaK
+Rv0351	grpE	stress response protein GrpE
+Rv0352	dnaJ1	chaperone protein DnaJ
+Rv0353	hspR	heat shock protein transcriptional repressor HspR
+Rv0354c	PPE7	PPE family protein PPE7
+Rv0355c	PPE8	PPE family protein PPE8
+Rv0356c		hypothetical protein
+Rv0357c	purA	adenylosuccinate synthetase
+Rv0358		hypothetical protein
+Rv0359		zinc metalloprotease
+Rv0360c		hypothetical protein
+Rv0361		membrane protein
+Rv0362	mgtE	Mg2+ transport transmembrane protein MgtE
+Rv0363c	fba	fructose-bisphosphate aldolase
+Rv0364		transmembrane protein
+Rv0365c		hypothetical protein
+Rv0366c		hypothetical protein
+Rv0367c		hypothetical protein
+Rv0368c		hypothetical protein
+Rv0369c		membrane oxidoreductase
+Rv0370c		oxidoreductase
+Rv0371c		hypothetical protein
+Rv0372c		hypothetical protein
+Rv0373c		carbon monoxyde dehydrogenase large subunit
+Rv0374c		carbon monoxyde dehydrogenase small subunit
+Rv0375c		carbon monoxyde dehydrogenase medium subunit
+Rv0376c		hypothetical protein
+Rv0377		HTH-type transcriptional regulator
+Rv0378		hypothetical protein
+Rv0379	secE2	protein translocase subunit SecE
+Rv0380c		RNA methyltransferase
+Rv0381c		hypothetical protein
+Rv0382c	pyrE	orotate phosphoribosyltransferase
+Rv0383c		hypothetical protein
+Rv0384c	clpB	chaperone protein ClpB
+Rv0385		monooxygenase
+Rv0386		transcriptional regulator
+Rv0387c		
+Rv0389	purT	phosphoribosylglycinamide formyltransferase PurT
+Rv0390		hypothetical protein
+Rv0391	metZ	O-succinylhomoserine sulfhydrylase
+Rv0392c	ndhA	NADH dehydrogenase NdhA
+Rv0393		hypothetical protein
+Rv0394c		hypothetical protein
+Rv0395		hypothetical protein
+Rv0396		hypothetical protein
+Rv0397		hypothetical protein
+Rv0397A		hypothetical protein
+Rv0398c		hypothetical protein
+Rv0399c	lpqK	lipoprotein LpqK
+Rv0400c	fadE7	acyl-CoA dehydrogenase FadE7
+Rv0401		transmembrane protein
+Rv0402c	mmpL1	transmembrane transport protein MmpL1
+Rv0403c	mmpS1	membrane protein MmpS1
+Rv0404	fadD30	long-chain-fatty-acid--AMP ligase FadD30
+Rv0405	pks6	membrane bound polyketide synthase
+Rv0406c		beta lactamase-like protein
+Rv0407	fgd1	F420-dependent glucose-6-phosphate dehydrogenase
+Rv0408	pta	phosphate acetyltransferase
+Rv0409	ackA	acetate kinase
+Rv0410c	pknG	serine/threonine-protein kinase PknG
+Rv0411c	glnH	glutamine-binding lipoprotein GlnH
+Rv0412c		membrane protein
+Rv0413	mutT3	8-oxo-dGTP diphosphatase
+Rv0414c	thiE	thiamine-phosphate synthase
+Rv0415	thiO	thiamine biosynthesis oxidoreductase ThiO
+Rv0416	thiS	sulfur carrier protein ThiS
+Rv0417	thiG	thiazole synthase
+Rv0418	lpqL	lipoprotein aminopeptidase LpqL
+Rv0419	lpqM	lipoprotein peptidase LpqM
+Rv0420c		transmembrane protein
+Rv0421c		hypothetical protein
+Rv0422c	thiD	hydroxymethylpyrimidine/phosphomethylpyrimidine kinase
+Rv0423c	thiC	phosphomethylpyrimidine synthase
+Rv0424c		hypothetical protein
+Rv0425c	ctpH	metal cation transporting ATPase H
+Rv0426c		transmembrane protein
+Rv0427c	xthA	exodeoxyribonuclease III protein XthA
+Rv0428c		GCN5-like N-acetyltransferase
+Rv0429c	def	polypeptide deformylase
+Rv0430		hypothetical protein
+Rv0431		tuberculin-like peptide
+Rv0432	sodC	superoxide dismutase
+Rv0433		carboxylate-amine ligase
+Rv0434		hypothetical protein
+Rv0435c		ATPase
+Rv0436c	pssA	CDP-diacylglycerol--serine O-phosphatidyltransferase
+Rv0437c	psd	phosphatidylserine decarboxylase
+Rv0438c	moeA2	molybdopterin molybdenumtransferase
+Rv0439c		dehydrogenase/reductase
+Rv0440	groEL2	molecular chaperone GroEL
+Rv0441c		hypothetical protein
+Rv0442c	PPE10	PPE family protein PPE10
+Rv0443		hypothetical protein
+Rv0444c	rskA	anti-sigma-K factor RskA
+Rv0445c	sigK	ECF RNA polymerase sigma factor SigK
+Rv0446c		transmembrane protein
+Rv0447c	ufaA1	cyclopropane-fatty-acyl-phospholipid synthase UfaA
+Rv0448c		hypothetical protein
+Rv0449c		hypothetical protein
+Rv0450c	mmpL4	transmembrane transport protein MmpL4
+Rv0451c	mmpS4	membrane protein MmpS4
+Rv0452		transcriptional regulator
+Rv0453	PPE11	PPE family protein PPE11
+Rv0455c		hypothetical protein
+Rv0456A	mazF1	toxin MazF1
+Rv0456B	mazE1	antitoxin MazE1
+Rv0456c	echA2	enoyl-CoA hydratase EchA2
+Rv0457c		peptidase
+Rv0458		aldehyde dehydrogenase
+Rv0459		hypothetical protein
+Rv0460		hypothetical protein
+Rv0461		transmembrane protein
+Rv0462	lpdC	dihydrolipoamide dehydrogenase
+Rv0463		membrane protein
+Rv0464c		hypothetical protein
+Rv0465c		HTH-type transcriptional regulator
+Rv0466		hypothetical protein
+Rv0467	icl1	isocitrate lyase
+Rv0468	fadB2	3-hydroxybutyryl-CoA dehydrogenase
+Rv0469	umaA	mycolic acid synthase UmaA
+Rv0470A		hypothetical protein
+Rv0470c	pcaA	cyclopropane mycolic acid synthase
+Rv0471c		hypothetical protein
+Rv0472c		HTH-type transcriptional regulator
+Rv0473		transmembrane protein
+Rv0474		HTH-type transcriptional regulator
+Rv0475	hbhA	heparin binding hemagglutinin HbhA
+Rv0476		transmembrane protein
+Rv0477		hypothetical protein
+Rv0478	deoC	2-deoxyribose-5-phosphate aldolase
+Rv0479c		membrane protein
+Rv0480c		amidohydrolase
+Rv0481c		hypothetical protein
+Rv0482	murB	UDP-N-acetylenolpyruvoylglucosamine reductase
+Rv0483	lprQ	lipoprotein LprQ
+Rv0484c		short-chain type oxidoreductase
+Rv0485		transcriptional regulator
+Rv0486	mshA	D-inositol 3-phosphate glycosyltransferase
+Rv0487		hypothetical protein
+Rv0488		amino acid transporter
+Rv0489	gpm1	2,3-bisphosphoglycerate-dependent phosphoglycerate mutase
+Rv0490	senX3	two component sensor histidine kinase SenX3
+Rv0491	regX3	two component sensory transduction protein RegX
+Rv0492A		hypothetical protein
+Rv0492c		GMC-type oxidoreductase
+Rv0493c		hypothetical protein
+Rv0494		HTH-type transcriptional regulator
+Rv0495c		hypothetical protein
+Rv0496		hypothetical protein
+Rv0497		transmembrane protein
+Rv0498		hypothetical protein
+Rv0499		hypothetical protein
+Rv0500	proC	pyrroline-5-carboxylate reductase
+Rv0500A		DNA-binding protein
+Rv0501	galE2	UDP-glucose 4-epimerase GalE
+Rv0502		hypothetical protein
+Rv0503c	cmaA2	cyclopropane mycolic acid synthase
+Rv0504c		hypothetical protein
+Rv0505c	serB1	phosphoserine phosphatase SerB
+Rv0506	mmpS2	membrane protein MmpS2
+Rv0507	mmpL2	transmembrane transport protein MmpL2
+Rv0508		hypothetical protein
+Rv0509	hemA	glutamyl-tRNA reductase
+Rv0510	hemC	porphobilinogen deaminase
+Rv0511	hemD	uroporphyrin-III C-methyltransferase
+Rv0512	hemB	delta-aminolevulinic acid dehydratase
+Rv0513		transmembrane protein
+Rv0514		transmembrane protein
+Rv0515		hypothetical protein
+Rv0516c		anti-anti-sigma factor
+Rv0517		acyltransferase
+Rv0518		hypothetical protein
+Rv0519c		membrane protein
+Rv0522	gabP	GABA permease GabP
+Rv0523c		hypothetical protein
+Rv0524	hemL	glutamate-1-semialdehyde 2,1-aminomutase
+Rv0525		hypothetical protein
+Rv0526		thioredoxin
+Rv0527	ccdA	cytochrome C-type biogenesis protein CcdA
+Rv0528		transmembrane protein
+Rv0529	ccsA	cytochrome C-type biogenesis protein CcsA
+Rv0530		hypothetical protein
+Rv0530A		hypothetical protein
+Rv0531		membrane protein
+Rv0532	PE_PGRS6	PE-PGRS family protein PE_PGRS6
+Rv0533c	fabH	3-oxoacyl-ACP synthase III
+Rv0534c	menA	1,4-dihydroxy-2-naphthoate octaprenyltransferase
+Rv0535		5'-methylthioadenosine phosphorylase
+Rv0536	galE3	UDP-glucose 4-epimerase GalE
+Rv0537c		integral membrane protein
+Rv0538		membrane protein
+Rv0539		dolichyl-phosphate sugar synthase
+Rv0540		hypothetical protein
+Rv0541c		integral membrane protein
+Rv0542c	menE	2-succinylbenzoic acid--CoA ligase
+Rv0543c		hypothetical protein
+Rv0544c		transmembrane protein
+Rv0545c	pitA	low-affinity inorganic phosphate transporter
+Rv0546c		hypothetical protein
+Rv0547c		oxidoreductase
+Rv0548c	menB	1,4-dihydroxy-2-naphthoyl-CoA synthase
+Rv0549c	vapC3	ribonuclease VapC3
+Rv0550c	vapB3	antitoxin VapB3
+Rv0551c	fadD8	fatty-acid--CoA ligase FadD8
+Rv0552		hypothetical protein
+Rv0553	menC	muconate cycloisomerase
+Rv0554	bpoC	non-heme bromoperoxidase BpoC
+Rv0555	menD	bifunctional 2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase/2-oxoglutarate decarboxylase
+Rv0556		transmembrane protein
+Rv0557	mgtA	GDP-mannose-dependent alpha-mannosyltransferase
+Rv0558	menH	demethylmenaquinone methyltransferase
+Rv0559c		hypothetical protein
+Rv0560c		benzoquinone methyltransferase
+Rv0561c		oxidoreductase
+Rv0562	grcC1	polyprenyl-diphosphate synthase GrcC
+Rv0563	htpX	protease HtpX
+Rv0564c	gpdA1	glycerol-3-phosphate dehydrogenase
+Rv0565c		monooxygenase
+Rv0566c		hypothetical protein
+Rv0567		methyltransferase/methylase
+Rv0568	cyp135B1	cytochrome P450 Cyp135B1
+Rv0569		hypothetical protein
+Rv0570	nrdZ	vitamin B12-dependent ribonucleoside-diphosphate reductase
+Rv0571c		hypothetical protein
+Rv0572c		hypothetical protein
+Rv0573c	pncB2	nicotinic acid phosphoribosyltransferase PncB2
+Rv0574c		hypothetical protein
+Rv0575c		oxidoreductase
+Rv0576		transcriptional regulator
+Rv0577	TB27.3	hypothetical protein
+Rv0578c	PE_PGRS7	PE-PGRS family protein PE_PGRS7
+Rv0579		hypothetical protein
+Rv0580c		hypothetical protein
+Rv0581	vapB26	antitoxin VapB26
+Rv0582	vapC26	ribonuclease VapC26
+Rv0583c	lpqN	lipoprotein LpqN
+Rv0584		glycosidase
+Rv0585c		integral membrane protein
+Rv0586	mce2R	HTH-type transcriptional regulator Mce2R
+Rv0587	yrbE2A	hypothetical protein
+Rv0588		hypothetical protein
+Rv0589	mce2A	Mce family protein Mce2A
+Rv0591	mce2C	Mce family protein Mce2C
+Rv0592	mce2D	Mce family protein Mce2D
+Rv0593	lprL	Mce family lipoprotein LprL
+Rv0594	mce2F	Mce family protein Mce2F
+Rv0595c	vapC4	ribonuclease VapC4
+Rv0596c	vapB4	antitoxin VapB4
+Rv0597c		hypothetical protein
+Rv0598c	vapC27	ribonuclease VapC27
+Rv0599c	vapB27	antitoxin VapB27
+Rv0600c		two component sensor kinase HK1
+Rv0601c		two component sensor kinase HK2
+Rv0602c	tcrA	two component DNA binding transcriptional regulator TcrA
+Rv0603		hypothetical protein
+Rv0604	lpqO	lipoprotein LpqO
+Rv0605		IS1536 family serine type transposase
+Rv0607		hypothetical protein
+Rv0608	vapB28	antitoxin VapB28
+Rv0609	vapC28	ribonuclease VapC28
+Rv0609A		hypothetical protein
+Rv0610c		hypothetical protein
+Rv0611c		hypothetical protein
+Rv0612		hypothetical protein
+Rv0613c		hypothetical protein
+Rv0614		hypothetical protein
+Rv0615		integral membrane protein
+Rv0616A	vapB29	antitoxin VapB29
+Rv0617	vapC29	ribonuclease VapC29
+Rv0618	galT	
+Rv0620	galK	galactokinase
+Rv0621		membrane protein
+Rv0622		membrane protein
+Rv0623	vapB30	antitoxin VapB30
+Rv0624	vapC30	ribonuclease VapC30
+Rv0625c		transmembrane protein
+Rv0626	vapB5	antitoxin VapB5
+Rv0627	vapC5	ribonuclease VapC5
+Rv0628c		hypothetical protein
+Rv0629c	recD	exonuclease V subunit alpha RecD
+Rv0630c	recB	exonuclease V subunit beta RecB
+Rv0631c	recC	exonuclease V subunit gamma RecC
+Rv0632c	echA3	enoyl-CoA hydratase EchA3
+Rv0633c		hypothetical protein
+Rv0634A		hypothetical protein
+Rv0634B	rpmG2	50S ribosomal protein L33
+Rv0634c		glyoxalase II
+Rv0635	hadA	(3R)-hydroxyacyl-ACP dehydratase subunit HadA
+Rv0636	hadB	(3R)-hydroxyacyl-ACP dehydratase subunit HadB
+Rv0637	hadC	(3R)-hydroxyacyl-ACP dehydratase subunit HadC
+Rv0638	secE1	preprotein translocase SecE
+Rv0639	nusG	transcription termination/antitermination protein NusG
+Rv0640	rplK	50S ribosomal protein L11
+Rv0641	rplA	50S ribosomal protein L1
+Rv0642c	mmaA4	hydroxymycolate synthase MmaA4
+Rv0643c	mmaA3	methoxy mycolic acid synthase MmaA3
+Rv0644c	mmaA2	cyclopropane mycolic acid synthase CmaA
+Rv0645c	mmaA1	mycolic acid methyltransferase MmaA1
+Rv0646c	lipG	lipase/esterase LipG
+Rv0647c		hypothetical protein
+Rv0648		alpha-mannosidase
+Rv0649	fabD2	malonyl CoA-acyl carrier protein transacylase
+Rv0650		sugar kinase
+Rv0651	rplJ	50S ribosomal protein L10
+Rv0652	rplL	50S ribosomal protein L7/L12
+Rv0653c		transcriptional regulator
+Rv0654		carotenoid cleavage oxygenase
+Rv0655	mkl	ABC transporter ATP-binding protein
+Rv0656c	vapC6	ribonuclease VapC6
+Rv0657c	vapB6	antitoxin VapB6
+Rv0658c		integral membrane protein
+Rv0659c	mazF2	toxin MazF2
+Rv0660c	mazE2	antitoxin MazE2
+Rv0661c	vapC7	ribonuclease VapC7
+Rv0662c	vapB7	antitoxin VapB7
+Rv0663	atsD	arylsulfatase AtsD
+Rv0664	vapB8	antitoxin VapB8
+Rv0665	vapC8	ribonuclease VapC8
+Rv0666		membrane protein
+Rv0667	rpoB	DNA-directed RNA polymerase subunit beta
+Rv0668	rpoC	DNA-directed RNA polymerase subunit beta'
+Rv0669c		neutral ceramidase
+Rv0670	end	endonuclease IV
+Rv0671	lpqP	lipoprotein LpqP
+Rv0672	fadE8	acyl-CoA dehydrogenase FadE8
+Rv0673	echA4	enoyl-CoA hydratase EchA4
+Rv0674		hypothetical protein
+Rv0675	echA5	enoyl-CoA hydratase EchA5
+Rv0676c	mmpL5	transmembrane transport protein MmpL5
+Rv0677c	mmpS5	membrane protein MmpS5
+Rv0678		hypothetical protein
+Rv0679c		hypothetical protein
+Rv0680c		transmembrane protein
+Rv0681		transcriptional regulator
+Rv0682	rpsL	30S ribosomal protein S12
+Rv0683	rpsG	30S ribosomal protein S7
+Rv0684	fusA1	elongation factor G
+Rv0685	tuf	elongation factor Tu
+Rv0686		membrane protein
+Rv0687		NAD-dependent oxidoreductase
+Rv0688		ferredoxin reductase
+Rv0689c		hypothetical protein
+Rv0690c		hypothetical protein
+Rv0691A		mycofactocin precursor
+Rv0691c		mycofactocin biosynthesis transcriptional regulator MftR
+Rv0692		mycofactocin system protein MftB
+Rv0693		mycofactocin radical SAM maturase MftC
+Rv0694		mycofactocin system heme/flavin oxidoreductase MftD
+Rv0695		mycofactocin system creatinine amidohydrolase family protein MftE
+Rv0696		mycofactocin biosynthesis glycosyltransferase MftF
+Rv0697		dehydrogenase
+Rv0698		hypothetical protein
+Rv0699		hypothetical protein
+Rv0700	rpsJ	30S ribosomal protein S10
+Rv0701	rplC	50S ribosomal protein L3
+Rv0702	rplD	50S ribosomal protein L4
+Rv0703	rplW	50S ribosomal protein L23
+Rv0704	rplB	50S ribosomal protein L2
+Rv0705	rpsS	30S ribosomal protein S19
+Rv0706	rplV	50S ribosomal protein L22
+Rv0707	rpsC	30S ribosomal protein S3
+Rv0708	rplP	50S ribosomal protein L16
+Rv0709	rpmC	50S ribosomal protein L29
+Rv0710	rpsQ	30S ribosomal protein S17
+Rv0711	atsA	arylsulfatase AtsA
+Rv0712		hypothetical protein
+Rv0713		transmembrane protein
+Rv0714	rplN	50S ribosomal protein L14
+Rv0715	rplX	50S ribosomal protein L24
+Rv0716	rplE	50S ribosomal protein L5
+Rv0717	rpsN1	30S ribosomal protein S14
+Rv0718	rpsH	30S ribosomal protein S8
+Rv0719	rplF	50S ribosomal protein L6
+Rv0720	rplR	50S ribosomal protein L18
+Rv0721	rpsE	30S ribosomal protein S5
+Rv0722	rpmD	50S ribosomal protein L30
+Rv0723	rplO	50S ribosomal protein L15
+Rv0724	sppA	protease IV SppA
+Rv0725c		hypothetical protein
+Rv0726c		S-adenosylmethionine-dependent methyltransferase
+Rv0727c	fucA	L-fuculose phosphate aldolase FucA
+Rv0728c	serA2	D-3-phosphoglycerate dehydrogenase SerA
+Rv0729	xylB	D-xylulose kinase XylB
+Rv0730		GCN5-like N-acetyltransferase
+Rv0731c		S-adenosylmethionine-dependent methyltransferase
+Rv0732	secY	preprotein translocase SecY
+Rv0733	adk	adenylate kinase
+Rv0734	mapA	methionine aminopeptidase
+Rv0735	sigL	ECF RNA polymerase sigma factor SigL
+Rv0736	rslA	anti-sigma-L factor RslA
+Rv0737		transcriptional regulator
+Rv0738		hypothetical protein
+Rv0739		hypothetical protein
+Rv0740		hypothetical protein
+Rv0742		hypothetical protein
+Rv0743c		hypothetical protein
+Rv0744c		transcriptional regulator
+Rv0745		hypothetical protein
+Rv0746	PE_PGRS9	PE-PGRS family protein PE_PGRS9
+Rv0747	PE_PGRS10	PE-PGRS family protein PE_PGRS10
+Rv0748	vapB31	antitoxin VapB31
+Rv0749	vapC31	ribonuclease VapC31
+Rv0749A		hypothetical protein
+Rv0750		hypothetical protein
+Rv0751c	mmsB	3-hydroxyisobutyrate dehydrogenase
+Rv0752c	fadE9	acyl-CoA dehydrogenase FadE9
+Rv0753c	mmsA	methylmalonate-semialdehyde dehydrogenase
+Rv0754	PE_PGRS11	PE-PGRS family protein PE_PGRS11
+Rv0755c	PPE12	PPE family protein PPE12
+Rv0756c		hypothetical protein
+Rv0757	phoP	two component system response transcriptional positive regulator PhoP
+Rv0758	phoR	two component system response sensor kinase PhoR
+Rv0759c		hypothetical protein
+Rv0760c		hypothetical protein
+Rv0761c	adhB	alcohol dehydrogenase B
+Rv0762c		hypothetical protein
+Rv0763c		ferredoxin
+Rv0764c	cyp51	lanosterol 14-alpha demethylase
+Rv0765c		oxidoreductase
+Rv0766c	cyp123	cytochrome P450 Cyp123
+Rv0767c		HTH-type transcriptional regulator
+Rv0768	aldA	aldehyde dehydrogenase AldA
+Rv0769		oxidoreductase
+Rv0770		oxidoreductase
+Rv0771		4-carboxymuconolactone decarboxylase
+Rv0772	purD	phosphoribosylamine--glycine ligase
+Rv0773c	ggtA	bifunctional cephalosporin acylase/gamma-glutamyltranspeptidase
+Rv0774c		hypothetical protein
+Rv0775		hypothetical protein
+Rv0776c		hypothetical protein
+Rv0777	purB	adenylosuccinate lyase PurB
+Rv0778	cyp126	cytochrome P450 Cyp126
+Rv0779c		transmembrane protein
+Rv0780	purC	phosphoribosylaminoimidazole-succinocarboxamide synthase
+Rv0783c	emrB	multidrug resistance protein EmrB
+Rv0784		hypothetical protein
+Rv0785		KsdD-like steroid dehydrogenase
+Rv0786c		hypothetical protein
+Rv0787		hypothetical protein
+Rv0787A		hypothetical protein
+Rv0788	purQ	phosphoribosylformylglycinamidine synthase
+Rv0789c		hypothetical protein
+Rv0790c		hypothetical protein
+Rv0791c		hypothetical protein
+Rv0792c		transcriptional regulator
+Rv0793		monooxygenase
+Rv0794c		oxidoreductase
+Rv0797		insertion sequence element IS1547 transposase
+Rv0798c	cfp29	hypothetical protein
+Rv0799c		hypothetical protein
+Rv0800	pepC	M18 family aminopeptidase
+Rv0801		hypothetical protein
+Rv0802c		succinyl-CoA transferase
+Rv0803	purL	phosphoribosylformylglycinamidine synthase 2
+Rv0804		hypothetical protein
+Rv0805		3',5'-cyclic adenosine monophosphate phosphodiesterase CpdA
+Rv0806c	cpsY	exopolysaccharide phosphotransferase CpsY
+Rv0807		hypothetical protein
+Rv0808	purF	amidophosphoribosyltransferase
+Rv0809	purM	phosphoribosylformylglycinamidine cyclo-ligase PurM
+Rv0810c		hypothetical protein
+Rv0811c		hypothetical protein
+Rv0812		4-amino-4-deoxychorismate lyase
+Rv0813c		hypothetical protein
+Rv0814c		hypothetical protein
+Rv0815c	cysA2	thiosulfate sulfurtransferase CysA
+Rv0816c	thiX	thioredoxin ThiX
+Rv0817c		hypothetical protein
+Rv0818		transcriptional regulator
+Rv0819	mshD	mycothiol acetyltransferase
+Rv0820	phoT	phosphate ABC transporter ATP-binding protein PhoT
+Rv0821c	phoY2	phosphate-transport system transcriptional regulator PhoY2
+Rv0822c		hypothetical protein
+Rv0823c		tRNA-dihydrouridine synthase
+Rv0824c	desA1	acyl-ACP desaturase DesA
+Rv0825c		hypothetical protein
+Rv0826		hypothetical protein
+Rv0827c	kmtR	HTH-type transcriptional regulator KmtR
+Rv0828c		deaminase
+Rv0830		S-adenosylmethionine-dependent methyltransferase
+Rv0831c		hypothetical protein
+Rv0832	PE_PGRS12	PE-PGRS family protein PE_PGRS12
+Rv0833	PE_PGRS13	PE-PGRS family protein PE_PGRS13
+Rv0834c	PE_PGRS14	PE-PGRS family protein PE_PGRS14
+Rv0835	lpqQ	lipoprotein LpqQ
+Rv0836c		hypothetical protein
+Rv0837c		hypothetical protein
+Rv0838	lpqR	lipoprotein LpqR
+Rv0839		hypothetical protein
+Rv0840c	pip	proline iminopeptidase
+Rv0841		transmembrane protein
+Rv0842		integral membrane protein
+Rv0843		dehydrogenase
+Rv0844c	narL	nitrate/nitrite response transcriptional regulator NarL
+Rv0845		sensor histidine kinase NarS
+Rv0846c		oxidase
+Rv0847	lpqS	lipoprotein LpqS
+Rv0848	cysK2	cysteine synthase CysK
+Rv0849		MFS-type transporter
+Rv0851c		short-chain type dehydrogenase/reductase
+Rv0852		hypothetical protein
+Rv0853c	pdc	alpha-keto-acid decarboxylase
+Rv0854		hypothetical protein
+Rv0855	far	fatty-acid-CoA racemase
+Rv0856		hypothetical protein
+Rv0857		hypothetical protein
+Rv0858c	dapC	N-succinyldiaminopimelate aminotransferase DapC
+Rv0859		acyltransferase
+Rv0860	fadB	fatty oxidation protein FadB
+Rv0861c	ercc3	DNA helicase Ercc3
+Rv0862c		hypothetical protein
+Rv0863		hypothetical protein
+Rv0864	moaC2	cyclic pyranopterin monophosphate synthase accessory protein
+Rv0865	mog	molybdopterin biosynthesis protein
+Rv0866	moaE2	molybdopterin synthase catalytic subunit 2
+Rv0867c	rpfA	resuscitation-promoting factor RpfA
+Rv0868c	moaD2	cyclic pyranopterin monophosphate synthase
+Rv0869c	moaA2	molybdenum cofactor biosynthesis protein MoaA
+Rv0870c		integral membrane protein
+Rv0871	cspB	cold shock-like protein CspB
+Rv0872c	PE_PGRS15	PE-PGRS family protein PE_PGRS15
+Rv0873	fadE10	acyl-CoA dehydrogenase
+Rv0874c		hypothetical protein
+Rv0875c		hypothetical protein
+Rv0876c		transmembrane protein
+Rv0877		hypothetical protein
+Rv0878c	PPE13	PPE family protein PPE13
+Rv0879c		transmembrane protein
+Rv0880		HTH-type transcriptional regulator
+Rv0881		tRNA/rRNA methyltransferase
+Rv0882		transmembrane protein
+Rv0883c		hypothetical protein
+Rv0884c	serC	phosphoserine aminotransferase
+Rv0885		hypothetical protein
+Rv0886	fprB	ferredoxin/ferredoxin--NADP reductase
+Rv0887c		hypothetical protein
+Rv0888		hypothetical protein
+Rv0889c	citA	citrate synthase 2
+Rv0890c		HTH-type transcriptional regulator
+Rv0891c		hypothetical protein
+Rv0892		monooxygenase
+Rv0893c		S-adenosylmethionine-dependent methyltransferase
+Rv0894		transcriptional regulator
+Rv0895		diacyglycerol O-acyltransferase
+Rv0896	gltA2	citrate synthase 1
+Rv0897c		oxidoreductase
+Rv0898c		hypothetical protein
+Rv0899	arfA	peptidoglycan-binding protein ArfA
+Rv0900	arfB	membrane protein
+Rv0901	arfC	membrane protein
+Rv0902c	prrB	two component sensor histidine kinase PrrB
+Rv0903c	prrA	two component transcriptional regulator PrrA
+Rv0904c	accD3	acetyl-CoAcarboxylase carboxyl transferase subunit beta
+Rv0905	echA6	enoyl-CoA hydratase EchA6
+Rv0906		hypothetical protein
+Rv0907		hypothetical protein
+Rv0908	ctpE	metal cation transporter ATPase E
+Rv0909		antitoxin
+Rv0910		toxin
+Rv0911		hypothetical protein
+Rv0912		transmembrane protein
+Rv0913c		dioxygenase
+Rv0914c		lipid carrier protein or keto acyl-CoA thiolase
+Rv0915c	PPE14	PPE family protein PPE14
+Rv0916c	PE7	PE family protein PE7
+Rv0917	betP	glycine betaine transport integral membrane protein BetP
+Rv0918		hypothetical protein
+Rv0919		GCN5-like N-acetyltransferase
+Rv0920c		transposase
+Rv0921		resolvase
+Rv0922		transposase
+Rv0923c		hypothetical protein
+Rv0924c	mntH	divalent metal cation transporter MntH
+Rv0925c		hypothetical protein
+Rv0926c		hypothetical protein
+Rv0927c		oxidoreductase
+Rv0928	pstS3	phosphate ABC transporter substrate-binding lipoprotein PstS
+Rv0929	pstC2	phosphate ABC transporter permease PstC
+Rv0930	pstA1	phosphate ABC transporter permease PstA
+Rv0931c	pknD	serine/threonine-protein kinase PknD
+Rv0932c	pstS2	phosphate ABC transporter substrate-binding lipoprotein PstS
+Rv0933	pstB	phosphate ABC transporter ATP-binding protein PstB
+Rv0934	pstS1	phosphate ABC transporter substrate-binding lipoprotein PstS
+Rv0935	pstC1	phosphate ABC transporter permease PstC
+Rv0936	pstA2	phosphate ABC transporter permease PstA
+Rv0937c	mku	non-homologous end joining protein Ku
+Rv0938	ligD	multifunctional non-homologous end joining DNA repair protein/ATP dependent DNA ligase LigD
+Rv0939		bifunctional 2-hydroxyhepta-2,4-diene-1,7-dioate isomerase/cyclase/dehydrase
+Rv0940c		oxidoreductase
+Rv0941c		hypothetical protein
+Rv0942		hypothetical protein
+Rv0943c		monooxygenase
+Rv0944		formamidopyrimidine-DNA glycosylase
+Rv0945		oxidoreductase
+Rv0946c	pgi	glucose-6-phosphate isomerase
+Rv0947c		
+Rv0948c		chorismate mutase
+Rv0949	uvrD1	ATP-dependent DNA helicase UvrD
+Rv0950c		hypothetical protein
+Rv0951	sucC	succinyl-CoA ligase subunit beta
+Rv0952	sucD	succinyl-CoA ligase subunit alpha
+Rv0953c		oxidoreductase
+Rv0954		transmembrane protein
+Rv0955		integral membrane protein
+Rv0956	purN	phosphoribosylglycinamide formyltransferase PurN
+Rv0957	purH	bifunctional phosphoribosylaminoimidazolecarboxamide formyltransferase/inosinemonophosphate cyclohydrolase
+Rv0958		magnesium chelatase
+Rv0959		hypothetical protein
+Rv0959A	vapB9	antitoxin VapB9
+Rv0960	vapC9	ribonuclease VapC9
+Rv0961		integral membrane protein
+Rv0962c	lprP	lipoprotein LprP
+Rv0963c		hypothetical protein
+Rv0964c		hypothetical protein
+Rv0965c		hypothetical protein
+Rv0966c		hypothetical protein
+Rv0967	csoR	copper-sensing transcriptional repressor CsoR
+Rv0968		hypothetical protein
+Rv0969	ctpV	copper-exporting ATPase
+Rv0970		integral membrane protein
+Rv0971c	echA7	enoyl-CoA hydratase EchA7
+Rv0972c	fadE12	acyl-CoA dehydrogenase fadE12
+Rv0973c	accA2	acetyl/propionyl-CoA carboxylase subuit alpha
+Rv0974c	accD2	acetyl-/propionyl-CoA carboxylase subunit beta
+Rv0975c	fadE13	acyl-CoA dehydrogenase FadE13
+Rv0976c		hypothetical protein
+Rv0977	PE_PGRS16	PE-PGRS family protein PE_PGRS16
+Rv0978c	PE_PGRS17	PE-PGRS family protein PE_PGRS17
+Rv0979A	rpmF	50S ribosomal protein L32
+Rv0979c		hypothetical protein
+Rv0980c	PE_PGRS18	PE-PGRS family protein PE_PGRS18
+Rv0981	mprA	two-component response regulator MrpA
+Rv0982	mprB	two component histidine-protein kinase/phosphatase MprB
+Rv0983	pepD	serine protease PepD
+Rv0984	moaB2	pterin-4-alpha-carbinolamine dehydratase
+Rv0985c	mscL	large-conductance ion mechanosensitive channel
+Rv0986		adhesion component ABC transporter ATP-binding protein
+Rv0987		adhesion component ABC transporter permease
+Rv0988		hypothetical protein
+Rv0989c	grcC2	polyprenyl-diphosphate synthase GrcC
+Rv0990c		hypothetical protein
+Rv0991c		hypothetical protein
+Rv0992c		5-formyltetrahydrofolate cyclo-ligase
+Rv0993	galU	UTP--glucose-1-phosphate uridylyltransferase
+Rv0994	moeA1	molybdopterin molybdenumtransferase 1
+Rv0995	rimJ	ribosomal-protein-alanine acetyltransferase RimJ
+Rv0996		transmembrane protein
+Rv0997		hypothetical protein
+Rv0997a		hypothetical protein
+Rv0998		acetyltransferase Pat
+Rv0999		hypothetical protein
+Rv1000c		hypothetical protein
+Rv1001	arcA	arginine deiminase
+Rv1002c		dolichyl-phosphate-mannose--protein mannosyltransferase
+Rv1003		rRNA small subunit methyltransferase I
+Rv1004c		membrane protein
+Rv1005c		para-aminobenzoate synthase component I
+Rv1006		hypothetical protein
+Rv1007c	metS	methionine--tRNA ligase
+Rv1008	tatD	deoxyribonuclease TatD
+Rv1009	rpfB	resuscitation-promoting factor RpfB
+Rv1010	ksgA	rRNA small subunit methyltransferase A
+Rv1011	ispE	4-diphosphocytidyl-2C-methyl-D-erythritol kinase
+Rv1012		hypothetical protein
+Rv1013	pks16	polyketide synthase
+Rv1014c	pth	peptidyl-tRNA hydrolase
+Rv1015c	rplY	50S ribosomal protein L25/general stress protein Ctc
+Rv1016c	lpqT	lipoprotein LpqT
+Rv1017c	prsA	ribose-phosphate pyrophosphokinase
+Rv1018c	glmU	bifunctional UDP-N-acetylglucosamine pyrophosphorylase/glucosamine-1-phosphate N-acetyltransferase
+Rv1019		transcriptional regulator
+Rv1020	mfd	transcription-repair coupling factor
+Rv1021		nucleoside triphosphate pyrophosphohydrolase
+Rv1022	lpqU	lipoprotein LpqU
+Rv1023	eno	enolase
+Rv1024		membrane protein
+Rv1025		hypothetical protein
+Rv1026		hypothetical protein
+Rv1027c	kdpE	transcriptional regulator KdpE
+Rv1028A	kdpF	membrane protein KdpF
+Rv1028c	kdpD	sensor protein KdpD
+Rv1029	kdpA	potassium-transporting ATPase subunit A
+Rv1030	kdpB	potassium-transporting ATPase subunit B
+Rv1031	kdpC	potassium-transporting ATPase subunit C
+Rv1032c	trcS	two component sensor histidine kinase TrcS
+Rv1033c	trcR	two component transcriptional regulator TrcR
+Rv1037c	esxI	ESAT-6 like protein EsxI
+Rv1038c	esxJ	ESAT-6 like protein EsxJ
+Rv1039c	PPE15	PPE family protein PPE15
+Rv1040c	PE8	PE family protein PE8
+Rv1041c		IS2-like transposase
+Rv1042c		IS2-like transposase
+Rv1043c		hypothetical protein
+Rv1044		hypothetical protein
+Rv1045		hypothetical protein
+Rv1047		transposase
+Rv1048c		hypothetical protein
+Rv1049		transcriptional repressor
+Rv1050		oxidoreductase
+Rv1051c		hypothetical protein
+Rv1052		hypothetical protein
+Rv1056		hypothetical protein
+Rv1057		hypothetical protein
+Rv1058	fadD14	fatty-acid--CoA ligase FadD14
+Rv1059		hypothetical protein
+Rv1060		hypothetical protein
+Rv1061		hypothetical protein
+Rv1062		hypothetical protein
+Rv1063c		NTE family protein
+Rv1064c	lpqV	lipoprotein LpqV
+Rv1065		hypothetical protein
+Rv1066		hypothetical protein
+Rv1067c	PE_PGRS19	PE-PGRS family protein PE_PGRS19
+Rv1068c	PE_PGRS20	PE-PGRS family protein PE_PGRS20
+Rv1069c		hypothetical protein
+Rv1070c	echA8	enoyl-CoA hydratase EchA8
+Rv1071c	echA9	enoyl-CoA hydratase EchA9
+Rv1072		transmembrane protein
+Rv1073		hypothetical protein
+Rv1074c	fadA3	beta-ketoacyl CoA thiolase FadA
+Rv1075c		hypothetical protein
+Rv1076	lipU	lipase LipU
+Rv1077	cbs	cystathionine beta-synthase
+Rv1078		hypothetical protein
+Rv1079	metB	cystathionine gamma-synthase
+Rv1080c	greA	transcription elongation factor GreA
+Rv1081c		membrane protein
+Rv1082	mca	mycothiol S-conjugate amidase
+Rv1083		hypothetical protein
+Rv1084		hypothetical protein
+Rv1085c		hemolysin-like protein
+Rv1086		(2Z,6E)-farnesyl diphosphate synthase
+Rv1087	PE_PGRS21	PE-PGRS family protein PE_PGRS21
+Rv1088	PE9	PE family protein PE9
+Rv1088a		hypothetical protein
+Rv1091	PE_PGRS22	PE-PGRS family protein PE_PGRS22
+Rv1092c	coaA	pantothenate kinase
+Rv1093	glyA1	serine hydroxymethyltransferase
+Rv1094	desA2	acyl-ACP desaturase DesA
+Rv1095	phoH2	phosphate starvation-inducible protein PsiH
+Rv1096		glycosyl hydrolase
+Rv1097c		hypothetical protein
+Rv1098c	fum	fumarate hydratase
+Rv1099c	glpX	fructose 1,6-bisphosphatase
+Rv1100		hypothetical protein
+Rv1101c		hypothetical protein
+Rv1102c	mazF3	mRNA interferase MazF3
+Rv1103c	mazE3	antitoxin MazE3
+Rv1106c		3 beta-hydroxysteroid dehydrogenase/delta 5-->4-isomerase
+Rv1107c	xseB	exodeoxyribonuclease VII small subunit
+Rv1108c	xseA	exodeoxyribonuclease VII large subunit
+Rv1109c		hypothetical protein
+Rv1110	lytB2	4-hydroxy-3-methylbut-2-enyl diphosphate reductase
+Rv1111c		hypothetical protein
+Rv1112		GTP-binding protein
+Rv1113	vapB32	antitoxin VapB32
+Rv1114	vapC32	ribonuclease VapC32
+Rv1115		hypothetical protein
+Rv1116		hypothetical protein
+Rv1117		hypothetical protein
+Rv1118c		hypothetical protein
+Rv1119c		hypothetical protein
+Rv1120c		hypothetical protein
+Rv1121	zwf1	glucose-6-phosphate 1-dehydrogenase
+Rv1122	gnd2	6-phosphogluconate dehydrogenase (decarboxylating)
+Rv1123c	bpoB	peroxidase BpoB
+Rv1124	ephC	epoxide hydrolase EphC
+Rv1125		hypothetical protein
+Rv1126c		hypothetical protein
+Rv1127c	ppdK	pyruvate, phosphate dikinase PpdK
+Rv1128c		hypothetical protein
+Rv1129c		transcriptional regulator
+Rv1130	prpD	2-methylcitrate dehydratase
+Rv1131	prpC	methylcitrate synthase PrpC
+Rv1132		hypothetical protein
+Rv1133c	metE	5-methyltetrahydropteroyltriglutamate--homocysteine methyltransferase
+Rv1134		hypothetical protein
+Rv1135c	PPE16	PPE family protein PPE16
+Rv1138a		hypothetical protein
+Rv1138c		oxidoreductase
+Rv1139c		hypothetical protein
+Rv1140		integral membrane protein
+Rv1141c	echA11	enoyl-CoA hydratase EchA11
+Rv1142c	echA10	enoyl-CoA hydratase EchA10
+Rv1143	mcr	alpha-methylacyl-CoA racemase
+Rv1144		oxidoreductase
+Rv1145		transmembrane transport protein
+Rv1146		transmembrane transport protein
+Rv1147		hypothetical protein
+Rv1148c		hypothetical protein
+Rv1149		transposase
+Rv1150		
+Rv1151c		NAD-dependent protein deacylase
+Rv1152		transcriptional regulator
+Rv1153c	omt	O-methyltransferase
+Rv1154c		hypothetical protein
+Rv1155		pyridoxine/pyridoxamine 5'-phosphate oxidase
+Rv1155a		hypothetical protein
+Rv1156		hypothetical protein
+Rv1157c		hypothetical protein
+Rv1158c		hypothetical protein
+Rv1159	pimE	polyprenol-phosphate-mannose-dependent alpha-(1-2)-phosphatidylinositol pentamannoside mannosyltransferase
+Rv1159A		4a-hydroxytetrahydrobiopterin dehydratase
+Rv1160	mutT2	8-oxo-dGTP diphosphatase
+Rv1161	narG	nitrate reductase subunit alpha
+Rv1162	narH	nitrate reductase subunit beta
+Rv1163	narJ	nitrate reductase subunit delta
+Rv1164	narI	nitrate reductase subunit gamma
+Rv1165	typA	GTP-binding translation elongation factor
+Rv1166	lpqW	monoacyl phosphatidylinositol tetramannoside-binding protein LpqW
+Rv1167c		transcriptional regulator
+Rv1168c	PPE17	PPE family protein PPE17
+Rv1169c	lipX	lipase LipX
+Rv1170	mshB	1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside deacetylase
+Rv1171		hypothetical protein
+Rv1172c	PE12	PE family protein PE12
+Rv1173	fbiC	FO synthase
+Rv1174c	TB8.4	low molecular weight T-cell antigen
+Rv1175c	fadH	NADPH dependent 2,4-dienoyl-CoA reductase FadH
+Rv1176c		hypothetical protein
+Rv1177	fdxC	ferredoxin FdxC
+Rv1178		aminotransferase
+Rv1179c		hypothetical protein
+Rv1180	pks3	polyketide beta-ketoacyl synthase
+Rv1181	pks4	polyketide beta-ketoacyl synthase
+Rv1182	papA3	acyltransferase papA3
+Rv1183	mmpL10	transmembrane transport protein MmpL10
+Rv1184c		hypothetical protein
+Rv1185c	fadD21	fatty-acid--CoA ligase FadD21
+Rv1186c		hypothetical protein
+Rv1187	rocA	pyrroline-5-carboxylate dehydrogenase RocA
+Rv1188		proline dehydrogenase
+Rv1189	sigI	ECF RNA polymerase sigma factor SigI
+Rv1190		hypothetical protein
+Rv1191		hypothetical protein
+Rv1192		hypothetical protein
+Rv1193	fadD36	fatty-acid--CoA ligase FadD36
+Rv1194c		hypothetical protein
+Rv1195	PE13	PE family protein PE13
+Rv1196	PPE18	PPE family protein PPE18
+Rv1197	esxK	ESAT-6 like protein EsxK
+Rv1198	esxL	ESAT-6 like protein EsxL
+Rv1199c		insertion sequence element IS1081 transposase
+Rv1200		integral membrane transport protein
+Rv1201c	dapD	2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase
+Rv1202	dapE	succinyl-diaminopimelate desuccinylase DapE
+Rv1203c		hypothetical protein
+Rv1204c		hypothetical protein
+Rv1205		hypothetical protein
+Rv1206	fadD6	fatty-acid--CoA ligase FadD6
+Rv1207	folP2	dihydropteroate synthase
+Rv1208	gpgS	glucosyl-3-phosphoglycerate synthase
+Rv1209		hypothetical protein
+Rv1210	tagA	DNA-3-methyladenine glycosylase I TagA
+Rv1211		hypothetical protein
+Rv1212c	glgA	capsular glucan synthase
+Rv1213	glgC	glucose-1-phosphate adenylyltransferase
+Rv1214c	PE14	PE family protein PE14
+Rv1215c		hypothetical protein
+Rv1216c		integral membrane protein
+Rv1217c		tetronasin ABC transporter integral membrane protein
+Rv1218c		tetronasin ABC transporter ATP-binding protein
+Rv1219c		transcriptional regulator
+Rv1220c		methyltransferase
+Rv1221	sigE	ECF RNA polymerase sigma factor SigE
+Rv1222	rseA	anti-sigma E factor RseA
+Rv1223	htrA	serine protease HtrA
+Rv1224	tatB	Sec-independent protein translocase protein TatB
+Rv1225c		hypothetical protein
+Rv1226c		transmembrane protein
+Rv1227c		transmembrane protein
+Rv1228	lpqX	lipoprotein LpqX
+Rv1228a		hypothetical protein
+Rv1229c	mrp	multiple resistance/pH adaptation protein
+Rv1230c		membrane protein
+Rv1231c		membrane protein
+Rv1232c		hypothetical protein
+Rv1233c		hypothetical protein
+Rv1234		transmembrane protein
+Rv1235	lpqY	trehalose ABC transporter substrate-binding lipoprotein LpqY
+Rv1236	sugA	sugar ABC transporter permease SugA
+Rv1237	sugB	sugar ABC transporter permease SugB
+Rv1238	sugC	sugar ABC transporter ATP-binding protein SugC
+Rv1239c	corA	magnesium and cobalt transport transmembrane protein CorA
+Rv1240	mdh	malate dehydrogenase
+Rv1241	vapB33	antitoxin VapB33
+Rv1242	vapC33	ribonuclease VapC33
+Rv1243c	PE_PGRS23	PE-PGRS family protein PE_PGRS23
+Rv1244	lpqZ	lipoprotein LpqZ
+Rv1245c		short-chain type dehydrogenase/reductase
+Rv1246c	relE	toxin RelE
+Rv1247c	relB	antitoxin RelB
+Rv1248c		multifunctional 2-oxoglutarate dehydrogenase E1 component /2-oxoglutarate dehydrogenase dihydrolipoyllysine-residue succinyltransferase
+Rv1249c		membrane protein
+Rv1250		MFS-type drug transporter
+Rv1251c		hypothetical protein
+Rv1252c	lprE	lipoprotein LprE
+Rv1253	deaD	ATP-dependent RNA helicase DeaD
+Rv1254		acyltransferase
+Rv1255c		HTH-type transcriptional regulator
+Rv1256c	cyp130	cytochrome P450 Cyp130
+Rv1257c		oxidoreductase
+Rv1258c		multidrug-efflux transporter
+Rv1259	udgB	uracil DNA glycosylase
+Rv1260		oxidoreductase
+Rv1261c		hypothetical protein
+Rv1262c		hypothetical protein
+Rv1263	amiB2	amidase AmiB
+Rv1264		adenylyl cyclase
+Rv1265		hypothetical protein
+Rv1266c	pknH	serine/threonine-protein kinase PknH
+Rv1267c	embR	transcriptional regulator EmbR
+Rv1268c		hypothetical protein
+Rv1269c		hypothetical protein
+Rv1270c	lprA	lipoprotein LprA
+Rv1271c		hypothetical protein
+Rv1272c		drug ABC transporter ATP-binding protein
+Rv1273c		drug ABC transporter ATP-binding protein
+Rv1274	lprB	lipoprotein LprB
+Rv1275	lprC	lipoprotein LprC
+Rv1276c		hypothetical protein
+Rv1277		hypothetical protein
+Rv1278		hypothetical protein
+Rv1279		GMC-type oxidoreductase
+Rv1280c	oppA	oligopeptide ABC transporter substrate-binding lipoprotein OppA
+Rv1281c	oppD	oligopeptide ABC transporter ATP-binding protein OppD
+Rv1282c	oppC	oligopeptide ABC transporter permease OppC
+Rv1283c	oppB	oligopeptide ABC transporter permease OppB
+Rv1284	canA	beta-carbonic anhydrase
+Rv1285	cysD	sulfate adenylyltransferase subunit 2
+Rv1286		adenylyl-sulfate kinase
+Rv1287		HTH-type transcriptional regulator
+Rv1288		hypothetical protein
+Rv1289		hypothetical protein
+Rv1290A		hypothetical protein
+Rv1290c		hypothetical protein
+Rv1291c		hypothetical protein
+Rv1292	argS	arginine--tRNA ligase
+Rv1293	lysA	diaminopimelate decarboxylase
+Rv1294	thrA	homoserine dehydrogenase
+Rv1295	thrC	threonine synthase
+Rv1296	thrB	homoserine kinase
+Rv1297	rho	transcription termination factor Rho
+Rv1298	rpmE	50S ribosomal protein L31
+Rv1299	prfA	peptide chain release factor PrfA
+Rv1300	hemK	release factor glutamine methyltransferase
+Rv1301		threonylcarbamoyl-AMP synthase
+Rv1302	rfe	decaprenyl-phosphate N-acetylglucosaminephosphotransferase
+Rv1303		hypothetical protein
+Rv1304	atpB	ATP synthase subunit A
+Rv1305	atpE	ATP synthase subunit C
+Rv1306	atpF	ATP synthase subunit B
+Rv1307	atpH	ATP synthase subunit b/delta
+Rv1308	atpA	ATP synthase subunit alpha
+Rv1309	atpG	ATP synthase subunit gamma
+Rv1310	atpD	ATP synthase subunit beta
+Rv1311	atpC	ATP synthase subunit epsilon
+Rv1312		hypothetical protein
+Rv1313c		insertion sequence element IS1557 transposase
+Rv1314c		cob(I)yrinic acid a,c-diamide adenosyltransferase
+Rv1315	murA	UDP-N-acetylglucosamine 1-carboxyvinyltransferase
+Rv1316c	ogt	methylated-DNA--protein-cysteine methyltransferase
+Rv1317c	alkA	bifunctional regulatory protein/DNA repair enzyme AlkA
+Rv1318c		adenylate cyclase
+Rv1319c		adenylate cyclase
+Rv1320c		adenylate cyclase
+Rv1321		endonuclease NucS
+Rv1322		hypothetical protein
+Rv1322A		hypothetical protein
+Rv1323	fadA4	acetyl-CoA acetyltransferase
+Rv1324		thioredoxin
+Rv1325c	PE_PGRS24	PE-PGRS family protein PE_PGRS24
+Rv1326c	glgB	1,4-alpha-glucan branching protein
+Rv1327c	glgE	alpha-1,4-glucan:maltose-1-phosphate maltosyltransferase
+Rv1328	glgP	glycogen phosphorylase
+Rv1329c	dinG	ATP-dependent helicase DinG
+Rv1330c	pncB1	nicotinic acid phosphoribosyltransferase PncB1
+Rv1331		ATP-dependent Clp protease adapter protein ClpS
+Rv1332		transcriptional regulator
+Rv1333		hydrolase
+Rv1334	mec	[CysO]-cysteine peptidase
+Rv1335	cysO	sulfur carrier protein CysO
+Rv1336	cysM	O-phosphoserine sulfhydrylase
+Rv1337		integral membrane protein
+Rv1338	murI	glutamate racemase
+Rv1339		hypothetical protein
+Rv1340	rphA	ribonuclease PH
+Rv1341		non-canonical purine NTP pyrophosphatase
+Rv1342c		hypothetical protein
+Rv1343c	lprD	lipoprotein LprD
+Rv1344	mbtL	acyl carrier protein MbtL
+Rv1345	mbtM	long-chain-fatty-acid--ACP ligase MbtM
+Rv1346	mbtN	acyl-[acyl-carrier-protein] dehydrogenase MbtN
+Rv1347c	mbtK	lysine N-acetyltransferase MbtK
+Rv1348	irtA	iron ABC transporter ATP-binding protein/permease IrtA
+Rv1349	irtB	iron ABC transporter ATP-binding protein/permease IrtB
+Rv1350	fabG2	3-oxoacyl-ACP reductase FabG
+Rv1351		hypothetical protein
+Rv1352		hypothetical protein
+Rv1353c		HTH-type transcriptional regulator
+Rv1354c		hypothetical protein
+Rv1355c	moeY	molybdopterin biosynthesis protein MoeY
+Rv1356c		hypothetical protein
+Rv1357c		hypothetical protein
+Rv1358		transcriptional regulator
+Rv1359		transcriptional regulator
+Rv1360		oxidoreductase
+Rv1361c	PPE19	PPE family protein PPE19
+Rv1362c		membrane protein
+Rv1363c		membrane protein
+Rv1364c		sigma factor regulatory protein
+Rv1365c	rsfA	anti-sigma-F factor antagonist RsfA
+Rv1366		hypothetical protein
+Rv1366A		hypothetical protein
+Rv1367c		hypothetical protein
+Rv1368	lprF	lipoprotein LprF
+Rv1371		membrane protein
+Rv1372		alpha-pyrone synthesis polyketide synthase-like protein
+Rv1373		glycolipid sulfotransferase
+Rv1374c		hypothetical protein
+Rv1375		hypothetical protein
+Rv1376		hypothetical protein
+Rv1377c		transferase
+Rv1378c		hypothetical protein
+Rv1379	pyrR	bifunctional pyrimidine operon regulatory protein/uracil phosphoribosyltransferase
+Rv1380	pyrB	aspartate carbamoyltransferase
+Rv1381	pyrC	dihydroorotase
+Rv1382		hypothetical protein
+Rv1383	carA	carbamoyl-phosphate synthase small subunit
+Rv1384	carB	carbamoyl-phosphate synthase large subunit
+Rv1385	pyrF	orotidine 5'-phosphate decarboxylase
+Rv1386	PE15	PE family protein PE15
+Rv1387	PPE20	PPE family protein PPE20
+Rv1388	mihF	integration host factor MihF
+Rv1389	gmk	guanylate kinase
+Rv1390	rpoZ	DNA-directed RNA polymerase subunit omega
+Rv1391	dfp	bifunctional phosphopantothenoylcysteine decarboxylase/phosphopantothenate--cysteine ligase
+Rv1392	metK	S-adenosylmethionine synthetase
+Rv1393c		monoxygenase
+Rv1394c	cyp132	cytochrome P450 Cyp132
+Rv1395		HTH-type transcriptional regulator
+Rv1396c	PE_PGRS25	PE-PGRS family protein PE_PGRS25
+Rv1397c	vapC10	ribonuclease VapC10
+Rv1398c	vapB10	antitoxin VapB10
+Rv1399c	nlhH	carboxylesterase NlhH
+Rv1400c	lipI	lipase
+Rv1401		membrane protein
+Rv1402	priA	primosomal protein N'
+Rv1403c		methyltransferase
+Rv1404		transcriptional regulator
+Rv1405c		methyltransferase
+Rv1406	fmt	methionyl-tRNA formyltransferase
+Rv1407	fmu	16S rRNA m5C967 methyltransferase
+Rv1408	rpe	ribulose-phosphate 3-epimerase
+Rv1409	ribG	bifunctional riboflavin biosynthesis diaminohydroxyphosphoribosylaminopyrimidine deaminase/5-amino-6-(5-phosphoribosylamino) uracil reductase
+Rv1410c		aminoglycosides/tetracycline-transport integral membrane protein
+Rv1411c	lprG	lipoprotein LprG
+Rv1412	ribC	riboflavin synthase
+Rv1413		hypothetical protein
+Rv1414		hypothetical protein
+Rv1415	ribA2	bifunctional riboflavin biosynthesis GTP cyclohydrolase II/3,4-dihydroxy-2-butanone 4-phosphate synthase
+Rv1416	ribH	6,7-dimethyl-8-ribityllumazine synthase
+Rv1417		membrane protein
+Rv1418	lprH	lipoprotein LprH
+Rv1419		hypothetical protein
+Rv1420	uvrC	excinuclease ABC subunit UvrC
+Rv1421		hypothetical protein
+Rv1422		hypothetical protein
+Rv1423	whiA	transcriptional regulator WhiA
+Rv1424c		membrane protein
+Rv1425		diacyglycerol O-acyltransferase
+Rv1426c	lipO	esterase LipO
+Rv1427c	fadD12	acyl-CoA synthetase
+Rv1428c		hypothetical protein
+Rv1429		hypothetical protein
+Rv1430	PE16	PE family protein PE16
+Rv1431		hypothetical protein
+Rv1432		dehydrogenase
+Rv1433		hypothetical protein
+Rv1434		hypothetical protein
+Rv1435c		hypothetical protein
+Rv1436	gap	glyceraldehyde 3-phosphate dehydrogenase
+Rv1437	pgk	phosphoglycerate kinase
+Rv1438	tpi	triosephosphate isomerase
+Rv1439c		hypothetical protein
+Rv1440	secG	protein-export membrane protein SecG
+Rv1441c	PE_PGRS26	PE-PGRS family protein PE_PGRS26
+Rv1442	bisC	biotin sulfoxide reductase BisC
+Rv1443c		hypothetical protein
+Rv1444c		hypothetical protein
+Rv1445c	devB	6-phosphogluconolactonase
+Rv1446c	opcA	OXPP cycle protein OpcA
+Rv1447c	zwf2	glucose-6-phosphate 1-dehydrogenase
+Rv1448c	tal	transaldolase
+Rv1449c	tkt	transketolase
+Rv1450c	PE_PGRS27	PE-PGRS family protein PE_PGRS27
+Rv1451		protoheme IX farnesyltransferase
+Rv1452c	PE_PGRS28	PE-PGRS family protein PE_PGRS28
+Rv1453		transcriptional activator protein
+Rv1454c	qor	quinone reductase
+Rv1455		hypothetical protein
+Rv1456c		antibiotic ABC transporter permease
+Rv1457c		antibiotic ABC transporter permease
+Rv1458c		antibiotic ABC transporter ATP-binding protein
+Rv1459c		alpha-(1->6)-mannopyranosyltransferase
+Rv1460		transcriptional regulator
+Rv1461		hypothetical protein
+Rv1462		hypothetical protein
+Rv1463		ABC transporter ATP-binding protein
+Rv1464	csd	cysteine desulfurase
+Rv1465		nitrogen fixation related protein
+Rv1466		hypothetical protein
+Rv1467c	fadE15	acyl-CoA dehydrogenase
+Rv1468c	PE_PGRS29	PE-PGRS family protein PE_PGRS29
+Rv1469	ctpD	cobalt/nickel-exporting P-type ATPase
+Rv1470	trxA	thioredoxin TrxA
+Rv1471	trxB1	thioredoxin
+Rv1472	echA12	enoyl-CoA hydratase EchA12
+Rv1473		macrolide ABC transporter ATP-binding protein
+Rv1473A		transcriptional regulator
+Rv1474c		transcriptional regulator
+Rv1475c	acn	iron-regulated aconitate hydratase
+Rv1476		membrane protein
+Rv1477	ripA	peptidoglycan endopeptidase RipA
+Rv1478		peptidoglycan endopeptidase RipB
+Rv1479	moxR1	transcriptional regulator MoxR1
+Rv1480		hypothetical protein
+Rv1481		membrane protein
+Rv1482c		hypothetical protein
+Rv1483	fabG1	3-oxoacyl-ACP reductase FabG
+Rv1484	inhA	NADH-dependent enoyl-[ACP] reductase
+Rv1485	hemZ	ferrochelatase
+Rv1486c		hypothetical protein
+Rv1487		hypothetical protein
+Rv1488		hypothetical protein
+Rv1489		hypothetical protein
+Rv1489A		hypothetical protein
+Rv1490		membrane protein
+Rv1491c		TVP38/TMEM64 family membrane protein
+Rv1492	mutA	methylmalonyl-CoA mutase small subunit
+Rv1493	mutB	methylmalonyl-CoA mutase large subunit
+Rv1494	mazE4	antitoxin MazE4
+Rv1495	mazF4	mRNA interferase MazF4
+Rv1496		transport system kinase
+Rv1497	lipL	esterase LipL
+Rv1498A		hypothetical protein
+Rv1498c		methyltransferase
+Rv1499		hypothetical protein
+Rv1500		glycosyltransferase
+Rv1501		hypothetical protein
+Rv1502		hypothetical protein
+Rv1503c		
+Rv1505c		hypothetical protein
+Rv1506c		hypothetical protein
+Rv1507A		hypothetical protein
+Rv1507c		hypothetical protein
+Rv1508A		hypothetical protein
+Rv1508c		membrane protein
+Rv1509		hypothetical protein
+Rv1510		hypothetical protein
+Rv1511	gmdA	GDP-D-mannose dehydratase GmdA
+Rv1512	epiA	nucleotide-sugar epimerase EpiA
+Rv1513		hypothetical protein
+Rv1514c		glycosyltransferase
+Rv1515c		hypothetical protein
+Rv1516c		sugar transferase
+Rv1517		hypothetical protein
+Rv1518		hypothetical protein
+Rv1519		hypothetical protein
+Rv1520		sugar transferase
+Rv1521	fadD25	fatty-acid--CoA ligase FadD25
+Rv1522c	mmpL12	transmembrane transport protein MmpL12
+Rv1523		methyltransferase
+Rv1524		glycosyltransferase
+Rv1525	wbbL2	rhamnosyl transferase WbbL
+Rv1526c		glycosyltransferase
+Rv1527c	pks5	polyketide synthase
+Rv1528c	papA4	polyketide synthase associated protein PapA
+Rv1529	fadD24	fatty-acid--CoA ligase FadD24
+Rv1530	adh	alcohol dehydrogenase
+Rv1531		hypothetical protein
+Rv1532c		hypothetical protein
+Rv1533		monooxygenase
+Rv1534		transcriptional regulator
+Rv1535		hypothetical protein
+Rv1536	ileS	isoleucine--tRNA ligase
+Rv1537	dinX	DNA polymerase IV
+Rv1538c	ansA	L-aparaginase
+Rv1539	lspA	lipoprotein signal peptidase
+Rv1540		RNA pseudouridine synthase
+Rv1541c	lprI	lipoprotein LprI
+Rv1542c	glbN	hemoglobin GlbN
+Rv1543		oxidoreductase
+Rv1544		ketoacyl reductase
+Rv1545		hypothetical protein
+Rv1546		hypothetical protein
+Rv1547	dnaE1	DNA polymerase III subunit alpha
+Rv1548c	PPE21	PPE family protein PPE21
+Rv1550	fadD11	fatty-acid--CoA ligase FadD11
+Rv1551	plsB1	acyltransferase PlsB
+Rv1552	frdA	fumarate reductase flavoprotein subunit
+Rv1553	frdB	fumarate reductase iron-sulfur subunit
+Rv1554	frdC	fumarate reductase membrane anchor subunit
+Rv1555	frdD	fumarate reductase membrane anchor subunit
+Rv1556		HTH-type transcriptional regulator
+Rv1557	mmpL6	transmembrane transport protein MmpL6
+Rv1558		hypothetical protein
+Rv1559	ilvA	threonine dehydratase IlvA
+Rv1560	vapB11	antitoxin VapB11
+Rv1561	vapC11	ribonuclease VapC11
+Rv1562c	treZ	malto-oligosyltrehalose trehalohydrolase
+Rv1563c	treY	maltooligosyl trehalose synthase
+Rv1564c	treX	maltooligosyl trehalose synthase
+Rv1565c		acyltransferase
+Rv1566c		hypothetical protein
+Rv1567c		membrane protein
+Rv1568	bioA	adenosylmethionine--8-amino-7-oxononanoate aminotransferase BioA
+Rv1569	bioF1	8-amino-7-oxononanoate synthase
+Rv1570	bioD	ATP-dependent dethiobiotin synthetase BioD
+Rv1571		hypothetical protein
+Rv1573		phage protein
+Rv1574		phage protein
+Rv1575		phage protein
+Rv1576c		phage capsid protein
+Rv1577c		phage prohead protease
+Rv1578c		phage protein
+Rv1579c		phage protein
+Rv1580c		phage protein
+Rv1581c		phage protein
+Rv1582c		phage protein
+Rv1583c		phage protein
+Rv1584c		phage protein
+Rv1585c		phage protein
+Rv1586c		phage integrase
+Rv1587c		hypothetical protein
+Rv1588c		hypothetical protein
+Rv1589	bioB	biotin synthetase
+Rv1590		hypothetical protein
+Rv1591		transmembrane protein
+Rv1592c		hypothetical protein
+Rv1593c		hypothetical protein
+Rv1594	nadA	quinolinate synthetase A
+Rv1595	nadB	L-aspartate oxidase
+Rv1596	nadC	nicotinate-nucleotide pyrophosphatase
+Rv1597		hypothetical protein
+Rv1598c		hypothetical protein
+Rv1599	hisD	histidinol dehydrogenase
+Rv1600	hisC1	histidinol-phosphate aminotransferase
+Rv1601	hisB	imidazole glycerol-phosphate dehydratase
+Rv1602	hisH	imidazole glycerol phosphate synthase subunit HisH
+Rv1603	hisA	1-(5-phosphoribosyl)-5-((5-phosphoribosylamino)methylideneamino)imidazole-4-carboxamide isomerase
+Rv1604	impA	inositol-monophosphatase ImpA
+Rv1605	hisF	imidazole glycerol phosphate synthase subunit HisF
+Rv1606	hisI	phosphoribosyl-AMP cyclohydrolase
+Rv1607	chaA	ionic transporter integral membrane protein ChaA
+Rv1608c	bcpB	peroxiredoxin
+Rv1609	trpE	anthranilate synthase component I
+Rv1610		membrane protein
+Rv1611	trpC	indole-3-glycerol phosphate synthase
+Rv1612	trpB	tryptophan synthase subunit beta
+Rv1613	trpA	tryptophan synthase subunit alpha
+Rv1614	lgt	prolipoprotein diacylglyceryl transferase
+Rv1615		membrane protein
+Rv1616		hypothetical protein
+Rv1617	pykA	pyruvate kinase
+Rv1618	tesB1	acyl-CoA thioesterase II
+Rv1619		hypothetical protein
+Rv1620c	cydC	cytochrome biosyntheisis ABC transporter ATP-binding protein/permease CydC
+Rv1621c	cydD	cytochrome biosyntheisis ABC transporter ATP-binding protein/permease CydD
+Rv1622c	cydB	cytochrome D ubiquinol oxidase subunit II CydB
+Rv1623c	cydA	cytochrome D ubiquinol oxidase subunit I CydA
+Rv1624c		membrane protein
+Rv1625c	cya	adenylate cyclase
+Rv1626		two-component system transcriptional regulator
+Rv1627c		nonspecific lipid-transfer protein
+Rv1628c		hypothetical protein
+Rv1629	polA	DNA polymerase I
+Rv1630	rpsA	30S ribosomal protein S1
+Rv1631	coaE	dephospho-CoA kinase CoaE
+Rv1632c		hypothetical protein
+Rv1633	uvrB	excinuclease ABC subunit UvrB
+Rv1634		multidrug-efflux transporter
+Rv1635c		mannosyltransferase
+Rv1636	TB15.3	iron-regulated universal stress protein
+Rv1637c		hypothetical protein
+Rv1638	uvrA	excinuclease ABC subunit UvrA
+Rv1638A		hypothetical protein
+Rv1639c		hypothetical protein
+Rv1640c	lysX	bifunctional lysine--tRNA ligase/phosphatidylglycerol lysyltransferase
+Rv1641	infC	initiation factor IF-3
+Rv1642	rpmI	50S ribosomal protein L35
+Rv1643	rplT	50S ribosomal protein L20
+Rv1644	tsnR	23S rRNA methyltransferase TsnR
+Rv1645c		hypothetical protein
+Rv1646	PE17	PE family protein PE17
+Rv1647		adenylate cyclase
+Rv1648		transmembrane protein
+Rv1649	pheS	phenylalanine--tRNA ligase subunit alpha
+Rv1650	pheT	phenylalanine--tRNA ligase subunit beta
+Rv1651c	PE_PGRS30	PE-PGRS family protein PE_PGRS30
+Rv1652	argC	N-acetyl-gamma-glutamyl-phoshate reductase
+Rv1653	argJ	bifunctional glutamate N-acetyltransferase/amino-acid acetyltransferase
+Rv1654	argB	acetylglutamate kinase
+Rv1655	argD	acetylornithine aminotransferase
+Rv1656	argF	ornithine carbamoyltransferase
+Rv1657	argR	arginine repressor
+Rv1658	argG	argininosuccinate synthase
+Rv1659	argH	argininosuccinate lyase
+Rv1660	pks10	chalcone synthase
+Rv1661	pks7	polyketide synthase
+Rv1662	pks8	polyketide synthase
+Rv1663	pks17	polyketide synthase
+Rv1664	pks9	polyketide synthase
+Rv1665	pks11	chalcone synthase
+Rv1666c	cyp139	cytochrome P450 Cyp139
+Rv1667c		
+Rv1669		hypothetical protein
+Rv1670		hypothetical protein
+Rv1671		membrane protein
+Rv1672c		integral membrane transport protein
+Rv1673c		hypothetical protein
+Rv1674c		transcriptional regulator
+Rv1675c	cmr	HTH-type transcriptional regulator Cmr
+Rv1676		hypothetical protein
+Rv1677	dsbF	lipoprotein DsbF
+Rv1678		integral membrane protein
+Rv1679	fadE16	acyl-CoA dehydrogenase FadE16
+Rv1680		hypothetical protein
+Rv1681	moeX	molybdopterin biosynthesis protein MoeX
+Rv1682		hypothetical protein
+Rv1683		bifunctional long-chain acyl-CoA synthase/lipase
+Rv1684		hypothetical protein
+Rv1685c		hypothetical protein
+Rv1686c		ABC transporter permease
+Rv1687c		ABC transporter ATP-binding protein
+Rv1688	mpg	3-methyladenine DNA glycosylase
+Rv1689	tyrS	tyrosine--tRNA ligase
+Rv1690	lprJ	lipoprotein LprJ
+Rv1691		hypothetical protein
+Rv1692		phosphatase
+Rv1693		hypothetical protein
+Rv1694	tlyA	16S/23S rRNA (cytidine-2'-O)-methyltransferase TlyA
+Rv1695	ppnK	inorganic polyphosphate/ATP-NAD kinase
+Rv1696	recN	DNA repair protein RecN
+Rv1697		hypothetical protein
+Rv1698	mctB	copper transporter MctB
+Rv1699	pyrG	CTP synthase
+Rv1700		NUDIX hydrolase
+Rv1701		tyrosine recombinase XerD
+Rv1702c		hypothetical protein
+Rv1703c		methyltransferase
+Rv1704c	cycA	D-serine/alanine/glycine transporter protein CycA
+Rv1705c	PPE22	PPE family protein PPE22
+Rv1706A		hypothetical protein
+Rv1706c	PPE23	PPE family protein PPE23
+Rv1707		transmembrane protein
+Rv1708		initiation inhibitor protein
+Rv1709	scpA	segregation and condensation protein ScpA
+Rv1710	scpB	segregation and condensation protein ScpB
+Rv1711		RNA pseudouridine synthase
+Rv1712	cmk	cytidylate kinase
+Rv1713	engA	GTPase Der
+Rv1714		oxidoreductase
+Rv1715	fadB3	3-hydroxybutyryl-CoA dehydrogenase FadB
+Rv1716		hypothetical protein
+Rv1717		hypothetical protein
+Rv1718		hypothetical protein
+Rv1719		transcriptional regulator
+Rv1720c	vapC12	ribonuclease VapC12
+Rv1721c	vapB12	antitoxin VapB12
+Rv1722		carboxylase
+Rv1723		hydrolase
+Rv1724c		hypothetical protein
+Rv1725c		hypothetical protein
+Rv1726		oxidoreductase
+Rv1727		hypothetical protein
+Rv1728c		hypothetical protein
+Rv1729c		S-adenosylmethionine-dependent methyltransferase
+Rv1730c		penicillin-binding protein
+Rv1731	gabD2	succinate-semialdehyde dehydrogenase
+Rv1732c		hypothetical protein
+Rv1733c		transmembrane protein
+Rv1734c		hypothetical protein
+Rv1735a		hypothetical protein
+Rv1735c		membrane protein
+Rv1736c	narX	nitrate reductase-like protein NarX
+Rv1737c	narK2	nitrate/nitrite transporter
+Rv1738		hypothetical protein
+Rv1739c		sulfate ABC transporter permease
+Rv1740	vapB34	antitoxin VapB34
+Rv1741	vapC34	ribonuclease VapC34
+Rv1742		hypothetical protein
+Rv1743	pknE	serine/threonine-protein kinase PknE
+Rv1744c		membrane protein
+Rv1745c	idi	isopentenyl-diphosphate delta-isomerase
+Rv1746	pknF	serine/threonine-protein kinase PknF
+Rv1747		ABC transporter ATP-binding protein/permease
+Rv1748		hypothetical protein
+Rv1749c		integral membrane protein
+Rv1750c	fadD1	fatty-acid--CoA ligase FadD1
+Rv1751		oxidoreductase
+Rv1752		hypothetical protein
+Rv1753c	PPE24	PPE family protein PPE24
+Rv1754c		hypothetical protein
+Rv1758	cut1	cutinase
+Rv1759c	wag22	PE-PGRS family protein Wag22
+Rv1760		diacylglycerol acyltransferase
+Rv1761c		hypothetical protein
+Rv1762c		hypothetical protein
+Rv1765c		hypothetical protein
+Rv1766		hypothetical protein
+Rv1767		hypothetical protein
+Rv1768	PE_PGRS31	PE-PGRS family protein PE_PGRS31
+Rv1769		hypothetical protein
+Rv1770		hypothetical protein
+Rv1771		L-gulono-1,4-lactone dehydrogenase
+Rv1772		hypothetical protein
+Rv1773c		transcriptional regulator
+Rv1774		oxidoreductase
+Rv1775		hypothetical protein
+Rv1776c		transcriptional regulator
+Rv1777	cyp144	cytochrome P450 Cyp144
+Rv1778c		hypothetical protein
+Rv1779c		integral membrane protein
+Rv1780		hypothetical protein
+Rv1781c	malQ	4-alpha-glucanotransferase
+Rv1782	eccB5	ESX-5 type VII secretion system protein EccB5
+Rv1783	eccC5	ESX-5 type VII secretion system protein EccC5
+Rv1785c	cyp143	cytochrome P450 Cyp143
+Rv1786		ferredoxin
+Rv1787	PPE25	PPE family protein PPE25
+Rv1788	PE18	PE family protein PE18
+Rv1789	PPE26	PPE family protein PPE26
+Rv1790	PPE27	PPE family protein PPE27
+Rv1791	PE19	PE family protein PE19
+Rv1792	esxM	
+Rv1793	esxN	ESAT-6 like protein EsxN
+Rv1794		hypothetical protein
+Rv1795	eccD5	ESX-5 type VII secretion system protein EccD
+Rv1796	mycP5	membrane-anchored mycosin MycP
+Rv1797	eccE5	ESX-5 type VII secretion system protein EccE
+Rv1798	eccA5	ESX-5 type VII secretion system protein EccA
+Rv1799	lppT	lipoprotein LppT
+Rv1800	PPE28	PPE family protein PPE28
+Rv1801	PPE29	PPE family protein PPE29
+Rv1802	PPE30	PPE family protein PPE30
+Rv1803c	PE_PGRS32	PE-PGRS family protein PE_PGRS32
+Rv1804c		hypothetical protein
+Rv1805c		hypothetical protein
+Rv1806	PE20	PE family protein PE20
+Rv1808	PPE32	PPE family protein PPE32
+Rv1809	PPE33	PPE family protein PPE33
+Rv1810		hypothetical protein
+Rv1811	mgtC	Mg2+ transport P-type ATPase MgtC
+Rv1812c		dehydrogenase
+Rv1813c		hypothetical protein
+Rv1814	erg3	membrane-bound C-5 sterol desaturase
+Rv1815		hypothetical protein
+Rv1816		HTH-type transcriptional regulator
+Rv1817		flavoprotein
+Rv1818c	PE_PGRS33	PE-PGRS family protein PE_PGRS33
+Rv1819c	bacA	vitamin B12 transport ATP-binding protein BacA
+Rv1820	ilvG	acetolactate synthase large subunit IlvG
+Rv1821	secA2	accessory Sec system translocase SecA2
+Rv1822	pgsA2	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase
+Rv1823		hypothetical protein
+Rv1824		hypothetical protein
+Rv1825		hypothetical protein
+Rv1826	gcvH	glycine cleavage system protein H
+Rv1827	garA	glycogen accumulation regulator GarA
+Rv1828		HTH-type transcriptional regulator
+Rv1829		hypothetical protein
+Rv1830		HTH-type transcriptional regulator
+Rv1831		hypothetical protein
+Rv1832	gcvB	glycine dehydrogenase
+Rv1833c		haloalkane dehalogenase
+Rv1834	lipZ	hydrolase
+Rv1835c		serine esterase
+Rv1836c		hypothetical protein
+Rv1837c	glcB	malate synthase
+Rv1838c	vapC13	ribonuclease VapC13
+Rv1839c	vapB13	antitoxin VapB13
+Rv1840c	PE_PGRS34	PE-PGRS family protein PE_PGRS34
+Rv1841c		hypothetical protein
+Rv1842c		hypothetical protein
+Rv1843c	guaB1	inosine-5'-monophosphate dehydrogenase
+Rv1844c	gnd1	6-phosphogluconate dehydrogenase
+Rv1845c	blaR	sensor-transducer protein BlaR
+Rv1846c	blaI	transcriptional repressor BlaI
+Rv1847		esterase
+Rv1848	ureA	urease subunit gamma
+Rv1849	ureB	urease subunit beta
+Rv1850	ureC	urease subunit alpha
+Rv1851	ureF	urease accessory protein UreF
+Rv1852	ureG	urease accessory protein UreG
+Rv1853	ureD	urease accessory protein UreD
+Rv1854c	ndh	NADH dehydrogenase
+Rv1855c		oxidoreductase
+Rv1856c		oxidoreductase
+Rv1857	modA	molybdate ABC transporter substrate-binding lipoprotein ModA
+Rv1858	modB	molybdenum ABC transporter permease ModB
+Rv1859	modC	molybdenum ABC transporter ATP-binding protein ModC
+Rv1860	apa	hypothetical protein
+Rv1861		transmembrane protein
+Rv1862	adhA	alcohol dehydrogenase A
+Rv1863c		integral membrane protein
+Rv1864c		hypothetical protein
+Rv1865c		short-chain type dehydrogenase
+Rv1866		hypothetical protein
+Rv1867		hypothetical protein
+Rv1868		hypothetical protein
+Rv1869c		reductase
+Rv1870c		hypothetical protein
+Rv1871c		hypothetical protein
+Rv1872c	lldD2	L-lactate dehydrogenase
+Rv1873		hypothetical protein
+Rv1874		hypothetical protein
+Rv1875		hypothetical protein
+Rv1876	bfrA	bacterioferritin BfrA
+Rv1877		MFS-type transporter
+Rv1878	glnA3	glutamine synthetase GlnA
+Rv1879		hypothetical protein
+Rv1880c	cyp140	cytochrome P450 Cyp140
+Rv1881c	lppE	lipoprotein LppE
+Rv1882c		short-chain type dehydrogenase/reductase
+Rv1883c		hypothetical protein
+Rv1884c	rpfC	resuscitation-promoting factor RpfC
+Rv1885c		chorismate mutase
+Rv1886c	fbpB	diacylglycerol acyltransferase/mycolyltransferase Ag85B
+Rv1887		hypothetical protein
+Rv1887a		
+Rv1888A		
+Rv1890c		hypothetical protein
+Rv1891		hypothetical protein
+Rv1892		membrane protein
+Rv1893		hypothetical protein
+Rv1894c		hypothetical protein
+Rv1895		zinc-binding alcohol dehydrogenase
+Rv1896c		S-adenosyl-L-methionine-dependent methyltransferase
+Rv1897c		D-tyrosyl-tRNA(Tyr) deacylase
+Rv1898		hypothetical protein
+Rv1899c	lppD	lipoprotein LppD
+Rv1900c	lipJ	lignin peroxidase LipJ
+Rv1901	cinA	competence damage-inducible protein CinA
+Rv1902c	nanT	sialic acid-transport integral membrane protein NanT
+Rv1903		membrane protein
+Rv1904		hypothetical protein
+Rv1905c	aao	D-amino acid oxidase
+Rv1906c		hypothetical protein
+Rv1907c		hypothetical protein
+Rv1908c	katG	catalase-peroxidase
+Rv1909c	furA	ferric uptake regulation protein FurA
+Rv1910c		hypothetical protein
+Rv1911c	lppC	lipoprotein LppC
+Rv1912c	fadB5	oxidoreductase FadB
+Rv1913		hypothetical protein
+Rv1914c		hypothetical protein
+Rv1915	aceAa	isocitrate lyase AceAa
+Rv1916	aceAb	isocitrate lyase AceAb
+Rv1917c	PPE34	PPE family protein PPE34
+Rv1918c	PPE35	PPE family protein PPE35
+Rv1919c		hypothetical protein
+Rv1920		membrane protein
+Rv1921c	lppF	lipoprotein LppF
+Rv1922		lipoprotein
+Rv1923	lipD	lipase LipD
+Rv1924c		hypothetical protein
+Rv1925	fadD31	fatty-acid--CoA ligase FadD31
+Rv1926c	mpt63	immunogenic protein Mpt63
+Rv1927		hypothetical protein
+Rv1928c		short-chain type dehydrogenase/reductase
+Rv1929c		hypothetical protein
+Rv1930c		hypothetical protein
+Rv1931c		transcriptional regulator
+Rv1932	tpx	2-Cys peroxiredoxin
+Rv1933c	fadE18	acyl-CoA dehydrogenase FadE18
+Rv1934c	fadE17	acyl-CoA dehydrogenase FadE17
+Rv1935c	echA13	enoyl-CoA hydratase EchA13
+Rv1936		monooxygenase
+Rv1937		oxygenase
+Rv1938	ephB	epoxide hydrolase EphB
+Rv1939		oxidoreductase
+Rv1940	ribA1	riboflavin biosynthesis protein RibA
+Rv1941		short-chain type dehydrogenase/reductase
+Rv1942c	mazF5	toxin MazF5
+Rv1943c	mazE5	antitoxin MazE5
+Rv1944c		hypothetical protein
+Rv1945		hypothetical protein
+Rv1946c	lppG	lipoprotein
+Rv1947		hypothetical protein
+Rv1948c		hypothetical protein
+Rv1950c		hypothetical protein
+Rv1951c		hypothetical protein
+Rv1952	vapB14	antitoxin VapB14
+Rv1953	vapC14	ribonuclease VapC14
+Rv1954c		hypothetical protein
+Rv1955	higB	toxin HigB
+Rv1956	higA	antitoxin HigA
+Rv1957		SecB-like chaperone
+Rv1958c		hypothetical protein
+Rv1959c	parE1	toxin ParE1
+Rv1960c	parD1	antitoxin ParD1
+Rv1961		hypothetical protein
+Rv1962A	vapB35	antitoxin VapB35
+Rv1962c	vapC35	ribonuclease VapC35
+Rv1963c	mce3R	transcriptional repressor Mce3R
+Rv1964	yrbE3A	integral membrane protein
+Rv1965	yrbE3B	integral membrane protein
+Rv1966	mce3A	Mce family protein Mce3A
+Rv1967	mce3B	Mce family protein Mce3B
+Rv1968	mce3C	Mce family protein Mce3C
+Rv1969	mce3D	Mce family protein Mce3D
+Rv1970	lprM	Mce family lipoprotein LprM
+Rv1971	mce3F	Mce family protein Mce3F
+Rv1972		Mce associated membrane protein
+Rv1973		Mce associated membrane protein
+Rv1974		membrane protein
+Rv1975		hypothetical protein
+Rv1976c		hypothetical protein
+Rv1977		hypothetical protein
+Rv1978		hypothetical protein
+Rv1979c		permease
+Rv1980c	mpt64	immunogenic protein Mpt64
+Rv1981c	nrdF1	ribonucleoside-diphosphate reductase subunit beta NrdF1
+Rv1982A	vapB36	antitoxin VapB36
+Rv1982c	vapC36	ribonuclease VapC36
+Rv1983	PE_PGRS35	PE-PGRS family protein PE_PGRS35
+Rv1984c	cfp21	cutinase
+Rv1985c		HTH-type transcriptional regulator
+Rv1986		amino acid transporter
+Rv1987		chitinase
+Rv1988	erm(37)	23S rRNA (adenine(2058)-N(6))-methyltransferase Erm(37)
+Rv1989c		hypothetical protein
+Rv1990c		transcriptional regulator
+Rv1991A	mazE6	antitoxin MazE6
+Rv1991c	mazF6	mRNA interferase MazF6
+Rv1992c	ctpG	cation transporter ATPase G
+Rv1993c		hypothetical protein
+Rv1994c	cmtR	HTH-type transcriptional regulator CmtR
+Rv1995		hypothetical protein
+Rv1996		universal stress protein
+Rv1997	ctpF	cation transporter ATPase F
+Rv1998c		hypothetical protein
+Rv1999c		transporter
+Rv2000		hypothetical protein
+Rv2001		hypothetical protein
+Rv2002	fabG3	3-alpha(or 20-beta)-hydroxysteroid dehydrogenase
+Rv2003c		hypothetical protein
+Rv2004c		hypothetical protein
+Rv2005c		universal stress protein
+Rv2006	otsB1	trehalose-6-phosphate phosphatase OtsB
+Rv2007c	fdxA	ferredoxin
+Rv2008c		hypothetical protein
+Rv2009	vapB15	antitoxin VapB15
+Rv2010	vapC15	ribonuclease VapC15
+Rv2011c		hypothetical protein
+Rv2012		hypothetical protein
+Rv2015c		hypothetical protein
+Rv2016		hypothetical protein
+Rv2017		transcriptional regulator
+Rv2018		hypothetical protein
+Rv2019		hypothetical protein
+Rv2021c		transcriptional regulator
+Rv2022c		hypothetical protein
+Rv2023A		
+Rv2023c		hypothetical protein
+Rv2024c		hypothetical protein
+Rv2025c		cation efflux system protein
+Rv2026c		universal stress protein
+Rv2027c	dosT	two component sensor histidine kinase DosT
+Rv2028c		universal stress protein
+Rv2029c	pfkB	6-phosphofructokinase PfkB
+Rv2030c		hypothetical protein
+Rv2031c	hspX	alpha-crystallin
+Rv2032	acg	NAD(P)H nitroreductase
+Rv2033c		hypothetical protein
+Rv2034		ArsR family HTH-type transcriptional repressor
+Rv2035		hypothetical protein
+Rv2036		hypothetical protein
+Rv2037c		transmembrane protein
+Rv2038c		sugar ABC transporter ATP-binding protein
+Rv2039c		sugar ABC transporter permease
+Rv2040c		sugar ABC transporter permease
+Rv2041c		sugar ABC transporter substrate-binding lipoprotein
+Rv2042c		hypothetical protein
+Rv2043c	pncA	pyrazinamidase/nicotinamidase PncA
+Rv2044c		hypothetical protein
+Rv2045c	lipT	carboxylesterase LipT
+Rv2046	lppI	lipoprotein LppI
+Rv2047c		hypothetical protein
+Rv2048c	pks12	polyketide synthase
+Rv2049c		hypothetical protein
+Rv2050		RNA polymerase-binding protein RbpA
+Rv2051c	ppm1	polyprenol-monophosphomannose synthase
+Rv2052c		hypothetical protein
+Rv2053c	fxsA	transmembrane protein FxsA
+Rv2054		hypothetical protein
+Rv2055c	rpsR2	30S ribosomal protein S18
+Rv2056c	rpsN2	30S ribosomal protein S14
+Rv2057c	rpmG1	50S ribosomal protein L33
+Rv2058c	rpmB2	50S ribosomal protein L28
+Rv2059		hypothetical protein
+Rv2060		integral membrane protein
+Rv2061c		hypothetical protein
+Rv2062c	cobN	cobalamin biosynthesis protein CobN
+Rv2063	mazE7	antitoxin MazE7
+Rv2063A	mazF7	mRNA interferase MazF7
+Rv2064	cobG	precorrin-3B synthase
+Rv2065	cobH	precorrin-8X methylmutase
+Rv2066	cobIJ	bifunctional S-adenosyl-L-methionine-precorrin-2 methyl transferase/precorrin-3 methylase
+Rv2067c		hypothetical protein
+Rv2068c	blaC	beta-lactamase
+Rv2069	sigC	ECF RNA polymerase sigma factor SigC
+Rv2070c	cobK	precorrin-6A reductase
+Rv2071c	cobM	precorrin-4 C(11)-methyltransferase
+Rv2072c	cobL	precorrin-6Y C(5,15)-methyltransferase
+Rv2073c		oxidoreductase
+Rv2074		pyridoxamine 5'-phosphate oxidase
+Rv2075c		hypothetical protein
+Rv2076c		hypothetical protein
+Rv2077A		hypothetical protein
+Rv2077c		transmembrane protein
+Rv2078		hypothetical protein
+Rv2079		hypothetical protein
+Rv2080	lppJ	lipoprotein LppJ
+Rv2081c		transmembrane protein
+Rv2082		hypothetical protein
+Rv2083		hypothetical protein
+Rv2084		hypothetical protein
+Rv2085		hypothetical protein
+Rv2086		hypothetical protein
+Rv2088	pknJ	transmembrane serine/threonine-protein kinase PknJ
+Rv2089c	pepE	dipeptidase PepE
+Rv2090		5'-3' exonuclease
+Rv2091c		membrane protein
+Rv2092c	helY	ATP-dependent DNA helicase HelY
+Rv2093c	tatC	Sec-independent protein translocase transmembrane protein TatC
+Rv2094c	tatA	Sec-independent protein translocase membrane-bound protein TatA
+Rv2095c	pafC	proteasome accessory factor C
+Rv2096c	pafB	proteasome accessory factor B
+Rv2097c	pafA	proteasome accessory factor PafA
+Rv2098c	PE_PGRS36	
+Rv2099c	PE21	
+Rv2100		hypothetical protein
+Rv2101	helZ	helicase HelZ
+Rv2102		hypothetical protein
+Rv2103c	vapC37	ribonuclease VapC37
+Rv2104a		hypothetical protein
+Rv2104c	vapB37	antitoxin VapB37
+Rv2107	PE22	PE family protein PE22
+Rv2108	PPE36	PPE family protein PPE36
+Rv2109c	prcA	proteasome subunit alpha
+Rv2110c	prcB	proteasome subunit beta
+Rv2111c	pup	ubiquitin-like protein Pup
+Rv2112c	dop	pup deamidase/depupylase
+Rv2113		integral membrane protein
+Rv2114		hypothetical protein
+Rv2115c	mpa	proteasome-associated ATPase
+Rv2116	lppK	lipoprotein LppK
+Rv2117		hypothetical protein
+Rv2118c		tRNA (adenine(58)-N(1))-methyltransferase
+Rv2119		hypothetical protein
+Rv2120c		integral membrane protein
+Rv2121c	hisG	ATP phosphoribosyltransferase
+Rv2122c	hisE	phosphoribosyl-ATP pyrophosphatase
+Rv2123	PPE37	PPE family protein PPE37
+Rv2124c	metH	methionine synthase
+Rv2125		hypothetical protein
+Rv2126c	PE_PGRS37	PE-PGRS family protein PE_PGRS37
+Rv2127	ansP1	L-asparagine permease
+Rv2128		transmembrane protein
+Rv2129c		oxidoreductase
+Rv2130c	mshC	cysteine:1D-myo-inosityl 2-amino-2-deoxy--D-glucopyranoside ligase
+Rv2131c	cysQ	3'(2'),5'-bisphosphate nucleotidase CysQ
+Rv2132		hypothetical protein
+Rv2133c		hypothetical protein
+Rv2134c		hypothetical protein
+Rv2135c		hypothetical protein
+Rv2136c		undecaprenyl-diphosphatase
+Rv2137c		hypothetical protein
+Rv2138	lppL	lipoprotein LppL
+Rv2139	pyrD	dihydroorotate dehydrogenase
+Rv2140c	TB18.6	hypothetical protein
+Rv2141c		hypothetical protein
+Rv2142A	parD2	antitoxin ParD2
+Rv2142c	parE2	toxin ParE2
+Rv2143		hypothetical protein
+Rv2144c		transmembrane protein
+Rv2145c	wag31	cell wall synthesis protein Wag31
+Rv2146c		transmembrane protein
+Rv2147c		cell division protein SepF
+Rv2148c		hypothetical protein
+Rv2149c	yfiH	laccase domain-containing protein
+Rv2150c	ftsZ	cell division protein FtsZ
+Rv2151c	ftsQ	cell division protein FtsQ
+Rv2152c	murC	UDP-N-acetylmuramate--alanine ligase
+Rv2153c	murG	UDP-N-acetylglucosamine--N-acetylmuramyl-(pentapeptide) pyrophosphoryl-undecaprenol-N-acetylglucosamine transferase
+Rv2154c	ftsW	lipid II flippase FtsW
+Rv2155c	murD	UDP-N-acetylmuramoylalanine--D-glutamate ligase
+Rv2156c	murX	phospho-N-acetylmuramoyl-pentappeptidetransferase
+Rv2157c	murF	UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase
+Rv2158c	murE	UDP-N-acetylmuramoylalanyl-D-glutamate--2,6-diaminopimelate ligase
+Rv2159c		hypothetical protein
+Rv2160c		
+Rv2161c		hypothetical protein
+Rv2162c	PE_PGRS38	PE-PGRS family protein PE_PGRS38
+Rv2163c	pbpB	penicillin-binding membrane protein PbpB
+Rv2164c		hypothetical protein
+Rv2165c		rRNA small subunit methyltransferase H
+Rv2166c		transcriptional regulator MraZ
+Rv2169c		transmembrane protein
+Rv2170		GCN5-like N-acetyltransferase
+Rv2171	lppM	lipoprotein LppM
+Rv2172c		hypothetical protein
+Rv2173	idsA2	geranylgeranyl pyrophosphate synthetase IdsA
+Rv2174	mptA	alpha(1->6)-mannopyranosyltransferase A
+Rv2175c		DNA-binding protein
+Rv2176	pknL	serine/threonine-protein kinase PknL
+Rv2177c		transposase
+Rv2178c	aroG	phospho-2-dehydro-3-deoxyheptonate aldolase AroG
+Rv2179c		3'-5' exoribonuclease
+Rv2180c		integral membrane protein
+Rv2181		alpha-(1-2)-phosphatidylinositol mannoside mannosyltransferase
+Rv2182c		1-acylglycerol-3-phosphate O-acyltransferase
+Rv2183c		hypothetical protein
+Rv2184c		hypothetical protein
+Rv2185c	TB16.3	hypothetical protein
+Rv2186c		hypothetical protein
+Rv2187	fadD15	long-chain-fatty-acid--CoA ligase FadD15
+Rv2188c	pimB	alpha-(1-6)-phosphatidylinositol monomannoside mannosyltransferase
+Rv2189c		hypothetical protein
+Rv2190c		endopeptidase
+Rv2191		hypothetical protein
+Rv2192c	trpD	anthranilate phosphoribosyltransferase
+Rv2193	ctaE	cytochrome C oxidase subunit III
+Rv2194	qcrC	ubiquinol-cytochrome C reductase cytochrome subunit C
+Rv2195	qcrA	ubiquinol-cytochrome C reductase rieske iron-sulfur subunit
+Rv2196	qcrB	ubiquinol-cytochrome C reductase cytochrome subunit B
+Rv2197c		transmembrane protein
+Rv2198c	mmpS3	membrane protein MmpS3
+Rv2199c		cytochrome c oxidase polypeptide 4
+Rv2200c	ctaC	cytochrome C oxidase subunit II
+Rv2201	asnB	asparagine synthetase
+Rv2202c	adoK	adenosine kinase
+Rv2203		membrane protein
+Rv2204c		hypothetical protein
+Rv2205c		hypothetical protein
+Rv2206		transmembrane protein
+Rv2207	cobT	nicotinate-nucleotide-dimethylbenzimidazol phosphoribosyltransferase
+Rv2208	cobS	adenosylcobinamide-GDP ribazoletransferase
+Rv2209		integral membrane protein
+Rv2210c	ilvE	branched-chain amino acid aminotransferase
+Rv2211c	gcvT	aminomethyltransferase
+Rv2212		adenylyl cyclase
+Rv2213	pepB	cytosol aminopeptidase
+Rv2214c	ephD	oxidoreductase EphD
+Rv2215	dlaT	pyruvate dehydrogenase E2 component dihydrolipoamide acyltransferase
+Rv2216		epimerase family protein
+Rv2217	lipB	octanoyltransferase
+Rv2218	lipA	lipoyl synthase
+Rv2219		transmembrane protein
+Rv2219A		membrane protein
+Rv2220	glnA1	glutamine synthetase
+Rv2221c	glnE	[glutamate--ammonia-ligase] adenylyltransferase
+Rv2222c	glnA2	glutamine synthetase
+Rv2223c		carboxylesterase B
+Rv2224c	caeA	carboxylesterase A
+Rv2224d		hypothetical protein
+Rv2225	panB	3-methyl-2-oxobutanoate hydroxymethyltransferase
+Rv2226		hypothetical protein
+Rv2227		hypothetical protein
+Rv2228c		multifunctional RNASE H/alpha-ribazole phosphatase/acid phosphatase
+Rv2229c		hypothetical protein
+Rv2230c		GTP cyclohydrolase
+Rv2231A	vapC16	ribonuclease VapC16
+Rv2231B	vapB16	antitoxin VapB16
+Rv2231c	cobC	aminotransferase
+Rv2232	ptkA	protein tyrosine kinase transcriptional regulator PtkA
+Rv2234	ptpA	protein-tyrosine-phosphatase
+Rv2235		transmembrane protein
+Rv2236c	cobD	cobalamin biosynthesis transmembrane protein CobD
+Rv2237		hypothetical protein
+Rv2237A		hypothetical protein
+Rv2238c	ahpE	peroxiredoxin
+Rv2239c		hypothetical protein
+Rv2240c		hypothetical protein
+Rv2241	aceE	pyruvate dehydrogenase E1 component
+Rv2242		hypothetical protein
+Rv2243	fabD	malonyl CoA-acyl carrier protein transacylase
+Rv2244	acpM	meromycolate extension acyl carrier protein
+Rv2245	kasA	3-oxoacyl-ACP synthase 1
+Rv2246	kasB	3-oxoacyl-ACP synthase 2
+Rv2247	accD6	acetyl-/propionyl-CoA carboxylase subunit beta
+Rv2248		hypothetical protein
+Rv2249c	glpD1	glycerol-3-phosphate dehydrogenase
+Rv2250c		HTH-type transcriptional regulator
+Rv2251		flavoprotein
+Rv2252		diacylglycerol kinase
+Rv2253		hypothetical protein
+Rv2254c		integral membrane protein
+Rv2256a		hypothetical protein
+Rv2256c		hypothetical protein
+Rv2257c		hypothetical protein
+Rv2258c		transcriptional regulator
+Rv2259	mscR	S-nitrosomycothiol reductase MscR
+Rv2260		hypothetical protein
+Rv2261c		
+Rv2263		oxidoreductase
+Rv2264c		hypothetical protein
+Rv2265		integral membrane protein
+Rv2266	cyp124	cytochrome P450 Cyp124
+Rv2267c		hypothetical protein
+Rv2268c	cyp128	cytochrome P450 Cyp128
+Rv2269c		hypothetical protein
+Rv2270	lppN	lipoprotein LppN
+Rv2271		hypothetical protein
+Rv2272		transmembrane protein
+Rv2273		transmembrane protein
+Rv2274A	mazE8	antitoxin MazE8
+Rv2274c	mazF8	toxin MazF8
+Rv2275		cyclo(L-tyrosyl-L-tyrosyl) synthase
+Rv2276	cyp121	cytochrome P450 Cyp121
+Rv2277c		glycerolphosphodiesterase
+Rv2280		
+Rv2281	pitB	phosphate permease
+Rv2282c		LysR family HTH-type transcriptional regulator
+Rv2283		hypothetical protein
+Rv2284	lipM	esterase LipM
+Rv2285		diacylglycerol acyltransferase
+Rv2286c		hypothetical protein
+Rv2287	yjcE	Na(+)/H(+) transporter
+Rv2288		hypothetical protein
+Rv2289	cdh	CDP-diacylglycerol pyrophosphatase
+Rv2290	lppO	lipoprotein LppO
+Rv2291	sseB	thiosulfate sulfurtransferase SseB
+Rv2292c		hypothetical protein
+Rv2293c		hypothetical protein
+Rv2294		cystathionine beta-lyase
+Rv2295		hypothetical protein
+Rv2296		haloalkane dehalogenase
+Rv2297		hypothetical protein
+Rv2298		oxidoreductase
+Rv2299c	htpG	chaperone protein HtpG
+Rv2300c		metallo-hydrolase
+Rv2301	cut2	cutinase
+Rv2302		hypothetical protein
+Rv2303c		antibiotic-resistance protein
+Rv2304c		hypothetical protein
+Rv2305		hypothetical protein
+Rv2306A		
+Rv2307A		hypothetical protein
+Rv2307B		hypothetical protein
+Rv2307D		hypothetical protein
+Rv2307c		hypothetical protein
+Rv2308		hypothetical protein
+Rv2308a		hypothetical protein
+Rv2309A		hypothetical protein
+Rv2310		excisionase
+Rv2311		hypothetical protein
+Rv2312		hypothetical protein
+Rv2313c		hypothetical protein
+Rv2314c		hypothetical protein
+Rv2315c		hypothetical protein
+Rv2316	uspA	sugar ABC transporter permease UspA
+Rv2317	uspB	sugar ABC transporter permease UspB
+Rv2318	uspC	sugar ABC transporter substrate-binding lipoprotein UspC
+Rv2319c		universal stress protein
+Rv2320c	rocE	cationic amino acid transporter permease RocE
+Rv2323c		hypothetical protein
+Rv2324		AsnC family transcriptional regulator
+Rv2325c		hypothetical protein
+Rv2326c		ABC transporter ATP-binding protein
+Rv2327		hypothetical protein
+Rv2328	PE23	PE family protein PE23
+Rv2329c	narK1	nitrate/nitrite transporter
+Rv2330c	lppP	lipoprotein LppP
+Rv2331		hypothetical protein
+Rv2331A		hypothetical protein
+Rv2332	mez	malate oxidoreductase
+Rv2333c	stp	multidrug resistance protein
+Rv2334	cysK1	O-acetylserine sulfhydrylase
+Rv2335	cysE	serine acetyltransferase
+Rv2336		hypothetical protein
+Rv2337c		hypothetical protein
+Rv2338c	moeW	molybdopterin biosynthesis protein MoeW
+Rv2339	mmpL9	transmembrane transport protein MmpL9
+Rv2340c	PE_PGRS39	PE-PGRS family protein PE_PGRS39
+Rv2341	lppQ	lipoprotein LppQ
+Rv2342		hypothetical protein
+Rv2343c	dnaG	DNA primase
+Rv2344c	dgt	deoxyguanosine triphosphate triphosphohydrolase
+Rv2345		transmembrane protein
+Rv2346c	esxO	ESAT-6 like protein EsxO
+Rv2347c	esxP	ESAT-6 like protein EsxP
+Rv2348c		hypothetical protein
+Rv2349c	plcC	phospholipase C
+Rv2350c	plcB	membrane-associated phospholipase B
+Rv2351c	plcA	membrane-associated phospholipase A
+Rv2352c	PPE38	PPE family protein PPE38
+Rv2353c	PPE39	PPE family protein PPE39
+Rv2357c	glyS	glycine--tRNA ligase
+Rv2358	smtB	HTH-type transcriptional regulator SmtB
+Rv2359	zur	zinc uptake regulation protein
+Rv2360c		hypothetical protein
+Rv2361c		decaprenyl diphosphate synthase
+Rv2362c	recO	DNA repair protein RecO
+Rv2363	amiA2	amidase
+Rv2364c	era	GTPase Era
+Rv2365c		hypothetical protein
+Rv2366c		transmembrane protein
+Rv2367c		endoribonuclease
+Rv2368c	phoH1	phosphate starvation-inducible protein PhoH
+Rv2369c		hypothetical protein
+Rv2370c		hypothetical protein
+Rv2371	PE_PGRS40	PE-PGRS family protein PE_PGRS40
+Rv2372c		rRNA small subunit methyltransferase E
+Rv2373c	dnaJ2	chaperone protein DnaJ
+Rv2374c	hrcA	heat-inducible transcription repressor HrcA
+Rv2375		hypothetical protein
+Rv2376c	cfp2	low molecular weight antigen MTB12
+Rv2377c		hypothetical protein
+Rv2378c	mbtG	L-lysine N6-monooxygenase
+Rv2379c	mbtF	peptide synthetase
+Rv2380c	mbtE	peptide synthetase
+Rv2381c	mbtD	polyketide synthetase
+Rv2382c	mbtC	polyketide synthetase
+Rv2383c	mbtB	phenyloxazoline synthase
+Rv2384	mbtA	2,3-dihydroxybenzoate-AMP ligase
+Rv2385	mbtJ	acetyl hydrolase
+Rv2386a		hypothetical protein
+Rv2386c	mbtI	salicylate synthase
+Rv2387		hypothetical protein
+Rv2388c	hemN	oxygen-independent coproporphyrinogen III oxidase
+Rv2389c	rpfD	resuscitation-promoting factor RpfD
+Rv2390c		hypothetical protein
+Rv2391	sirA	sulfite reductase
+Rv2392	cysH	phosphoadenosine phosphosulfate reductase
+Rv2393	che1	ferrochelatase
+Rv2394	ggtB	gamma-glutamyltranspeptidase precursor GgtB
+Rv2395		integral membrane protein
+Rv2395A	aprA	acid and phagosome regulated protein AprA
+Rv2395B	aprB	acid and phagosome regulated protein AprB
+Rv2396	PE_PGRS41	acid and phagosome regulated protein AprC
+Rv2397c	cysA1	sulfate ABC transporter ATP-binding protein CysA
+Rv2398c	cysW	sulfate ABC transporter permease CysW
+Rv2399c	cysT	sulfate ABC transporter permease CysT
+Rv2400c	subI	sulfate ABC transporter substrate-binding lipoprotein SubI
+Rv2401		hypothetical protein
+Rv2401A		membrane protein
+Rv2402		trehalase
+Rv2403c	lppR	lipoprotein LppR
+Rv2404c	lepA	GTP-binding protein LepA
+Rv2405		hypothetical protein
+Rv2406c		hypothetical protein
+Rv2407		ribonuclease Z
+Rv2408	PE24	PE family protein PE24
+Rv2409c		hypothetical protein
+Rv2410c		hypothetical protein
+Rv2411c		hypothetical protein
+Rv2412	rpsT	30S ribosomal protein S20
+Rv2413c		hypothetical protein
+Rv2414c		hypothetical protein
+Rv2415c		hypothetical protein
+Rv2416c	eis	enhanced intracellular survival protein
+Rv2417c		DegV domain-containing protein
+Rv2418c		hypothetical protein
+Rv2419c	gpgP	glucosyl-3-phosphoglycerate phosphatase
+Rv2420c		hypothetical protein
+Rv2421c	nadD	nicotinate-nucleotide adenylyltransferase
+Rv2422		hypothetical protein
+Rv2423		hypothetical protein
+Rv2424c		transposase
+Rv2425c		hypothetical protein
+Rv2426c		hypothetical protein
+Rv2427A	oxyR'	
+Rv2427c	proA	gamma-glutamyl phosphate reductase
+Rv2428	ahpC	alkyl hydroperoxide reductase subunit AhpC
+Rv2429	ahpD	alkyl hydroperoxide reductase AphD
+Rv2430c	PPE41	PPE family protein PPE41
+Rv2431c	PE25	PE family protein PE25
+Rv2432c		hypothetical protein
+Rv2433c		hypothetical protein
+Rv2434c		transmembrane protein
+Rv2435c		cyclase
+Rv2436	rbsK	ribokinase RbsK
+Rv2437		transmembrane protein
+Rv2438A		hypothetical protein
+Rv2438c	nadE	glutamine-dependent NAD(+) synthetase
+Rv2439c	proB	glutamate 5-kinase protein
+Rv2440c	obg	GTPase Obg
+Rv2441c	rpmA	50S ribosomal protein L27
+Rv2442c	rplU	50S ribosomal protein L21
+Rv2443	dctA	C4-dicarboxylate-transport transmembrane protein DctA
+Rv2444c	rne	ribonuclease E
+Rv2445c	ndkA	nucleoside diphosphate kinase
+Rv2446c		integral membrane protein
+Rv2447c	folC	folylpolyglutamate synthase FolC
+Rv2448c	valS	valine--tRNA ligase
+Rv2449c		trans-acting enoyl reductase
+Rv2450c	rpfE	resuscitation-promoting factor RpfE
+Rv2451		hypothetical protein
+Rv2452c		hypothetical protein
+Rv2453c	mobA	molybdenum cofactor guanylyltransferase
+Rv2454c		2-oxoglutarate oxidoreductase subunit KorB
+Rv2455c		2-oxoglutarate oxidoreductase subunit KorA
+Rv2456c		MFS-type transporter
+Rv2457c	clpX	ATP-dependent CLP protease ATP-binding subunit ClpX
+Rv2458	mmuM	homocysteine S-methyltransferase MmuM
+Rv2459		MFS-type transporter
+Rv2460c	clpP2	ATP-dependent CLP protease proteolytic subunit 2
+Rv2461c	clpP1	ATP-dependent CLP protease proteolytic subunit 1
+Rv2462c	tig	trigger factor
+Rv2463	lipP	esterase/lipase LipP
+Rv2464c		DNA glycosylase
+Rv2465c	rpiB	ribose-5-phosphate isomerase B
+Rv2466c		hypothetical protein
+Rv2467	pepN	aminopeptidase PepN
+Rv2468A		hypothetical protein
+Rv2468c		hypothetical protein
+Rv2469c		hypothetical protein
+Rv2470	glbO	hemoglobin GlbO
+Rv2471	aglA	alpha-glucosidase AglA
+Rv2472		hypothetical protein
+Rv2473		hypothetical protein
+Rv2474c		hypothetical protein
+Rv2475c		hypothetical protein
+Rv2476c	gdh	NAD-dependent glutamate dehydrogenase
+Rv2477c		macrolide ABC transporter ATP-binding protein
+Rv2478c		hypothetical protein
+Rv2481c		hypothetical protein
+Rv2482c	plsB2	glycerol-3-phosphate acyltransferase
+Rv2483c	plsC	bifunctional L-3-phosphoserine phosphatase/1-acyl-sn-glycerol-3-phosphate acyltransferase
+Rv2484c		diacyglycerol O-acyltransferase
+Rv2485c	lipQ	carboxylesterase LipQ
+Rv2486	echA14	enoyl-CoA hydratase EchA14
+Rv2487c	PE_PGRS42	PE-PGRS family protein PE_PGRS42
+Rv2488c		LuxR family transcriptional regulator
+Rv2489c		hypothetical protein
+Rv2490a		hypothetical protein
+Rv2490c	PE_PGRS43	PE-PGRS family protein PE_PGRS43
+Rv2491		hypothetical protein
+Rv2492		hypothetical protein
+Rv2493	vapB38	antitoxin VapB38
+Rv2494	vapC38	ribonuclease VapC38
+Rv2495c	bkdC	branched-chain keto acid dehydrogenase E2 component
+Rv2496c	bkdB	3-methyl-2-oxobutanoate dehydrogenase subunit beta
+Rv2497c	bkdA	3-methyl-2-oxobutanoate dehydrogenase subunit alpha
+Rv2498c	citE	citrate (pro-3S)-lyase subunit beta
+Rv2499c		oxidase regulatory-like protein
+Rv2500c	fadE19	acyl-CoA dehydrogenase FadE19
+Rv2501c	accA1	acetyl/propionyl-CoA carboxylase subuit alpha
+Rv2502c	accD1	acetyl-/propionyl-CoA carboxylase subunit beta
+Rv2503c	scoB	succinyl-CoA:3-ketoacid-CoA transferase subunit B
+Rv2504c	scoA	succinyl-CoA:3-ketoacid-CoA transferase subunit A
+Rv2505c	fadD35	fatty-acid--CoA ligase FadD35
+Rv2506		TetR family transcriptional regulator
+Rv2507		hypothetical protein
+Rv2508c		integral membrane protein
+Rv2509		short-chain type dehydrogenase/reductase
+Rv2510c		hypothetical protein
+Rv2511	orn	oligoribonuclease
+Rv2512a		hypothetical protein
+Rv2512c		insertion sequence element IS1081 transposase
+Rv2513		hypothetical protein
+Rv2514c		hypothetical protein
+Rv2515c		hypothetical protein
+Rv2516c		hypothetical protein
+Rv2517c		hypothetical protein
+Rv2518c	ldtB	L,D-transpeptidase LdtB
+Rv2519	PE26	PE family protein PE26
+Rv2520c		membrane protein
+Rv2521	bcp	peroxiredoxin
+Rv2522c		hypothetical protein
+Rv2523c	acpS	holo-ACP synthase
+Rv2524c	fas	fatty acid synthase
+Rv2525c		hypothetical protein
+Rv2526	vapB17	antitoxin VapB17
+Rv2527	vapC17	ribonuclease VapC17
+Rv2528c	mrr	restriction system protein
+Rv2529		hypothetical protein
+Rv2530A	vapB39	antitoxin VapB39
+Rv2530c	vapC39	ribonuclease VapC39
+Rv2531c		amino acid decarboxylase
+Rv2532c		hypothetical protein
+Rv2533c	nusB	N utilization substance protein B
+Rv2534c	efp	elongation factor P
+Rv2535c	pepQ	cytoplasmic peptidase PepQ
+Rv2536		transmembrane protein
+Rv2537c	aroD	3-dehydroquinate dehydratase
+Rv2538c	aroB	3-dehydroquinate synthase
+Rv2539c	aroK	shikimate kinase
+Rv2540c	aroF	chorismate synthase
+Rv2541		hypothetical protein
+Rv2542		hypothetical protein
+Rv2543	lppA	lipoprotein LppA
+Rv2544	lppB	lipoprotein LppB
+Rv2545	vapB18	antitoxin VapB18
+Rv2546	vapC18	ribonuclease VapC18
+Rv2547	vapB19	antitoxin VapB19
+Rv2548	vapC19	ribonuclease VapC19
+Rv2548A		hypothetical protein
+Rv2549c	vapC20	ribonuclease VapC20
+Rv2550c	vapB20	antitoxin VapB20
+Rv2551c		hypothetical protein
+Rv2552c	aroE	shikimate 5-dehydrogenase
+Rv2553c		membrane protein
+Rv2554c		Holliday junction resolvase
+Rv2555c	alaS	alanine--tRNA ligase
+Rv2556c		hypothetical protein
+Rv2557		hypothetical protein
+Rv2558		hypothetical protein
+Rv2559c		hypothetical protein
+Rv2560		hypothetical protein
+Rv2561		
+Rv2563		glutamine ABC transporter permease
+Rv2564	glnQ	glutamine ABC transporter ATP-binding protein
+Rv2565		NTE family protein
+Rv2566		hypothetical protein
+Rv2567		hypothetical protein
+Rv2568c		hypothetical protein
+Rv2569c		hypothetical protein
+Rv2570		hypothetical protein
+Rv2571c		transmembrane protein
+Rv2572c	aspS	aspartate--tRNA ligase
+Rv2573		2-dehydropantoate 2-reductase
+Rv2574		hypothetical protein
+Rv2575		membrane protein
+Rv2576c		membrane protein
+Rv2577		hypothetical protein
+Rv2578c		hypothetical protein
+Rv2579	dhaA	haloalkane dehalogenase
+Rv2580c	hisS	histidine--tRNA ligase
+Rv2581c		glyoxalase II
+Rv2582	ppiB	peptidyl-prolyl cis-trans isomerase B
+Rv2583c	relA	bifunctional (p)ppGpp synthase/hydrolase RelA
+Rv2584c	apt	adenine phosphoribosyltransferase
+Rv2585c		lipoprotein
+Rv2586c	secF	protein translocase subunit SecF
+Rv2587c	secD	protein translocase subunit SecD
+Rv2588c	yajC	membrane protein secretion factor YajC
+Rv2589	gabT	4-aminobutyrate aminotransferase
+Rv2590	fadD9	fatty-acid--CoA ligase FadD9
+Rv2591	PE_PGRS44	PE-PGRS family protein PE_PGRS44
+Rv2592c	ruvB	Holliday junction ATP-dependent DNA helicase RuvB
+Rv2593c	ruvA	Holliday junction ATP-dependent DNA helicase RuvA
+Rv2594c	ruvC	crossover junction endodeoxyribonuclease RuvC
+Rv2595	vapB40	antitoxin VapB40
+Rv2596	vapC40	ribonuclease VapC40
+Rv2597		membrane protein
+Rv2598		hypothetical protein
+Rv2599		membrane protein
+Rv2600		integral membrane protein
+Rv2601	speE	spermidine synthase
+Rv2601A	vapB41	antitoxin VapB41
+Rv2602	vapC41	ribonuclease VapC41
+Rv2603c		transcriptional regulator
+Rv2604c	snoP	glutamine amidotransferase SnoP
+Rv2605c	tesB2	acyl-CoA thioesterase II
+Rv2606c	snzP	pyridoxine biosynthesis protein
+Rv2607	pdxH	pyridoxine/pyridoxamine 5'-phosphate oxidase
+Rv2608	PPE42	PPE family protein PPE42
+Rv2609c		membrane protein
+Rv2610c	pimA	alpha-(1-2)-phosphatidylinositol mannosyltransferase
+Rv2611c		phosphatidylinositol mannoside acyltransferase
+Rv2612c	pgsA1	CDP-diacylglycerol--inositol 3-phosphatidyltransferase
+Rv2613c		AP-4-A phosphorylase
+Rv2614A		hypothetical protein
+Rv2614c	thrS	threonine--tRNA ligase
+Rv2615c	PE_PGRS45	PE-PGRS family protein PE_PGRS45
+Rv2616		hypothetical protein
+Rv2617c		transmembrane protein
+Rv2618		hypothetical protein
+Rv2619c		hypothetical protein
+Rv2620c		transmembrane protein
+Rv2621c		transcriptional regulator
+Rv2622		methyltransferase
+Rv2623	TB31.7	universal stress protein
+Rv2624c		universal stress protein
+Rv2625c		zinc metalloprotease Rip3
+Rv2626c	hrp1	hypoxic response protein
+Rv2627c		hypothetical protein
+Rv2628		hypothetical protein
+Rv2629		hypothetical protein
+Rv2630		hypothetical protein
+Rv2631		RNA-splicing ligase RtcB
+Rv2632c		hypothetical protein
+Rv2633c		hypothetical protein
+Rv2634c	PE_PGRS46	PE-PGRS family protein PE_PGRS46
+Rv2635		hypothetical protein
+Rv2636		O-phosphotransferase
+Rv2637	dedA	transmembrane protein DedA
+Rv2638		hypothetical protein
+Rv2639c		integral membrane protein
+Rv2640c		ArsR family transcriptional regulator
+Rv2641	cadI	cadmium inducible protein CadI
+Rv2642		ArsR family transcriptional regulator
+Rv2643	arsC	arsenic-transport integral membrane protein ArsC
+Rv2644c		hypothetical protein
+Rv2645		hypothetical protein
+Rv2646		integrase
+Rv2647		hypothetical protein
+Rv2650c		prophage protein
+Rv2651c		prophage protease
+Rv2652c		prophage protein
+Rv2653c		toxin
+Rv2654c		antitoxin
+Rv2655c		prophage protein
+Rv2656c		prophage protein
+Rv2657c		prophage protein
+Rv2658c		prophage protein
+Rv2659c		prophage integrase
+Rv2660c		hypothetical protein
+Rv2661c		hypothetical protein
+Rv2662		hypothetical protein
+Rv2663		hypothetical protein
+Rv2664		hypothetical protein
+Rv2665		hypothetical protein
+Rv2667	clpC2	ATP-dependent protease ATP-binding subunit ClpC
+Rv2668		hypothetical protein
+Rv2669		GCN5-like N-acetyltransferase
+Rv2670c		hypothetical protein
+Rv2671	ribD	bifunctional diaminohydroxyphosphoribosylaminopyrimidine deaminase/5-amino-6-(5-phosphoribosylamino)uracil reductase
+Rv2672		protease
+Rv2673	aftC	alpha-(1->3)-arabinofuranosyltransferase
+Rv2674	msrB	peptide methionine sulfoxide reductase MsrB
+Rv2675c		hypothetical protein
+Rv2676c		hypothetical protein
+Rv2677c	hemY	protoporphyrinogen oxidase
+Rv2678c	hemE	uroporphyrinogen decarboxylase
+Rv2679	echA15	enoyl-CoA hydratase EchA15
+Rv2680		hypothetical protein
+Rv2681		hypothetical protein
+Rv2682c	dxs1	1-deoxy-D-xylulose 5-phosphate synthase
+Rv2683		hypothetical protein
+Rv2684	arsA	arsenic-transport integral membrane protein ArsA
+Rv2685	arsB1	arsenic-transport integral membrane protein ArsB
+Rv2686c		antibiotic ABC transporter permease
+Rv2687c		antibiotic ABC transporter permease
+Rv2688c		antibiotic ABC transporter ATP-binding protein
+Rv2689c		hypothetical protein
+Rv2690c		integral membrane protein
+Rv2691	ceoB	TRK system potassium uptake protein CeoB
+Rv2692	ceoC	TRK system potassium uptake protein CeoC
+Rv2693c		integral membrane protein
+Rv2694c		hypothetical protein
+Rv2695		hypothetical protein
+Rv2696c		hypothetical protein
+Rv2697c	dut	deoxyuridine 5'-triphosphate nucleotidohydrolase
+Rv2698		transmembrane protein
+Rv2699c		hypothetical protein
+Rv2700		hypothetical protein
+Rv2701c	suhB	inositol-1-monophosphatase SuhB
+Rv2702	ppgK	polyphosphate glucokinase
+Rv2703	sigA	RNA polymerase sigma factor SigA
+Rv2704		hypothetical protein
+Rv2705c		hypothetical protein
+Rv2706c		hypothetical protein
+Rv2707		hypothetical protein
+Rv2708c		hypothetical protein
+Rv2709		transmembrane protein
+Rv2710	sigB	RNA polymerase sigma factor SigB
+Rv2711	ideR	iron-dependent repressor and activator IdeR
+Rv2712c		hypothetical protein
+Rv2713	sthA	pyridine nucleotide transhydrogenase
+Rv2714		hypothetical protein
+Rv2715		hydrolase
+Rv2716		hypothetical protein
+Rv2717c		hypothetical protein
+Rv2718c	nrdR	transcriptional regulator NrdR
+Rv2719c		membrane protein
+Rv2720	lexA	repressor LexA
+Rv2721c		hypothetical protein
+Rv2722		hypothetical protein
+Rv2723		integral membrane protein
+Rv2724c	fadE20	acyl-CoA dehydrogenase FadE20
+Rv2725c	hflX	GTP-binding protein HflX
+Rv2726c	dapF	diaminopimelate epimerase
+Rv2727c	miaA	tRNA delta(2)-isopentenylpyrophosphate transferase
+Rv2728c		hypothetical protein
+Rv2729c		integral membrane protein
+Rv2730		hypothetical protein
+Rv2731		hypothetical protein
+Rv2732c		transmembrane protein
+Rv2733c		(dimethylallyl)adenosine tRNA methylthiotransferase
+Rv2734		hypothetical protein
+Rv2735c		hypothetical protein
+Rv2736c	recX	regulatory protein RecX
+Rv2737c	recA	recombinase A
+Rv2738c		hypothetical protein
+Rv2739c		transferase
+Rv2740	ephG	epoxide hydrolase
+Rv2741	PE_PGRS47	PE-PGRS family protein PE_PGRS47
+Rv2742c		hypothetical protein
+Rv2743c		hypothetical protein
+Rv2744c	35kd_ag	hypothetical protein
+Rv2745c	clgR	transcriptional regulator ClgR
+Rv2746c	pgsA3	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase
+Rv2747	argA	L-glutamate alpha-N-acetyltranferase
+Rv2748c	ftsK	DNA translocase FtsK
+Rv2749		hypothetical protein
+Rv2750		dehydrogenase
+Rv2751		hypothetical protein
+Rv2752c		ribonuclease J
+Rv2753c	dapA	4-hydroxy-tetrahydrodipicolinate synthase
+Rv2754c	thyX	thymidylate synthase ThyX
+Rv2756c	hsdM	type I restriction/modification system DNA methylase HsdM
+Rv2757c	vapC21	ribonuclease VapC21
+Rv2758c	vapB21	antitoxin VapB21
+Rv2759c	vapC42	ribonuclease VapC42
+Rv2760c	vapB42	antitoxin VapB42
+Rv2761c	hsdS	type I restriction/modification system specificity determinant HsdS
+Rv2762c		hypothetical protein
+Rv2763c	dfrA	dihydrofolate reductase
+Rv2764c	thyA	thymidylate synthase ThyA
+Rv2765		hydrolase
+Rv2766c		short-chain type dehydrogenase/reductase
+Rv2767c		membrane protein
+Rv2768c	PPE43	PPE family protein PPE43
+Rv2769c	PE27	PE family protein PE27
+Rv2770c	PPE44	PPE family protein PPE44
+Rv2771c		hypothetical protein
+Rv2772c		transmembrane protein
+Rv2773c	dapB	4-hydroxy-tetrahydrodipicolinate reductase
+Rv2774c		hypothetical protein
+Rv2775		GCN5-like N-acetyltransferase
+Rv2776c		oxidoreductase
+Rv2777c		hypothetical protein
+Rv2778c		hypothetical protein
+Rv2779c		Lrp/AsnC family transcriptional regulator
+Rv2780	ald	L-alanine dehydrogenase
+Rv2781c		oxidoreductase
+Rv2782c	pepR	zinc protease
+Rv2783c	gpsI	bifunctional guanosine pentaphosphate synthetase/polyribonucleotide nucleotidyltransferase
+Rv2784c	lppU	lipoprotein LppU
+Rv2785c	rpsO	30S ribosomal protein S15
+Rv2786c	ribF	bifunctional riboflavin kinase /FMN adenylyltransferase
+Rv2787		hypothetical protein
+Rv2788	sirR	transcriptional repressor SirR
+Rv2789c	fadE21	acyl-CoA dehydrogenase FadE21
+Rv2790c	ltp1	lipid-transfer protein
+Rv2791c		transposase
+Rv2792c		resolvase
+Rv2793c	truB	tRNA pseudouridine synthase B
+Rv2794c	pptT	4'-phosphopantetheinyl transferase
+Rv2795c		hypothetical protein
+Rv2796c	lppV	lipoprotein LppV
+Rv2797c		hypothetical protein
+Rv2798c		hypothetical protein
+Rv2799		membrane protein
+Rv2800		hydrolase
+Rv2801A	mazE9	antitoxin MazE9
+Rv2801c	mazF9	mRNA interferase MazF9
+Rv2802c		arginine/hypothetical protein
+Rv2803		hypothetical protein
+Rv2804c		hypothetical protein
+Rv2805		hypothetical protein
+Rv2806		membrane protein
+Rv2807		hypothetical protein
+Rv2808		hypothetical protein
+Rv2809		hypothetical protein
+Rv2811		hypothetical protein
+Rv2812		transposase
+Rv2813		hypothetical protein
+Rv2816c		CRISPR-associated endoribonuclease Cas2
+Rv2817c		CRISPR-associated endonuclease Cas1
+Rv2818c		CRISPR-associated protein Csm6
+Rv2819c		CRISPR type III-associated RAMP protein Csm5
+Rv2820c		CRISPR type III-associated RAMP protein Csm4
+Rv2821c		CRISPR type III-associated RAMP protein Csm3
+Rv2822c		CRISPR type III-associated protein Csm2
+Rv2823c		CRISPR-associated protein Cas10/Csm1
+Rv2824c		CRISPR-associated endoribonuclease Cas6
+Rv2825c		hypothetical protein
+Rv2826c		hypothetical protein
+Rv2827c		hypothetical protein
+Rv2828A		hypothetical protein
+Rv2828c		hypothetical protein
+Rv2829c	vapC22	ribonuclease VapC22
+Rv2830c	vapB22	antitoxin VapB22
+Rv2831	echA16	enoyl-CoA hydratase EchA16
+Rv2832c	ugpC	sn-glycerol-3-phosphate ABC transporter ATP-binding protein UgpC
+Rv2833c	ugpB	sn-glycerol-3-phosphate ABC transporter substrate-binding lipoprotein UgpB
+Rv2834c	ugpE	sn-glycerol-3-phosphate ABC transporter permease UgpE
+Rv2835c	ugpA	sn-glycerol-3-phosphate ABC transporter permease UgpA
+Rv2836c	dinF	DNA-damage-inducible protein DinF
+Rv2837c		bifunctional oligoribonuclease/PAP phosphatase NrnA
+Rv2838c	rbfA	ribosome-binding factor RbfA
+Rv2839c	infB	translation initiation factor IF-2
+Rv2840c		hypothetical protein
+Rv2841c	nusA	transcription termination/antitermination protein NusA
+Rv2842c		ribosome maturation factor RimP
+Rv2843		hypothetical protein
+Rv2844		hypothetical protein
+Rv2845c	proS	proline--tRNA ligase
+Rv2846c	efpA	MFS-type transporter EfpA
+Rv2847c	cysG	multifunctional uroporphyrin-III C-methyltransferase/precorrin-2 oxidase/ferrochelatase
+Rv2848c	cobB	cobyrinic acid A,C-diamide synthase
+Rv2849c	cobO	cob(I)alamin adenosyltransferase
+Rv2850c		magnesium chelatase
+Rv2851c		GCN5-like N-acetyltransferase
+Rv2852c	mqo	malate:quinone oxidoreductase
+Rv2853	PE_PGRS48	PE-PGRS family protein PE_PGRS48
+Rv2854		hypothetical protein
+Rv2855	mtr	mycothione reductase
+Rv2856	nicT	nickel-transport integral membrane protein NicT
+Rv2857c		3-oxoacyl-ACP reductase
+Rv2858c	aldC	aldehyde dehydrogenase AldC
+Rv2859c		glutamine amidotransferase
+Rv2860c	glnA4	glutamine synthetase
+Rv2861c	mapB	methionine aminopeptidase
+Rv2862A	vapB23	antitoxin VapB23
+Rv2862c		hypothetical protein
+Rv2863	vapC23	ribonuclease VapC23
+Rv2864c		penicillin-binding lipoprotein
+Rv2865	relF	antitoxin RelF
+Rv2866	relG	toxin RelG
+Rv2867c		GCN5-like N-acetyltransferase
+Rv2868c	gcpE	4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase (flavodoxin)
+Rv2869c	rip	zinc metalloprotease
+Rv2870c	dxr	1-deoxy-D-xylulose 5-phosphate reductoisomerase
+Rv2871	vapB43	antitoxin VapB43
+Rv2872	vapC43	ribonuclease VapC43
+Rv2873	mpt83	cell surface lipoprotein
+Rv2874	dipZ	integral membrane C-type cytochrome biogenesis protein DipZ
+Rv2875	mpt70	major secreted immunogenic protein Mpt70
+Rv2876		transmembrane protein
+Rv2877c		integral membrane protein
+Rv2878c	mpt53	soluble secreted antigen Mpt53
+Rv2881c	cdsA	phosphatidate cytidylyltransferase
+Rv2882c	frr	ribosome recycling factor
+Rv2883c	pyrH	uridylate kinase
+Rv2884		transcriptional regulator
+Rv2885c		transposase
+Rv2886c		resolvase
+Rv2887		HTH-type transcriptional regulator
+Rv2888c	amiC	amidase AmiC
+Rv2889c	tsf	elongation factor EF-Ts
+Rv2890c	rpsB	30S ribosomal protein S2
+Rv2891		hypothetical protein
+Rv2892c	PPE45	PPE family protein PPE45
+Rv2893		oxidoreductase
+Rv2894c	xerC	tyrosine recombinase XerC
+Rv2895c	viuB	mycobactin utilization protein ViuB
+Rv2896c		hypothetical protein
+Rv2897c		hypothetical protein
+Rv2898c		hypothetical protein
+Rv2899c	fdhD	formate dehydrogenase accessory protein FdhD
+Rv2900c	fdhF	formate dehydrogenase subunit alpha FdhF
+Rv2901c		hypothetical protein
+Rv2902c	rnhB	ribonuclease HII
+Rv2903c	lepB	signal peptidase
+Rv2904c	rplS	50S ribosomal protein L19
+Rv2905	lppW	lipoprotein LppW
+Rv2906c	trmD	tRNA (guanine-N1)-methyltransferase
+Rv2907c	rimM	16S rRNA processing protein RimM
+Rv2908c		hypothetical protein
+Rv2909c	rpsP	30S ribosomal protein S16
+Rv2910c		hypothetical protein
+Rv2911	dacB2	penicillin-binding protein DacB2
+Rv2912c		TetR family HTH-type transcriptional regulator
+Rv2913c		D-amino acid aminohydrolase
+Rv2914c	pknI	serine/threonine-protein kinase PknI
+Rv2915c		hypothetical protein
+Rv2916c	ffh	signal recognition particle protein
+Rv2917		hypothetical protein
+Rv2918c	glnD	bifunctional uridylyltransferase/uridylyl-removing enzyme
+Rv2919c	glnB	nitrogen regulatory protein P-II
+Rv2920c	amt	ammonium transporter integral membrane protein
+Rv2921c	ftsY	signal recognition particle receptor FtsY
+Rv2922A	acyP	acylphosphatase
+Rv2922c	smc	chromosome partition protein Smc
+Rv2923c		hypothetical protein
+Rv2924c	fpg	formamidopyrimidine-DNA glycosylase
+Rv2925c	rnc	ribonuclease III
+Rv2926c		hypothetical protein
+Rv2927c		hypothetical protein
+Rv2928	tesA	thioesterase TesA
+Rv2929		hypothetical protein
+Rv2930	fadD26	fatty-acid--CoA ligase FadD26
+Rv2931	ppsA	phthiocerol synthesis polyketide synthase type I PpsA
+Rv2932	ppsB	phthiocerol synthesis polyketide synthase type I PpsB
+Rv2933	ppsC	phthiocerol synthesis polyketide synthase type I PpsC
+Rv2934	ppsD	phthiocerol synthesis polyketide synthase type I PpsD
+Rv2935	ppsE	phthiocerol synthesis polyketide synthase type I PpsE
+Rv2936	drrA	daunorubicin ABC transporter ATP-binding protein DrrA
+Rv2937	drrB	daunorubicin ABC transporter permease DrrB
+Rv2938	drrC	daunorubicin ABC transporter permease DrrC
+Rv2939	papA5	phthiocerol/phthiodiolone dimycocerosyl transferase
+Rv2940c	mas	multifunctional mycocerosic acid synthase
+Rv2941	fadD28	long-chain-fatty-acid--AMP ligase FadD28
+Rv2942	mmpL7	transmembrane transport protein MmpL7
+Rv2943		insertion sequence element IS1533 transposase
+Rv2943A		transposase
+Rv2944		insertion sequence element IS1533 transposase
+Rv2945c	lppX	lipoprotein LppX
+Rv2946c	pks1	polyketide synthase
+Rv2947c	pks15	polyketide synthase
+Rv2948c	fadD22	p-hydroxybenzoyl--AMP ligase
+Rv2949c		chorismate pyruvate-lyase
+Rv2950c	fadD29	long-chain-fatty-acid--AMP ligase FadD29
+Rv2951c		phthiodiolone/phenolphthiodiolone dimycocerosates ketoreductase
+Rv2952		phthiotriol/phenolphthiotriol dimycocerosates methyltransferase
+Rv2953		trans-acting enoyl reductase
+Rv2954c		hypothetical protein
+Rv2955c		hypothetical protein
+Rv2956		hypothetical protein
+Rv2957		PGL/p-HBAD biosynthesis glycosyltransferase
+Rv2958c		PGL/p-HBAD biosynthesis glycosyltransferase
+Rv2959c		rhamnosyl O-methyltransferase
+Rv2960c		hypothetical protein
+Rv2961		transposase
+Rv2962c		PGL/p-HBAD biosynthesis rhamnosyltransferase
+Rv2963		integral membrane protein
+Rv2964	purU	formyltetrahydrofolate deformylase
+Rv2965c	kdtB	phosphopantetheine adenylyltransferase
+Rv2966c		methyltransferase
+Rv2967c	pca	pyruvate carboxylase
+Rv2968c		integral membrane protein
+Rv2969c		hypothetical protein
+Rv2970A		hypothetical protein
+Rv2970c	lipN	lipase/esterase LipN
+Rv2971		oxidoreductase
+Rv2972c		hypothetical protein
+Rv2973c	recG	ATP-dependent DNA helicase RecG
+Rv2974c		hypothetical protein
+Rv2975a		50S ribosomal protein L28
+Rv2975c		hypothetical protein
+Rv2976c	ung	uracil-DNA glycosylase
+Rv2977c	thiL	thiamine-monophosphate kinase
+Rv2978c		transposase
+Rv2979c		resolvase
+Rv2980		hypothetical protein
+Rv2981c	ddlA	D-alanine--D-alanine ligase
+Rv2982c	gpdA2	glycerol-3-phosphate dehydrogenase
+Rv2983		2-phospho-L-lactate guanylyltransferase
+Rv2984	ppk1	polyphosphate kinase
+Rv2985	mutT1	8-oxo-dGTP diphosphatase
+Rv2986c	hupB	DNA-binding protein HU
+Rv2987c	leuD	3-isopropylmalate dehydratase small subunit
+Rv2988c	leuC	3-isopropylmalate dehydratase large subunit
+Rv2989		transcriptional regulator
+Rv2990c		hypothetical protein
+Rv2991		hypothetical protein
+Rv2992c	gltS	glutamate--tRNA ligase
+Rv2993c		2-hydroxyhepta-2,4-diene-1,7-dioate isomerase
+Rv2994		MFS-type transporter
+Rv2995c	leuB	3-isopropylmalate dehydrogenase
+Rv2996c	serA1	D-3-phosphoglycerate dehydrogenase
+Rv2997		dehydrogenase
+Rv2998		hypothetical protein
+Rv2999	lppY	lipoprotein LppY
+Rv3000		transmembrane protein
+Rv3001c	ilvC	ketol-acid reductoisomerase
+Rv3002c	ilvN	acetolactate synthase small subunit
+Rv3003c	ilvB1	acetolactate synthase large subunit IlvB
+Rv3004	cfp6	low molecular weight protein antigen 6
+Rv3005c		hypothetical protein
+Rv3006	lppZ	lipoprotein LppZ
+Rv3007c		oxidoreductase
+Rv3008		hypothetical protein
+Rv3009c	gatB	aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit B
+Rv3010c	pfkA	6-phosphofructokinase
+Rv3011c	gatA	glutamyl-tRNA(GLN) amidotransferase subunit A
+Rv3012c	gatC	glutamyl-tRNA(GLN) amidotransferase subunit C
+Rv3013		hypothetical protein
+Rv3014c	ligA	DNA ligase A
+Rv3015c		hypothetical protein
+Rv3016	lpqA	lipoprotein LpqA
+Rv3017c	esxQ	ESAT-6 like protein EsxQ
+Rv3018c	PPE46	PPE family protein PPE46
+Rv3019c	esxR	ESAT-6 like protein EsxR
+Rv3020c	esxS	ESAT-6 like protein EsxS
+Rv3021c	PPE47	
+Rv3022A	PE29	PE family protein PE29
+Rv3022c	PPE48	
+Rv3023c		transposase
+Rv3024c	trmU	tRNA-specific 2-thiouridylase
+Rv3025c	iscS	cysteine desulfurase
+Rv3026c		hypothetical protein
+Rv3027c		GCN5-like N-acetyltransferase
+Rv3028c	fixB	electron transfer flavoprotein subunit alpha
+Rv3029c	fixA	electron transfer flavoprotein subunit beta
+Rv3030		S-adenosylmethionine-dependent methyltransferase
+Rv3031		1,4-alpha-glucan-branching protein
+Rv3032		glycogen synthase
+Rv3032A		hypothetical protein
+Rv3033		hypothetical protein
+Rv3034c		acetyltransferase
+Rv3035		hypothetical protein
+Rv3036c	TB22.2	hypothetical protein
+Rv3037c		S-adenosylmethionine-dependent methyltransferase
+Rv3038c		hypothetical protein
+Rv3039c	echA17	enoyl-CoA hydratase EchA17
+Rv3040c		hypothetical protein
+Rv3041c		ABC transporter ATP-binding protein
+Rv3042c	serB2	phosphoserine phosphatase SerB
+Rv3043c	ctaD	cytochrome C oxidase cytochrome 1
+Rv3044	fecB	FeIII-dicitrate-binding periplasmic lipoprotein
+Rv3045	adhC	NADP-dependent alcohol dehydrogenase
+Rv3046c		hypothetical protein
+Rv3047c		hypothetical protein
+Rv3048c	nrdF2	ribonucleoside-diphosphate reductase subunit beta NrdF2
+Rv3049c		monooxygenase
+Rv3050c		AsnC family transcriptional regulator
+Rv3051c	nrdE	ribonucleoside-diphosphate reductase subunit alpha
+Rv3052c	nrdI	NrdI protein
+Rv3053c	nrdH	glutaredoxin electron transport protein NrdH
+Rv3054c		hypothetical protein
+Rv3055		TetR family transcriptional regulator
+Rv3056	dinP	DNA polymerase IV 2
+Rv3057c		short chain alcohol dehydrogenase/reductase
+Rv3058c		TetR family transcriptional regulator
+Rv3059	cyp136	cytochrome P450 Cyp136
+Rv3060c		GntR family transcriptional regulator
+Rv3061c	fadE22	acyl-CoA dehydrogenase FadE22
+Rv3062	ligB	DNA ligase
+Rv3063	cstA	carbon starvation protein A
+Rv3064c		integral membrane protein
+Rv3065	mmr	multidrug resistance protein Mmr
+Rv3066		DeoR family transcriptional regulator
+Rv3067		hypothetical protein
+Rv3068c	pgmA	phosphoglucomutase PgmA
+Rv3069		fluoride ion transporter CrcB
+Rv3070		fluoride ion transporter CrcB
+Rv3071		hypothetical protein
+Rv3072c		hypothetical protein
+Rv3073c		hypothetical protein
+Rv3074		hypothetical protein
+Rv3075c		hypothetical protein
+Rv3076		hypothetical protein
+Rv3077		hydrolase
+Rv3078	hab	hydroxylaminobenzene mutase
+Rv3079c		hypothetical protein
+Rv3080c	pknK	serine/threonine-protein kinase PknK
+Rv3081		hypothetical protein
+Rv3082c	virS	HTH-type transcriptional regulator VirS
+Rv3083		FAD-containing monooxygenase MymA
+Rv3084	lipR	acetyl-hydrolase LipR
+Rv3085		oxidoreductase SadH
+Rv3086	adhD	alcohol dehydrogenase D
+Rv3087		diacyglycerol O-acyltransferase
+Rv3088	tgs4	diacyglycerol O-acyltransferase
+Rv3089	fadD13	long chain-fatty-acid--CoA ligase FadD13
+Rv3090		hypothetical protein
+Rv3091		hypothetical protein
+Rv3092c		integral membrane protein
+Rv3093c		oxidoreductase
+Rv3094c		hypothetical protein
+Rv3095		HTH-type transcriptional regulator
+Rv3096		hypothetical protein
+Rv3097c	lipY	triacylglycerol lipase Lip
+Rv3098A		PemK-like protein
+Rv3098c		hypothetical protein
+Rv3099c		hypothetical protein
+Rv3100c	smpB	SsrA-binding protein
+Rv3101c	ftsX	cell division protein FtsX
+Rv3102c	ftsE	cell division ATP-binding protein FtsE
+Rv3103c		hypothetical protein
+Rv3104c		transmembrane protein
+Rv3105c	prfB	peptide chain release factor PrfB
+Rv3106	fprA	NADPH-ferredoxin reductase FprA
+Rv3107c	agpS	alkyldihydroxyacetonephosphate synthase
+Rv3108		hypothetical protein
+Rv3109	moaA1	cyclic pyranopterin monophosphate synthase
+Rv3110	moaB1	pterin-4-alpha-carbinolamine dehydratase
+Rv3111	moaC1	cyclic pyranopterin monophosphate synthase accessory protein
+Rv3112	moaD1	molybdenum cofactor biosynthesis protein MoaD
+Rv3113		phosphatase
+Rv3114		hypothetical protein
+Rv3115		transposase
+Rv3116	moeB2	molybdenum cofactor biosynthesis protein MoeB
+Rv3117	cysA3	thiosulfate sulfurtransferase
+Rv3118		hypothetical protein
+Rv3119	moaE1	molybdopterin synthase catalytic subunit 1
+Rv3120		hypothetical protein
+Rv3121	cyp141	cytochrome P450 Cyp141
+Rv3122		hypothetical protein
+Rv3123		hypothetical protein
+Rv3124	moaR1	transcriptional regulator MoaR
+Rv3125c	PPE49	PPE family protein PPE49
+Rv3126c		hypothetical protein
+Rv3127		hypothetical protein
+Rv3128c		
+Rv3129		
+Rv3130c	tgs1	diacyglycerol O-acyltransferase
+Rv3131		NAD(P)H nitroreductase
+Rv3132c	devS	two component sensor histidine kinase DevS
+Rv3133c	devR	two component transcriptional regulator DevR
+Rv3134c		universal stress protein
+Rv3135	PPE50	PPE family protein PPE50
+Rv3136	PPE51	PPE family protein PPE51
+Rv3136A		hypothetical protein
+Rv3137		histidinol-phosphatase
+Rv3138	pflA	pyruvate formate lyase activating protein PflA
+Rv3139	fadE24	acyl-CoA dehydrogenase
+Rv3140	fadE23	acyl-CoA dehydrogenase FadE23
+Rv3141	fadB4	NADPH quinone oxidoreductase FadB
+Rv3142c		hypothetical protein
+Rv3143		response regulator
+Rv3144c	PPE52	PPE family protein PPE52
+Rv3145	nuoA	NADH-quinone oxidoreductase subunit A
+Rv3146	nuoB	NADH-quinone oxidoreductase subunit B
+Rv3147	nuoC	NADH-quinone oxidoreductase subunit C
+Rv3148	nuoD	NADH-quinone oxidoreductase subunit D
+Rv3149	nuoE	NADH-quinone oxidoreductase subunit E
+Rv3150	nuoF	NADH-quinone oxidoreductase subunit F
+Rv3151	nuoG	NADH-quinone oxidoreductase subunit G
+Rv3152	nuoH	NADH-quinone oxidoreductase subunit H
+Rv3153	nuoI	NADH-quinone oxidoreductase subunit I
+Rv3154	nuoJ	NADH-quinone oxidoreductase subunit J
+Rv3155	nuoK	NADH-quinone oxidoreductase subunit K
+Rv3156	nuoL	NADH-quinone oxidoreductase subunit L
+Rv3157	nuoM	NADH-quinone oxidoreductase subunit M
+Rv3158	nuoN	NADH-quinone oxidoreductase subunit N
+Rv3159c	PPE53	PPE family protein PPE53
+Rv3160c		TetR family transcriptional regulator
+Rv3161c		dioxygenase
+Rv3162c		integral membrane protein
+Rv3163c		hypothetical protein
+Rv3164c	moxR3	methanol dehydrogenase transcriptional regulator MoxR
+Rv3165c		hypothetical protein
+Rv3166c		hypothetical protein
+Rv3167c		TetR family transcriptional regulator
+Rv3168		aminoglycoside phosphotransferase
+Rv3169		hypothetical protein
+Rv3170	aofH	flavin-containing monoamine oxidase
+Rv3171c	hpx	non-heme haloperoxidase Hpx
+Rv3172c		hypothetical protein
+Rv3173c		TetR/Acr family transcriptional regulator
+Rv3174		short-chain dehydrogenase/reductase
+Rv3175		amidase
+Rv3176c	mesT	epoxide hydrolase MesT
+Rv3177		peroxidase
+Rv3178		nitroreductase
+Rv3178a		hypothetical protein
+Rv3179		hypothetical protein
+Rv3180c		ribonuclease VapC45
+Rv3181c		antitoxin VapB45
+Rv3182		hypothetical protein
+Rv3183		transcriptional regulator
+Rv3188		hypothetical protein
+Rv3189		hypothetical protein
+Rv3190A		hypothetical protein
+Rv3190c		hypothetical protein
+Rv3191c		transposase
+Rv3192		hypothetical protein
+Rv3193c		transmembrane protein
+Rv3194c		hypothetical protein
+Rv3195		hypothetical protein
+Rv3196		hypothetical protein
+Rv3196A		hypothetical protein
+Rv3197		ABC transporter ATP-binding protein
+Rv3197A	whiB7	transcriptional regulator WhiB7
+Rv3198A		glutaredoxin protein
+Rv3198c	uvrD2	ATP-dependent DNA helicase UvrD
+Rv3199c	nudC	NADH pyrophosphatase
+Rv3200c		transmembrane cation transporter
+Rv3201c		ATP-dependent DNA helicase
+Rv3202a		hypothetical protein
+Rv3202c		ATP-dependent DNA helicase
+Rv3203	lipV	lipase LipV
+Rv3204		DNA-methyltransferase
+Rv3205c		hypothetical protein
+Rv3206c	moeB1	adenylyltransferase/sulfurtransferase MoeZ
+Rv3207c		hypothetical protein
+Rv3208		TetR family transcriptional regulator
+Rv3208A	TB9.4	hypothetical protein
+Rv3209		hypothetical protein
+Rv3210c		hypothetical protein
+Rv3211	rhlE	ATP-dependent RNA helicase RhlE
+Rv3212		hypothetical protein
+Rv3213c		SOJ/ParA-like protein
+Rv3214	gpm2	phosphoglycerate mutase
+Rv3215	entC	isochorismate synthase
+Rv3216		
+Rv3217c		integral membrane protein
+Rv3218		hypothetical protein
+Rv3219	whiB1	transcriptional regulator WhiB1
+Rv3220c		two component sensor kinase
+Rv3221A	rshA	anti-sigma factor RshA
+Rv3221c	TB7.3	acetyl-CoA carboxylase biotin carboxyl carrier protein subunit
+Rv3222c		hypothetical protein
+Rv3223c	sigH	ECF RNA polymerase sigma factor SigH
+Rv3224		iron-regulated short-chain dehydrogenase/reductase
+Rv3225c		GCN5-like N-acetyltransferase
+Rv3226c		hypothetical protein
+Rv3227	aroA	3-phosphoshikimate 1-carboxyvinyltransferase
+Rv3228		hypothetical protein
+Rv3229c	desA3	stearoyl-CoA 9-desaturase
+Rv3230c		stearoyl-CoA 9-desaturase electron transfer protein
+Rv3231c		hypothetical protein
+Rv3232c	ppk2	polyphosphate kinase
+Rv3233c		
+Rv3234c	tgs3	diacyglycerol O-acyltransferase
+Rv3235		hypothetical protein
+Rv3236c		integral membrane transport protein
+Rv3237c		hypothetical protein
+Rv3238c		integral membrane protein
+Rv3239c		transmembrane transport protein
+Rv3240c	secA1	protein translocase subunit SecA
+Rv3241c		hypothetical protein
+Rv3242c		hypothetical protein
+Rv3243c		hypothetical protein
+Rv3244c	lpqB	lipoprotein LpqB
+Rv3245c	mtrB	two component sensory histidine kinase MtrB
+Rv3246c	mtrA	two component DNA-binding response regulator MtrA
+Rv3247c	tmk	thymidylate kinase
+Rv3248c	sahH	adenosylhomocysteinase
+Rv3249c		TetR family transcriptional regulator
+Rv3250c	rubB	rubredoxin RubB
+Rv3251c	rubA	rubredoxin RubA
+Rv3252c	alkB	transmembrane alkane 1-monooxygenase AlkB
+Rv3253c		cationic amino acid transport integral membrane protein
+Rv3254		hypothetical protein
+Rv3255c	manA	mannose-6-phosphate isomerase
+Rv3256c		hypothetical protein
+Rv3257c	pmmA	phosphomannomutase PmmA
+Rv3258c		hypothetical protein
+Rv3259		hypothetical protein
+Rv3260c	whiB2	transcriptional regulator WhiB2
+Rv3261	fbiA	2-phospho-L-lactate transferase
+Rv3262	fbiB	coenzyme F420:L-glutamate ligase
+Rv3263		DNA methylase
+Rv3264c	manB	D-alpha-D-mannose-1-phosphate guanylyltransferase ManB
+Rv3265c	wbbL1	N-acetylglucosaminyl-diphospho-decaprenol L-rhamnosyltransferase
+Rv3266c	rmlD	dTDP-4-dehydrorhamnose reductase
+Rv3267		hypothetical protein
+Rv3268		hypothetical protein
+Rv3269		hypothetical protein
+Rv3270	ctpC	manganese/zinc-exporting P-type ATPase
+Rv3271c		integral membrane protein
+Rv3272		hypothetical protein
+Rv3273		transmembrane carbonic anhydrase
+Rv3274c	fadE25	acyl-CoA dehydrogenase
+Rv3275c	purE	5-(carboxyamino)imidazole ribonucleotide mutase
+Rv3276c	purK	5-(carboxyamino)imidazole ribonucleotide synthase
+Rv3277		transmembrane protein
+Rv3278c		transmembrane protein
+Rv3279c	birA	bifunctional biotin operon repressor/biotin--[acetyl-CoA-carboxylase] synthetase
+Rv3280	accD5	propionyl-CoA carboxylase subunit beta
+Rv3281	accE5	bifunctional protein acetyl-/propionyl-CoAcarboxylase subunit epsilon AccE
+Rv3282		hypothetical protein
+Rv3283	sseA	thiosulfate sulfurtransferase SseA
+Rv3284		hypothetical protein
+Rv3285	accA3	bifunctional protein acetyl-/propionyl-CoA carboxylase subunit alpha AccA
+Rv3286c	sigF	RNA polymerase sigma factor SigF
+Rv3287c	rsbW	anti-sigma factor RsbW
+Rv3288c	usfY	hypothetical protein
+Rv3289c		transmembrane protein
+Rv3290c	lat	L-lysine-epsilon aminotransferase
+Rv3291c	lrpA	transcriptional regulator LrpA
+Rv3292		hypothetical protein
+Rv3293	pcd	piperideine-6-carboxylic acid dehydrogenase
+Rv3294c		hypothetical protein
+Rv3295		TetR family transcriptional regulator
+Rv3296	lhr	ATP-dependent helicase
+Rv3297	nei	endonuclease VIII
+Rv3298c	lpqC	esterase LpqC
+Rv3299c	atsB	arylsulfatase AtsB
+Rv3300c		hypothetical protein
+Rv3301c	phoY1	phosphate transport system transcriptional regulator PhoY
+Rv3302c	glpD2	glycerol-3-phosphate dehydrogenase
+Rv3303c	lpdA	NAD(P)H quinone reductase LpdA
+Rv3304		hypothetical protein
+Rv3305c	amiA1	N-acyl-L-amino acid amidohydrolase AmiA
+Rv3306c	amiB1	amidase AmiB
+Rv3307	deoD	purine nucleoside phosphorylase
+Rv3308	pmmB	phosphomannomutase PmmB
+Rv3309c	upp	uracil phosphoribosyltransferase
+Rv3310	sapM	acid phosphatase
+Rv3311		hypothetical protein
+Rv3312A		pilin
+Rv3312b		hypothetical protein
+Rv3312c		hypothetical protein
+Rv3313c	add	adenosine deaminase
+Rv3314c	deoA	thymidine phosphorylase
+Rv3315c	cdd	cytidine deaminase
+Rv3316	sdhC	succinate dehydrogenase cytochrome B-556 subunit
+Rv3317	sdhD	succinate dehydrogenase hydrophobic membrane anchor subunit
+Rv3318	sdhA	succinate dehydrogenase flavoprotein subunit
+Rv3319	sdhB	succinate dehydrogenase iron-sulphur protein subunit
+Rv3320c	vapC44	ribonuclease VapC44
+Rv3321c	vapB44	antitoxin VapB44
+Rv3322c		methyltransferase
+Rv3323c	moaX	MoaD-MoaE fusion protein MoaX
+Rv3324A		
+Rv3324c	moaC3	cyclic pyranopterin monophosphate synthase accessory protein
+Rv3327		transposase fusion protein
+Rv3328c	sigJ	ECF RNA polymerase sigma factor SigJ
+Rv3329		aminotransferase
+Rv3330	dacB1	penicillin-binding protein DacB
+Rv3331	sugI	sugar-transport integral membrane protein SugI
+Rv3332	nagA	N-acetylglucosamine-6-phosphate deacetylase NagA
+Rv3333c		hypothetical protein
+Rv3334		MerR family transcriptional regulator
+Rv3335c		integral membrane protein
+Rv3336c	trpS	tryptophan--tRNA ligase
+Rv3337		
+Rv3339c	icd1	isocitrate dehydrogenase
+Rv3340	metC	O-acetylhomoserine sulfhydrylase
+Rv3341	metA	homoserine O-acetyltransferase
+Rv3342		methyltransferase
+Rv3343c	PPE54	PPE family protein PPE54
+Rv3344c	PE_PGRS49	PE-PGRS family protein PE_PGRS49
+Rv3345c	PE_PGRS50	PE-PGRS family protein PE_PGRS50
+Rv3346c		transmembrane protein
+Rv3347c	PPE55	PPE family protein PPE55
+Rv3348		transposase
+Rv3349c		transposase
+Rv3350c	PPE56	PPE family protein PPE56
+Rv3351c		hypothetical protein
+Rv3352c		oxidoreductase
+Rv3353c		hypothetical protein
+Rv3354		hypothetical protein
+Rv3355c		integral membrane protein
+Rv3356c	folD	bifunctional methylenetetrahydrofolate dehydrogenase/methenyltetrahydrofolate cyclohydrolase
+Rv3357	relJ	antitoxin RelJ
+Rv3358	relK	toxin RelK
+Rv3359		oxidoreductase
+Rv3360		hypothetical protein
+Rv3361c		hypothetical protein
+Rv3362c		ATP/GTP-binding protein
+Rv3363c		hypothetical protein
+Rv3364c		hypothetical protein
+Rv3365c		hypothetical protein
+Rv3366	spoU	tRNA/rRNA methylase SpoU
+Rv3367	PE_PGRS51	PE-PGRS family protein PE_PGRS51
+Rv3368c		oxidoreductase
+Rv3369		hypothetical protein
+Rv3370c	dnaE2	error-prone DNA polymerase
+Rv3371		diacyglycerol O-acyltransferase
+Rv3372	otsB2	trehalose 6-phosphate phosphatase
+Rv3373	echA18	enoyl-CoA hydratase
+Rv3374		
+Rv3375	amiD	amidase
+Rv3376		phosphatase
+Rv3377c		type B diterpene cyclase
+Rv3378c		diterpene synthase
+Rv3379c	dxs2	1-deoxy-D-xylulose-5-phosphate synthase
+Rv3382c		4-hydroxy-3-methylbut-2-enyl diphosphate reductase
+Rv3383c	idsB	polyprenyl synthetase IdsB
+Rv3384c	vapC46	ribonuclease VapC46
+Rv3385c	vapB46	antitoxin VapB46
+Rv3386		transposase
+Rv3387		transposase
+Rv3388	PE_PGRS52	PE-PGRS family protein PE_PGRS52
+Rv3389c	htdY	3-hydroxyacyl-thioester dehydratase HtdY
+Rv3390	lpqD	lipoprotein LpqD
+Rv3391	acrA1	acyl-CoA-reductase AcrA
+Rv3392c	cmaA1	cyclopropane mycolic acid synthase CmaA
+Rv3393	iunH	nucleoside hydrolase
+Rv3394c		hypothetical protein
+Rv3395A		membrane protein
+Rv3395c		hypothetical protein
+Rv3396c	guaA	GMP synthase
+Rv3397c	phyA	phytoene synthase
+Rv3398c	idsA1	multifunctional dimethylallyltransferase/geranyltranstransferase/farnesyltranstransferase
+Rv3399		S-adenosylmethionine-dependent methyltransferase
+Rv3400		hydrolase
+Rv3401		glycosyl hydrolase
+Rv3402c		hypothetical protein
+Rv3403c		hypothetical protein
+Rv3404c		hypothetical protein
+Rv3405c		HTH-type transcriptional regulator
+Rv3406		dioxygenase
+Rv3407	vapB47	antitoxin VapB47
+Rv3408	vapC47	ribonuclease VapC47
+Rv3409c	choD	cholesterol oxidase
+Rv3410c	guaB3	oxidoreductase
+Rv3411c	guaB2	inosine-5'-monophosphate dehydrogenase
+Rv3412		hypothetical protein
+Rv3413c		anti-sigma-D factor RsdA
+Rv3414c	sigD	ECF RNA polymerase sigma factor SigD
+Rv3415c		hypothetical protein
+Rv3416	whiB3	redox-responsive transcriptional regulator WhiB3
+Rv3417c	groEL1	chaperonin GroEL
+Rv3418c	groES	chaperonin GroES
+Rv3419c	gcp	O-sialoglycoprotein endopeptidase
+Rv3420c	rimI	ribosomal-protein-alanine acetyltransferase RimI
+Rv3421c		hypothetical protein
+Rv3422c		tRNA threonylcarbamoyladenosine biosynthesis protein
+Rv3423c	alr	alanine racemase
+Rv3424c		hypothetical protein
+Rv3425	PPE57	PPE family protein PPE57
+Rv3426	PPE58	PPE family protein PPE58
+Rv3427c		transposase
+Rv3428c		transposase
+Rv3429	PPE59	PPE family protein PPE59
+Rv3430a		hypothetical protein
+Rv3430c		transposase
+Rv3432c	gadB	glutamate decarboxylase GadB
+Rv3433c		bifunctional ADP-dependent (S)-NAD(P)H-hydrate dehydratase/NAD(P)H-hydrate epimerase
+Rv3434c		transmembrane protein
+Rv3435c		transmembrane protein
+Rv3436c	glmS	glucosamine--fructose-6-phosphate aminotransferase
+Rv3437		transmembrane protein
+Rv3438		hypothetical protein
+Rv3439c		hypothetical protein
+Rv3440c		hypothetical protein
+Rv3441c	mrsA	phosphoglucosamine mutase
+Rv3442c	rpsI	30S ribosomal protein S9
+Rv3443c	rplM	50S ribosomal protein L13
+Rv3444c	esxT	ESAT-6 like protein EsxT
+Rv3445c	esxU	ESAT-6 like protein EsxU
+Rv3446c		hypothetical protein
+Rv3447c	eccC4	ESX-4 secretion system protein EccC4
+Rv3448	eccD4	ESX-4 secretion system protein EccD4
+Rv3449	mycP4	membrane-anchored mycosin
+Rv3450c	eccB4	ESX-4 secretion system protein EccB4
+Rv3451	cut3	cutinase
+Rv3452	cut4	cutinase
+Rv3453		
+Rv3455c	truA	tRNA pseudouridine synthase A
+Rv3456c	rplQ	50S ribosomal protein L17
+Rv3457c	rpoA	DNA-directed RNA polymerase subunit alpha
+Rv3458c	rpsD	30S ribosomal protein S4
+Rv3459c	rpsK	30S ribosomal protein S11
+Rv3460c	rpsM	30S ribosomal protein S13
+Rv3461c	rpmJ	50S ribosomal protein L36
+Rv3462c	infA	translation initiation factor IF-1
+Rv3463		hypothetical protein
+Rv3464	rmlB	dTDP-glucose 4,6-dehydratase
+Rv3465	rmlC	dTDP-4-dehydrorhamnose 3,5-epimerase
+Rv3466		hypothetical protein
+Rv3467		hypothetical protein
+Rv3468c		dTDP-glucose 4,6-dehydratase
+Rv3469c	mhpE	4-hydroxy-2-oxovalerate aldolase MhpE
+Rv3470c	ilvB2	acetolactate synthase large subunit
+Rv3471c		hypothetical protein
+Rv3472		hypothetical protein
+Rv3473c	bpoA	peroxidase BpoA
+Rv3476c	kgtP	
+Rv3477	PE31	PE family protein PE31
+Rv3478	PPE60	PE family protein PPE60
+Rv3479		transmembrane protein
+Rv3480c		diacyglycerol O-acyltransferase
+Rv3481c		integral membrane protein
+Rv3482c		membrane protein
+Rv3483c		hypothetical protein
+Rv3484		hypothetical protein
+Rv3485c		short-chain type dehydrogenase/reductase
+Rv3486		hypothetical protein
+Rv3487c	lipF	carboxylesterase LipF
+Rv3488		hypothetical protein
+Rv3489		hypothetical protein
+Rv3490	otsA	trehalose-phosphate synthase
+Rv3491		hypothetical protein
+Rv3492c		Mce associated protein
+Rv3493c		Mce associated protein
+Rv3494c	mce4F	Mce family protein Mce4
+Rv3495c	lprN	Mce family lipoprotein LprN
+Rv3496c	mce4D	Mce family protein Mce4D
+Rv3497c	mce4C	Mce family protein Mce4C
+Rv3498c	mce4B	Mce family protein Mce4B
+Rv3499c	mce4A	Mce family protein Mce4A
+Rv3500c	yrbE4B	integral membrane protein
+Rv3501c	yrbE4A	integral membrane protein
+Rv3502c		3-oxoacyl-ACP reductase
+Rv3503c	fdxD	ferredoxin FdxD
+Rv3504	fadE26	acyl-CoA dehydrogenase FadE26
+Rv3505	fadE27	acyl-CoA dehydrogenase FadE27
+Rv3506	fadD17	long-chain-fatty-acid--CoA ligase FadD17
+Rv3507	PE_PGRS53	PE-PGRS family protein PE_PGRS53
+Rv3508	PE_PGRS54	PE-PGRS family protein PE_PGRS54
+Rv3509c	ilvX	acetohydroxyacid synthase large subunit
+Rv3510c		hypothetical protein
+Rv3511	PE_PGRS55	PE-PGRS family protein PE_PGRS55
+Rv3512	PE_PGRS56	PE-PGRS family protein PE_PGRS56
+Rv3513c	fadD18	fatty-acid--CoA ligase FadD18
+Rv3514	PE_PGRS57	PE-PGRS family protein PE_PGRS57
+Rv3515c	fadD19	acyl-CoA synthetase
+Rv3516	echA19	enoyl-CoA hydratase EchA19
+Rv3517		hypothetical protein
+Rv3518c	cyp142	cytochrome P450 monooxygenase Cyp142
+Rv3519		hypothetical protein
+Rv3520c		coenzyme F420-dependent oxidoreductase
+Rv3521		hypothetical protein
+Rv3522	ltp4	lipid transfer protein
+Rv3523	ltp3	lipid carrier protein
+Rv3524		membrane protein
+Rv3525c		siderophore-binding protein
+Rv3526	kshA	3-ketosteroid-9-alpha-monooxygenase oxygenase subunit
+Rv3527		hypothetical protein
+Rv3528c		hypothetical protein
+Rv3529c		hypothetical protein
+Rv3530c		oxidoreductase
+Rv3531c		hypothetical protein
+Rv3532	PPE61	PPE family protein PPE61
+Rv3533c	PPE62	PPE family protein PPE62
+Rv3534c	hsaF	4-hydroxy-2-oxovalerate aldolase
+Rv3535c	hsaG	acetaldehyde dehydrogenase
+Rv3536c	hsaE	hydratase
+Rv3537	kstD	3-oxosteroid 1-dehydrogenase
+Rv3538		dehydrogenase
+Rv3539	PPE63	PPE family protein PPE63
+Rv3540c	ltp2	lipid transfer protein
+Rv3541c		hypothetical protein
+Rv3542c		hypothetical protein
+Rv3543c	fadE29	acyl-CoA dehydrogenase FadE29
+Rv3544c	fadE28	acyl-CoA dehydrogenase FadE28
+Rv3545c	cyp125	steroid C26-monooxygenase
+Rv3546	fadA5	acetyl-CoA acetyltransferase FadA
+Rv3547	ddn	deazaflavin-dependent nitroreductase
+Rv3548c		short-chain type dehydrogenase/reductase
+Rv3549c		short-chain type dehydrogenase/reductase
+Rv3550	echA20	enoyl-CoA hydratase EchA20
+Rv3551		CoA-transferase subunit alpha
+Rv3552		CoA-transferase subunit beta
+Rv3553		oxidoreductase
+Rv3554	fdxB	electron transfer protein FdxB
+Rv3555c		hypothetical protein
+Rv3556c	fadA6	acetyl-CoA acetyltransferase FadA
+Rv3557c		HTH-type transcriptional regulator KstR2
+Rv3558	PPE64	PPE family protein PPE64
+Rv3559c		oxidoreductase
+Rv3560c	fadE30	acyl-CoA dehydrogenase FadE30
+Rv3561	fadD3	fatty-acid--CoA ligase FadD3
+Rv3562	fadE31	acyl-CoA dehydrogenase FadE31
+Rv3563	fadE32	acyl-CoA dehydrogenase FadE32
+Rv3564	fadE33	acyl-CoA dehydrogenase FadE33
+Rv3565	aspB	aspartate aminotransferase AspB
+Rv3566A		hypothetical protein
+Rv3566c	nat	arylamine N-acetyltransferase
+Rv3567c	hsaB	flavin-dependent monooxygenase reductase subunit HsaB
+Rv3568c	hsaC	extradiol dioxygenase
+Rv3569c	hsaD	4,5-9,10-diseco-3-hydroxy-5,9,17-trioxoandrosta-1(10),2-diene-4-oate hydrolase
+Rv3570c	hsaA	flavin-dependent monooxygenase oxygenase subunit HsaA
+Rv3571	kshB	3-ketosteroid-9-alpha-hydroxylase reductase subunit
+Rv3572		hypothetical protein
+Rv3573c	fadE34	acyl-CoA dehydrogenase FadE34
+Rv3574	kstR	HTH-type transcriptional regulator KstR
+Rv3575c		LacI family transcriptional regulator
+Rv3576	lppH	lipoprotein LppH
+Rv3577		hypothetical protein
+Rv3578	arsB2	arsenic transport integral membrane protein ArsB
+Rv3579c		23S rRNA (guanosine(2251)-2'-O)-methyltransferase RlmB
+Rv3580c	cysS1	cysteine--tRNA ligase
+Rv3581c	ispF	2C-methyl-D-erythritol 2,4-cyclodiphosphate synthase
+Rv3582c	ispD	2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase
+Rv3583c		RNA polymerase-binding transcription factor CarD
+Rv3584	lpqE	lipoprotein LpqE
+Rv3585	radA	DNA repair protein RadA
+Rv3586		DNA integrity scanning protein DisA
+Rv3587c		membrane protein
+Rv3588c	canB	carbonic anhydrase
+Rv3589	mutY	A/G-specific adenine glycosylase
+Rv3590c	PE_PGRS58	PE-PGRS family protein PE_PGRS58
+Rv3591c		hydrolase
+Rv3592		heme-degrading monooxygenase
+Rv3593	lpqF	lipoprotein LpqF
+Rv3594		hypothetical protein
+Rv3595c	PE_PGRS59	PE-PGRS family protein PE_PGRS59
+Rv3596c	clpC1	ATP-dependent protease ATP-binding subunit ClpC
+Rv3597c	lsr2	iron-regulated H-NS-like protein
+Rv3598c	lysS	lysine--tRNA ligase
+Rv3600c		type III pantothenate kinase
+Rv3601c	panD	aspartate 1-decarboxylase
+Rv3602c	panC	pantothenate synthetase
+Rv3603c		hypothetical protein
+Rv3604c		transmembrane protein
+Rv3605c		hypothetical protein
+Rv3606c	folK	2-amino-4-hydroxy-6-hydroxymethyldihydropteridinepyrophosphokinase
+Rv3607c	folB	dihydroneopterin aldolase
+Rv3608c	folP1	dihydropteroate synthase
+Rv3609c	folE	GTP cyclohydrolase I
+Rv3610c	ftsH	zinc metalloprotease FtsH
+Rv3612c		hypothetical protein
+Rv3613c		hypothetical protein
+Rv3614c	espD	ESX-1 secretion-associated protein EspD
+Rv3615c	espC	ESX-1 secretion-associated protein EspC
+Rv3616c	espA	ESX-1 secretion-associated protein EspA
+Rv3617	ephA	epoxide hydrolase EphA
+Rv3618		monooxygenase
+Rv3619c	esxV	ESAT-6 like protein EsxV
+Rv3620c	esxW	ESAT-6 like protein EsxW
+Rv3621c	PPE65	PPE family protein PPE65
+Rv3622c	PE32	PE family protein PE32
+Rv3623	lpqG	lipoprotein LpqG
+Rv3624c	hpt	hypoxanthine-guanine phosphoribosyltransferase
+Rv3625c	mesJ	tRNA(Ile)-lysidine synthase
+Rv3626c		hypothetical protein
+Rv3627c		hypothetical protein
+Rv3628	ppa	inorganic pyrophosphatase
+Rv3629c		integral membrane protein
+Rv3630		integral membrane protein
+Rv3631		transferase
+Rv3632		membrane protein
+Rv3633		hypothetical protein
+Rv3634c	galE1	UDP-glucose 4-epimerase
+Rv3635		transmembrane protein
+Rv3636		
+Rv3638		transposase
+Rv3639c		hypothetical protein
+Rv3640c		transposase
+Rv3641c	fic	cell filamentation protein Fic
+Rv3642c		hypothetical protein
+Rv3643		hypothetical protein
+Rv3644c		DNA polymerase
+Rv3645		transmembrane protein
+Rv3646c	topA	DNA topoisomerase I
+Rv3647c		hypothetical protein
+Rv3648c	cspA	cold shock protein A
+Rv3649		helicase
+Rv3650	PE33	PE family protein PE33
+Rv3651		hypothetical protein
+Rv3652	PE_PGRS60	PE-PGRS family-related protein PE_PGRS60
+Rv3653	PE_PGRS61	PE-PGRS family-related protein PE_PGRS61
+Rv3654c		hypothetical protein
+Rv3655c		hypothetical protein
+Rv3656c		hypothetical protein
+Rv3657c		membrane protein
+Rv3658c		transmembrane protein
+Rv3659c		conjugal transfer protein
+Rv3660c		hypothetical protein
+Rv3661		hypothetical protein
+Rv3662c		hypothetical protein
+Rv3663c	dppD	dipeptide ABC transporter ATP-binding protein DppD
+Rv3664c	dppC	dipeptide ABC transporter permease DppC
+Rv3665c	dppB	dipeptide ABC transporter permease DppB
+Rv3666c	dppA	dipeptide ABC transporter substrate-binding lipoprotein DppA
+Rv3667	acs	acetyl-CoAsynthetase
+Rv3668c		protease
+Rv3669		transmembrane protein
+Rv3670	ephE	epoxide hydrolase EphE
+Rv3671c		serine protease
+Rv3672c		hypothetical protein
+Rv3673c		membrane-anchored thioredoxin-like protein
+Rv3674c	nth	endonuclease III
+Rv3675		membrane protein
+Rv3676	crp	cAMP receptor protein
+Rv3677c		beta lactamase
+Rv3678A		hypothetical protein
+Rv3678c		hypothetical protein
+Rv3679		anion transporter ATPase
+Rv3680		anion transporter ATPase
+Rv3681c	whiB4	transcriptional regulator WhiB4
+Rv3682	ponA2	bifunctional penicillin-insensitive transglycosylase/penicillin-sensitive transpeptidase
+Rv3683		hypothetical protein
+Rv3684		lyase
+Rv3685c	cyp137	cytochrome P450 Cyp137
+Rv3686c		hypothetical protein
+Rv3687c	rsfB	anti-anti-sigma factor RsfB
+Rv3688c		hypothetical protein
+Rv3689		transmembrane protein
+Rv3690		membrane protein
+Rv3691		hypothetical protein
+Rv3692	moxR2	methanol dehydrogenase transcriptional regulator MoxR
+Rv3693		membrane protein
+Rv3694c		transmembrane protein
+Rv3695		membrane protein
+Rv3696c	glpK	glycerol kinase
+Rv3697A	vapB48	antitoxin VapB48
+Rv3697c	vapC48	ribonuclease VapC48
+Rv3698		hypothetical protein
+Rv3699		hypothetical protein
+Rv3700c	egtE	pyridoxal-phosphate-dependent protein EgtE
+Rv3701c	egtD	histidine-specific methyltransferase EtgD
+Rv3702c	egtC	amidohydrolase EgtC
+Rv3703c	etgB	iron(II)-dependent oxidoreductase EgtB
+Rv3704c	gshA	glutamate--cysteine ligase
+Rv3705A		hypothetical protein
+Rv3705c		hypothetical protein
+Rv3706c		hypothetical protein
+Rv3707c		hypothetical protein
+Rv3708c	asd	aspartate-semialdehyde dehydrogenase
+Rv3709c	ask	aspartokinase
+Rv3710	leuA	2-isopropylmalate synthase
+Rv3711c	dnaQ	DNA polymerase III subunit epsilon
+Rv3712		ligase
+Rv3713	cobQ2	cobyric acid synthase CobQ
+Rv3714c		hypothetical protein
+Rv3715c	recR	recombination protein RecR
+Rv3716c		hypothetical protein
+Rv3717		hypothetical protein
+Rv3718c		hypothetical protein
+Rv3719		hypothetical protein
+Rv3720		fatty acid synthase
+Rv3721c	dnaZX	DNA polymerase III subunit gamma/tau
+Rv3722c		hypothetical protein
+Rv3723		transmembrane protein
+Rv3725		oxidoreductase
+Rv3726		dehydrogenase
+Rv3727		oxidoreductase
+Rv3728		membrane protein
+Rv3729		transferase
+Rv3730c		hypothetical protein
+Rv3731	ligC	DNA ligase C
+Rv3732		hypothetical protein
+Rv3733c		hypothetical protein
+Rv3734c	tgs2	diacyglycerol O-acyltransferase
+Rv3735		hypothetical protein
+Rv3736		AraC/XylS family transcriptional regulator
+Rv3737		transmembrane protein
+Rv3738c	PPE66	PPE family protein PPE66
+Rv3739c	PPE67	PPE family protein PPE67
+Rv3740c		diacyglycerol O-acyltransferase
+Rv3741c		oxidoreductase
+Rv3742c		oxidoreductase
+Rv3743c	ctpJ	cation transporter ATPase J
+Rv3744	nmtR	HTH-type transcriptional regulator NmtR
+Rv3745c		hypothetical protein
+Rv3746c	PE34	PE family protein PE34
+Rv3747		hypothetical protein
+Rv3748		hypothetical protein
+Rv3749c		hypothetical protein
+Rv3750c		excisionase
+Rv3752c		cytidine/deoxycytidylate deaminase
+Rv3753c		hypothetical protein
+Rv3754	tyrA	prephenate dehydrogenase TyrA
+Rv3755c		hypothetical protein
+Rv3756c	proZ	glycine betaine/carnitine/choline/L-proline ABC transporter permease ProZ
+Rv3757c	proW	glycine betaine/carnitine/choline/L-proline ABC transporter permease ProW
+Rv3758c	proV	glycine betaine/carnitine/choline/L-proline ABC transporter ATP-binding protein ProV
+Rv3759c	proX	glycine betaine/carnitine/choline/L-proline ABC transporter substrate-binding lipoprotein ProX
+Rv3760		membrane protein
+Rv3761c	fadE36	acyl-CoA dehydrogenase FadE36
+Rv3762c		hydrolase
+Rv3763	lpqH	lipoprotein LpqH
+Rv3764c	tcrY	two component sensor kinase TcrY
+Rv3765c	tcrX	two component transcriptional regulator TcrX
+Rv3766		hypothetical protein
+Rv3767c		S-adenosylmethionine-dependent methyltransferase
+Rv3768		hypothetical protein
+Rv3769		hypothetical protein
+Rv3770c		hypothetical protein
+Rv3771c		hypothetical protein
+Rv3772	hisC2	histidinol-phosphate aminotransferase
+Rv3773c		hypothetical protein
+Rv3774	echA21	enoyl-CoA hydratase EchA21
+Rv3775	lipE	lipase LipE
+Rv3776		hypothetical protein
+Rv3777		oxidoreductase
+Rv3778c		aminotransferase
+Rv3779		transmembrane protein
+Rv3780		hypothetical protein
+Rv3781	rfbE	O-antigen/lipopolysaccharide ABC transporter ATP-binding protein RfbE
+Rv3782	glfT1	galactofuranosyl transferase GlfT
+Rv3783	rfbD	O-antigen/lipopolysaccharide ABC transporter permease RfbD
+Rv3784		dTDP-glucose 4,6-dehydratase
+Rv3785		hypothetical protein
+Rv3786c		hypothetical protein
+Rv3787c		S-adenosyl-L-methionine-dependent methyltransferase
+Rv3788		hypothetical protein
+Rv3789		GtrA family protein
+Rv3790	dprE1	decaprenylphosphoryl-beta-D-ribose oxidase
+Rv3791	dprE2	decaprenylphosphoryl-D-2-keto erythropentose reductase
+Rv3792	aftA	arabinofuranosyltransferase
+Rv3793	embC	arabinosyltransferase C
+Rv3794	embA	arabinosyltransferase A
+Rv3795	embB	arabinosyltransferase B
+Rv3796		hypothetical protein
+Rv3797	fadE35	acyl-CoA dehydrogenase FadE35
+Rv3798		insertion sequence element IS1557 transposase
+Rv3799c	accD4	propionyl-CoA carboxylase subunit beta AccD
+Rv3800c	pks13	polyketide synthase
+Rv3801c	fadD32	long-chain-fatty-acid--AMP ligase FadD32
+Rv3802c		membrane protein
+Rv3803c	fbpD	MPT51/MPB51 antigen
+Rv3804c	fbpA	diacylglycerol acyltransferase/mycolyltransferase Ag85A
+Rv3805c	aftB	terminal beta-(1->2)-arabinofuranosyltransferase
+Rv3806c	ubiA	decaprenyl-phosphate phosphoribosyltransferase
+Rv3807c		decaprenylphosphoryl-5-phosphoribose phosphatase
+Rv3808c	glfT2	galactofuranosyl transferase GlfT
+Rv3809c	glf	UDP-galactopyranose mutase
+Rv3810	pirG	cell surface protein
+Rv3811		hypothetical protein
+Rv3812	PE_PGRS62	PE-PGRS family protein PE_PGRS62
+Rv3813c		hypothetical protein
+Rv3814c		acyltransferase
+Rv3815c		acyltransferase
+Rv3816c		acyltransferase
+Rv3817		phosphotransferase
+Rv3818		hypothetical protein
+Rv3819		hypothetical protein
+Rv3820c	papA2	trehalose-2-sulfate acyltransferase
+Rv3821		integral membrane protein
+Rv3822		hypothetical protein
+Rv3823c	mmpL8	integral membrane transport protein MmpL8
+Rv3824c	papA1	acyltransferase
+Rv3825c	pks2	phthioceranic/hydroxyphthioceranic acid synthase
+Rv3826	fadD23	long-chain-fatty-acid--CoA ligase FadD23
+Rv3827c		transposase
+Rv3828c		resolvase
+Rv3829c		dehydrogenase
+Rv3830c		TetR family transcriptional regulator
+Rv3831		hypothetical protein
+Rv3832c		hypothetical protein
+Rv3833		AraC family transcriptional regulator
+Rv3834c	serS	serine--tRNA ligase
+Rv3835		hypothetical protein
+Rv3836		hypothetical protein
+Rv3837c		phosphoglycerate mutase
+Rv3838c	pheA	prephenate dehydratase
+Rv3839		hypothetical protein
+Rv3840		transcriptional regulator
+Rv3841	bfrB	bacterioferritin BfrB
+Rv3842c	glpQ1	glycerophosphoryl diester phosphodiesterase
+Rv3843c		transmembrane protein
+Rv3844		transposase
+Rv3845		hypothetical protein
+Rv3846	sodA	superoxide dismutase
+Rv3847		hypothetical protein
+Rv3848		transmembrane protein
+Rv3849	espR	ESX-1 transcriptional regulator EspR
+Rv3850		hypothetical protein
+Rv3851		membrane protein
+Rv3852	hns	histone-like protein Hns
+Rv3853	rraA	RNase E regulator RraA
+Rv3854c	ethA	monooxygenase EthA
+Rv3855	ethR	HTH-type transcriptional repressor EthR
+Rv3856c		hypothetical protein
+Rv3857c		membrane protein
+Rv3858c	gltD	glutamate synthase small subunit
+Rv3859c	gltB	glutamate synthase large subunit
+Rv3860		hypothetical protein
+Rv3861		hypothetical protein
+Rv3862c	whiB6	transcriptional regulator WhiB6
+Rv3863		hypothetical protein
+Rv3864	espE	ESX-1 secretion-associated protein EspE
+Rv3865	espF	ESX-1 secretion-associated protein EspF
+Rv3866	espG1	ESX-1 secretion-associated protein EspG
+Rv3867	espH	ESX-1 secretion-associated protein EspH
+Rv3868	eccA1	ESX-1 secretion system protein EccA1
+Rv3869	eccB1	ESX-1 secretion system protein EccB
+Rv3870	eccCa1	ESX-1 secretion system protein EccCa
+Rv3871	eccCb1	ESX-1 secretion system protein EccCb
+Rv3872	PE35	PE family protein PE35
+Rv3873	PPE68	PPE family protein PPE68
+Rv3874	esxB	ESAT-6-like protein EsxB
+Rv3875	esxA	ESAT-6 protein EsxA
+Rv3876	espI	ESX-1 secretion-associated protein EspI
+Rv3877	eccD1	ESX-1 secretion system protein EccD1
+Rv3878	espJ	ESX-1 secretion-associated protein EspJ
+Rv3879c	espK	ESX-1 secretion-associated protein EspK
+Rv3880c	espL	ESX-1 secretion-associated protein EspL
+Rv3881c	espB	ESX-1 secretion-associated protein EspB
+Rv3882c	eccE1	ESX-1 secretion system protein EccE1
+Rv3883c	mycP1	membrane-anchored mycosin
+Rv3884c	eccA2	ESX-2 secretion system protein EccA
+Rv3885c	eccE2	ESX-2 secretion system protein EccE
+Rv3886c	mycP2	membrane-anchored mycosin
+Rv3887c	eccD2	ESX-2 secretion system protein EccD
+Rv3888c		membrane protein
+Rv3889c	espG2	ESX-2 secretion-associated protein EspG2
+Rv3890c	esxC	ESAT-6 like protein EsxC
+Rv3891c	esxD	ESAT-6 like protein EsxD
+Rv3892c	PPE69	PPE family protein PPE69
+Rv3893c	PE36	PE family protein PE36
+Rv3894c	eccC2	ESX-2 type VII secretion system protein EccC
+Rv3895c	eccB2	ESX-2 secretion system protein EccB
+Rv3896c		hypothetical protein
+Rv3897c		hypothetical protein
+Rv3898c		hypothetical protein
+Rv3899c		hypothetical protein
+Rv3900c		hypothetical protein
+Rv3901c		membrane protein
+Rv3902c		hypothetical protein
+Rv3903c		hypothetical protein
+Rv3904c	esxE	ESAT-6 like protein EsxE
+Rv3905c	esxF	ESAT-6 like protein EsxF
+Rv3906c		hypothetical protein
+Rv3907c	pcnA	poly(A) polymerase PcnA
+Rv3908	mutT4	mutator protein MutT
+Rv3909		hypothetical protein
+Rv3910		peptidoglycan biosynthesis protein
+Rv3911	sigM	ECF RNA polymerase sigma factor SigM
+Rv3912		anti-sigma-M factor RsmA
+Rv3913	trxB2	thioredoxin reductase
+Rv3914	trxC	thioredoxin TrxC
+Rv3915		peptidoglycan hydrolase
+Rv3916c		hypothetical protein
+Rv3917c	parB	chromosome partitioning protein ParB
+Rv3918c	parA	chromosome partitioning protein ParA
+Rv3919c	gid	16S rRNA (guanine(527)-N(7))-methyltransferase RsmG
+Rv3920c		hypothetical protein
+Rv3921c		membrane protein insertase YidC
+Rv3922c		membrane protein insertion efficiency factor
+Rv3923c	rnpA	ribonuclease P protein component
+Rv3924c	rpmH	50S ribosomal protein L34
+Rvnr01	rrs	16S ribosomal RNA
+Rvnr02	rrl	23S ribosomal RNA
+Rvnr03	rrf	5S ribosomal RNA
+Rvns01	rnpB	Ribonuclease P RNA
+Rvnt01	ileT	tRNA-Ile
+Rvnt02	alaT	tRNA-Ala
+Rvnt03	leuT	tRNA-Leu
+Rvnt04	glyU	tRNA-Gly
+Rvnt05	tyrT	tRNA-Tyr
+Rvnt06	thrT	tRNA-Thr
+Rvnt07	metT	tRNA-Met
+Rvnt08	trpT	tRNA-Trp
+Rvnt09	thrV	tRNA-Thr
+Rvnt10	lysT	tRNA-Lys
+Rvnt11	gluT	tRNA-Glu
+Rvnt12	aspT	tRNA-Asp
+Rvnt13	pheU	tRNA-Phe
+Rvnt14	argT	tRNA-Arg
+Rvnt15	alaV	tRNA-Ala
+Rvnt16	glnT	tRNA-Gln
+Rvnt17	leuX	tRNA-Leu
+Rvnt18	argV	tRNA-Arg
+Rvnt19	leuW	tRNA-Leu
+Rvnt20	leuV	tRNA-Leu
+Rvnt21	proT	tRNA-Pro
+Rvnt22	leuU	tRNA-Leu
+Rvnt23	valV	tRNA-Val
+Rvnt24	metV	tRNA-Met
+Rvnt25	asnT	tRNA-Asn
+Rvnt26	proU	tRNA-Pro
+Rvnt27	glyV	tRNA-Gly
+Rvnt28	argW	tRNA-Arg
+Rvnt29	hisT	tRNA-His
+Rvnt30	lysU	tRNA-Lys
+Rvnt31	valT	tRNA-Val
+Rvnt32	glyT	tRNA-Gly
+Rvnt33	cysU	tRNA-Cys
+Rvnt34	valU	tRNA-Val
+Rvnt35	gluU	tRNA-Glu
+Rvnt36	glnU	tRNA-Gln
+Rvnt37	alaU	tRNA-Ala
+Rvnt38	metU	tRNA-Met
+Rvnt39	thrU	tRNA-Thr
+Rvnt40	proY	tRNA-Pro
+Rvnt41	serV	tRNA-Ser
+Rvnt42	serX	tRNA-Ser
+Rvnt43	argU	tRNA-Arg
+Rvnt44	serT	tRNA-Ser
+Rvnt45	serU	tRNA-Ser

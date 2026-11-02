@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import os
 import pathlib
 import sys
 
@@ -138,8 +139,7 @@ def main() -> int:
     ap.add_argument("--predictions", required=True)
     ap.add_argument("--folds", required=True,
                     help="cv_folds_final.tsv: fold < 0 development, >= 0 holdout")
-    ap.add_argument("--workbook", default=str(pathlib.Path.home()
-                                              / "Desktop/AMRPredict_panel_results.xlsx"))
+    ap.add_argument("--workbook", default=str(pathlib.Path(os.environ.get("AMR_INPUT_DIR", "inputs")) / "AMRPredict_panel_results.xlsx"))
     ap.add_argument("--drug", required=True)
     ap.add_argument("--model", required=True)
     ap.add_argument("--sr-boundary", type=float, required=True)

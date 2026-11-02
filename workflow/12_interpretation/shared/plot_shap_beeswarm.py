@@ -26,6 +26,7 @@ into what is really just noise in the offsets.
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import re
 import sys
@@ -165,8 +166,7 @@ def main() -> int:
     ap.add_argument("--shap-long", required=True)
     ap.add_argument("--predictions", required=True,
                     help="written by the same job; used to verify the model")
-    ap.add_argument("--workbook", default=str(pathlib.Path.home()
-                                              / "Desktop/AMRPredict_panel_results.xlsx"))
+    ap.add_argument("--workbook", default=str(pathlib.Path(os.environ.get("AMR_INPUT_DIR", "inputs")) / "AMRPredict_panel_results.xlsx"))
     ap.add_argument("--drug", required=True)
     ap.add_argument("--model", required=True)
     ap.add_argument("--sr-boundary", type=float, required=True)

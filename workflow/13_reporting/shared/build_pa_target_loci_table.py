@@ -16,7 +16,8 @@ import sys
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "pseaer"))
+_PA = pathlib.Path(os.environ["PSEAER"]) / "scripts" if os.environ.get("PSEAER") else pathlib.Path(__file__).resolve().parent.parent / "pseaer"   # installed: $PSEAER/scripts
+sys.path.insert(0, str(_PA))
 import build_pseaer_target_sets as T  # noqa: E402
 
 MECHANISM = [

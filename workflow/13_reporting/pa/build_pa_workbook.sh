@@ -14,11 +14,11 @@
 
 set -euo pipefail
 
-IN="${IN:-$HOME/Downloads/pa_strict}"
+IN="${IN:-${AMR_INPUT_DIR:-inputs}/pa_strict}"
 PRED="${PRED:-$IN/predictions_strict}"
 SLIM="${SLIM:-$IN/slim_strict}"
 BASE="${BASE:-$IN}"                       # cv_<drug>/baseline_rows.tsv
-OUT="${OUT:-$HOME/Desktop/AMRPredict_pseaer_strict_results.xlsx}"
+OUT="${OUT:-${AMR_INPUT_DIR:-inputs}/AMRPredict_pseaer_strict_results.xlsx}"
 TAG="${TAG:-armD1k}"
 HTAG="${HTAG:-armD_HOLDOUT}"
 # The reported model mixes arms (CR for eight antimicrobials, D for two), so it is built

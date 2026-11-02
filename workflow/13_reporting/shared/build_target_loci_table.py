@@ -22,13 +22,13 @@ from openpyxl.styles import Alignment, Font
 
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-sys.path.insert(0, str(HERE.parent / "pseaer"))
+sys.path.insert(0, str(pathlib.Path(os.environ["PSEAER"]) / "scripts" if os.environ.get("PSEAER") else HERE.parent / "pseaer"))   # installed: $PSEAER/scripts
 import build_pa_target_loci_table as PA  # noqa: E402
 import build_pseaer_target_sets as T  # noqa: E402
 
 HOME = pathlib.Path(os.environ.get("AMR_INPUT_DIR", "inputs"))           # staged inputs (README): set AMR_INPUT_DIR
 WIDER = HOME / "mtb_shap_gwfrule1k/shap_gwfrule1k"
-EARLIER = HOME / "Downloads"
+EARLIER = HOME
 AMR = HOME / "pa_strict/labels_imputed_strict/amrfinder/by_drug_tsv"
 MTB = ["isoniazid", "rifampicin", "ethambutol", "ethionamide", "kanamycin", "amikacin",
        "levofloxacin", "moxifloxacin", "bedaquiline", "delamanid"]
