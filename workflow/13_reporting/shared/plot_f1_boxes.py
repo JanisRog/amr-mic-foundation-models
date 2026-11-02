@@ -75,7 +75,7 @@ def collect(workbook, panel, declared, base_dir, base_label):
               else pick(summary, drug, MTB_BASELINE, "holdout", "SR_f1"))
         if mf is None or bf is None:
             continue
-        out.append((drug, m, mf, bf))
+        out.append((drug, m, 100 * mf, 100 * bf))        # per cent
     return out
 
 
@@ -124,8 +124,8 @@ def describe(counted):
     bf = [r[3] for r in counted]
     # A tie must not count as a win: moxifloxacin's model and TB-Profiler make the
     # same calls, and their F1 differ only by how the workbook rounded each (5e-7).
-    higher = sum(1 for a, b in zip(mf, bf) if a - b > 1e-4)
-    equal = sum(1 for a, b in zip(mf, bf) if abs(a - b) <= 1e-4)
+    higher = sum(1 for a, b in zip(mf, bf) if a - b > 1e-2)
+    equal = sum(1 for a, b in zip(mf, bf) if abs(a - b) <= 1e-2)
     med = statistics.median(a - b for a, b in zip(mf, bf))
     tail = ""
     try:
@@ -136,7 +136,7 @@ def describe(counted):
         pass
     return (f"{len(counted)} drugs, model higher on {higher}"
             + (f", equal on {equal}" if equal else "") + "\n"
-            f"median difference {med:+.3f}{tail}")
+            f"median difference {med:+.1f} percentage points{tail}")
 
 
 def main() -> int:
@@ -162,7 +162,7 @@ def main() -> int:
     c2 = draw(axes[1], pa, title="P. aeruginosa", baseline_name="ARDaP")
     for ax in axes:
         ax.set_ylabel("")
-    axes[0].set_ylabel("S/R F1 (resistant class)", fontsize=9, color=INK2)
+    axes[0].set_ylabel("S/R F1 (resistant class, %)", fontsize=9, color=INK2)
 
     for ax, c in zip(axes, (c1, c2)):
         ax.text(0.0, 1.005, describe(c), transform=ax.transAxes, ha="left",

@@ -19,8 +19,10 @@
 
 set -euo pipefail
 
-IN="${IN:-$HOME/Downloads}"
-WB="${WB:-$HOME/Desktop/AMRPredict_panel_results.xlsx}"
+export AMR_INPUT_DIR="${AMR_INPUT_DIR:-inputs}"   # where the staged inputs live (README)
+
+IN="${IN:-$AMR_INPUT_DIR}"
+WB="${WB:-$AMR_INPUT_DIR/AMRPredict_panel_results.xlsx}"
 OUT="${OUT:-figures/mtb}"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

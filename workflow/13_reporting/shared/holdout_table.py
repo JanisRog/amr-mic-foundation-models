@@ -134,7 +134,7 @@ def deltas_table(summary, bdir, args) -> int:
     dlab = "Δ in percentage points" if pct else "Δ"
     print(f"\n{args.title or args.panel}  —  holdout, model value "
           f"({dlab} vs baseline)")
-    print(f"{'drug':<25}{'model':<9}{'one-tier':>10}{'vMER':>18}"
+    print(f"{'drug':<25}{'model':<9}{'EA':>10}{'vMER':>18}"
           f"{'MER':>18}{'F1':>18}")
     print("-" * 98)
 
@@ -184,7 +184,7 @@ def main() -> int:
     ap.add_argument("--baseline-label", default="ARDaP (I=R)")
     ap.add_argument("--title", default="")
     ap.add_argument("--format", choices=("full", "deltas"), default="full",
-                    help="deltas: one-tier accuracy, vMER, MER and F1, each with "
+                    help="deltas: essential agreement, vMER, MER and F1, each with "
                          "the difference from the baseline in brackets")
     ap.add_argument("--percent", action="store_true",
                     help="report as percentages; the bracketed difference is "

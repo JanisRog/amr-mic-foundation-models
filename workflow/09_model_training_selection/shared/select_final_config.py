@@ -78,7 +78,7 @@ def main() -> int:
                     help="what the 1-SE band is built around. 'cost' is the "
                          "panel's declared primary: minimise 2*vMER+MER. "
                          "'bal_OT' selects for the MIC ladder instead -- maximise "
-                         "balanced one-tier accuracy, ties inside 1 SE broken on "
+                         "balanced essential agreement, ties inside 1 SE broken on "
                          "lower cost. That is a SEPARATE declared analysis "
                          "answering a different question, not an alternative "
                          "headline for the same one. Choosing between the two "

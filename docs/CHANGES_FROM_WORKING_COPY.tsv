@@ -139,9 +139,9 @@ workflow/09_model_training_selection/pa/submit_pa_dev.sh	33	path default	PY="${P
 workflow/09_model_training_selection/pa/submit_pa_holdout.sh	19	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 workflow/10_evaluation/pa/run_pa_ardap.sbatch	22	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
 workflow/10_evaluation/pa/run_pa_ardap.sbatch	23	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
-workflow/10_evaluation/pa/run_pa_presence_baseline.sbatch	28	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
-workflow/10_evaluation/pa/run_pa_presence_baseline.sbatch	29	path default	MTB="${MTB:-<site>/AMRPredict/mtb}"	MTB="${MTB:?set MTB in config/paths.env}"
-workflow/10_evaluation/pa/run_pa_presence_baseline.sbatch	30	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
+workflow/10_evaluation/pa/run_pa_presence_baseline.sbatch	35	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
+workflow/10_evaluation/pa/run_pa_presence_baseline.sbatch	36	path default	MTB="${MTB:-<site>/AMRPredict/mtb}"	MTB="${MTB:?set MTB in config/paths.env}"
+workflow/10_evaluation/pa/run_pa_presence_baseline.sbatch	37	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/10_evaluation/shared/run_variant_table_baseline.sbatch	38	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/10_evaluation/shared/run_variant_table_baseline.sbatch	39	path default	MTB="${MTB:-<site>/AMRPredict/mtb}"	MTB="${MTB:?set MTB in config/paths.env}"
 workflow/10_evaluation/shared/run_variant_table_baseline.sbatch	67	path default	P="${P:-<site>/AMRPredict/pseaer}"	P="${P:-${PSEAER:?set PSEAER in config/paths.env}}"
@@ -166,4 +166,6 @@ workflow/12_interpretation/pa/submit_pa_shap.sh	16	path default	P="${P:-<site>/A
 workflow/12_interpretation/pa/submit_pa_shap.sh	17	path default	PY="${PY:-<site-conda>/envs/evo2_py312_conda_te/bin/python}"	PY="${PY:?set PY in config/paths.env}"
 workflow/13_reporting/mtb/build_mtb_workbook_arm.sh	17	import path	TOOLS="${TOOLS:-$HERE/../tools}"	TOOLS="${TOOLS:-${MTB_SCRIPTS:-$HERE/../tools}}"
 workflow/13_reporting/pa/build_pa_workbook.sh	28	import path	TOOLS="${TOOLS:-$HERE/../tools}"	TOOLS="${TOOLS:-${MTB_SCRIPTS:-$HERE/../tools}}"
-workflow/13_reporting/pa/make_all_pa_figures.sh	33	import path	MTB="$HERE/../mtb_tbprofiler"          # the drawing scripts are organism-agnostic	MTB="${MTB_SCRIPTS:-$HERE/../mtb_tbprofiler}"          # the drawing scripts are organism-agnostic
+workflow/13_reporting/pa/make_all_pa_figures.sh	35	import path	MTB="$HERE/../mtb_tbprofiler"          # the drawing scripts are organism-agnostic	MTB="${MTB_SCRIPTS:-$HERE/../mtb_tbprofiler}"          # the drawing scripts are organism-agnostic
+workflow/13_reporting/shared/build_comparison_metrics_table.py	186	import path	sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "mtb_tbprofiler"))	sys.path.insert(0, os.environ.get("MTB_SCRIPTS") or str(pathlib.Path(__file__).resolve().parent.parent / "mtb_tbprofiler"))
+workflow/13_reporting/shared/build_comparison_metrics_table.py	576	import path	sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "mtb_tbprofiler"))	sys.path.insert(0, os.environ.get("MTB_SCRIPTS") or str(pathlib.Path(__file__).resolve().parent.parent / "mtb_tbprofiler"))

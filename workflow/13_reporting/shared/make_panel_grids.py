@@ -111,7 +111,7 @@ def load_drug(pred_dir: pathlib.Path, fold_dir: pathlib.Path, drug: str,
 def panel_title(ax, drug, m, fields):
     ax.set_title(drug.capitalize(), loc="left", fontsize=9.5, color=INK,
                  pad=13, fontweight="semibold")
-    ax.annotate("  ·  ".join(f"{lab} {m[k]:.3f}" for k, lab in fields),
+    ax.annotate("  ·  ".join(f"{lab} {100 * m[k]:.1f}%" for k, lab in fields),
                 xy=(0.0, 1.0), xycoords="axes fraction", xytext=(0, 4),
                 textcoords="offset points", fontsize=7, color=MUTED)
 
@@ -177,8 +177,8 @@ def sheet_classdist(data, out: pathlib.Path):
         if i % 2 == 0:
             ax.set_ylabel("isolates", fontsize=8)
         else:
-            ax2.set_ylabel("within one dilution", color=OT_LINE, fontsize=8)
-        panel_title(ax, drug, m, (("bal_OT", "bal_OT"), ("OT", "OT")))
+            ax2.set_ylabel("essential agreement", color=OT_LINE, fontsize=8)
+        panel_title(ax, drug, m, (("bal_OT", "bEA"), ("OT", "EA")))
         ax.annotate(f"development n = {n_train:,}", xy=(1.0, 1.0),
                     xycoords="axes fraction", xytext=(0, 4), ha="right",
                     textcoords="offset points", fontsize=7, color=MUTED)
@@ -190,7 +190,7 @@ def sheet_classdist(data, out: pathlib.Path):
     handles += [Patch(facecolor=FACE[c], edgecolor=EDGE[c], lw=0.6,
                       label=LABEL[c]) for c in STACK]
     handles += [Line2D([], [], color=OT_LINE, lw=1.6, marker="o", ms=5,
-                       label="class accuracy  (right axis)")]
+                       label="essential agreement by class (right axis)")]
     key.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 1.6),
                ncol=4, fontsize=9, handletextpad=0.8, columnspacing=2.0,
                labelspacing=0.9, borderpad=0.0)

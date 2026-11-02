@@ -37,6 +37,7 @@ distinguishes it, which also survives grayscale printing.
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import sys
 
@@ -48,7 +49,13 @@ from matplotlib.lines import Line2D
 
 MODELS = ["evo2", "carbon", "dnabert"]
 MODEL_LABEL = {"evo2": "Evo 2 7B", "carbon": "Carbon 8B", "dnabert": "DNABERT-2"}
-SERIES = {"evo2": "#2a78d6", "carbon": "#eb6834", "dnabert": "#1baf7a"}
+# the three foundation models in shades of purple: purple means embeddings (Figures 2, 4); lightness tells them apart
+SERIES = {"evo2": "#4b2a7a", "carbon": "#8a63c2", "dnabert": "#c7b3e5"}
+# the two organisms: navy and coral-pink (chosen by the author 2026-10-20, with the purple of the embeddings as one family);
+# separation 35 normal, 31 deutan, 38 tritan, 19 protan -- for red-blind readers shape (circle/diamond) and lightness
+# (36 / 61) carry the difference as well
+ORG_COLOUR = {"mtb": "#1B3F5E", "pseaer": "#D9577F"}
+ORG_PALE = {"mtb": "#bcc5cf", "pseaer": "#f0c3d1"}
 BASELINE = "TB-Profiler 6.3.0"
 INK, INK2, MUTED = "#0b0b0b", "#52514e", "#898781"
 GRID, AXIS, SURFACE = "#e1e0d9", "#c3c2b7", "#ffffff"
@@ -75,8 +82,28 @@ def _italic_font(bold: bool):
                                     / ("DejaVuSans-BoldOblique.ttf" if bold else "DejaVuSans-Oblique.ttf")))
 
 
+# Colours of the two kinds of input, the same in every figure that separates them (Figures 2 and 4):
+# embeddings of the target loci in purple, the non-embedding input (catalogue call, variant columns) in grey.
+# The reported model, embeddings together with the catalogue call, stays blue (Figures 1 and 3).
+PURPLE = "#6b3fa0"
+GREY = "#8a8880"
+
 ITALIC = _italic_font(False)          # use as fontproperties=ITALIC for species names
 ITALIC_BOLD = _italic_font(True)
+
+
+def _bold_font():
+    """Upright bold from the same Arial family as the italics: the first sans-serif face (Helvetica Neue) has no
+    registered bold here, so fontweight="bold" renders regular."""
+    from matplotlib.font_manager import FontProperties
+    for d in ("/System/Library/Fonts/Supplemental", "/Library/Fonts", "/usr/share/fonts/truetype/msttcorefonts",
+              str(pathlib.Path.home() / "Library/Fonts")):
+        if (pathlib.Path(d) / "Arial Bold.ttf").exists():
+            return FontProperties(fname=str(pathlib.Path(d) / "Arial Bold.ttf"))
+    return FontProperties(family="sans-serif", weight="bold")
+
+
+BOLD = _bold_font()
 
 mpl.rcParams.update({
     "figure.dpi": 150, "savefig.dpi": 400,
@@ -91,6 +118,8 @@ mpl.rcParams.update({
     "savefig.facecolor": SURFACE, "legend.frameon": False,
     "pdf.fonttype": 42, "ps.fonttype": 42,
 })
+if os.environ.get("FIG_SUBMISSION") == "1":      # one family for regular, bold and italic (the bold and italic faces are Arial)
+    mpl.rcParams["font.sans-serif"] = ["Arial", "Helvetica Neue", "Helvetica", "DejaVu Sans"]   # fallback per glyph: Arial has no subscript two
 
 
 # ── data ──────────────────────────────────────────────────────────────────────
@@ -114,6 +143,12 @@ def pick(summary, drug, model, split, field):
     return None
 
 
+def pickp(*a, **k):
+    """pick() in per cent, for the figures that print rates and accuracies."""
+    v = pick(*a, **k)
+    return None if v is None else 100 * v
+
+
 # ── chrome ────────────────────────────────────────────────────────────────────
 def tidy(ax, *, x=True, y=False):
     """Recessive chrome: gridlines behind the marks, no box around the data."""
@@ -125,6 +160,88 @@ def tidy(ax, *, x=True, y=False):
         ax.yaxis.grid(True, color=GRID, lw=0.6, zorder=0)
     ax.set_axisbelow(True)
     ax.tick_params(length=0)
+
+
+# Final figures: FIG_FINAL=1 draws a one-line title ("Fig. N: title") in place of the draft title and the description
+# under it; FIG_TITLE overrides the title, for figures whose title the script cannot know (the per-organism sheets).
+FINAL = os.environ.get("FIG_FINAL") == "1"
+# Submission figures (FIG_SUBMISSION=1): no title, 180 mm wide, all text clamped to 5-7 pt and panel letters 8 pt bold,
+# as the Nature figure specifications ask; the title and the description go in the legend.
+SUBMISSION = os.environ.get("FIG_SUBMISSION") == "1"
+SUB_WIDTH = 180 / 25.4
+REF_WIDTH, TITLE_PT = 7.8, 11.0     # the narrow figures; wider ones scale title and panel letters by width / 7.8,
+                                    # so that at one print width the title and letters are the same size in all figures
+
+
+def title_pt(fig):
+    """11 pt in the final files: figures built at 9.4 in are scaled to 7.8 in afterwards, so they are built at 11 x 9.4/7.8;
+    the supplementary sheets (wider) are not scaled and keep 11 pt."""
+    w = fig.get_figwidth()
+    return TITLE_PT * (w / REF_WIDTH if w < 10 else 1.0)
+
+
+def fig_h(h, cap=6.55):
+    """Submission figures: at most 170 mm (the full page depth in the Nature specifications)."""
+    return min(h, cap) if SUBMISSION else h
+
+
+def fit_fonts(fig, lo=5.0, hi=7.0, letter=8.0):
+    """Submission figures: text between lo and hi pt, single-letter panel labels letter pt bold upright."""
+    if not SUBMISSION:
+        return
+    arts = list(fig.texts)
+    for ax in fig.axes:
+        arts += list(ax.texts) + [ax.title, ax._left_title, ax._right_title, ax.xaxis.label, ax.yaxis.label]
+        arts += list(ax.get_xticklabels()) + list(ax.get_yticklabels())
+        leg = ax.get_legend()
+        if leg is not None:
+            arts += list(leg.get_texts()) + ([leg.get_title()] if leg.get_title() else [])
+    for leg in fig.legends:
+        arts += list(leg.get_texts()) + ([leg.get_title()] if leg.get_title() else [])
+    for t in arts:
+        s_ = t.get_text()
+        if not s_.strip():
+            continue
+        if "\u2082" in s_:                 # Arial has no subscript two: a mathtext subscript instead
+            t.set_text(s_.replace("\u2082", "$_2$"))
+            s_ = t.get_text()
+        if len(s_) == 1 and s_.isalpha() and t.get_fontsize() >= 9.5:
+            t.set_fontproperties(BOLD)
+            t.set_fontsize(letter)
+        else:
+            t.set_fontsize(min(hi, max(lo, t.get_fontsize())))
+
+
+def scale_letters(fig):
+    """Final figures: the single-letter panel labels grow with the figure width, like the title."""
+    k = fig.get_figwidth() / REF_WIDTH
+    if not FINAL or abs(k - 1) < 0.01:
+        return
+    for t in list(fig.texts) + [t for ax in fig.axes for t in ax.texts]:
+        if len(t.get_text()) == 1 and t.get_text().isalpha() and abs(t.get_fontsize() - 10) < 0.01:
+            t.set_fontsize(10 * k)
+FINAL_TITLES = [
+    ("Figure 1", "Fig. 1: From genotype to phenotype: A framework for MIC prediction from\nDNA foundation-model embeddings"),
+    ("Figure 2", "Fig. 2: Embeddings against the variants from the same loci"),
+    ("Figure 3", "Fig. 3: Classification performance evaluation of the framework against established tools"),
+    ("Figure 4", "Fig. 4: Attribution analysis of the framework's predictions"),
+    ("Figure 5", "Fig. 5: Co-resistance analysis"),
+    ("Extended Data Figure 1", "Extended Data Fig. 1: The three foundation models, embeddings alone"),
+    ("Extended Data Figure 2", "Extended Data Fig. 2: Essential agreement of the reported model by MIC class"),
+    ("Extended Data Figure 3", "Extended Data Fig. 3: How well one antimicrobial predicts another differs between centres"),
+    ("Supplementary Figure 1", "Supplementary Fig. 1: Predicted against measured MIC"),
+    ("Supplementary Figure 2", "Supplementary Fig. 2: Predicted against measured MIC"),
+]
+
+
+def final_title(title):
+    """FIG_TITLES: JSON {start of the draft title: final title} for the sheets of one run (organism-specific titles);
+    FIG_TITLE overrides every title of the run."""
+    import json
+    for k, v in json.loads(os.environ.get("FIG_TITLES", "{}")).items():
+        if title.startswith(k):
+            return v
+    return os.environ.get("FIG_TITLE") or next((v for k, v in FINAL_TITLES if title.startswith(k)), title)
 
 
 def header(fig, title, subtitle, pad_in=0.0):
@@ -140,6 +257,13 @@ def header(fig, title, subtitle, pad_in=0.0):
     per-panel titles need the extra room or the title lands back in the subtitle.
     """
     h = fig.get_figheight()
+    if SUBMISSION:
+        return 1 - (0.10 + pad_in) / h
+    if FINAL:
+        fig.text(0.008, 1 - 0.26 / h, final_title(title), fontsize=title_pt(fig),
+                 fontproperties=BOLD, wrap=True,
+                 color=INK, va="top", ha="left")
+        return 1 - (0.50 + pad_in) / h
     n = subtitle.count("\n") + 1
     fig.text(0.008, 1 - 0.26 / h, title, fontsize=11, fontweight="semibold",
              color=INK, va="top", ha="left")
@@ -160,6 +284,8 @@ def legend_models(fig, *, baseline=True, y=-0.005):
 
 def save(fig, out: pathlib.Path, stem: str):
     out.mkdir(parents=True, exist_ok=True)
+    scale_letters(fig)
+    fit_fonts(fig)
     for ext in ("pdf", "png"):
         fig.savefig(out / f"{stem}.{ext}", format=ext)
     print(f"[OK] {out/stem}.pdf / .png")
@@ -187,16 +313,16 @@ def fig_panel(summary, out: pathlib.Path):
 
     fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.7), sharey=True,
                              gridspec_kw={"wspace": 0.44})
-    panels = ((axes[0], "vMER", "Very major error rate",
+    panels = ((axes[0], "vMER", "Very major error rate (%)",
                "resistant called susceptible\n(lower is better)", -1),
-              (axes[1], "MER", "Major error rate",
+              (axes[1], "MER", "Major error rate (%)",
                "susceptible called resistant\n(lower is better)", -1),
-              (axes[2], "SR_f1", "F1, resistant class", "\n(higher is better)", +1))
+              (axes[2], "SR_f1", "F1, resistant class (%)", "\n(higher is better)", +1))
     for ax, field, title, xlab, sign in panels:
         tidy(ax)
         for i, d in enumerate(order):
-            b = pick(summary, d, BASELINE, "holdout", field)
-            vals = [pick(summary, d, m, "holdout", field) for m in MODELS]
+            b = pickp(summary, d, BASELINE, "holdout", field)
+            vals = [pickp(summary, d, m, "holdout", field) for m in MODELS]
             ax.plot([min(vals + [b]), max(vals + [b])], [i, i], color=GRID, lw=2.4,
                     solid_capstyle="round", zorder=1)
             # The reported model is drawn last so that it is never hidden under the
@@ -219,11 +345,11 @@ def fig_panel(summary, out: pathlib.Path):
         ax.annotate("Δ Evo 2", xy=(1.03, 1.0), xycoords="axes fraction",
                     fontsize=6.2, color=MUTED, ha="left", va="bottom")
         for i, d in enumerate(order):
-            delta = sign * (pick(summary, d, "evo2", "holdout", field)
-                            - pick(summary, d, BASELINE, "holdout", field))
-            ax.annotate(f"{delta:+.3f}" if abs(delta) > 1e-4 else "0.000",
+            delta = sign * (pickp(summary, d, "evo2", "holdout", field)
+                            - pickp(summary, d, BASELINE, "holdout", field))
+            ax.annotate(f"{delta:+.1f}" if abs(delta) > 1e-2 else "0.0",
                         xy=(1.03, i), xycoords=("axes fraction", "data"),
-                        fontsize=6.6, color=INK2 if delta > 1e-4 else MUTED,
+                        fontsize=6.6, color=INK2 if delta > 1e-2 else MUTED,
                         ha="left", va="center", annotation_clip=False)
     axes[0].set_ylim(-0.7, len(order) - 0.3)
     axes[0].invert_yaxis()          # once -- the axes are shared
@@ -261,15 +387,15 @@ def fig_tradeoff(summary, out: pathlib.Path):
     fig, ax = plt.subplots(figsize=(5.8, 5.0))
     tidy(ax, x=True, y=True)
 
-    xmax = max(pick(summary, d, m, "holdout", "MER")
+    xmax = max(pickp(summary, d, m, "holdout", "MER")
                for d in drugs for m in (BASELINE, "evo2")) * 1.22
-    ymax = max(pick(summary, d, m, "holdout", "vMER")
+    ymax = max(pickp(summary, d, m, "holdout", "vMER")
                for d in drugs for m in (BASELINE, "evo2")) * 1.18
 
-    for c in np.arange(0.05, 0.75, 0.05):        # 2·vMER + MER = c
+    for c in np.arange(5, 75, 5):                # 2·vMER + MER = c (per cent)
         x_end = min(xmax, c)
         ax.plot([0, x_end], [c / 2, (c - x_end) / 2], color=GRID, lw=0.6, zorder=0)
-    ax.annotate("iso-cost lines, 0.05 apart", xy=(0.99, 0.015),
+    ax.annotate("iso-cost lines, 5 points apart", xy=(0.99, 0.015),
                 xycoords="axes fraction", fontsize=6.6, color=MUTED, ha="right")
     # the glyph, not the phrasing: Helvetica Neue has no U+2199, and a missing
     # glyph renders as a blank box in the PDF without failing the run
@@ -277,11 +403,11 @@ def fig_tradeoff(summary, out: pathlib.Path):
                 xycoords="axes fraction", fontsize=6.6, color=MUTED, ha="left")
 
     for d in drugs:
-        x0 = pick(summary, d, BASELINE, "holdout", "MER")
-        y0 = pick(summary, d, BASELINE, "holdout", "vMER")
-        x1 = pick(summary, d, "evo2", "holdout", "MER")
-        y1 = pick(summary, d, "evo2", "holdout", "vMER")
-        moved = abs(x1 - x0) > 1e-4 or abs(y1 - y0) > 1e-4
+        x0 = pickp(summary, d, BASELINE, "holdout", "MER")
+        y0 = pickp(summary, d, BASELINE, "holdout", "vMER")
+        x1 = pickp(summary, d, "evo2", "holdout", "MER")
+        y1 = pickp(summary, d, "evo2", "holdout", "vMER")
+        moved = abs(x1 - x0) > 1e-2 or abs(y1 - y0) > 1e-2
         if moved:
             ax.annotate("", xy=(x1, y1), xytext=(x0, y0),
                         arrowprops=dict(
@@ -296,8 +422,8 @@ def fig_tradeoff(summary, out: pathlib.Path):
                     ha=ha, fontsize=7, color=INK)
 
     ax.set_xlim(0, xmax); ax.set_ylim(0, ymax)
-    ax.set_xlabel("Major error rate   (1 − specificity)")
-    ax.set_ylabel("Very major error rate   (1 − sensitivity)")
+    ax.set_xlabel("Major error rate (%)   (1 − specificity)")
+    ax.set_ylabel("Very major error rate (%)   (1 − sensitivity)")
     ax.legend(handles=[
         Line2D([], [], marker="o", ls="none", ms=5.5, mfc="none", mec=INK2,
                mew=1.2, label="TB-Profiler 6.3.0"),
@@ -324,22 +450,22 @@ def fig_ladder(summary, per_class, out: pathlib.Path):
     ax = fig.add_subplot(gs[0])
     tidy(ax)
     for i, d in enumerate(order):
-        ot = pick(summary, d, "evo2", "holdout", "OT")
-        ex = pick(summary, d, "evo2", "holdout", "exact")
+        ot = pickp(summary, d, "evo2", "holdout", "OT")
+        ex = pickp(summary, d, "evo2", "holdout", "exact")
         ax.plot([ex, ot], [i, i], color=GRID, lw=2.4, solid_capstyle="round", zorder=1)
         ax.plot(ex, i, "o", ms=5, color=PALE, mec=SURFACE, mew=0.8, zorder=3)
         ax.plot(ot, i, "o", ms=5, color=SERIES["evo2"], mec=SURFACE, mew=0.8, zorder=3)
         if d in (order[0], order[-1]):
-            ax.annotate(f"{ex:.2f}", (ex, i), xytext=(-6, 0), ha="right",
+            ax.annotate(f"{ex:.1f}", (ex, i), xytext=(-6, 0), ha="right",
                         textcoords="offset points", fontsize=7, color=INK2,
                         va="center")
-            ax.annotate(f"{ot:.2f}", (ot, i), xytext=(6, 0), ha="left",
+            ax.annotate(f"{ot:.1f}", (ot, i), xytext=(6, 0), ha="left",
                         textcoords="offset points", fontsize=7, color=INK2,
                         va="center")
     ax.set_yticks(range(len(order)))
     ax.set_yticklabels([d.capitalize() for d in order], fontsize=8, color=INK)
-    ax.set_xlim(0.28, 1.06)
-    ax.set_xlabel("proportion of held-out isolates")
+    ax.set_xlim(28, 106)
+    ax.set_xlabel("held-out isolates (%)")
     ax.set_title("MIC placement, Evo 2 — the comparator emits one bit and has no "
                  "entry here", loc="left", color=INK, pad=7, fontweight="medium")
     ax.legend(handles=[
@@ -354,7 +480,7 @@ def fig_ladder(summary, per_class, out: pathlib.Path):
     for r in per_class:
         if r["model"] == "evo2" and r["split"] == "holdout":
             k = (r["drug"], int(float(r["log2_mic"])))
-            cells[k] = float(r["OT"]); ns[k] = float(r["n"])
+            cells[k] = 100 * float(r["OT"]); ns[k] = float(r["n"])
     ks = list(range(min(k for _, k in cells), max(k for _, k in cells) + 1))
     # imshow draws row 0 at the top; the dumbbells above put the best drug at the
     # top, so the rows are reversed to keep one reading order across the figure.
@@ -364,7 +490,7 @@ def fig_ladder(summary, per_class, out: pathlib.Path):
         for j, k in enumerate(ks):
             if (d, k) in cells:
                 grid[i, j] = cells[(d, k)]
-    im = ax2.imshow(grid, cmap=SEQ, vmin=0, vmax=1, aspect="auto")
+    im = ax2.imshow(grid, cmap=SEQ, vmin=0, vmax=100, aspect="auto")
     for i, d in enumerate(rows):
         for j, k in enumerate(ks):
             n = ns.get((d, k))
@@ -381,7 +507,7 @@ def fig_ladder(summary, per_class, out: pathlib.Path):
     ax2.set_title("…by MIC class: the headline is carried by the dense classes",
                   loc="left", color=INK, pad=7, fontweight="medium")
     cb = fig.colorbar(im, ax=ax2, fraction=0.020, pad=0.012, shrink=0.88)
-    cb.set_label("within one dilution", fontsize=7, color=INK2)
+    cb.set_label("within one dilution (%)", fontsize=7, color=INK2)
     cb.ax.tick_params(labelsize=7, length=0)
     cb.outline.set_visible(False)
     ax2.annotate("×  class holds fewer than 30 isolates; blank = no isolates",
@@ -404,12 +530,12 @@ def fig_newdrugs(summary, out: pathlib.Path):
                              gridspec_kw={"wspace": 0.34})
     for ax, field, title, xlab in (
             (axes[0], "vMER", "Very major error rate",
-             "1 − sensitivity   (lower is better)"),
-            (axes[1], "SR_f1", "Susceptible/resistant F1", "(higher is better)")):
+             "%   1 − sensitivity   (lower is better)"),
+            (axes[1], "SR_f1", "Susceptible/resistant F1", "%   (higher is better)")):
         tidy(ax)
         for i, d in enumerate(UNDERPOWERED):
-            b = pick(summary, d, BASELINE, "holdout", field)
-            vals = [pick(summary, d, m, "holdout", field) for m in MODELS]
+            b = pickp(summary, d, BASELINE, "holdout", field)
+            vals = [pickp(summary, d, m, "holdout", field) for m in MODELS]
             ax.plot([min(vals + [b]), max(vals + [b])], [i, i], color=GRID, lw=2.4,
                     solid_capstyle="round", zorder=1)
             for k, (m, v) in enumerate(zip(MODELS, vals)):
@@ -443,8 +569,9 @@ def fig_stability(summary, out: pathlib.Path):
     for ax, field, name in ((axes[0], "cost", "Cost  2·vMER + MER"),
                             (axes[1], "SR_f1", "Susceptible/resistant F1")):
         tidy(ax, x=True, y=True)
-        pts = [(pick(summary, d, m, "development_cv", field),
-                pick(summary, d, m, "holdout", field), m, d)
+        pk = pick if field == "cost" else pickp          # cost is an index and stays as it is
+        pts = [(pk(summary, d, m, "development_cv", field),
+                pk(summary, d, m, "holdout", field), m, d)
                for d in drugs for m in MODELS]
         lo = min(min(p[0], p[1]) for p in pts)
         hi = max(max(p[0], p[1]) for p in pts)
@@ -456,13 +583,13 @@ def fig_stability(summary, out: pathlib.Path):
                     zorder=3)
         for d, off in zip(UNDERPOWERED, ((7, -9), (7, 5))):
             ax.annotate(d.capitalize(),
-                        (pick(summary, d, "evo2", "development_cv", field),
-                         pick(summary, d, "evo2", "holdout", field)),
+                        (pk(summary, d, "evo2", "development_cv", field),
+                         pk(summary, d, "evo2", "holdout", field)),
                         xytext=off, textcoords="offset points", fontsize=6.8,
                         color=MUTED)
         ax.set_xlim(lo - pad, hi + pad); ax.set_ylim(lo - pad, hi + pad)
-        ax.set_xlabel("development, 3×5-fold CV")
-        ax.set_ylabel("held-out set")
+        ax.set_xlabel("development, 3×5-fold CV" + ("" if field == "cost" else " (%)"))
+        ax.set_ylabel("held-out set" + ("" if field == "cost" else " (%)"))
         ax.set_title(name, loc="left", color=INK, pad=7, fontweight="medium")
 
     top = header(fig, "Development and holdout agree",

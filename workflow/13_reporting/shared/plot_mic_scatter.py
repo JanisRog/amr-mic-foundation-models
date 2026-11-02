@@ -252,10 +252,10 @@ def main() -> int:
     ax.set_aspect("equal")
 
     box = "\n".join([f"n = {m['n']:,}   ({m['n_resistant']} resistant)",
-                     f"exact = {m['exact']:.3f}", f"OT = {m['OT']:.3f}",
-                     f"bal_OT = {m['bal_OT']:.3f}", f"MAE = {m['MAE']:.2f}",
-                     f"vMER = {m['vMER']:.3f}", f"MER = {m['MER']:.3f}",
-                     f"F1 = {m['SR_f1']:.3f}"])
+                     f"exact = {100 * m['exact']:.1f}%", f"EA = {100 * m['OT']:.1f}%",
+                     f"bEA = {100 * m['bal_OT']:.1f}%", f"MAE = {m['MAE']:.2f}",
+                     f"vMER = {100 * m['vMER']:.1f}%", f"MER = {100 * m['MER']:.1f}%",
+                     f"F1 = {100 * m['SR_f1']:.1f}%"])
     key_ax.annotate(box, xy=(0.02, 0.03), xycoords="axes fraction", va="bottom",
                     ha="left", fontsize=11.0, color=INK2, linespacing=1.95,
                     bbox=dict(boxstyle="round,pad=0.75", fc=SURFACE, ec=GRID,

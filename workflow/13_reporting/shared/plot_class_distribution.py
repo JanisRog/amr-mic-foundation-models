@@ -15,7 +15,7 @@ Three encodings share an x-axis:
   **stacked bar** the holdout, split by the same five error categories the
                   scatter uses -- same colours, so the two figures read as one
                   system.
-  **red line**    one-tier accuracy for the class, on a right-hand axis.
+  **red line**    essential agreement for the class, on a right-hand axis.
 
 **The second axis is a deliberate exception.** Counts and accuracy have no common
 scale, and a dual axis invites reading a correlation between two things that were
@@ -88,9 +88,11 @@ def draw_classdist(ax, ks, tr, stacks, hold, ot, boundary, *, annotate=True,
     ax.set_xlim(-0.75, len(ks) - 0.25)
 
     ax2 = ax.twinx()
-    ax2.plot(x, ot, color=OT_LINE, lw=1.6 * fs, marker="o", ms=5 * fs,
+    ax2.plot(x, [100 * v for v in ot], color=OT_LINE, lw=1.6 * fs, marker="o", ms=5 * fs,
              mec=SURFACE, mew=0.8 * fs, zorder=4)
-    ax2.set_ylim(-0.02, 1.05)
+    ax2.set_ylim(-2, 105)
+    ax2.set_yticks([0, 25, 50, 75, 100])
+    ax2.set_yticklabels(["0", "25%", "50%", "75%", "100%"])
     ax2.tick_params(axis="y", colors=OT_LINE, length=0, labelsize=7.5)
     for sp in ax2.spines.values():
         sp.set_visible(False)
@@ -176,14 +178,14 @@ def main() -> int:
     ax.set_ylim(0, max(max(tr), max(hold)) * 1.16)
     ax.set_xlim(-0.75, len(ks) - 0.25)
 
-    ax2.set_ylabel("within one dilution", color=OT_LINE)
+    ax2.set_ylabel("essential agreement (%)", color=OT_LINE)
 
     handles = [Patch(facecolor=TRAIN_FACE, edgecolor=TRAIN_EDGE, lw=0.7,
                      label=f"development  (n = {n_train:,})")]
     handles += [Patch(facecolor=FACE[c], edgecolor=EDGE[c], lw=0.6, label=LABEL[c])
                 for c in STACK]
     handles += [Line2D([], [], color=OT_LINE, lw=1.6, marker="o", ms=5,
-                       label="class accuracy  (right axis)")]
+                       label="essential agreement by class (right axis)")]
     ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.075, 1.0),
               fontsize=8, handletextpad=0.7, labelspacing=0.75, borderpad=0.0)
 

@@ -11,7 +11,7 @@ are described in the Methods, not shipped here; the two embedding variants kept
 under `workflow/07_embeddings/alternatives_not_adopted/` are the exception, as they
 are referenced from the embedding scripts.
 
-> **Status:** pre-publication. A licence will be added before release.
+> **Licence:** MIT (see [`LICENSE`](LICENSE)). To cite this code, see [`CITATION.cff`](CITATION.cff).
 
 ## Reported models
 
@@ -84,14 +84,50 @@ left alone unless `--force` is given.
 Every script reads site paths from the environment and stops with
 `set <VAR> in config/paths.env` if one it needs is missing.
 
+## Reproducing the manuscript figures and tables
+
+The scripts that make the figures and tables of the paper are in
+[`13_reporting/shared`](workflow/13_reporting/shared) (installed to `$MTB/scripts`).
+They read intermediate results of the cluster runs (results workbooks, per-isolate
+held-out predictions, fold files, SHAP outputs), which are not part of this
+repository. Put them in one folder and point the scripts to it:
+
+```bash
+export AMR_INPUT_DIR=/path/to/staged_inputs     # default: ./inputs
+export AMR_OUTPUT_DIR=/path/to/figure_output    # default: ./figures_final or ./figures_submission
+build_final_figures.sh          # figures 1-5, Extended Data 1-3, Supplementary 1-6, with one-line titles
+build_submission_figures.sh     # the same without titles, at the journal's size and font rules
+```
+
+`AMR_INPUT_DIR` only sets the defaults: every script also takes each input as a
+command-line option (`--help` lists them), and the table builders write to the
+current folder. The names below are those of our local folders; rename them or pass
+your own paths.
+
+| input (under `AMR_INPUT_DIR`) | what it is | made by |
+|---|---|---|
+| `AMRPredict_panel_results_wider.xlsx` | *M. tuberculosis* results workbook, reported model and comparators | `build_results_workbook.py` |
+| `AMRPredict_pseaer_reported_results.xlsx`, `AMRPredict_pseaer_strict_results.xlsx` | *P. aeruginosa* workbooks: reported model; original specification | `build_pa_workbook.sh` |
+| `AMRPredict_isolates_used.xlsx` | isolates analysed, with sets, folds and predictions (Supplementary Table 1) | `build_isolate_table.py` |
+| `mtb_wider_figure_inputs`, `mtb_holdout_20261012`, `mtb_slim_20261014`, `mtb_slim_20261016`, `mtb_slim_final_20261012`, `mtb_verdict_20261012` | *M. tuberculosis* per-isolate predictions, fold files, development runs, feature-set and lineage results | `slim_mtb_runs.sh` and the stage 09–11 jobs |
+| `pa_strict`, `pa_strict_20261020`, `pa_reported3_20261019`, `pa_prescall_20261019` | *P. aeruginosa* predictions and folds: original specification, reported model, presence + ARDaP call baseline | `pa/slim_runs.sh`, `pa/stage_reported_pa.py` |
+| `mtb_shap_gwfrule1k`, `pa_reported_20261021` | TreeSHAP outputs | stage 12 jobs |
+| `tbprofiler.variants.csv`, `pseaer_metadata_flat.tsv` | TB-Profiler variants; *P. aeruginosa* isolate metadata (study of origin) | stage 04 and 08 |
+
+Panel b of Figure 1 is a hand-drawn illustration that is not part of this
+repository: `make_figure1.py` leaves the panel blank, and says so, when the image
+is not found. Some figure scripts also contain header text from earlier layouts
+(for example "Figure 3 (draft)"); it is printed only when neither `FIG_FINAL=1` nor
+`FIG_SUBMISSION=1` is set, which is what the two build scripts set.
+
 ## Provenance
 
 The files here are copies of the working scripts that produced the reported
 results. Only site-specific paths were changed: hard-coded cluster paths became
 required configuration variables, and a few lines that found helper scripts through
 a sibling folder of the original repository now use `$MTB_SCRIPTS` when it is set
-(two Python files gain `import os` for this). Of 145 files, 77 are byte-identical
-to the working copies and 68 differ in 161 lines, every one listed with its
+(two Python files gain `import os` for this). Of 170 files, 99 are byte-identical
+to the working copies and 71 differ in 170 lines, every one listed with its
 category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COPY.tsv).
 `MANIFEST.tsv` gives each file's original path and checksums of both versions.
 
@@ -109,4 +145,4 @@ category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COP
 
 ## Citation
 
-To be added on publication.
+See [`CITATION.cff`](CITATION.cff). The archived release and its DOI will be added at publication.

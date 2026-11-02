@@ -103,7 +103,7 @@ def main() -> int:
         d = [cl[k] - full[k] for _, _, _, full, cl, _ in out_rows]
         print(f"  Δ{k:<7} median {np.median(d):+.4f}   range {min(d):+.4f} to {max(d):+.4f}")
 
-    print("\nThe shared-subject isolates on their own (small n; one-tier accuracy and MAE only):")
+    print("\nThe shared-subject isolates on their own (small n; essential agreement and MAE only):")
     print(f"{'drug':<14}{'n':>6}{'OT shared':>11}{'OT others':>11}{'MAE shared':>12}{'MAE others':>12}")
     for drug, n, ns, full, cl, sh in out_rows:
         if sh:

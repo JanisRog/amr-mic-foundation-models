@@ -22,6 +22,13 @@
 #                  predictions/<drug>_presence_holdout_predictions.tsv
 #
 # SCORED ONCE: the held-out stage stops if results already exist.
+#
+# CALL=1: the same baseline with ARDaP's own call added, i.e. AMRFinderPlus presence + ARDaP call,
+# no embeddings -- the P. aeruginosa counterpart of the M. tuberculosis model on mutation columns +
+# TB-Profiler call. Its features are arm DR's table (presence columns, then the call), already built by
+# submit_pa_dev.sh ARM=DR, so the call is encoded exactly as in the reported model. Writes runs/
+# base_prescall and predictions/<drug>_prescall_holdout_predictions.tsv; aztreonam and levofloxacin,
+# which ARDaP does not call, exit without running.
 
 set -euo pipefail
 
@@ -36,7 +43,9 @@ CFGDIR="${CFGDIR:-$P/scripts/final_configs_strict}"
 OUTDIR="${OUTDIR:-$P/predictions_strict}"
 NJOBS="${NJOBS:-8}"
 STAGE="${STAGE:?set STAGE=dev or STAGE=holdout}"
-LAB="base_presence"
+CALL="${CALL:-0}"
+LABELS="${LABELS:-$P/labels_imputed_strict}"
+if [ "$CALL" = 1 ]; then LAB="base_prescall"; PSTEM="prescall"; else LAB="base_presence"; PSTEM="presence"; fi
 
 DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
        levofloxacin meropenem piperacillin-tazobactam tobramycin)
@@ -47,6 +56,13 @@ DRUG="${DRUGS[$SLURM_ARRAY_TASK_ID]}"
 B="${BOUNDS[$SLURM_ARRAY_TASK_ID]}"
 D="$CVROOT/cv_${DRUG}"
 TSV="$PRESDIR/${DRUG}.tsv"
+if [ "$CALL" = 1 ]; then
+  case "$DRUG" in aztreonam|levofloxacin) echo "[INFO] $DRUG: no ARDaP call, nothing to run"; exit 0 ;; esac
+  TSV="$LABELS/ardap_features/${DRUG}_armDR.tsv"
+  [ -e "$TSV" ] || { echo "[ERROR] $DRUG: missing $TSV (built by submit_pa_dev.sh ARM=DR)"; exit 1; }
+  head -1 "$TSV" | tr '\t' '\n' | tail -1 | grep -q "^ardap_call_" || {
+    echo "[ERROR] $DRUG: last column of $TSV is not the ARDaP call"; exit 1; }
+fi
 DEV="$D/runs/${LAB}"
 
 echo "[INFO] drug=$DRUG  boundary=$B  stage=$STAGE"
@@ -68,9 +84,9 @@ case "$STAGE" in
     echo "[DONE] $DEV"
     ;;
   holdout)
-    CFG="$CFGDIR/final_config_${DRUG}_presence.json"
+    CFG="$CFGDIR/final_config_${DRUG}_${PSTEM}.json"
     RUN="$D/runs/${LAB}_HOLDOUT"
-    PREDS="$OUTDIR/${DRUG}_presence_holdout_predictions.tsv"
+    PREDS="$OUTDIR/${DRUG}_${PSTEM}_holdout_predictions.tsv"
     for f in "$D/cv_folds_final.tsv" "$TSV" "$DEV/summary.tsv"; do
       [ -e "$f" ] || { echo "[ERROR] $DRUG: missing $f"; exit 1; }
     done

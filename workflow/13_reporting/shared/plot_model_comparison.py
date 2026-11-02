@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The three foundation models side by side, on one figure per organism.
 
-Two panels sharing an x axis of drugs: one-tier accuracy above, S/R F1 below.
+Two panels sharing an x axis of drugs: essential agreement above, S/R F1 below.
 Three points per drug, one per model, with a connector spanning the spread.
 
 **Dots, not bars.** Every value sits between roughly 0.5 and 1.0, so a bar
@@ -42,15 +42,16 @@ PANELS = {
                "meropenem", "ceftazidime", "cefepime", "aztreonam", "amikacin",
                "piperacillin-tazobactam"],
 }
-METRICS = [("OT", "One-tier accuracy",
+METRICS = [("OT", "Essential agreement (%)",
             "within one doubling dilution of the true MIC"),
-           ("SR_f1", "S/R F1",
+           ("SR_f1", "S/R F1 (%)",
             "F1 on the resistant class, at the clinical breakpoint")]
 
 
 def series(summary, drugs, field, split="holdout"):
     """{model: [value per drug]}, with None where a run is absent."""
-    return {m: [pick(summary, d, m, split, field) for d in drugs] for m in MODELS}
+    return {m: [None if (v := pick(summary, d, m, split, field)) is None else 100 * v for d in drugs]
+            for m in MODELS}
 
 
 def draw_panel(ax, drugs, vals, *, title, note, show_xticks):
@@ -147,12 +148,12 @@ def main() -> int:
     top = header(fig, f"Three foundation models, {org}",
                  f"Held-out isolates, one point per model per drug, the reported "
                  f"config in each case. The bar behind each triple is the spread "
-                 f"between\nbest and worst model: median {med:.3f} across the "
-                 f"{len(spreads)} drug-metric pairs, largest {worst:.3f}. Values "
+                 f"between\nbest and worst model: median {med:.1f} percentage points across the "
+                 f"{len(spreads)} drug-metric pairs, largest {worst:.1f}. Values "
                  f"are read from the results workbook.", pad_in=0.18)
     fig.subplots_adjust(top=top, bottom=0.175, left=0.085, right=0.985)
     save(fig, pathlib.Path(args.out_dir), args.stem)
-    print(f"[INFO] spread median {med:.4f}  max {worst:.4f}  "
+    print(f"[INFO] spread median {med:.3f} points  max {worst:.3f}  "
           f"over {len(spreads)} drug-metric pairs")
     return 0
 

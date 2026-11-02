@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below and the associated article."
+title: "Analysis code: MIC prediction from DNA foundation-model embeddings"
+type: software
+authors:
+  - family-names: Rogenmoser
+    given-names: Janis
+    affiliation: "Institute of Medical Microbiology, University of Zurich"
+# Co-authors: add from the final author list of the article before the first release.
+# doi: add the Zenodo DOI after archiving.
+repository-code: "https://github.com/JanisRog/amr-mic-foundation-models"
+license: MIT
+keywords: [antimicrobial resistance, minimum inhibitory concentration, DNA foundation models, Mycobacterium tuberculosis, Pseudomonas aeruginosa]

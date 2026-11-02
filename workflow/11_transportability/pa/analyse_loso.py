@@ -55,7 +55,11 @@ def score(df, boundary):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--loso-dir", required=True)
-    ap.add_argument("--metadata-root", required=True)
+    ap.add_argument("--metadata-root", default="",
+                    help="holds <drug>/metadata.tsv (cluster layout)")
+    ap.add_argument("--metadata-flat", default="",
+                    help="one TSV with 'Accession number' and 'Study' for every isolate; use instead of "
+                         "--metadata-root when the per-drug files are not on this machine")
     ap.add_argument("--aggregation", default="median")
     ap.add_argument("--out", default="")
     args = ap.parse_args()
@@ -79,9 +83,13 @@ def main() -> int:
         model = lo[0].name[len(drug) + 1:-len("_loso_predictions.tsv")]
         b = BOUND[drug]
 
-        study = {r["accession"]: (r.get("study") or "unknown") for r in
-                 csv.DictReader(open(pathlib.Path(args.metadata_root) / drug /
-                                     "metadata.tsv"), delimiter="\t")}
+        if args.metadata_flat:
+            study = {r["Accession number"]: (r.get("Study") or "unknown") for r in
+                     csv.DictReader(open(args.metadata_flat), delimiter="\t")}
+        else:
+            study = {r["accession"]: (r.get("study") or "unknown") for r in
+                     csv.DictReader(open(pathlib.Path(args.metadata_root) / drug /
+                                         "metadata.tsv"), delimiter="\t")}
         fold_study = {int(r["fold"]): r["study"] for r in
                       csv.DictReader(open(root / f"{drug}_studies.tsv"),
                                      delimiter="\t") if int(r["fold"]) >= 0}

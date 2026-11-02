@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""F1 and one-tier accuracy as grouped bars: one group per drug, one bar per model.
+"""F1 and essential agreement as grouped bars: one group per drug, one bar per model.
 
 Two panels over a shared x axis. The F1 panel also carries the organism's
 comparator (TB-Profiler or ARDaP), which makes a resistance call and so has an F1;
-it has no MIC prediction and therefore no bar in the one-tier panel. Held-out
+it has no MIC prediction and therefore no bar in the essential agreement panel. Held-out
 sets, read from the results workbook, never recomputed.
 
 The comparator is not a fourth hue. As in the other figures it is the incumbent
@@ -56,6 +56,14 @@ SHORT = {"piperacillin-tazobactam": "Piperacillin–\ntazobactam"}
 W = 0.19            # bar width; four bars and a gap fill one drug's slot
 
 
+_pick_fraction = pick
+
+
+def pick(*a, **k):                      # noqa: F811  -- values of this module's figures in per cent
+    v = _pick_fraction(*a, **k)
+    return None if v is None else 100 * v
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--workbook", required=True)
@@ -82,8 +90,8 @@ def main() -> int:
     fig, axes = plt.subplots(2, 1, figsize=(7.2, 5.3), sharex=True,
                              gridspec_kw={"hspace": 0.30})
     n_base = 0
-    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
-                             (axes[1], "OT", "One-tier accuracy  (predicted MIC within one "
+    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class (%)"),
+                             (axes[1], "OT", "Essential agreement (%)  (predicted MIC within one "
                                              "doubling dilution)")):
         tidy(ax, x=False, y=True)
         with_base = field == "SR_f1"
@@ -105,10 +113,10 @@ def main() -> int:
                     ax.bar(x, v, W, color=SERIES[m], edgecolor=SURFACE, linewidth=0.5,
                            alpha=0.45 if faint else 1.0, zorder=3)
                 if m == "evo2":      # one selective number per group: the reported model
-                    ax.annotate(f"{v:.2f}", (x, v), xytext=(0, 2.2), textcoords="offset points",
+                    ax.annotate(f"{v:.1f}", (x, v), xytext=(0, 2.2), textcoords="offset points",
                                 ha="center", va="bottom", fontsize=5.8, color=INK2)
-        ax.set_ylim(0, 1.08)
-        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.set_ylim(0, 108)
+        ax.set_yticks([0, 25, 50, 75, 100])
         ax.set_xlim(-0.6, len(drugs) - 0.4)
         ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
         ax.axhline(0, color=INK2, lw=0.7, zorder=4)
@@ -119,7 +127,7 @@ def main() -> int:
         i0 = drugs.index(P["underpowered"][0])
         for ax in axes:
             ax.axvline(i0 - 0.5, color=GRID, lw=0.9, ls=(0, (3, 3)), zorder=1)
-        axes[0].annotate("few resistant\nheld-out isolates", (i0 - 0.42, 1.07), fontsize=6.2,
+        axes[0].annotate("few resistant\nheld-out isolates", (i0 - 0.42, 107), fontsize=6.2,
                          color=MUTED, ha="left", va="top", linespacing=1.3)
 
     handles = [Patch(facecolor=SERIES[m], edgecolor=SURFACE, label=MODEL_LABEL[m]) for m in MODELS]
@@ -152,8 +160,8 @@ def median_figure(summary, P, a):
         return
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw={"wspace": 0.22})
     covered = None
-    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
-                             (axes[1], "OT", "One-tier accuracy")):
+    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class (%)"),
+                             (axes[1], "OT", "Essential agreement (%)")):
         tidy(ax, x=False, y=True)
         series = [(MODEL_LABEL[m].replace(" 7B", "").replace(" 8B", ""), SERIES[m],
                    [pick(summary, d, m, "holdout", field) for d in drugs]) for m in MODELS]
@@ -173,12 +181,12 @@ def median_figure(summary, P, a):
             n = len(vals)
             xs = [j + (k - (n - 1) / 2) * (0.40 / max(n - 1, 1)) for k in range(n)]
             ax.plot(xs, vals, "o", ms=2.6, mfc=SURFACE, mec=INK, mew=0.6, zorder=5)
-            ax.annotate(f"{med:.2f}", (j, 1.035), ha="center", va="bottom", fontsize=7.2,
+            ax.annotate(f"{med:.1f}", (j, 103.5), ha="center", va="bottom", fontsize=7.2,
                         color=INK, annotation_clip=False)
         ax.set_xticks(range(len(series)))
         ax.set_xticklabels([s[0] for s in series], fontsize=7.8, color=INK)
-        ax.set_ylim(0, 1.10)
-        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.set_ylim(0, 110)
+        ax.set_yticks([0, 25, 50, 75, 100])
         ax.set_xlim(-0.6, len(series) - 0.4)
         ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
         ax.axhline(0, color=INK2, lw=0.7, zorder=4)
@@ -190,7 +198,7 @@ def median_figure(summary, P, a):
     top = header(fig, f"{a.stat.capitalize()} over antimicrobials by model — {P['organism']}",
                  f"Held-out sets. Bar and number: {a.stat} over {len(drugs)} antimicrobials; "
                  f"points: each antimicrobial.{cover}\n{P['baseline_label']} returns a "
-                 f"resistance call and no MIC, so it has no one-tier accuracy.{left_out}",
+                 f"resistance call and no MIC, so it has no essential agreement.{left_out}",
                  pad_in=0.26)
     fig.subplots_adjust(top=top, bottom=0.09, left=0.065, right=0.99)
     save(fig, pathlib.Path(a.out_dir), f"bars_{a.stat}_{a.panel}")
@@ -208,8 +216,8 @@ def pooled_figure(a):
         return 0
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw={"wspace": 0.22})
     n_base = 0
-    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class"),
-                             (axes[1], "OT", "One-tier accuracy")):
+    for ax, field, title in ((axes[0], "SR_f1", "F1, resistant class (%)"),
+                             (axes[1], "OT", "Essential agreement (%)")):
         tidy(ax, x=False, y=True)
         series = [(MODEL_LABEL[m].replace(" 7B", "").replace(" 8B", ""), SERIES[m],
                    [(k, pick(books[k], d, m, "holdout", field)) for k, d in pairs]) for m in MODELS]
@@ -228,12 +236,12 @@ def pooled_figure(a):
             for i, (k, v) in enumerate(vals):
                 x = j + (i - (n - 1) / 2) * (0.46 / max(n - 1, 1))
                 ax.plot(x, v, marker[k], ms=2.7, mfc=SURFACE, mec=INK, mew=0.6, zorder=5)
-            ax.annotate(f"{med:.2f}", (j, 1.035), ha="center", va="bottom", fontsize=7.2,
+            ax.annotate(f"{med:.1f}", (j, 103.5), ha="center", va="bottom", fontsize=7.2,
                         color=INK, annotation_clip=False)
         ax.set_xticks(range(len(series)))
         ax.set_xticklabels([s[0] for s in series], fontsize=7.8, color=INK, linespacing=1.25)
-        ax.set_ylim(0, 1.10)
-        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.set_ylim(0, 110)
+        ax.set_yticks([0, 25, 50, 75, 100])
         ax.set_xlim(-0.6, len(series) - 0.4)
         ax.set_title(title, loc="left", color=INK, pad=6, fontweight="medium")
         ax.axhline(0, color=INK2, lw=0.7, zorder=4)
@@ -247,7 +255,7 @@ def pooled_figure(a):
     top = header(fig, f"{a.stat.capitalize()} over antimicrobials by model — both organisms",
                  f"Held-out sets. Bar and number: {a.stat} over {len(pairs)} organism–antimicrobial "
                  f"pairs; points: each pair. The comparator bar pools TB-Profiler\nand ARDaP "
-                 f"({n_base} pairs covered); neither returns an MIC, so there is no one-tier "
+                 f"({n_base} pairs covered); neither returns an MIC, so there is no essential agreement "
                  "accuracy for them. Bedaquiline and delamanid are left out.", pad_in=0.26)
     fig.subplots_adjust(top=top, bottom=0.17, left=0.065, right=0.99)
     save(fig, pathlib.Path(a.out_dir), a.stem or f"bars_{a.stat}_pooled")

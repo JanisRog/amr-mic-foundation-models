@@ -24,7 +24,7 @@ PY="${PY:?set PY in config/paths.env}"
 # reason that looks like corrupt data rather than a mismatched argument.
 # Each run takes the config of its own arm (armC1k / armC_HOLDOUT -> *_armC.json).
 RUNS="${RUNS:-armD1k armD_HOLDOUT armC1k armC_HOLDOUT armA1k armA_HOLDOUT armCR1k armCR_HOLDOUT armDR1k armDR_HOLDOUT}"
-BASE_RUNS="${BASE_RUNS:-base_presence base_presence_HOLDOUT varonly varonly_HOLDOUT varchromo varchromo_HOLDOUT}"
+BASE_RUNS="${BASE_RUNS:-base_presence base_presence_HOLDOUT base_prescall base_prescall_HOLDOUT varonly varonly_HOLDOUT varchromo varchromo_HOLDOUT}"
 DRUGS=(amikacin aztreonam cefepime ceftazidime ciprofloxacin imipenem
        levofloxacin meropenem piperacillin-tazobactam tobramycin)
 

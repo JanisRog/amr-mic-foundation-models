@@ -29,10 +29,10 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, os.environ.get("MTB_SCRIPTS") or str(pathlib.Path(__file__).resolve().parent.parent / "mtb_tbprofiler"))
-from make_panel_figures import (AXIS, GRID, INK, INK2, MUTED, SURFACE, header,
+from make_panel_figures import (AXIS, GRID, INK, INK2, MUTED, ORG_COLOUR, SURFACE, header,
                                 save, tidy)
 
-ACCENT = "#2a78d6"
+ACCENT = ORG_COLOUR["pseaer"]        # P. aeruginosa
 WARM = "#eb6834"
 
 
@@ -66,15 +66,15 @@ def panel(ax, d, xcol, *, title, xlabel, note, label_extremes=0, pct=True):
 
     if label_extremes:
         lo, hi = x.min(), x.max()
-        for _, r in d.reindex(d.d_cost.abs().sort_values(ascending=False).index
-                              ).head(label_extremes).iterrows():
+        for k_, (_, r) in enumerate(d.reindex(d.d_cost.abs().sort_values(ascending=False).index
+                                              ).head(label_extremes).iterrows()):
             # Flip the label inward near the right edge, where it would otherwise
             # run off the axes and be silently clipped.
             right = (r[xcol] - lo) / max(1e-9, hi - lo) > 0.72
             ax.annotate(f"{r.drug.split('-')[0][:11]} · "
                         f"{r.study.split(' et')[0].split(' (')[0][:9]}",
                         (r[xcol], r.d_cost), textcoords="offset points",
-                        xytext=(-7 if right else 7, 4),
+                        xytext=(-7 if right else 7, 4 - 9 * (k_ % 3)),
                         ha="right" if right else "left",
                         fontsize=6.6, color=MUTED)
 

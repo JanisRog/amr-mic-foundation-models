@@ -20,13 +20,15 @@
 
 set -euo pipefail
 
+export AMR_INPUT_DIR="${AMR_INPUT_DIR:-inputs}"   # where the staged inputs live (README)
+
 # The reported model mixes arms (CR for eight antimicrobials, D for two). Stage it first with
 # stage_reported_pa.py, build its workbook with build_pa_workbook.sh, then run this with
 #   IN=<staged dir> TAG=reported1k WB=<reported workbook> MTB_WB=<MTB wider workbook> OUT=... CROSS_OUT=...
-IN="${IN:-$HOME/Downloads/pa_strict}"
+IN="${IN:-$AMR_INPUT_DIR/pa_strict}"
 PRED="${PRED:-$IN/predictions_strict}"
 SLIM="${SLIM:-$IN/slim_strict}"
-WB="${WB:-$HOME/Desktop/AMRPredict_pseaer_strict_results.xlsx}"
+WB="${WB:-$AMR_INPUT_DIR/AMRPredict_pseaer_strict_results.xlsx}"
 OUT="${OUT:-figures/pseaer_strict}"
 TAG="${TAG:-armD1k}"
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -102,7 +104,7 @@ for spec in "${DRUGS[@]}"; do
 done
 echo "[INFO] $n_shap of ${#DRUGS[@]} drugs have SHAP beeswarms"
 
-# ---- F1 and one-tier accuracy as grouped bars ------------------------------
+# ---- F1 and essential agreement as grouped bars ------------------------------
 python3 "$MTB/plot_metric_bars.py" --workbook "$WB" --panel pseaer --out-dir "$OUT"
 
 # ---- the three models side by side ----------------------------------------
@@ -124,7 +126,7 @@ fi
 # Needs both organisms, so it lives here rather than in either panel's folder and
 # is skipped when the MTB side is not present. Generated from the PA driver
 # because the PA numbers are the ones that move.
-MTB_WB="${MTB_WB:-$HOME/Desktop/AMRPredict_panel_results_wider.xlsx}"
+MTB_WB="${MTB_WB:-$AMR_INPUT_DIR/AMRPredict_panel_results_wider.xlsx}"
 CROSS_OUT="${CROSS_OUT:-figures/cross}"
 if [ -e "$MTB_WB" ] && [ -d "$IN/cv_amikacin" ]; then
   python3 "$MTB/plot_f1_boxes.py" --mtb-workbook "$MTB_WB" \
