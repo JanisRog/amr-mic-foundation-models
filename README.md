@@ -146,4 +146,4 @@ category in [`docs/CHANGES_FROM_WORKING_COPY.tsv`](docs/CHANGES_FROM_WORKING_COP
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). The archived release and its DOI will be added at publication.
+See [`CITATION.cff`](CITATION.cff). Archived release v1.0.0: [10.5281/zenodo.23881153](https://doi.org/10.5281/zenodo.23881153).

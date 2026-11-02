@@ -13,7 +13,7 @@ authors:
     given-names: Adrian
     affiliation: "Institute of Medical Microbiology, University of Zurich"
 # Further co-authors: add from the final author list of the article.
-# doi: add the Zenodo DOI after archiving.
+doi: 10.5281/zenodo.23881153
 repository-code: "https://github.com/JanisRog/amr-mic-foundation-models"
 license: MIT
 keywords: [antimicrobial resistance, minimum inhibitory concentration, DNA foundation models, Mycobacterium tuberculosis, Pseudomonas aeruginosa]
